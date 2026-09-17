@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#0b6f5d" />
+  <meta name="description" content="Kerala 2040 is an independent open energy-intelligence and research platform for Kerala: electricity, climate, grid resilience, ecology, circular industry and finance." />
+  <meta property="og:title" content="Kerala 2040 — Open Energy Intelligence" />
+  <meta property="og:description" content="A transparent, reproducible platform for exploring Kerala's energy system and 2040 pathways." />
+  <meta property="og:type" content="website" />
+  <link rel="canonical" href="https://kerala2040.github.io/" />
+  <title>Kerala 2040 — Open Energy Intelligence</title>
+  <link rel="icon" href="assets/mark.svg" type="image/svg+xml" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+  <link rel="stylesheet" href="assets/styles.css" />
+  <link rel="stylesheet" href="assets/standalone.css" />
+  <script defer src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+  <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+  <script defer src="assets/app.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#overview" aria-label="Kerala 2040 home">
+      <img src="assets/mark.svg" class="brand-logo" alt="" />
+      <span class="brand-name">Kerala 2040</span>
+      <span class="brand-sub">Open Energy Intelligence</span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a href="#baseline">Data</a>
+      <a href="#scenarios">Scenarios</a>
+      <a href="#atlas">Atlas</a>
+      <a href="#circularity">Circularity</a>
+      <a href="#methods">Methods</a>
+      <a href="#about">About</a>
+    </nav>
+    <a class="github-link" href="https://github.com/abhijith-sivaprasadan/kerala2040" target="_blank" rel="noopener">GitHub ↗</a>
+    <button id="themeToggle" class="icon-button" type="button" aria-label="Toggle colour theme">◐</button>
+  </header>
+
+  <main>
+    <section id="overview" class="hero section-shell">
+      <div class="hero-copy">
+        <div class="eyebrow">INDEPENDENT · OPEN · REPRODUCIBLE</div>
+        <h1>Understand Kerala's energy system.<br><span>Test what 2040 could look like.</span></h1>
+        <p class="lede">Kerala 2040 is an open energy-intelligence platform connecting electricity, storage, grid resilience, climate, ecology, circular industry and public finance in one reproducible research system.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#baseline">Explore the data</a>
+          <a class="button secondary" href="#scenarios">Open Scenario Lab</a>
+        </div>
+        <div class="hero-principles">
+          <span><b>Measure first</b> before forecasting</span>
+          <span><b>Optimise</b> without preselecting a technology</span>
+          <span><b>Keep trade</b> while reducing structural vulnerability</span>
+        </div>
+      </div>
+      <aside class="hero-status card">
+        <div class="card-head"><span>Platform status</span><span class="live-dot">v1.0</span></div>
+        <div id="buildStatus" class="status-list"></div>
+        <div class="small-note">Published model outcomes stay provisional until the historical calibration gate passes.</div>
+      </aside>
+    </section>
+
+    <section class="system-strip">
+      <div class="section-shell system-strip-inner">
+        <div><span>ENERGY</span><strong>Generation · demand · storage · imports · grid</strong></div>
+        <div><span>ECOLOGY</span><strong>Land · water · biodiversity · climate risk</strong></div>
+        <div><span>MATERIALS</span><strong>Industry · waste · recovery · circular value</strong></div>
+        <div><span>MONEY</span><strong>System cost · state exposure · private & Union finance</strong></div>
+      </div>
+    </section>
+
+    <section id="baseline" class="section-shell section-block">
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow">01 · DATA EXPLORER</div>
+          <h2>Start with the system that actually exists.</h2>
+          <p class="section-intro">The baseline layer separates measured observations, sourced assumptions, reconstructed proxies and scenario choices. Every number is intended to be traceable to source and transformation.</p>
+        </div>
+        <span class="tag">Evidence before scenarios</span>
+      </div>
+
+      <div id="baselineCards" class="metric-grid"></div>
+
+      <div class="grid-two">
+        <article class="card chart-card">
+          <div class="card-head"><span>Historical calibration gate</span><span id="calibrationBadge" class="badge warning">IN PROGRESS</span></div>
+          <div id="calibrationChart" class="chart"></div>
+          <p class="small-note">The research model must reproduce the historical Kerala system before 2040 outputs are treated as results.</p>
+        </article>
+        <article class="card evidence-card">
+          <div class="card-head"><span>Highest-priority data gap</span><span class="badge">8760 / 35040</span></div>
+          <h3>Measured state load chronology</h3>
+          <p>Daily system balance can establish annual energy, generation and import dependence. Hourly planning requires an authenticated Kerala load and interchange chronology.</p>
+          <div class="data-gap-box">
+            <span>Needed</span>
+            <strong>Hourly or 15-minute Kerala demand / interchange</strong>
+            <small>Preferred source: SLDC, KSEBL or Grid-India with provenance.</small>
+          </div>
+          <a class="text-link" href="https://github.com/abhijith-sivaprasadan/kerala2040/blob/main/docs/hourly_demand_gap.md" target="_blank" rel="noopener">Read the data-gap note ↗</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="scenarios" class="section-shell section-block">
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow">02 · SCENARIO LAB</div>
+          <h2>Compare pathways without choosing the answer beforehand.</h2>
+          <p class="section-intro">Scenarios are structured experiments. The platform will compare import exposure, reliability, cost, storage, ecological pressure, public fiscal exposure and circular value across alternative 2040 systems.</p>
+        </div>
+        <span class="tag">2040 target year</span>
+      </div>
+
+      <div class="scenario-layout">
+        <div id="scenarioButtons" class="scenario-tabs" role="tablist" aria-label="Scenario selection"></div>
+        <article class="card scenario-card">
+          <div class="scenario-title-row">
+            <div>
+              <div id="scenarioCode" class="eyebrow"></div>
+              <h3 id="scenarioName"></h3>
+            </div>
+            <span id="scenarioType" class="badge"></span>
+          </div>
+          <p id="scenarioSummary" class="scenario-summary"></p>
+          <div id="scenarioDimensions" class="dimension-grid"></div>
+          <div class="outcome-placeholder">
+            <span>Model outputs</span>
+            <strong>Pending calibrated baseline</strong>
+            <small>Annual import share · peak imports · storage duration · LOLE/EENS · system cost · Kerala fiscal exposure · private investment · lifecycle emissions · ecological constraints · circular recovery</small>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="atlas" class="section-shell section-block">
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow">03 · KERALA ENERGY ATLAS</div>
+          <h2>Put resources, infrastructure and ecological constraints on the same map.</h2>
+          <p class="section-intro">The atlas is designed to become a state-wide spatial screening layer for grid assets, hydro, renewable resources, storage, industry, hazards and protected ecosystems.</p>
+        </div>
+        <span class="tag">Screening · not siting approval</span>
+      </div>
+      <div class="map-layout">
+        <div class="card map-card"><div id="map" aria-label="Kerala screening map"></div></div>
+        <aside class="card map-sidebar">
+          <div class="card-head"><span>Current screening nodes</span><span class="badge">v1</span></div>
+          <div id="mapNodeList" class="node-list"></div>
+          <p class="small-note">These are research nodes, not project approvals. Detailed siting requires authoritative grid, cadastral, environmental, geotechnical and regulatory data.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="circularity" class="section-shell section-block">
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow">04 · CIRCULAR INDUSTRIAL METABOLISM</div>
+          <h2>Track energy, materials and money together.</h2>
+          <p class="section-intro">Industrial by-products are assessed through a hierarchy: prevent first, then reuse, material and chemical recovery, biological conversion where appropriate, energy recovery, and finally safe disposal.</p>
+        </div>
+        <span class="tag">Material + energy + money</span>
+      </div>
+      <div class="circular-flow card">
+        <div class="flow-node"><small>Industrial process</small><strong>Material / energy input</strong></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-node accent"><small>By-product / waste</small><strong>Characterise first</strong></div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-stack">
+          <div class="flow-pill">Direct reuse</div>
+          <div class="flow-pill">Material recovery</div>
+          <div class="flow-pill">Chemical recovery</div>
+          <div class="flow-pill">Biological conversion</div>
+          <div class="flow-pill">Energy recovery</div>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-node"><small>Value capture</small><strong>Revenue + avoided cost</strong></div>
+      </div>
+      <div class="grid-three screening-cards">
+        <article class="card"><span class="mini-label">Chavara / KMML</span><h3>Mineral & process by-products</h3><p>Quantify recoverable iron-bearing material, TiO₂ losses, process water and strategic-mineral constraints before assigning economic value.</p></article>
+        <article class="card"><span class="mini-label">Travancore Titanium</span><h3>Chemical-loop opportunities</h3><p>Track ferrous sulphate, pigment, sodium-sulphate and water-recovery pathways through material-flow and techno-economic analysis.</p></article>
+        <article class="card"><span class="mini-label">FACT / clusters</span><h3>Industrial symbiosis</h3><p>Map where one facility's by-product, captured CO₂, heat or utility stream can become another facility's input.</p></article>
+      </div>
+    </section>
+
+    <section id="methods" class="section-shell section-block">
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow">05 · MODEL ARCHITECTURE</div>
+          <h2>Forecast → optimise → verify → constrain → finance.</h2>
+          <p class="section-intro">The platform is designed as a linked research stack rather than one monolithic model. Each layer answers a different question and feeds constraints back into the system model.</p>
+        </div>
+        <span class="tag">Reproducible workflow</span>
+      </div>
+      <div class="pipeline card" aria-label="Model architecture flowchart">
+        <div class="pipeline-stage"><b>Observed data</b><span>SLDC · CEA · Grid-India · weather · GIS · budgets · industry</span></div>
+        <div class="pipeline-arrow">↓</div>
+        <div class="pipeline-stage"><b>Forecast</b><span>Demand · solar · wind · hydro inflow · uncertainty</span></div>
+        <div class="pipeline-arrow">↓</div>
+        <div class="pipeline-stage"><b>Optimise</b><span>PyPSA + HiGHS · generation · storage · imports · flexibility</span></div>
+        <div class="pipeline-arrow">↓</div>
+        <div class="pipeline-stage split"><span><b>Grid</b><small>pandapower / OpenDSS</small></span><span><b>Ecology</b><small>QGIS / InVEST / Marxan</small></span><span><b>Climate & water</b><small>CMIP6 / SWAT+</small></span></div>
+        <div class="pipeline-arrow">↓</div>
+        <div class="pipeline-stage"><b>Finance & circularity</b><span>State exposure · private CAPEX · Union support · recovery economics · lifecycle impacts</span></div>
+        <div class="pipeline-arrow">↓</div>
+        <div class="pipeline-stage output"><b>Kerala 2040</b><span>Pareto pathways · stress tests · investment atlas · evidence ledger</span></div>
+      </div>
+
+      <div class="grid-two methods-bottom">
+        <article class="card">
+          <div class="card-head"><span>Evidence classes</span><span class="badge">audit trail</span></div>
+          <div class="legend-list"><span><i class="dot measured"></i>Measured</span><span><i class="dot sourced"></i>Sourced assumption</span><span><i class="dot proxy"></i>Proxy / reconstruction</span><span><i class="dot scenario"></i>Scenario choice</span></div>
+        </article>
+        <article class="card">
+          <div class="card-head"><span>Open research repository</span><span class="badge">source + model</span></div>
+          <p>Every publishable result should carry source, retrieval date, transformation and model version. Restricted utility, security-sensitive or licence-restricted datasets remain outside public Git.</p>
+          <a class="text-link" href="https://github.com/abhijith-sivaprasadan/kerala2040" target="_blank" rel="noopener">Open the repository ↗</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="about" class="section-shell section-block about-section">
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow">06 · ABOUT</div>
+          <h2>An independent public research platform.</h2>
+        </div>
+      </div>
+      <div class="grid-two">
+        <article class="card about-card">
+          <h3>What Kerala 2040 is</h3>
+          <p>A transparent energy-system research project developed by Abhijith Sivaprasadan. The project began as an independent CET 2026 research build and is intended to grow into an open Kerala energy-data, modelling and investment-intelligence platform.</p>
+          <p>It is not an official Government of Kerala, KSEBL, regulatory or industry publication. Institutional participation or data sharing should be identified explicitly if added later.</p>
+        </article>
+        <article class="card about-card">
+          <h3>Research principle</h3>
+          <blockquote>Energy sovereignty is not autarky. The objective is to reduce structural vulnerability while preserving economically useful interconnection and trade.</blockquote>
+          <a class="text-link" href="https://github.com/abhijith-sivaprasadan/kerala2040/blob/main/docs/research_plan.md" target="_blank" rel="noopener">Read the research plan ↗</a>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-brand"><img src="assets/mark.svg" alt="" /><div><strong>Kerala 2040</strong><span>Open Energy Intelligence</span></div></div>
+    <div class="footer-meta">Independent research · Open methods · No predetermined technology winner</div>
+    <div class="footer-links"><a href="https://github.com/abhijith-sivaprasadan/kerala2040" target="_blank" rel="noopener">GitHub</a><a href="#methods">Methods</a><a href="#about">About</a></div>
+  </footer>
+</body>
+</html>
