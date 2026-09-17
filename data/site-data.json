@@ -1,0 +1,108 @@
+{
+  "project": {
+    "name": "Kerala 2040",
+    "subtitle": "Circular Energy Sovereignty Within Ecological and Fiscal Limits",
+    "version": "1.0-web",
+    "updated": "2026-09-17",
+    "status": "research prototype"
+  },
+  "buildStatus": [
+    {"label": "Kerala SLDC daily electricity balance", "state": "ready", "meta": "connected"},
+    {"label": "NASA POWER weather ingestion", "state": "ready", "meta": "connected"},
+    {"label": "Reservoir / hydro chronology", "state": "progress", "meta": "building"},
+    {"label": "Grid-India PSP integration", "state": "progress", "meta": "hardening"},
+    {"label": "Measured hourly Kerala load series", "state": "gap", "meta": "missing"}
+  ],
+  "baselineCards": [
+    {"label": "Electricity balance", "value": "Connected", "meta": "Official SLDC daily source", "progress": 100},
+    {"label": "Weather drivers", "value": "Connected", "meta": "Hourly NASA POWER ingestion", "progress": 100},
+    {"label": "Hydro / reservoir", "value": "Building", "meta": "Historical chronology and stress layer", "progress": 66},
+    {"label": "Hourly demand", "value": "Data gap", "meta": "Proxy prohibited from masquerading as measured", "progress": 18}
+  ],
+  "scenarios": [
+    {
+      "code": "S0",
+      "name": "Current trajectory",
+      "type": "reference",
+      "summary": "Continuation of current system direction, existing project pipeline and moderate technology change. This is the comparator, not a preferred outcome.",
+      "dimensions": {
+        "Generation": "Existing trajectory",
+        "Storage": "Committed / limited",
+        "Grid": "Planned reinforcement",
+        "Ecology": "Current safeguards",
+        "Demand flexibility": "Limited",
+        "Finance": "Current mechanisms"
+      }
+    },
+    {
+      "code": "S1",
+      "name": "Maximum local generation",
+      "type": "stress pathway",
+      "summary": "Push local generation hard to expose the cost, land, grid and ecological consequences of treating import reduction as the dominant objective.",
+      "dimensions": {
+        "Generation": "Aggressive local build",
+        "Storage": "High",
+        "Grid": "Major reinforcement",
+        "Ecology": "Constraint-sensitive",
+        "Demand flexibility": "Moderate",
+        "Finance": "High capital exposure"
+      }
+    },
+    {
+      "code": "S2",
+      "name": "Solar + storage",
+      "type": "technology pathway",
+      "summary": "Test rooftop, floating and spatially screened solar with batteries, pumped storage and strategic hydro operation against Kerala's evening peak and monsoon seasonality.",
+      "dimensions": {
+        "Generation": "Solar-led",
+        "Storage": "Very high",
+        "Grid": "DER + backbone",
+        "Ecology": "Siting constraints",
+        "Demand flexibility": "Moderate",
+        "Finance": "Mixed public/private"
+      }
+    },
+    {
+      "code": "S3",
+      "name": "Integrated sovereignty",
+      "type": "system pathway",
+      "summary": "Diversified generation, distributed storage, smart tariffs, EV flexibility, cooling storage, strategic hydro and strong national-grid interconnection.",
+      "dimensions": {
+        "Generation": "Diversified",
+        "Storage": "Portfolio",
+        "Grid": "Smart + meshed",
+        "Ecology": "Explicit constraints",
+        "Demand flexibility": "High",
+        "Finance": "Blended"
+      }
+    },
+    {
+      "code": "S4",
+      "name": "Ecological sovereignty",
+      "type": "constraint pathway",
+      "summary": "Apply stringent habitat, watershed, forest, slope, wetland and coastal limits, then let the system model reveal the remaining feasible energy portfolio.",
+      "dimensions": {
+        "Generation": "Ecology-constrained",
+        "Storage": "High-value siting",
+        "Grid": "Route constrained",
+        "Ecology": "Hard limits",
+        "Demand flexibility": "Very high",
+        "Finance": "Constraint-aware"
+      }
+    }
+  ],
+  "screeningNodes": [
+    {"name": "Kochi industrial-demand hub", "lat": 9.9312, "lon": 76.2673, "kind": "grid", "note": "Demand, industry, port and flexibility screening node."},
+    {"name": "Idukki hydro-storage system", "lat": 9.85, "lon": 76.97, "kind": "storage", "note": "Hydro flexibility, reservoir and pumped-storage screening area."},
+    {"name": "Ramakkalmedu wind area", "lat": 9.79, "lon": 77.16, "kind": "wind", "note": "Wind-resource screening area; ecology and grid constraints required."},
+    {"name": "Chavara circular-industry cluster", "lat": 9.0, "lon": 76.53, "kind": "circular", "note": "Mineral-sands, TiO₂ and by-product recovery research cluster."},
+    {"name": "Vizhinjam coastal-energy node", "lat": 8.38, "lon": 76.98, "kind": "marine", "note": "Port, wave-energy history, shore-power and marine-resource screening node."}
+  ],
+  "calibration": [
+    {"stage": "Daily electricity balance", "value": 100},
+    {"stage": "Hydro chronology", "value": 66},
+    {"stage": "Weather chronology", "value": 100},
+    {"stage": "Hourly demand chronology", "value": 18},
+    {"stage": "Historical PyPSA reproduction", "value": 8}
+  ]
+}
