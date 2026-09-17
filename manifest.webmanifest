@@ -1,0 +1,17 @@
+{
+  "name": "Kerala 2040 — Open Energy Intelligence",
+  "short_name": "Kerala 2040",
+  "description": "Independent open energy-intelligence and research platform for Kerala.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f5f7f8",
+  "theme_color": "#0b6f5d",
+  "icons": [
+    {
+      "src": "assets/mark.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
