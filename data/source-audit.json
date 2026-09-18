@@ -1,0 +1,211 @@
+{
+  "generated_at_utc": "2026-09-18T00:30:10+00:00",
+  "classification": "connectivity_probe_not_data_validation",
+  "sources": {
+    "kerala_sldc": {
+      "priority": "P0",
+      "organisation": "Kerala State Load Despatch Centre",
+      "acquisition": "public_html_form",
+      "probe_url": "https://sldckerala.com/index.php?id=1",
+      "status": "reachable",
+      "http_status": 200,
+      "elapsed_ms": 818,
+      "final_url": "https://sldckerala.com/index.php?id=1"
+    },
+    "grid_india_daily_psp": {
+      "priority": "P0",
+      "organisation": "Grid-India",
+      "acquisition": "public_json_api_plus_xls",
+      "probe_url": "https://webapi.grid-india.in/api/v1/file",
+      "status": "unreachable",
+      "elapsed_ms": 418,
+      "error": "ConnectionError: ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))"
+    },
+    "kerala_spb": {
+      "priority": "P0",
+      "organisation": "Kerala State Planning Board",
+      "acquisition": "official_pdf_and_html",
+      "probe_url": "https://spb.kerala.gov.in/economic-review/ER2025/index.php",
+      "status": "reachable",
+      "http_status": 200,
+      "elapsed_ms": 985,
+      "final_url": "https://spb.kerala.gov.in/economic-review/ER2025/index.php"
+    },
+    "kseb_pms": {
+      "priority": "P0",
+      "organisation": "Kerala State Electricity Board Ltd",
+      "acquisition": "public_html",
+      "probe_url": "https://pms.kseb.in/tracker",
+      "status": "reachable",
+      "http_status": 200,
+      "elapsed_ms": 1692,
+      "final_url": "https://pms.kseb.in/tracker"
+    },
+    "cea": {
+      "priority": "P0",
+      "organisation": "Central Electricity Authority",
+      "acquisition": "official_pdf_xls_csv",
+      "probe_url": "https://cea.nic.in/",
+      "status": "reachable",
+      "http_status": 200,
+      "elapsed_ms": 912,
+      "final_url": "https://cea.nic.in/"
+    },
+    "kserc": {
+      "priority": "P0",
+      "organisation": "Kerala State Electricity Regulatory Commission",
+      "acquisition": "official_orders_pdf",
+      "probe_url": "https://dev.erckerala.org/",
+      "status": "reachable",
+      "http_status": 200,
+      "elapsed_ms": 971,
+      "final_url": "https://dev.erckerala.org/"
+    },
+    "era5": {
+      "priority": "P0",
+      "organisation": "Copernicus Climate Data Store",
+      "acquisition": "authenticated_api",
+      "probe_url": "https://cds.climate.copernicus.eu/api",
+      "status": "reachable",
+      "http_status": 202,
+      "elapsed_ms": 1821,
+      "final_url": "https://cds.climate.copernicus.eu/api"
+    },
+    "nasa_power": {
+      "priority": "P1",
+      "organisation": "NASA POWER",
+      "acquisition": "public_json_api",
+      "probe_url": "https://power.larc.nasa.gov/api/temporal/hourly/point",
+      "status": "http_error",
+      "http_status": 422,
+      "elapsed_ms": 343,
+      "final_url": "https://power.larc.nasa.gov/api/temporal/hourly/point"
+    },
+    "data_gov_in": {
+      "priority": "P1",
+      "organisation": "Open Government Data Platform India",
+      "acquisition": "authenticated_json_api_plus_download_fallback",
+      "probe_url": "https://www.data.gov.in/",
+      "status": "reachable_restricted",
+      "http_status": 403,
+      "elapsed_ms": 406,
+      "final_url": "https://www.data.gov.in/"
+    },
+    "niti_iced": {
+      "priority": "P1",
+      "organisation": "NITI Aayog India Climate and Energy Dashboard",
+      "acquisition": "discovery_download",
+      "probe_url": "https://www.iced.niti.gov.in/",
+      "status": "unreachable",
+      "elapsed_ms": 8522,
+      "error": "ConnectTimeout: HTTPSConnectionPool(host='www.iced.niti.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.iced.niti.gov.in', port=443) at 0x7f7f821ef590>, 'Connection to www.iced.niti.gov.in timed out. (connect timeout=8)'))"
+    },
+    "india_wris": {
+      "priority": "P0",
+      "organisation": "India-WRIS",
+      "acquisition": "portal_download_or_api_if_documented",
+      "probe_url": "https://indiawris.gov.in/",
+      "status": "unreachable",
+      "elapsed_ms": 8260,
+      "error": "ConnectTimeout: HTTPSConnectionPool(host='indiawris.gov.in', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='indiawris.gov.in', port=443) at 0x7f7f821ef310>, 'Connection to indiawris.gov.in timed out. (connect timeout=8)'))"
+    },
+    "niwe": {
+      "priority": "P1",
+      "organisation": "National Institute of Wind Energy",
+      "acquisition": "official_open_dataset",
+      "probe_url": "https://niwe.res.in/Open_data_Set/open_wind_dataset/",
+      "status": "unreachable",
+      "elapsed_ms": 2684,
+      "error": "SSLError: HTTPSConnectionPool(host='niwe.res.in', port=443): Max retries exceeded with url: /Open_data_Set/open_wind_dataset/ (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1016)')))"
+    },
+    "ksdma": {
+      "priority": "P0",
+      "organisation": "Kerala State Disaster Management Authority",
+      "acquisition": "public_gis_downloads",
+      "probe_url": "https://sdma.kerala.gov.in/hazard-maps/",
+      "status": "reachable",
+      "http_status": 200,
+      "elapsed_ms": 1851,
+      "final_url": "https://sdma.kerala.gov.in/hazard-maps/"
+    },
+    "bhuvan": {
+      "priority": "P1",
+      "organisation": "NRSC/ISRO Bhuvan",
+      "acquisition": "portal_download",
+      "probe_url": "https://bhuvan.nrsc.gov.in/",
+      "status": "reachable",
+      "http_status": 200,
+      "elapsed_ms": 1533,
+      "final_url": "https://bhuvan.nrsc.gov.in/ngmaps"
+    },
+    "kerala_forest": {
+      "priority": "P1",
+      "organisation": "Kerala Forest and Wildlife Department",
+      "acquisition": "official_gis_and_reports",
+      "probe_url": "https://forest.kerala.gov.in/",
+      "status": "reachable",
+      "http_status": 200,
+      "elapsed_ms": 3051,
+      "final_url": "https://forest.kerala.gov.in/"
+    },
+    "kspcb": {
+      "priority": "P1",
+      "organisation": "Kerala State Pollution Control Board",
+      "acquisition": "official_reports",
+      "probe_url": "https://kspcb.kerala.gov.in/",
+      "status": "reachable",
+      "http_status": 200,
+      "elapsed_ms": 1148,
+      "final_url": "https://kspcb.kerala.gov.in/"
+    },
+    "ppac": {
+      "priority": "P1",
+      "organisation": "Petroleum Planning and Analysis Cell",
+      "acquisition": "official_tables_and_ogd",
+      "probe_url": "https://ppac.gov.in/",
+      "status": "reachable",
+      "http_status": 200,
+      "elapsed_ms": 1440,
+      "final_url": "https://ppac.gov.in/"
+    },
+    "vahan": {
+      "priority": "P1",
+      "organisation": "Ministry of Road Transport and Highways / VAHAN",
+      "acquisition": "public_dashboard_plus_official_reports",
+      "probe_url": "https://analytics.parivahan.gov.in/",
+      "status": "unreachable",
+      "elapsed_ms": 12878,
+      "error": "ReadTimeout: HTTPSConnectionPool(host='analytics.parivahan.gov.in', port=443): Read timed out. (read timeout=12.0)"
+    },
+    "kmml": {
+      "priority": "P2",
+      "organisation": "Kerala Minerals and Metals Limited",
+      "acquisition": "annual_and_environment_reports",
+      "probe_url": "https://www.kmml.com/",
+      "status": "reachable",
+      "http_status": 200,
+      "elapsed_ms": 423,
+      "final_url": "https://www.kmml.com/"
+    },
+    "ttpl": {
+      "priority": "P2",
+      "organisation": "Travancore Titanium Products Limited",
+      "acquisition": "annual_and_environment_reports",
+      "probe_url": "https://travancoretitanium.com/",
+      "status": "reachable",
+      "http_status": 200,
+      "elapsed_ms": 3813,
+      "final_url": "https://travancoretitanium.com/"
+    },
+    "fact": {
+      "priority": "P2",
+      "organisation": "Fertilisers and Chemicals Travancore Limited",
+      "acquisition": "annual_and_environment_reports",
+      "probe_url": "https://fact.co.in/",
+      "status": "reachable",
+      "http_status": 200,
+      "elapsed_ms": 1122,
+      "final_url": "https://fact.co.in/"
+    }
+  }
+}

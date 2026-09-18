@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "purpose": "Published Kerala scenario values retained as external reference points and validation targets. They are not silently adopted as Kerala2040 model assumptions.",
+  "references": {
+    "cstep_2024": {
+      "title": "Kerala Energy Transition Roadmap 2040",
+      "publisher": "Center for Study of Science, Technology and Policy (CSTEP)",
+      "year": 2024,
+      "primary_url": "https://cstep.in/publication/kerala-energy-transition-roadmap-2040/",
+      "government_hosted_pdf": "https://keralaenergy.gov.in/wp-content/uploads/2023/12/CSTEP_KL_Roadmap_2040_01Feb24-1-4.pdf",
+      "methodology_note": "Demand forecast is based on historical category consumption and adds explicit EV and induction-cooking demand. Its FY22 load shape was derived from FY16 15-minute data and extrapolated, so it is a useful published benchmark rather than a substitute for a current measured hourly series.",
+      "fy2040": {
+        "bau_end_use_demand_mu": 40446,
+        "ev_demand_mu": 1286,
+        "induction_cooking_demand_mu": 415,
+        "final_demand_without_td_losses_mu": 42147,
+        "final_demand_with_td_losses_mu": 45519,
+        "td_loss_pct": 8.0,
+        "peak_demand_mw": 7594,
+        "off_peak_demand_mw": 3169
+      },
+      "cited_capacity_addition_bau_mw": {
+        "solar": 8391,
+        "wind": 1794,
+        "large_hydro": 515,
+        "small_hydro": 119
+      },
+      "caveat": "CSTEP capacity additions and demand trajectories represent one published study's scenario architecture. Kerala2040 will reproduce or challenge them using newer measured data, climate stress and explicit ecological constraints."
+    },
+    "kerala_cn50_2026": {
+      "title": "Carbon Neutral Kerala by 2050",
+      "publisher": "Directorate of Environment and Climate Change, Government of Kerala / Vasudha Foundation",
+      "year": 2026,
+      "primary_url": "https://climatechange.envt.kerala.gov.in/wp-content/uploads/2026/06/Carbon-Neutral-Kerala-by-2050-Report.pdf",
+      "note": "This newer pathway explicitly treats interstate procurement as a flexible option, excludes exceptionally wet 2021-22 hydro PLF from its baseline, and reports in-state renewable resource potential as insufficient for projected demand beyond 2030.",
+      "in_state_resource_potential_gw": {
+        "ground_mounted_solar": 12.4,
+        "onshore_wind_150m": 2.62,
+        "conventional_hydro": 2.47,
+        "small_hydro": 0.65,
+        "biomass": 0.78,
+        "total": 18.92
+      },
+      "net_grid_demand_twh": {
+        "bau_2030": 41.59,
+        "bau_2040": 65.98,
+        "cn50_2030": 46.91,
+        "cn50_2040": 88.56
+      },
+      "caveat": "The 2026 CN50 and 2024 CSTEP studies use different scopes, assumptions and electrification trajectories. Their 2040 demand values must not be blended into a single target."
+    }
+  }
+}

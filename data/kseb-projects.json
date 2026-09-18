@@ -1,0 +1,647 @@
+{
+  "retrieved_at_utc": "2026-09-18T09:48:51+00:00",
+  "classification": "official_project_portal_record",
+  "tracker_url": "https://pms.kseb.in/tracker",
+  "explorer_url": "https://pms.kseb.in/explore-projects",
+  "tracker": {
+    "data_as_of_label": "20/02/2023 10:03 AM",
+    "ongoing_projects": 11,
+    "completed_projects": 59,
+    "capacity_being_added_mw": 227.0,
+    "installed_capacity_mw": 2901.0
+  },
+  "projects": [
+    {
+      "name": "Mankulam HEP Stage I",
+      "technology": "Hydro",
+      "status": "Ongoing",
+      "capacity_mw": 40.0,
+      "district": "Idukki",
+      "milestone": "planned_commissioning",
+      "milestone_date_label": "14, May 2026"
+    },
+    {
+      "name": "Chinnar SHP",
+      "technology": "Hydro",
+      "status": "Ongoing",
+      "capacity_mw": 24.0,
+      "district": "Idukki",
+      "milestone": "planned_commissioning",
+      "milestone_date_label": "30, Apr 2026"
+    },
+    {
+      "name": "Peruvannamoozhy SHEP",
+      "technology": "Hydro",
+      "status": "Completed",
+      "capacity_mw": 6.6,
+      "district": "Kozhikode",
+      "milestone": "commissioned_on",
+      "milestone_date_label": "31, Mar 2023"
+    },
+    {
+      "name": "Olikkal SHP",
+      "technology": "Hydro",
+      "status": "Ongoing",
+      "capacity_mw": 5.0,
+      "district": "Kozhikode",
+      "milestone": "planned_commissioning",
+      "milestone_date_label": "01, July 2025"
+    },
+    {
+      "name": "Pazhassi Sagar SHEP",
+      "technology": "Hydro",
+      "status": "Ongoing",
+      "capacity_mw": 7.5,
+      "district": "Kannur",
+      "milestone": "planned_commissioning",
+      "milestone_date_label": "15, June 2024"
+    },
+    {
+      "name": "Poovaranthode SHEP",
+      "technology": "Hydro",
+      "status": "Ongoing",
+      "capacity_mw": 3.0,
+      "district": "Kozhikode",
+      "milestone": "planned_commissioning",
+      "milestone_date_label": "01, July 2025"
+    },
+    {
+      "name": "Idamalayar HEP",
+      "technology": "Hydro",
+      "status": "Completed",
+      "capacity_mw": 75.0,
+      "district": "Ernakulam",
+      "milestone": "commissioned_on",
+      "milestone_date_label": "03, Feb 1987"
+    },
+    {
+      "name": "Idukki HEP",
+      "technology": "Hydro",
+      "status": "Completed",
+      "capacity_mw": 780.0,
+      "district": "Idukki",
+      "milestone": "commissioned_on",
+      "milestone_date_label": "12, Feb 1976"
+    },
+    {
+      "name": "Neriamangalam HEP",
+      "technology": "Hydro",
+      "status": "Completed",
+      "capacity_mw": 52.65,
+      "district": "Idukki",
+      "milestone": "commissioned_on",
+      "milestone_date_label": "12, Apr 1961"
+    },
+    {
+      "name": "Kuttiyadi HEP",
+      "technology": "Hydro",
+      "status": "Completed",
+      "capacity_mw": 75.0,
+      "district": "Kozhikode",
+      "milestone": "commissioned_on",
+      "milestone_date_label": "11, Sept 1972"
+    },
+    {
+      "name": "Poringalkuthu Left Bank Project - PLB 4x9MW",
+      "technology": "Hydro",
+      "status": "Completed",
+      "capacity_mw": 36.0,
+      "district": "Thrissur",
+      "milestone": "commissioned_on",
+      "milestone_date_label": "15, May 1957"
+    },
+    {
+      "name": "Madupetty SHP",
+      "technology": "Hydro",
+      "status": "Completed",
+      "capacity_mw": 2.0,
+      "district": "Idukki",
+      "milestone": "commissioned_on",
+      "milestone_date_label": "14, Jan 1998"
+    },
+    {
+      "name": "Kakkad HEP",
+      "technology": "Hydro",
+      "status": "Completed",
+      "capacity_mw": 50.0,
+      "district": "Pathanamthitta",
+      "milestone": "commissioned_on",
+      "milestone_date_label": "13, Oct 1999"
+    },
+    {
+      "name": "Kallada SHP",
+      "technology": "Hydro",
+      "status": "Completed",
+      "capacity_mw": 15.0,
+      "district": "Kollam",
+      "milestone": "commissioned_on",
+      "milestone_date_label": "15, Sept 1994"
+    },
+    {
+      "name": "Kuttiyadi TR SHP",
+      "technology": "Hydro",
+      "status": "Completed",
+      "capacity_mw": 3.75,
+      "district": "Kozhikode",
+      "milestone": "commissioned_on",
+      "milestone_date_label": "19, June 2008"
+    },
+    {
+      "name": "Kakkayam SHP",
+      "technology": "Hydro",
+      "status": "Completed",
+      "capacity_mw": 3.0,
+      "district": "Kozhikode",
+      "milestone": "commissioned_on",
+      "milestone_date_label": "16, July 2018"
+    },
+    {
+      "name": "Lower Meenmutty SHP",
+      "technology": "Hydro",
+      "status": "Completed",
+      "capacity_mw": 3.5,
+      "district": "Thiruvananthapuram",
+      "milestone": "commissioned_on",
+      "milestone_date_label": "25, Mar 2006"
+    },
+    {
+      "name": "Lower Periyar HEP",
+      "technology": "Hydro",
+      "status": "Completed",
+      "capacity_mw": 180.0,
+      "district": "Idukki",
+      "milestone": "commissioned_on",
+      "milestone_date_label": "27, Sept 1997"
+    },
+    {
+      "name": "Malampuzha SHP",
+      "technology": "Hydro",
+      "status": "Completed",
+      "capacity_mw": 2.5,
+      "district": "Palakkad",
+      "milestone": "commissioned_on",
+      "milestone_date_label": "26, Nov 2001"
+    },
+    {
+      "name": "Malankara SHP",
+      "technology": "Hydro",
+      "status": "Completed",
+      "capacity_mw": 10.5,
+      "district": "Idukki",
+      "milestone": "commissioned_on",
+      "milestone_date_label": "23, Oct 2005"
+    },
+    {
+      "name": "Pallivasal HEP",
+      "technology": "Hydro",
+      "status": "Completed",
+      "capacity_mw": 27.5,
+      "district": "Idukki",
+      "milestone": "commissioned_on",
+      "milestone_date_label": "19, Mar 1940"
+    },
+    {
+      "name": "Panniar HEP",
+      "technology": "Hydro",
+      "status": "Completed",
+      "capacity_mw": 32.4,
+      "district": "Idukki",
+      "milestone": "commissioned_on",
+      "milestone_date_label": "29, Dec 1963"
+    },
+    {
+      "name": "Peppara SHP",
+      "technology": "Hydro",
+      "status": "Completed",
+      "capacity_mw": 3.0,
+      "district": "Thiruvananthapuram",
+      "milestone": "commissioned_on",
+      "milestone_date_label": "15, June 1996"
+    },
+    {
+      "name": "Sabarigiri HEP",
+      "technology": "Hydro",
+      "status": "Completed",
+      "capacity_mw": 340.0,
+      "district": "Pathanamthitta",
+      "milestone": "commissioned_on",
+      "milestone_date_label": "18, Apr 1966"
+    },
+    {
+      "name": "Agali",
+      "technology": "Wind",
+      "status": "Completed",
+      "capacity_mw": 18.6,
+      "district": "Palakkad",
+      "milestone": "commissioned_on",
+      "milestone_date_label": "31, Mar 2008"
+    },
+    {
+      "name": "Ahalia, Kanjikode",
+      "technology": "Wind",
+      "status": "Completed",
+      "capacity_mw": 8.4,
+      "district": "Palakkad",
+      "milestone": "commissioned_on",
+      "milestone_date_label": "22, Feb 2016"
+    },
+    {
+      "name": "Brahmapuram(BDPP)",
+      "technology": "Thermal",
+      "status": "Completed",
+      "capacity_mw": 63.96,
+      "district": "Ernakulam",
+      "milestone": "commissioned_on",
+      "milestone_date_label": "06, May 1997"
+    },
+    {
+      "name": "BSES, Kochi",
+      "technology": "Thermal",
+      "status": "Completed",
+      "capacity_mw": 157.0,
+      "district": "Ernakulam",
+      "milestone": "commissioned_on",
+      "milestone_date_label": "15, June 2001"
+    },
+    {
+      "name": "Kanjikode",
+      "technology": "Wind",
+      "status": "Completed",
+      "capacity_mw": 2.03,
+      "district": "Palakkad",
+      "milestone": "commissioned_on",
+      "milestone_date_label": "22, Feb 2016"
+    },
+    {
+      "name": "Kasaragod Power",
+      "technology": "Thermal",
+      "status": "Completed",
+      "capacity_mw": 20.44,
+      "district": "Kasaragod",
+      "milestone": "commissioned_on",
+      "milestone_date_label": "01, Jan 2001"
+    },
+    {
+      "name": "Kozhikode (KDPP)",
+      "technology": "Thermal",
+      "status": "Completed",
+      "capacity_mw": 96.0,
+      "district": "Kozhikode",
+      "milestone": "commissioned_on",
+      "milestone_date_label": "11, Sept 1999"
+    },
+    {
+      "name": "NTPC. Kayamkulam",
+      "technology": "Thermal",
+      "status": "Completed",
+      "capacity_mw": 359.58,
+      "district": "Alappuzha",
+      "milestone": "commissioned_on",
+      "milestone_date_label": "02, Nov 1998"
+    },
+    {
+      "name": "Sengulam HEP",
+      "technology": "Hydro",
+      "status": "Completed",
+      "capacity_mw": 50.8,
+      "district": "Idukki",
+      "milestone": "commissioned_on",
+      "milestone_date_label": "01, May 1954"
+    },
+    {
+      "name": "Neriamangalam Extension",
+      "technology": "Hydro",
+      "status": "Completed",
+      "capacity_mw": 25.0,
+      "district": "Idukki",
+      "milestone": "commissioned_on",
+      "milestone_date_label": "25, May 2008"
+    },
+    {
+      "name": "Poringalkuthu Left Bank Extension Project - PLBE 1x16MW",
+      "technology": "Hydro",
+      "status": "Completed",
+      "capacity_mw": 16.0,
+      "district": "Thrissur",
+      "milestone": "commissioned_on",
+      "milestone_date_label": "20, Mar 1999"
+    },
+    {
+      "name": "Vellathooval SHP",
+      "technology": "Hydro",
+      "status": "Completed",
+      "capacity_mw": 3.6,
+      "district": "Idukki",
+      "milestone": "commissioned_on",
+      "milestone_date_label": "08, Sept 2016"
+    },
+    {
+      "name": "Sholayar HEP",
+      "technology": "Hydro",
+      "status": "Completed",
+      "capacity_mw": 54.0,
+      "district": "Thrissur",
+      "milestone": "commissioned_on",
+      "milestone_date_label": "09, May 1966"
+    },
+    {
+      "name": "Chembukadavu I SHP",
+      "technology": "Hydro",
+      "status": "Completed",
+      "capacity_mw": 2.7,
+      "district": "Kozhikode",
+      "milestone": "commissioned_on",
+      "milestone_date_label": "19, Aug 2003"
+    },
+    {
+      "name": "Chembukadavu II SHP",
+      "technology": "Hydro",
+      "status": "Completed",
+      "capacity_mw": 3.75,
+      "district": "Kozhikode",
+      "milestone": "commissioned_on",
+      "milestone_date_label": "20, Aug 2003"
+    },
+    {
+      "name": "Urumi I",
+      "technology": "Hydro",
+      "status": "Completed",
+      "capacity_mw": 3.75,
+      "district": "Kozhikode",
+      "milestone": "commissioned_on",
+      "milestone_date_label": "25, Jan 2004"
+    },
+    {
+      "name": "Urumi II",
+      "technology": "Hydro",
+      "status": "Completed",
+      "capacity_mw": 2.4,
+      "district": "Kozhikode",
+      "milestone": "commissioned_on",
+      "milestone_date_label": "25, Jan 2004"
+    },
+    {
+      "name": "Poozhithode SHP",
+      "technology": "Hydro",
+      "status": "Completed",
+      "capacity_mw": 4.8,
+      "district": "Kozhikode",
+      "milestone": "commissioned_on",
+      "milestone_date_label": "25, June 2011"
+    },
+    {
+      "name": "Ranni-Perunadu SHP",
+      "technology": "Hydro",
+      "status": "Completed",
+      "capacity_mw": 4.0,
+      "district": "Pathanamthitta",
+      "milestone": "commissioned_on",
+      "milestone_date_label": "16, Feb 2012"
+    },
+    {
+      "name": "Peechi SHP",
+      "technology": "Hydro",
+      "status": "Completed",
+      "capacity_mw": 1.25,
+      "district": "Thrissur",
+      "milestone": "commissioned_on",
+      "milestone_date_label": "07, Jan 2013"
+    },
+    {
+      "name": "Vilangad SHP",
+      "technology": "Hydro",
+      "status": "Completed",
+      "capacity_mw": 7.5,
+      "district": "Kozhikode",
+      "milestone": "commissioned_on",
+      "milestone_date_label": "31, Oct 2014"
+    },
+    {
+      "name": "Chimmony SHP",
+      "technology": "Hydro",
+      "status": "Completed",
+      "capacity_mw": 2.5,
+      "district": "Thrissur",
+      "milestone": "commissioned_on",
+      "milestone_date_label": "22, May 2015"
+    },
+    {
+      "name": "Adyanpara SHP",
+      "technology": "Hydro",
+      "status": "Completed",
+      "capacity_mw": 3.5,
+      "district": "Malappuram",
+      "milestone": "commissioned_on",
+      "milestone_date_label": "03, Sept 2015"
+    },
+    {
+      "name": "Barapole SHP",
+      "technology": "Hydro",
+      "status": "Completed",
+      "capacity_mw": 15.0,
+      "district": "Kannur",
+      "milestone": "commissioned_on",
+      "milestone_date_label": "29, Feb 2016"
+    },
+    {
+      "name": "Perumthenaruvi SHP",
+      "technology": "Hydro",
+      "status": "Completed",
+      "capacity_mw": null,
+      "district": null,
+      "milestone": "commissioned_on",
+      "milestone_date_label": "23, Oct 2017"
+    },
+    {
+      "name": "Chathankottunada II SHP",
+      "technology": "Hydro",
+      "status": "Completed",
+      "capacity_mw": 6.0,
+      "district": "Kozhikode",
+      "milestone": "commissioned_on",
+      "milestone_date_label": "20, Feb 2021"
+    },
+    {
+      "name": "Upper Kallar SHP",
+      "technology": "Hydro",
+      "status": "Completed",
+      "capacity_mw": 2.0,
+      "district": "Idukki",
+      "milestone": "commissioned_on",
+      "milestone_date_label": "30, Sept 2021"
+    },
+    {
+      "name": "Solar KSEB(Kanjikode)",
+      "technology": "Solar",
+      "status": "Completed",
+      "capacity_mw": 1.0,
+      "district": "Palakkad",
+      "milestone": "commissioned_on",
+      "milestone_date_label": "10, Aug 2015"
+    },
+    {
+      "name": "Bhoothathankettu SHP",
+      "technology": "Hydro",
+      "status": "Ongoing",
+      "capacity_mw": 24.0,
+      "district": "Ernakulam",
+      "milestone": "planned_commissioning",
+      "milestone_date_label": null
+    },
+    {
+      "name": "Pallivasal Extension Scheme",
+      "technology": "Hydro",
+      "status": "Ongoing",
+      "capacity_mw": 60.0,
+      "district": "Idukki",
+      "milestone": "planned_commissioning",
+      "milestone_date_label": null
+    },
+    {
+      "name": "Solar KSEB(Edayar)",
+      "technology": "Solar",
+      "status": "Completed",
+      "capacity_mw": 1.25,
+      "district": "Ernakulam",
+      "milestone": "commissioned_on",
+      "milestone_date_label": "06, Sept 2016"
+    },
+    {
+      "name": "Solar KSEB(Kollengode)",
+      "technology": "Solar",
+      "status": "Completed",
+      "capacity_mw": 1.0,
+      "district": "Palakkad",
+      "milestone": "commissioned_on",
+      "milestone_date_label": "08, Aug 2016"
+    },
+    {
+      "name": "Solar 1MW Barapole Canal Bank*",
+      "technology": "Solar",
+      "status": "Completed",
+      "capacity_mw": 1.0,
+      "district": "Kannur",
+      "milestone": "commissioned_on",
+      "milestone_date_label": "07, Nov 2016"
+    },
+    {
+      "name": "Solar 3MW Barapole Canal Top*",
+      "technology": "Solar",
+      "status": "Completed",
+      "capacity_mw": 3.0,
+      "district": "Kannur",
+      "milestone": "commissioned_on",
+      "milestone_date_label": "17, Nov 2016"
+    },
+    {
+      "name": "Agali -Chaliyur-96kW",
+      "technology": "Solar",
+      "status": "Completed",
+      "capacity_mw": 0.96,
+      "district": "Palakkad",
+      "milestone": "commissioned_on",
+      "milestone_date_label": "31, Aug 2015"
+    },
+    {
+      "name": "Moovattupuzha-1250kW",
+      "technology": "Solar",
+      "status": "Completed",
+      "capacity_mw": 1.25,
+      "district": "Ernakulam",
+      "milestone": "commissioned_on",
+      "milestone_date_label": "01, Jan 2018"
+    },
+    {
+      "name": "Pothencode -2000kW",
+      "technology": "Solar",
+      "status": "Completed",
+      "capacity_mw": 2.0,
+      "district": "Thiruvananthapuram",
+      "milestone": "commissioned_on",
+      "milestone_date_label": "01, Feb 2018"
+    },
+    {
+      "name": "Kuttiyadi Extension Scheme",
+      "technology": "Hydro",
+      "status": "Completed",
+      "capacity_mw": 50.0,
+      "district": "Kozhikode",
+      "milestone": "commissioned_on",
+      "milestone_date_label": "27, Jan 2001"
+    },
+    {
+      "name": "Kuttiyadi Addl Extension",
+      "technology": "Hydro",
+      "status": "Completed",
+      "capacity_mw": 100.0,
+      "district": "Kozhikode",
+      "milestone": "commissioned_on",
+      "milestone_date_label": "11, Oct 2010"
+    },
+    {
+      "name": "Poringalkuthu Small HEP ( 1X 24 MW)",
+      "technology": "Hydro",
+      "status": "Completed",
+      "capacity_mw": 24.0,
+      "district": "Thrissur",
+      "milestone": "commissioned_on",
+      "milestone_date_label": "04, May 2022"
+    },
+    {
+      "name": "Sengulam Augmentation",
+      "technology": "Hydro",
+      "status": "Ongoing",
+      "capacity_mw": 5.0,
+      "district": "Kozhikode",
+      "milestone": "planned_commissioning",
+      "milestone_date_label": "05, June 2026"
+    },
+    {
+      "name": "Sabarigiri Augmentation (Upper Moozhiyar, Kullar, Meenar I & II, Gavi, Pumping)",
+      "technology": "Hydro",
+      "status": "Completed",
+      "capacity_mw": 0.0,
+      "district": "Pathanamthitta",
+      "milestone": "commissioned_on",
+      "milestone_date_label": null
+    },
+    {
+      "name": "Upper Sengulam SHEP Stage -I",
+      "technology": "Hydro",
+      "status": "Ongoing",
+      "capacity_mw": 24.0,
+      "district": "Idukki",
+      "milestone": "planned_commissioning",
+      "milestone_date_label": "Maripuzha SHEP"
+    },
+    {
+      "name": "Thottiyar HEP",
+      "technology": "Hydro",
+      "status": "Ongoing",
+      "capacity_mw": 40.0,
+      "district": "Idukki",
+      "milestone": "planned_commissioning",
+      "milestone_date_label": null
+    },
+    {
+      "name": "Poringalkuthu Left Bank Project - Micro Screw Generator 1x11kW",
+      "technology": "Hydro",
+      "status": "Completed",
+      "capacity_mw": 11.0,
+      "district": "Thrissur",
+      "milestone": "commissioned_on",
+      "milestone_date_label": "01, Feb 2016"
+    },
+    {
+      "name": "Poringalkuthu Micro Hydro Electric Project (1X36 KW)",
+      "technology": "Hydro",
+      "status": "Ongoing",
+      "capacity_mw": 0.036,
+      "district": "Thrissur",
+      "milestone": "planned_commissioning",
+      "milestone_date_label": "Valanthode SHEP"
+    }
+  ],
+  "pages_retrieved": 7,
+  "portal_reported_total": 87
+}

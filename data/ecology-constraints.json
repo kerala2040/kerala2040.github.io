@@ -1,0 +1,110 @@
+{
+  "version": 1,
+  "classification": "sourced_ecological_and_hazard_constraints",
+  "principle": "Ecological and hazard layers are model constraints, not post-hoc scores. A technical renewable resource is not treated as buildable capacity until these exclusions and network/access constraints are applied.",
+  "layers": {
+    "ksdma_flood_historic": {
+      "source": "Kerala State Disaster Management Authority",
+      "url": "https://sdma.kerala.gov.in/hazard-maps/",
+      "data": "Flood Hazard Probability of Kerala based on historic data",
+      "format": "raster_zip",
+      "return_periods_years": [
+        10,
+        25,
+        50,
+        100,
+        200,
+        500
+      ],
+      "role": "hard_or_penalised_siting_constraint"
+    },
+    "ksdma_flood_rcp85": {
+      "source": "Kerala State Disaster Management Authority",
+      "url": "https://sdma.kerala.gov.in/hazard-maps/",
+      "data": "Flood Hazard Probability of Kerala based on RCP8.5 climate-change scenario",
+      "format": "raster_zip",
+      "return_periods_years": [
+        10,
+        25,
+        50,
+        100,
+        200,
+        500
+      ],
+      "role": "climate_stress_siting_constraint"
+    },
+    "ksdma_landslide_gsi": {
+      "source": "Kerala State Disaster Management Authority / Geological Survey of India",
+      "url": "https://sdma.kerala.gov.in/hazard-maps/",
+      "data": "Landslide Susceptibility Zones of districts of Kerala",
+      "reference_year": 2022,
+      "format": "shapefile",
+      "role": "hard_or_penalised_siting_constraint",
+      "note": "KSDMA states the GSI product supersedes the older NCESS susceptibility map."
+    },
+    "ksdma_coastal_hazard": {
+      "source": "Kerala State Disaster Management Authority",
+      "url": "https://sdma.kerala.gov.in/hazard-maps/",
+      "data": "Coastal Hazard Susceptibility Map of Kerala",
+      "role": "coastal_infrastructure_screening"
+    },
+    "kerala_forest": {
+      "source": "Kerala Forest and Wildlife Department",
+      "url": "https://forest.kerala.gov.in/",
+      "data": [
+        "reserve_forest",
+        "protected_areas",
+        "forest_divisions",
+        "wildlife_areas"
+      ],
+      "role": "ecological_exclusion_and_buffering",
+      "note": "Authoritative geometry should be obtained from the department/GIS source where available."
+    },
+    "western_ghats_esa": {
+      "source": "Ministry of Environment Forest and Climate Change",
+      "landing_page": "https://www.moef.gov.in/esa-notifications",
+      "current_status_date": "2026-07-27",
+      "current_status": "draft_notification",
+      "note": "The 2026 Western Ghats ESA publication is a draft. Kerala 2040 will preserve legal status and version date rather than treating draft boundaries as a final legal layer.",
+      "older_reference": {
+        "kerala_esa_area_sq_km": 9993.7,
+        "forest_area_sq_km": 9107,
+        "non_forest_area_sq_km": 886.7,
+        "caveat": "Historical draft/reference figures only; use current authoritative geometry for siting."
+      }
+    },
+    "bhuvan_lulc": {
+      "source": "NRSC / ISRO Bhuvan",
+      "url": "https://bhuvan.nrsc.gov.in/",
+      "acquisition": "WMS_WMTS_or_download",
+      "data": [
+        "land_use_land_cover",
+        "elevation_dem",
+        "waterbodies",
+        "geomorphology"
+      ],
+      "role": "land_availability_and_terrain_screening",
+      "note": "Bhuvan thematic services support OGC web services. Dataset vintage and scale must be recorded per layer before model use."
+    },
+    "niwe_wind_atlas_150m": {
+      "source": "National Institute of Wind Energy",
+      "url": "https://niwe.res.in/Open_data_Set/open_wind_dataset/11/",
+      "resolution_m": 500,
+      "hub_height_m": 150,
+      "variables": [
+        "mean_wind_speed",
+        "weibull_k",
+        "weibull_a",
+        "mean_wind_power_density",
+        "mean_temperature",
+        "pressure",
+        "air_density",
+        "wind_direction",
+        "joint_frequency_distribution"
+      ],
+      "role": "technical_wind_resource_screening",
+      "access_note": "Full national archive is approximately 240 MB compressed and requires the download form.",
+      "model_rule": "Technical wind resource is intersected with ecological/terrain/grid constraints before capacity is allowed."
+    }
+  }
+}

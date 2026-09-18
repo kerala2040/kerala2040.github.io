@@ -1,0 +1,98 @@
+{
+  "version": 1,
+  "classification": "curated_ogd_catalog_targets",
+  "portal": "https://www.data.gov.in/",
+  "credential_env": "DATA_GOV_API_KEY",
+  "access_note": "The account-level API key can be used for API-enabled resources. Because api.data.gov.in has timed out repeatedly from GitHub-hosted runners, Catalog API/Zip Download and the original ministry source are retained as equivalent acquisition fallbacks.",
+  "targets": {
+    "renewable_installed_capacity": {
+      "priority": "P0",
+      "title": "State-wise Installed Capacity of Grid Interactive Renewable Power",
+      "catalog_url": "https://kerala.data.gov.in/catalog/state-wise-installed-capacity-grid-interactive-renewable-power",
+      "publisher": "Ministry of New and Renewable Energy",
+      "updated_on": "2025-06-02",
+      "access": [
+        "catalog_api",
+        "zip_download"
+      ],
+      "variables": [
+        "solar",
+        "wind",
+        "small_hydro",
+        "biomass"
+      ],
+      "use": [
+        "capacity_cross_check",
+        "historical_renewable_growth"
+      ]
+    },
+    "station_monthly_generation": {
+      "priority": "P0",
+      "title": "Power Generation",
+      "catalog_url": "https://kerala.data.gov.in/catalog/power-generation",
+      "publisher": "Central Electricity Authority",
+      "updated_on": "2024-10-10",
+      "access": [
+        "catalog_api",
+        "zip_download"
+      ],
+      "variables": [
+        "location",
+        "sector",
+        "category",
+        "fuel",
+        "utility",
+        "station",
+        "installed_capacity",
+        "programmed_generation",
+        "actual_generation"
+      ],
+      "use": [
+        "plant_generation_cross_check",
+        "thermal_hydro_context"
+      ]
+    },
+    "renewable_potential": {
+      "priority": "P1",
+      "title": "Renewable Energy dataset group",
+      "catalog_url": "https://www.data.gov.in/dataset-group-name/Renewable%20Energy",
+      "publisher": "Ministry of New and Renewable Energy",
+      "access": [
+        "catalog_api",
+        "zip_download"
+      ],
+      "use": [
+        "resource_potential_cross_check"
+      ],
+      "note": "Technical potential must not be treated as ecologically buildable capacity."
+    },
+    "kerala_vehicle_registration_legacy": {
+      "priority": "P2",
+      "title": "Kerala Vehicle Registration Statistics",
+      "catalog_url": "https://kerala.data.gov.in/catalog/kerala-vehicle-registration-statistics",
+      "publisher": "Kerala Transport Department",
+      "updated_on": "2025-02-12",
+      "access": [
+        "catalog_api",
+        "zip_download"
+      ],
+      "use": [
+        "historical_fleet_structure"
+      ],
+      "limitation": "The underlying statistics are as of 2018; current EV counts come from newer MVD/Economic Review evidence."
+    },
+    "ev_registrations_vahan_2020_2023": {
+      "priority": "P2",
+      "title": "State/UT-wise Number of Electric Vehicles Registered in Vahan4 from 2020 to 2023",
+      "resource_url": "https://kerala.data.gov.in/resource/stateut-wise-number-electric-vehicles-evs-registered-vahan4-2020-2023",
+      "publisher": "Rajya Sabha / VAHAN",
+      "published_on": "2024-08-09",
+      "access": [
+        "csv_download"
+      ],
+      "use": [
+        "ev_growth_cross_check"
+      ]
+    }
+  }
+}

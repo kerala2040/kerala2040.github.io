@@ -1,0 +1,40 @@
+{
+  "classification": "research screening; not siting approval",
+  "records": [
+    {
+      "name": "Kochi industrial-demand hub",
+      "lat": 9.9312,
+      "lon": 76.2673,
+      "kind": "grid",
+      "note": "Demand, industry, port and flexibility screening node."
+    },
+    {
+      "name": "Idukki hydro-storage system",
+      "lat": 9.85,
+      "lon": 76.97,
+      "kind": "storage",
+      "note": "Hydro flexibility, reservoir and pumped-storage screening area."
+    },
+    {
+      "name": "Ramakkalmedu wind area",
+      "lat": 9.79,
+      "lon": 77.16,
+      "kind": "wind",
+      "note": "Wind-resource screening area; ecology and grid constraints required."
+    },
+    {
+      "name": "Chavara circular-industry cluster",
+      "lat": 9.0,
+      "lon": 76.53,
+      "kind": "circular",
+      "note": "Mineral-sands, TiO2 and by-product recovery research cluster."
+    },
+    {
+      "name": "Vizhinjam coastal-energy node",
+      "lat": 8.38,
+      "lon": 76.98,
+      "kind": "marine",
+      "note": "Port, wave-energy history, shore-power and marine-resource screening node."
+    }
+  ]
+}

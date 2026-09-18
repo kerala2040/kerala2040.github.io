@@ -1,0 +1,92 @@
+{
+  "retrieved_at_utc": "2026-09-18T09:32:37+00:00",
+  "classification": "reanalysis_input",
+  "dataset": "reanalysis-era5-single-levels",
+  "dataset_url": "https://cds.climate.copernicus.eu/datasets/reanalysis-era5-single-levels",
+  "temporal_resolution": "hourly",
+  "model_period": "2024-04-01 to 2025-03-31",
+  "variables": [
+    "2m_temperature",
+    "10m_u_component_of_wind",
+    "10m_v_component_of_wind",
+    "surface_solar_radiation_downwards",
+    "total_precipitation"
+  ],
+  "spatial_method": "representative point boxes; not statewide resource-potential mapping",
+  "files_succeeded": 5,
+  "files_expected": 10,
+  "files": [
+    {
+      "point": "thiruvananthapuram",
+      "latitude": 8.5241,
+      "longitude": 76.9366,
+      "period": "2025-01_to_2025-03",
+      "path": "data/raw/era5/era5_thiruvananthapuram_2025-01_to_2025-03.nc",
+      "bytes": 400506,
+      "sha256": "2371fb147a38b516528c8ee7b746b93bfcd8790ec4d4f954ded15703b19ca1cc"
+    },
+    {
+      "point": "kochi",
+      "latitude": 9.9312,
+      "longitude": 76.2673,
+      "period": "2025-01_to_2025-03",
+      "path": "data/raw/era5/era5_kochi_2025-01_to_2025-03.nc",
+      "bytes": 398556,
+      "sha256": "f988f44238740ffb808199a294a1b64d754e454bd097813bfa093fdb1608edf2"
+    },
+    {
+      "point": "palakkad",
+      "latitude": 10.7867,
+      "longitude": 76.6548,
+      "period": "2025-01_to_2025-03",
+      "path": "data/raw/era5/era5_palakkad_2025-01_to_2025-03.nc",
+      "bytes": 397924,
+      "sha256": "6d93f0d64f06c5803eb19b54dbd13f775b04dbf901e6737e334f60440fe0fc4f"
+    },
+    {
+      "point": "kozhikode",
+      "latitude": 11.2588,
+      "longitude": 75.7804,
+      "period": "2025-01_to_2025-03",
+      "path": "data/raw/era5/era5_kozhikode_2025-01_to_2025-03.nc",
+      "bytes": 398384,
+      "sha256": "ef876a91d7844bf3a30b5d8362cb99d58ca21247c9cecfb3aa1cecd04947c47e"
+    },
+    {
+      "point": "kannur",
+      "latitude": 11.8745,
+      "longitude": 75.3704,
+      "period": "2025-01_to_2025-03",
+      "path": "data/raw/era5/era5_kannur_2025-01_to_2025-03.nc",
+      "bytes": 457952,
+      "sha256": "99b54449300fbd23d08a47387b8a5401d2d87fc0b9e960c035e5d102022ad224"
+    }
+  ],
+  "failures": [
+    {
+      "point": "thiruvananthapuram",
+      "period": "2024-04_to_2024-12",
+      "error": "HTTPError: 403 Client Error: Forbidden for url: https://cds.climate.copernicus.eu/api/retrieve/v1/processes/reanalysis-era5-single-levels/execution\ncost limits exceeded\nYour request is too large, please reduce your selection."
+    },
+    {
+      "point": "kochi",
+      "period": "2024-04_to_2024-12",
+      "error": "HTTPError: 403 Client Error: Forbidden for url: https://cds.climate.copernicus.eu/api/retrieve/v1/processes/reanalysis-era5-single-levels/execution\ncost limits exceeded\nYour request is too large, please reduce your selection."
+    },
+    {
+      "point": "palakkad",
+      "period": "2024-04_to_2024-12",
+      "error": "HTTPError: 403 Client Error: Forbidden for url: https://cds.climate.copernicus.eu/api/retrieve/v1/processes/reanalysis-era5-single-levels/execution\ncost limits exceeded\nYour request is too large, please reduce your selection."
+    },
+    {
+      "point": "kozhikode",
+      "period": "2024-04_to_2024-12",
+      "error": "HTTPError: 403 Client Error: Forbidden for url: https://cds.climate.copernicus.eu/api/retrieve/v1/processes/reanalysis-era5-single-levels/execution\ncost limits exceeded\nYour request is too large, please reduce your selection."
+    },
+    {
+      "point": "kannur",
+      "period": "2024-04_to_2024-12",
+      "error": "HTTPError: 403 Client Error: Forbidden for url: https://cds.climate.copernicus.eu/api/retrieve/v1/processes/reanalysis-era5-single-levels/execution\ncost limits exceeded\nYour request is too large, please reduce your selection."
+    }
+  ]
+}

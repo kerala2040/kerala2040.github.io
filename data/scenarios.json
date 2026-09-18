@@ -1,0 +1,87 @@
+{
+  "scenarios": [
+    {
+      "id": "S0_business_as_usual",
+      "code": "S0",
+      "name": "Business As Usual",
+      "type": null,
+      "description": "Existing structural import dependence, hydro exposure and moderate local RE growth.",
+      "ecology_constraint": "baseline_legal_exclusions",
+      "demand_flexibility": "low",
+      "import_option": "enabled"
+    },
+    {
+      "id": "S1_maximum_local_generation",
+      "code": "S1",
+      "name": "Maximum Local Generation",
+      "type": null,
+      "description": "Stress-test aggressive local generation build-out before ecological constraints are tightened. Intended to expose land, biodiversity, water and system-cost consequences rather than to be presented as a recommendation.",
+      "ecology_constraint": "baseline_legal_exclusions",
+      "demand_flexibility": "medium",
+      "import_option": "enabled"
+    },
+    {
+      "id": "S2_solar_storage",
+      "code": "S2",
+      "name": "Solar Storage",
+      "type": null,
+      "description": "Rooftop, floating and suitable ground PV with BESS/pumped storage and hydro balancing.",
+      "ecology_constraint": "baseline_legal_exclusions",
+      "demand_flexibility": "medium",
+      "import_option": "enabled"
+    },
+    {
+      "id": "S3_integrated_sovereignty",
+      "code": "S3",
+      "name": "Integrated Sovereignty",
+      "type": null,
+      "description": "Diversified generation, strategic reservoir dispatch, distributed storage, demand response, EV smart charging/V2G, cooling flexibility and strong interconnection.",
+      "ecology_constraint": "spatial_suitability",
+      "demand_flexibility": "high",
+      "import_option": "enabled"
+    },
+    {
+      "id": "S4_ecological_sovereignty",
+      "code": "S4",
+      "name": "Ecological Sovereignty",
+      "type": null,
+      "description": "S3 with strict biodiversity, forest, watershed, wetland, slope, landslide, coastal and land-use constraints fed back as technology-specific capacity limits.",
+      "ecology_constraint": "strict_ecological_carrying_capacity",
+      "demand_flexibility": "high",
+      "import_option": "enabled"
+    }
+  ],
+  "stress_tests": {
+    "dry_hydro": {
+      "description": "Multi-season adverse inflow/hydrology case derived from climate/hydrology data."
+    },
+    "cloudy_low_solar": {
+      "description": "Sustained low-solar period preserving observed weather covariance."
+    },
+    "heat_wave": {
+      "description": "High cooling-demand and thermal-stress event."
+    },
+    "ev_surge": {
+      "description": "Higher-than-central electrification trajectory with unmanaged and managed charging variants."
+    },
+    "battery_cost_high": {
+      "description": "Storage capital-cost sensitivity."
+    },
+    "import_restriction": {
+      "description": "Temporary reduction in interstate transfer availability, not permanent isolation."
+    },
+    "import_price_high": {
+      "description": "High external procurement-price stress."
+    },
+    "extreme_monsoon_flood": {
+      "description": "Infrastructure and hydrology stress with ecological/resilience implications."
+    }
+  },
+  "rules": [
+    "No unverified numerical capacity ceiling is encoded here.",
+    "Published scenarios are reference cases, not hard-coded answers.",
+    "Ecology constrains feasible build space before optimization and is iterated with PyPSA.",
+    "Hydro is tested as strategic flexibility under wet, normal and dry conditions.",
+    "Results report imports, peak dependence, reliability, cost, ecology and lifecycle impacts separately."
+  ]
+}

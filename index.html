@@ -17,11 +17,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
   <link rel="stylesheet" href="assets/styles.css" />
+  <link rel="stylesheet" href="assets/platform.css" />
   <script defer src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
   <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
   <script defer src="assets/app.js"></script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <noscript><p class="shell">Enable JavaScript to explore the dashboard. <a href="data/site-data.json">Download the evidence snapshot</a>.</p></noscript>
   <div class="utility">
     <div class="shell utility-inner">
       <div>Independent research platform</div>
@@ -58,13 +61,13 @@
     </nav>
   </header>
 
-  <main>
+  <main id="main">
     <section class="view active" data-view="overview">
       <section class="home-hero shell">
         <div class="home-hero-copy">
-          <div class="section-label">KERALA ENERGY SYSTEM</div>
-          <h1>Data and analysis for Kerala's energy transition.</h1>
-          <p>Track electricity demand, in-state generation, hydro, interstate dependence and resource constraints, then test how different 2040 pathways change the system.</p>
+          <div class="section-label">AN OPEN RESEARCH PROJECT · CET 2026</div>
+          <h1>Kerala's energy.<br><em>A clearer picture.</em><br>A more resilient future.</h1>
+          <p>Follow the electricity, understand the dependencies, and build an evidence-based path to 2040. Start with what we know today.</p>
           <div class="hero-actions">
             <button class="button primary" data-route="electricity">Explore data</button>
             <button class="button secondary" data-route="pathways">Explore scenarios</button>
@@ -72,16 +75,18 @@
           <div id="dataOrigin" class="data-origin">Loading research bundle…</div>
         </div>
         <aside class="hero-stat">
-          <div class="hero-stat-label">Published 2040 electricity demand range</div>
-          <div class="hero-stat-value"><span id="heroDemandNumber">—</span><small>TWh</small></div>
-          <p>CSTEP 2024 and Kerala Carbon Neutral 2050 use different scopes and electrification assumptions. They are shown separately rather than blended.</p>
-          <button class="text-link" data-route="pathways">Compare published pathways</button>
+          <div class="hero-stat-label">NET IMPORTS / OBSERVED CONSUMPTION</div>
+          <div class="hero-stat-value"><span id="heroDemandNumber">—</span><small>%</small></div>
+          <div class="energy-motif" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          <p id="heroCoverage">Loading dated SLDC observations…</p>
+          <button class="text-link" data-route="electricity">Understand the energy balance →</button>
         </aside>
       </section>
 
       <section class="stat-band">
         <div id="headlineMetrics" class="shell headline-grid" aria-live="polite"></div>
       </section>
+      <section class="shell research-notice" id="researchReadiness" aria-live="polite"></section>
 
       <section class="shell home-section">
         <div class="section-heading">
@@ -189,7 +194,7 @@
 
       <div class="subnav">
         <div class="shell subnav-inner">
-          <span>Overview</span><span>Demand</span><span>Generation</span><span>Imports</span><span>Hydro</span>
+          <a href="#electricity">Observed balance</a><a href="data/daily-balance.json">Daily data ↓</a><a href="data/monthly-balance.json">Monthly data ↓</a>
         </div>
       </div>
 
@@ -208,6 +213,7 @@
           </div>
           <div id="electricityChart" class="chart xl"></div>
           <div id="electricityChartNote" class="chart-note"></div>
+          <details class="data-table"><summary>Inspect the observations and missing dates</summary><div id="dailyTable"></div></details>
         </section>
 
         <div class="module-grid">
@@ -223,6 +229,8 @@
             <div id="electricityEvidence" class="evidence-list"></div>
           </section>
         </div>
+        <section class="data-module"><div class="section-label">ACCOUNTING BOUNDARIES</div><h2>Reconcile before forecasting.</h2><div id="reconciliation"></div></section>
+        <section class="data-module"><div class="section-label">BEYOND ELECTRICITY</div><h2>Fuel, infrastructure and fiscal context</h2><div id="fuelEvidence"></div></section>
       </div>
     </section>
 
@@ -231,7 +239,7 @@
         <div>
           <div class="section-label">SCENARIOS AND MODELS</div>
           <h1>2040 pathways</h1>
-          <p>Compare published outlooks, assumptions and Kerala 2040 scenario designs without pre-selecting a preferred pathway.</p>
+          <p>Compare external studies and prepare scenario specifications. The optimisation model is not yet calibrated; this page does not produce forecasts.</p>
         </div>
         <div class="status-label neutral">Model horizon · 2040</div>
       </div>
@@ -253,7 +261,7 @@
             <div><div class="section-label">KERALA 2040 MODEL</div><h2>Scenario explorer</h2></div>
           </div>
           <div class="scenario-workbench">
-            <div id="scenarioRail" class="scenario-rail" role="tablist"></div>
+            <div id="scenarioRail" class="scenario-rail" aria-label="Scenario selection"></div>
             <article class="scenario-detail">
               <div class="scenario-top">
                 <div><span id="scenarioCode" class="scenario-code"></span><h2 id="scenarioName"></h2></div>
@@ -266,8 +274,10 @@
               </div>
               <div class="stress-zone">
                 <div class="section-label">STRESS TESTS</div>
-                <p>Attach shocks to the selected pathway design.</p>
+                <p>Select stresses for the specification. Selecting a stress does not run a simulation.</p>
                 <div id="stressTests" class="chip-grid"></div>
+                <div id="stressSelection" aria-live="polite"></div>
+                <button id="downloadSpecification" class="button primary" type="button">Download scenario specification ↓</button>
               </div>
             </article>
           </div>
@@ -298,6 +308,7 @@
           </aside>
         </div>
       </div>
+      <div class="shell"><section class="data-module"><div class="section-label">ECOLOGY AND HAZARDS</div><h2>Constraints to bring into the model</h2><p>Catalogue references only. These datasets have not yet been overlaid on the screening map or converted into buildable capacity.</p><div id="ecologyEvidence"></div></section></div>
     </section>
 
     <section class="view" data-view="industry">
@@ -344,7 +355,7 @@
       <div class="shell page-content">
         <section class="data-summary"><div id="dataSummary"></div></section>
         <div class="data-toolbar">
-          <input id="sourceSearch" type="search" placeholder="Search sources and datasets" />
+          <input id="sourceSearch" type="search" aria-label="Search sources and datasets" placeholder="Search sources and datasets" />
           <div class="evidence-key">
             <span><i class="dot measured"></i>Measured</span>
             <span><i class="dot derived"></i>Derived</span>

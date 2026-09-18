@@ -1,0 +1,113 @@
+{
+  "version": 1,
+  "classification": "official_resource_adequacy_reference",
+  "source": {
+    "publisher": "Central Electricity Authority",
+    "title": "Report on Resource Adequacy Plan for Kerala (Up to 2035-36), Version 2.0",
+    "publication_period": "December 2025",
+    "landing_page": "https://cea.nic.in/resource_adequacy_st/report-on-resource-adequacy-plan-for-kerala-up-to-2035-36/",
+    "source_inputs": "Kerala SLDC and KSEBL",
+    "caveat": "This is an official planning study and validation reference. Contracted capacity, forecast requirement and the CEA study's demand accounting are kept separate from Kerala Economic Review installed-capacity and sales definitions."
+  },
+  "actual_2024_25": {
+    "electrical_energy_requirement_mu": 31624,
+    "peak_demand_mw": 5904,
+    "note": "These actual values use CEA resource-adequacy accounting. The peak differs from the Kerala Economic Review/KSEBL maximum peak reference of 5797 MW, so neither value is silently substituted for the other."
+  },
+  "hourly_demand_2024_25": {
+    "source_status": "official_hourly_series_analyzed_but_raw_public_download_not_secured",
+    "seasonal_note": "Demand is higher from February to May.",
+    "april_pattern_note": "Two peaks are visible, approximately daytime 15:00 and night 23:00.",
+    "frequency_bins": [
+      {
+        "min_mw": 2000,
+        "max_mw": 2500,
+        "hours": 46,
+        "approximate_share_pct": 1
+      },
+      {
+        "min_mw": 2500,
+        "max_mw": 3000,
+        "hours": 835,
+        "approximate_share_pct": 10
+      },
+      {
+        "min_mw": 3000,
+        "max_mw": 3500,
+        "hours": 2257,
+        "approximate_share_pct": 26
+      },
+      {
+        "min_mw": 3500,
+        "max_mw": 4000,
+        "hours": 2711,
+        "approximate_share_pct": 31
+      },
+      {
+        "min_mw": 4000,
+        "max_mw": 4500,
+        "hours": 1968,
+        "approximate_share_pct": 22
+      },
+      {
+        "min_mw": 4500,
+        "max_mw": 5000,
+        "hours": 629,
+        "approximate_share_pct": 7
+      },
+      {
+        "min_mw": 5000,
+        "max_mw": 5500,
+        "hours": 290,
+        "approximate_share_pct": 3
+      },
+      {
+        "min_mw": 5500,
+        "max_mw": 6000,
+        "hours": 24,
+        "approximate_share_pct": 0.3
+      }
+    ],
+    "validation_use": [
+      "hourly_proxy_frequency_distribution",
+      "peak_validation",
+      "seasonal_shape_validation",
+      "peak_hour_validation"
+    ],
+    "rule": "Any reconstructed hourly chronology must remain labelled proxy/reconstruction until the underlying Kerala SLDC/KSEBL hourly or 15-minute telemetry is obtained."
+  },
+  "contracted_capacity_march_2025_mw": {
+    "total_including_dre": 7323,
+    "coal": 2171,
+    "gas": 360,
+    "nuclear": 371,
+    "hydro": 2131,
+    "wind": 145,
+    "solar": 797,
+    "distributed_renewable_energy": 1347,
+    "scope_note": "Contracted capacity, not in-state installed capacity."
+  },
+  "forecast_2025_26_to_2035_36": {
+    "electrical_energy_requirement_cagr_pct": 5.1,
+    "peak_demand_cagr_pct": 3.7,
+    "existing_plus_planned_without_expansion_2035_36": {
+      "unserved_energy_mu": 13868,
+      "share_of_projected_annual_requirement_pct": 24.8
+    }
+  },
+  "likely_optimal_contracted_capacity_2035_36_mw": {
+    "total": 18348,
+    "coal": 3871,
+    "gas": 360,
+    "nuclear": 371,
+    "hydro": 3283,
+    "wind": 1159,
+    "solar": 1947,
+    "round_the_clock": 800,
+    "distributed_renewable_energy": 5109,
+    "storage_power_mw": 550,
+    "storage_energy_mwh": 1600,
+    "mtoa_stoa": 897,
+    "note": "CEA study result retained as an external planning benchmark, not adopted as the Kerala 2040 model optimum."
+  }
+}

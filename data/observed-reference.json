@@ -1,0 +1,78 @@
+{
+  "version": 1,
+  "period": "FY2024-25",
+  "classification": "sourced_observed_reference",
+  "purpose": "Official observed Kerala power-system values used to validate the reconstructed SLDC/Grid-India historical baseline. These are not model outputs and are not combined with planning-scenario values unless their scopes match.",
+  "sources": {
+    "economic_review_2025_volume_1": {
+      "publisher": "Kerala State Planning Board",
+      "title": "Economic Review 2025, Volume I",
+      "url": "https://spb.kerala.gov.in/sites/default/files/2026-01/ER%202025%20Volume1%20Eng%20final.pdf",
+      "underlying_source": "Kerala State Electricity Board Ltd"
+    },
+    "economic_review_2025_volume_2": {
+      "publisher": "Kerala State Planning Board",
+      "title": "Economic Review 2025, Volume II",
+      "url": "https://spb.kerala.gov.in/sites/default/files/2026-01/ER%202025%20Volume%202%20Eng%20final.pdf",
+      "underlying_source": "Kerala State Electricity Board Ltd / Motor Vehicle Department"
+    }
+  },
+  "electricity": {
+    "installed_capacity_mw": 4412.14,
+    "capacity_mix_mw": {
+      "hydel": 2284.42,
+      "thermal": 536.54,
+      "solar": 1519.66,
+      "wind": 71.53
+    },
+    "annual_sales_within_state_and_open_access_mu": 29311.76,
+    "per_capita_consumption_kwh": 816,
+    "gross_import_per_annum_mu": 25790.95,
+    "export_per_annum_mu": 1789.65,
+    "consumers_lakh": 140.7,
+    "maximum_peak_demand_mw": 5797,
+    "maximum_peak_date": "2024-05-02",
+    "maximum_daily_consumption_mu": 115.95,
+    "morning_peak_demand_mw": 4515,
+    "day_peak_demand_mw": 5111,
+    "td_loss_pct": 9.27,
+    "revenue_from_sale_power_rs_lakh": 2116411,
+    "network": {
+      "ht_lines_km": 68576,
+      "lt_lines_km": 307674,
+      "distribution_transformers_count": 92203,
+      "distribution_transformers_mva": 11323
+    },
+    "energy_sources_2024_25_mu": {
+      "gross_generation_ksebl": 7393.77,
+      "purchase_central_generating_stations_at_periphery": 11565.82,
+      "purchase_long_medium_short_swap_at_periphery": 13129.84,
+      "purchase_ipp_cpp_inside_state": 1590.65,
+      "total_power_purchase": 26286.3,
+      "private_ipp_export_open_access": 77.16,
+      "open_access_availed_at_periphery": 453.64,
+      "auxiliary_consumption": 115.08,
+      "exports_sales_swap_return_open_access": 1789.64,
+      "total_energy_input_state_consumption": 32306.15
+    },
+    "scope_notes": [
+      "Gross import, annual sales, and total energy input have different accounting scopes. Do not divide one by another to create an import share without reconciliation.",
+      "Installed capacity includes state, central and private-sector capacity reported for Kerala."
+    ]
+  },
+  "transport": {
+    "electric_vehicle_registrations": {
+      "calendar_2024": {
+        "transport": 5448,
+        "non_transport": 77964,
+        "total": 83412
+      },
+      "2025_to_august_31": {
+        "transport": 3951,
+        "non_transport": 61390,
+        "total": 65341
+      },
+      "source": "Motor Vehicle Department via Kerala Economic Review 2025"
+    }
+  }
+}

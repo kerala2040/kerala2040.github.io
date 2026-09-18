@@ -1,0 +1,115 @@
+{
+  "project": "Kerala 2040 \u2014 Open Energy Intelligence",
+  "generated_at_utc": "2026-09-18T09:55:11+00:00",
+  "research_repo": "https://github.com/abhijith-sivaprasadan/kerala2040",
+  "web_repo": "https://github.com/kerala2040/kerala2040.github.io",
+  "git_sha": null,
+  "model_year": 2040,
+  "principle": "Energy sovereignty means retaining sufficient controllable generation, storage, flexible demand and infrastructure to withstand climate, hydrological and market shocks while using interstate trade strategically. It does not mean autarky or zero imports.",
+  "status": {
+    "official_observed_2024_25": {
+      "available": true,
+      "evidence": "sourced observed",
+      "note": "Kerala Economic Review 2025 / KSEBL annual FY2024-25 reference values."
+    },
+    "sldc_daily": {
+      "available": true,
+      "evidence": "measured",
+      "note": "Kerala SLDC daily system accounting."
+    },
+    "baseline_summary": {
+      "available": true,
+      "evidence": "derived",
+      "note": "Derived only after historical calibration checks."
+    },
+    "reservoir_storage": {
+      "available": true,
+      "evidence": "measured",
+      "note": "Kerala SLDC reservoir-storage chronology. Prior acquisition; raw series is not included in the site."
+    },
+    "weather": {
+      "available": true,
+      "evidence": "measured/reanalysis",
+      "note": "NASA POWER representative-point hourly weather. Prior acquisition; raw series is not included in the site."
+    },
+    "era5_reanalysis": {
+      "available": true,
+      "partial": true,
+      "evidence": "reanalysis",
+      "note": "Copernicus ERA5 hourly acquisition: 5 / 10 expected files; manifest only on the website."
+    },
+    "grid_india_psp": {
+      "available": false,
+      "evidence": "official cross-check",
+      "note": "Current API integration is configured; processed FY2024-25 rows not in this bundle yet."
+    },
+    "kseb_project_inventory": {
+      "available": true,
+      "partial": true,
+      "evidence": "official project portal",
+      "note": "70 distinct project records parsed; portal lists 87 entries. Portal statuses and dates are retained as reported."
+    },
+    "hazard_layers": {
+      "available": true,
+      "evidence": "official GIS catalog",
+      "note": "6 KSDMA hazard download links catalogued."
+    },
+    "hourly_state_load": {
+      "available": false,
+      "evidence": "gap",
+      "note": "No authenticated FY2024-25 Kerala 8760/35040 state-load chronology is published in this bundle."
+    }
+  },
+  "source_audit_summary": {
+    "reachable": 14,
+    "unreachable": 5,
+    "http_error": 1,
+    "reachable_restricted": 1
+  },
+  "files": {
+    "scenarios": "scenarios.json",
+    "published_references": "published-references.json",
+    "sources": "sources.json",
+    "observed_reference": "observed-reference.json",
+    "cea_resource_adequacy": "cea-resource-adequacy.json",
+    "circular_industry": "circular-industry.json",
+    "non_electric_energy": "non-electric-energy.json",
+    "ogd_targets": "ogd-targets.json",
+    "ecology_constraints": "ecology-constraints.json",
+    "kseb_projects": "kseb-projects.json",
+    "hazard_catalog": "hazard-catalog.json",
+    "era5_daily_manifest": "era5-daily-manifest.json",
+    "screening_nodes": "screening-nodes.json",
+    "daily_balance": "daily-balance.json",
+    "monthly_balance": "monthly-balance.json",
+    "import_duration": "import-duration.json",
+    "baseline_summary": "baseline-summary.json",
+    "source_audit": "source-audit.json"
+  },
+  "layer_provenance": {
+    "sldc_daily": {
+      "preserved": true,
+      "evidence_bundle_at_utc": "2026-09-18T09:03:50+00:00"
+    },
+    "kseb_project_inventory": {
+      "preserved": false,
+      "evidence_bundle_at_utc": "2026-09-18T09:55:11+00:00"
+    },
+    "hazard_layers": {
+      "preserved": false,
+      "evidence_bundle_at_utc": "2026-09-18T09:55:11+00:00"
+    },
+    "era5_reanalysis": {
+      "preserved": false,
+      "evidence_bundle_at_utc": "2026-09-18T09:55:11+00:00"
+    },
+    "grid_india_psp": {
+      "preserved": false,
+      "evidence_bundle_at_utc": "2026-09-18T09:55:11+00:00"
+    },
+    "source_audit": {
+      "preserved": true,
+      "evidence_bundle_at_utc": "2026-09-18T09:03:50+00:00"
+    }
+  }
+}

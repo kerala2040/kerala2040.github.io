@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "classification": "sourced_non_electric_energy_reference",
+  "source": {
+    "publisher": "Petroleum Planning and Analysis Cell",
+    "title": "Oil and Gas Snapshot of States, 2024-25",
+    "snapshot_date": "2024-09-30",
+    "url": "https://ppac.gov.in/download.php?file=rep_studies%2F1729769716_State_one_pager_Volume_2024-25_Edition_II_Apr_Sep.pdf",
+    "note": "Snapshot values are dated infrastructure/context indicators. They are not silently annualised or treated as a complete Kerala final-energy balance."
+  },
+  "kerala_infrastructure_2024_09_30": {
+    "refinery_count": 1,
+    "refinery_capacity_mmtpa": 15.5,
+    "lpg_distributors": 701,
+    "cng_png_geographical_areas": 7,
+    "cng_stations": 160,
+    "lng_terminal_count": 1,
+    "lng_terminal_capacity_mmtpa": 5,
+    "total_retail_outlets": 2859,
+    "ev_charging_stations_at_retail_outlets": 627,
+    "depots_terminals": 12,
+    "lpg_bottling_plants_psu": 7,
+    "aviation_fuel_stations": 17,
+    "major_product_pipeline_km": 181
+  },
+  "fiscal_snapshot_2024_25": {
+    "petroleum_sales_tax_vat_rs_crore": 2278,
+    "petroleum_sgst_utgst_rs_crore": 94,
+    "caveat": "Snapshot publication value; preserve PPAC's provisional/accounting basis."
+  },
+  "earlier_snapshot_2024_07_01": {
+    "source_url": "https://ppac.gov.in/download.php?file=rep_studies%2F1723691385_PPAC-Oil-and-Gas-Snapshot-14-aug-2024-v4_compressed.pdf",
+    "monthly_average_consumption": {
+      "pol_tmt": 562.7,
+      "petrol_tmt": 157.0,
+      "diesel_tmt": 197.8,
+      "lpg_tmt": 90.7,
+      "cng_mmscm": 5.34
+    },
+    "ethanol_blending_nov_2023_to_jun_2024": {
+      "volume_crore_litres": 19,
+      "average_blending_pct": 12.11
+    },
+    "rule": "These are monthly-average/snapshot values. Do not multiply by 12 or compare directly with FY totals without verifying the PPAC accounting period and coverage."
+  }
+}

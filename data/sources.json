@@ -1,0 +1,318 @@
+{
+  "version": 2,
+  "sources": {
+    "kerala_sldc": {
+      "priority": "P0",
+      "organisation": "Kerala State Load Despatch Centre",
+      "system_statistics_url": "https://sldckerala.com/index.php?id=1",
+      "storage_url": "https://sldckerala.com/index.php?id=7",
+      "acquisition": "public_html_form",
+      "minimum_delay_seconds": 0.8,
+      "timezone": "Asia/Kolkata",
+      "use": [
+        "load",
+        "generation",
+        "imports",
+        "interface_flows",
+        "hydro",
+        "forecasting"
+      ],
+      "note": "System-statistics and storage reports expose independent historical date forms. Their accounting labels are preserved rather than collapsed into one import metric."
+    },
+    "grid_india_daily_psp": {
+      "priority": "P0",
+      "organisation": "Grid-India",
+      "file_api": "https://webapi.grid-india.in/api/v1/file",
+      "cdn_root": "https://webcdn.grid-india.in/",
+      "acquisition": "public_json_api_plus_xls",
+      "file_type": "DAILY_PSP_REPORT",
+      "state": "Kerala",
+      "use": [
+        "daily_peak",
+        "energy_met",
+        "shortages",
+        "interstate_cross_check"
+      ],
+      "note": "MOP_E provides official per-state daily peak-demand and energy metrics. TimeSeries in these workbooks is national, not a Kerala hourly series."
+    },
+    "kerala_spb": {
+      "priority": "P0",
+      "organisation": "Kerala State Planning Board",
+      "home": "https://spb.kerala.gov.in/",
+      "economic_review_2025": "https://spb.kerala.gov.in/economic-review/ER2025/index.php",
+      "acquisition": "official_pdf_and_html",
+      "use": [
+        "annual_energy_baseline",
+        "capacity",
+        "network",
+        "losses",
+        "transport",
+        "economy"
+      ],
+      "note": "Economic Review 2025 provides the current official FY2024-25 Kerala baseline, including capacity, annual sales, imports/exports, peak demand and EV registrations."
+    },
+    "kseb_pms": {
+      "priority": "P0",
+      "organisation": "Kerala State Electricity Board Ltd",
+      "tracker": "https://pms.kseb.in/tracker",
+      "explorer": "https://pms.kseb.in/explore-projects",
+      "acquisition": "public_html",
+      "use": [
+        "generation_projects",
+        "project_pipeline"
+      ],
+      "note": "The project-management portal is reachable even when the main kseb.in site is not. Its tracker landing page carries an older data-as-of label, so project dates are treated as project records rather than a guaranteed current operational snapshot."
+    },
+    "cea": {
+      "priority": "P0",
+      "organisation": "Central Electricity Authority",
+      "home": "https://cea.nic.in/",
+      "acquisition": "official_pdf_xls_csv",
+      "use": [
+        "capacity",
+        "generation",
+        "demand",
+        "transmission",
+        "resource_adequacy",
+        "pumped_storage"
+      ],
+      "note": "CEA publications are used for national/state cross-checks and planning benchmarks, not to replace more granular Kerala SLDC observations."
+    },
+    "kserc": {
+      "priority": "P0",
+      "organisation": "Kerala State Electricity Regulatory Commission",
+      "home": "https://dev.erckerala.org/",
+      "acquisition": "official_orders_pdf",
+      "use": [
+        "tariff_orders",
+        "arr_erc",
+        "power_purchase_costs",
+        "approved_capex"
+      ],
+      "note": "Regulatory orders are the preferred source for approved cost and tariff assumptions."
+    },
+    "era5": {
+      "priority": "P0",
+      "organisation": "Copernicus Climate Data Store",
+      "endpoint": "https://cds.climate.copernicus.eu/api",
+      "acquisition": "authenticated_api",
+      "api_key_env": "CDSAPI_KEY",
+      "use": [
+        "historical_weather",
+        "solar",
+        "wind",
+        "climate_hydro_features"
+      ],
+      "note": "ERA5 is the main reanalysis source. Kerala 2040 stores derived model inputs and provenance rather than committing the full raw reanalysis archive."
+    },
+    "nasa_power": {
+      "priority": "P1",
+      "organisation": "NASA POWER",
+      "endpoint": "https://power.larc.nasa.gov/api/temporal/hourly/point",
+      "acquisition": "public_json_api",
+      "time_standard": "UTC",
+      "community": "RE",
+      "parameters": [
+        "T2M",
+        "RH2M",
+        "ALLSKY_SFC_SW_DWN",
+        "WS10M",
+        "PRECTOTCORR"
+      ],
+      "representative_points": {
+        "thiruvananthapuram": {
+          "lat": 8.5241,
+          "lon": 76.9366
+        },
+        "kochi": {
+          "lat": 9.9312,
+          "lon": 76.2673
+        },
+        "palakkad": {
+          "lat": 10.7867,
+          "lon": 76.6548
+        },
+        "kozhikode": {
+          "lat": 11.2588,
+          "lon": 75.7804
+        },
+        "kannur": {
+          "lat": 11.8745,
+          "lon": 75.3704
+        }
+      },
+      "use": [
+        "rapid_weather",
+        "solar_cross_check"
+      ],
+      "note": "Representative point data are weather inputs, not a claim that one point represents statewide resource potential. Spatial weighting comes later."
+    },
+    "data_gov_in": {
+      "priority": "P1",
+      "organisation": "Open Government Data Platform India",
+      "endpoint": "https://api.data.gov.in/resource",
+      "catalog": "https://www.data.gov.in/",
+      "acquisition": "authenticated_json_api_plus_download_fallback",
+      "api_key_env": "DATA_GOV_API_KEY",
+      "resource_ids": {},
+      "use": [
+        "renewables",
+        "transport",
+        "fuel",
+        "demographics",
+        "statistics"
+      ],
+      "note": "One account-level API key applies across API-enabled OGD resources. The API host has timed out from GitHub-hosted runners, so downloadable resources and primary-source alternatives are retained as fallbacks."
+    },
+    "niti_iced": {
+      "priority": "P1",
+      "organisation": "NITI Aayog India Climate and Energy Dashboard",
+      "home": "https://www.iced.niti.gov.in/",
+      "acquisition": "discovery_download",
+      "use": [
+        "discovery",
+        "cross_check",
+        "power",
+        "transport",
+        "buildings"
+      ],
+      "note": "No stable documented public API is assumed. ICED is used to discover and cross-check datasets; primary official sources remain preferred."
+    },
+    "india_wris": {
+      "priority": "P0",
+      "organisation": "India-WRIS",
+      "home": "https://indiawris.gov.in/",
+      "acquisition": "portal_download_or_api_if_documented",
+      "use": [
+        "reservoirs",
+        "storage",
+        "inflow",
+        "catchments"
+      ],
+      "note": "Used to extend hydro chronology beyond the Kerala SLDC storage reports when accessible."
+    },
+    "niwe": {
+      "priority": "P1",
+      "organisation": "National Institute of Wind Energy",
+      "home": "https://niwe.res.in/",
+      "open_data": "https://niwe.res.in/Open_data_Set/open_wind_dataset/",
+      "acquisition": "official_open_dataset",
+      "use": [
+        "wind_resource",
+        "measurement_stations",
+        "technical_potential"
+      ],
+      "note": "NIWE publishes the 150 m wind atlas dataset at 500 m resolution. The full file is large and download-gated by a user-information form, so Kerala 2040 does not silently mirror it."
+    },
+    "ksdma": {
+      "priority": "P0",
+      "organisation": "Kerala State Disaster Management Authority",
+      "hazard_maps": "https://sdma.kerala.gov.in/hazard-maps/",
+      "acquisition": "public_gis_downloads",
+      "use": [
+        "flood",
+        "landslide",
+        "coastal_hazard",
+        "ecological_siting_constraints"
+      ],
+      "note": "KSDMA publishes flood probability rasters and GSI landslide-susceptibility shapefiles suitable for explicit exclusion and stress-test layers."
+    },
+    "bhuvan": {
+      "priority": "P1",
+      "organisation": "NRSC/ISRO Bhuvan",
+      "home": "https://bhuvan.nrsc.gov.in/",
+      "acquisition": "portal_download",
+      "use": [
+        "lulc",
+        "dem",
+        "water",
+        "geomorphology",
+        "spatial_constraints"
+      ],
+      "note": "Large GIS layers are catalogued separately from the lightweight web bundle."
+    },
+    "kerala_forest": {
+      "priority": "P1",
+      "organisation": "Kerala Forest and Wildlife Department",
+      "home": "https://forest.kerala.gov.in/",
+      "acquisition": "official_gis_and_reports",
+      "use": [
+        "protected_areas",
+        "forest_constraints",
+        "biodiversity"
+      ],
+      "note": "Used as an ecological exclusion source alongside national protected-area datasets."
+    },
+    "kspcb": {
+      "priority": "P1",
+      "organisation": "Kerala State Pollution Control Board",
+      "home": "https://kspcb.kerala.gov.in/",
+      "acquisition": "official_reports",
+      "use": [
+        "hazardous_waste",
+        "recyclers",
+        "industrial_waste_inventory"
+      ],
+      "note": "Supports circular-industry mass-flow and disposal-baseline work."
+    },
+    "ppac": {
+      "priority": "P1",
+      "organisation": "Petroleum Planning and Analysis Cell",
+      "home": "https://ppac.gov.in/",
+      "acquisition": "official_tables_and_ogd",
+      "use": [
+        "petroleum_product_sales",
+        "whole_energy_balance"
+      ],
+      "note": "Used for non-electric energy context and transport-fuel trajectories."
+    },
+    "vahan": {
+      "priority": "P1",
+      "organisation": "Ministry of Road Transport and Highways / VAHAN",
+      "home": "https://analytics.parivahan.gov.in/",
+      "acquisition": "public_dashboard_plus_official_reports",
+      "use": [
+        "vehicle_fleet",
+        "fuel_type",
+        "ev_trajectory"
+      ],
+      "note": "Kerala Economic Review is used as the reproducible fallback for current EV counts."
+    },
+    "kmml": {
+      "priority": "P2",
+      "organisation": "Kerala Minerals and Metals Limited",
+      "home": "https://www.kmml.com/",
+      "acquisition": "annual_and_environment_reports",
+      "use": [
+        "material_flows",
+        "waste_recovery",
+        "circular_industry_case"
+      ],
+      "note": "Candidate primary circular-industry case; quantitative claims require a mass balance."
+    },
+    "ttpl": {
+      "priority": "P2",
+      "organisation": "Travancore Titanium Products Limited",
+      "home": "https://travancoretitanium.com/",
+      "acquisition": "annual_and_environment_reports",
+      "use": [
+        "process_residues",
+        "recovery_projects",
+        "circular_industry_case"
+      ],
+      "note": "Candidate titanium-process circularity cross-check."
+    },
+    "fact": {
+      "priority": "P2",
+      "organisation": "Fertilisers and Chemicals Travancore Limited",
+      "home": "https://fact.co.in/",
+      "acquisition": "annual_and_environment_reports",
+      "use": [
+        "co2",
+        "gypsum",
+        "industrial_symbiosis"
+      ],
+      "note": "Candidate industrial-symbiosis source for post-baseline expansion."
+    }
+  }
+}

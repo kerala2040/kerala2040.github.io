@@ -1,0 +1,31 @@
+{
+  "retrieved_at_utc": "2026-09-18T09:48:55+00:00",
+  "classification": "official_hazard_download_catalog",
+  "source_url": "https://sdma.kerala.gov.in/hazard-maps/",
+  "records": [
+    {
+      "label": "Flood Hazard Probability (based on Historic Data) Maps and Exposure of Schools and Hospitals in each district (PDFs)",
+      "url": "https://sdma.kerala.gov.in/wp-content/uploads/2022/06/Flood-Probability-Report-2022_Final.pdf"
+    },
+    {
+      "label": "Flood Return Probability (10, 25, 50 years)",
+      "url": "https://sdma.kerala.gov.in/wp-content/uploads/2026/06/1.-Flood-Return-Probability-Historical-10-25-50-years.zip"
+    },
+    {
+      "label": "Flood Return Probability (100, 200, 500 years)",
+      "url": "https://sdma.kerala.gov.in/wp-content/uploads/2026/06/2.Flood-Return-Probability-Historical-100-200-500-years.zip"
+    },
+    {
+      "label": "Flood Return Probability (10, 25, 50 years)",
+      "url": "https://sdma.kerala.gov.in/wp-content/uploads/2026/06/3.-Flood-Return-Probability-RCP8.5-10-25-50-years.zip"
+    },
+    {
+      "label": "Flood Return Probability (100, 200, 500 years)",
+      "url": "https://sdma.kerala.gov.in/wp-content/uploads/2026/06/4.Flood-Return-Probability-RCP8.5-100-200-500-years.zip"
+    },
+    {
+      "label": "Click here for the PDF Map",
+      "url": "https://sdma.kerala.gov.in/wp-content/uploads/2025/06/Landslide_Susceptibility_Zones_Districts_FINAL.pdf"
+    }
+  ]
+}

@@ -1,0 +1,126 @@
+{
+  "unit": "MU/month",
+  "evidence": "measured/derived",
+  "records": [
+    {
+      "month": "2024-04",
+      "consumption_mu": 3191.0263999999997,
+      "internal_generation_mu": 631.3706,
+      "net_import_interface_mu": 2559.656,
+      "hydel_total_mu": 569.6154,
+      "import_share": 0.8021419064411376,
+      "internal_share": 0.19785815623462094,
+      "hydro_share_consumption": 0.17850538622933362
+    },
+    {
+      "month": "2024-05",
+      "consumption_mu": 2846.4866,
+      "internal_generation_mu": 598.7184,
+      "net_import_interface_mu": 2247.7685,
+      "hydel_total_mu": 540.7981,
+      "import_share": 0.7896641775865026,
+      "internal_share": 0.2103359278065809,
+      "hydro_share_consumption": 0.1899879310866947
+    },
+    {
+      "month": "2024-06",
+      "consumption_mu": 2438.5085,
+      "internal_generation_mu": 803.3711,
+      "net_import_interface_mu": 1635.1383,
+      "hydel_total_mu": 730.105,
+      "import_share": 0.6705485340731845,
+      "internal_share": 0.32945183500488107,
+      "hydro_share_consumption": 0.2994063789402416
+    },
+    {
+      "month": "2024-07",
+      "consumption_mu": 2368.8013,
+      "internal_generation_mu": 972.2429,
+      "net_import_interface_mu": 1396.5589,
+      "hydel_total_mu": 887.5435,
+      "import_share": 0.5895635484495892,
+      "internal_share": 0.4104366626276336,
+      "hydro_share_consumption": 0.37468043436146375
+    },
+    {
+      "month": "2024-08",
+      "consumption_mu": 2410.6072,
+      "internal_generation_mu": 1022.2372,
+      "net_import_interface_mu": 1388.3698,
+      "hydel_total_mu": 940.303,
+      "import_share": 0.5759419452493131,
+      "internal_share": 0.4240579717840385,
+      "hydro_share_consumption": 0.39006894196615693
+    },
+    {
+      "month": "2024-09",
+      "consumption_mu": 2311.9008,
+      "internal_generation_mu": 829.2891,
+      "net_import_interface_mu": 1482.6118,
+      "hydel_total_mu": 741.5245,
+      "import_share": 0.6412955953819471,
+      "internal_share": 0.3587044478725039,
+      "hydro_share_consumption": 0.3207423519209821
+    },
+    {
+      "month": "2024-10",
+      "consumption_mu": 2491.1664,
+      "internal_generation_mu": 633.7373,
+      "net_import_interface_mu": 1857.429,
+      "hydel_total_mu": 565.3228,
+      "import_share": 0.7456061546109485,
+      "internal_share": 0.2543938052472127,
+      "hydro_share_consumption": 0.22693096695588058
+    },
+    {
+      "month": "2024-11",
+      "consumption_mu": 2364.1918,
+      "internal_generation_mu": 526.0411,
+      "net_import_interface_mu": 1838.1504,
+      "hydel_total_mu": 470.8472,
+      "import_share": 0.777496309732569,
+      "internal_share": 0.22250356337417296,
+      "hydro_share_consumption": 0.19915778406811155
+    },
+    {
+      "month": "2024-12",
+      "consumption_mu": 2478.2457,
+      "internal_generation_mu": 471.7173,
+      "net_import_interface_mu": 2006.5279,
+      "hydel_total_mu": 402.5535,
+      "import_share": 0.809656564722376,
+      "internal_share": 0.1903432335220031,
+      "hydro_share_consumption": 0.16243486269339638
+    },
+    {
+      "month": "2025-01",
+      "consumption_mu": 2609.2957,
+      "internal_generation_mu": 521.3078,
+      "net_import_interface_mu": 2087.9877,
+      "hydel_total_mu": 452.5967,
+      "import_share": 0.8002112217484588,
+      "internal_share": 0.19978870160250523,
+      "hydro_share_consumption": 0.1734555037207933
+    },
+    {
+      "month": "2025-02",
+      "consumption_mu": 2429.1181,
+      "internal_generation_mu": 504.8158,
+      "net_import_interface_mu": 1924.3023,
+      "hydel_total_mu": 447.2584,
+      "import_share": 0.7921814505437179,
+      "internal_share": 0.2078185494562821,
+      "hydro_share_consumption": 0.18412377726714893
+    },
+    {
+      "month": "2025-03",
+      "consumption_mu": 2726.9084,
+      "internal_generation_mu": 516.3907,
+      "net_import_interface_mu": 2210.5177,
+      "hydel_total_mu": 466.0029,
+      "import_share": 0.8106314462194624,
+      "internal_share": 0.1893685537805377,
+      "hydro_share_consumption": 0.17089055870010156
+    }
+  ]
+}
