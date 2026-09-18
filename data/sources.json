@@ -313,6 +313,21 @@
         "industrial_symbiosis"
       ],
       "note": "Candidate industrial-symbiosis source for post-baseline expansion."
+    },
+    "kseb_historical_export": {
+      "priority": "P0",
+      "organisation": "Kerala State Electricity Board Ltd",
+      "acquisition": "user_supplied_official_export",
+      "use": [
+        "installed_capacity_history",
+        "annual_generation_history",
+        "annual_energy_balance",
+        "peak_demand_history",
+        "td_loss_history",
+        "network_growth",
+        "consumer_growth"
+      ],
+      "note": "Official KSEB table/chart exports supplied by the project author on 2026-09-18. Values are stored as exported and used as historical evidence; the bundle does not contain Kerala's raw hourly or 15-minute state-load chronology."
     }
   }
 }
