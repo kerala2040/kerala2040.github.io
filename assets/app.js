@@ -13,6 +13,7 @@ const state = {
   daily: null,
   monthly: null,
   duration: null,
+  ksebHistory: null,
   currentOverviewMetric: 'demand',
   selectedScenario: null,
   selectedStress: new Set(),
@@ -45,10 +46,12 @@ async function loadPlatformData() {
   const dailyName = files.daily_balance || 'daily-balance.json';
   const monthlyName = files.monthly_balance || 'monthly-balance.json';
   const durationName = files.import_duration || 'import-duration.json';
-  [state.daily, state.monthly, state.duration] = await Promise.all([
+  const ksebHistoryName = files.kseb_history || 'kseb-history.json';
+  [state.daily, state.monthly, state.duration, state.ksebHistory] = await Promise.all([
     files.daily_balance ? fetchJSON(`${RAW}${dailyName}`, true) : null,
     files.monthly_balance ? fetchJSON(`${RAW}${monthlyName}`, true) : null,
-    files.import_duration ? fetchJSON(`${RAW}${durationName}`, true) : null
+    files.import_duration ? fetchJSON(`${RAW}${durationName}`, true) : null,
+    files.kseb_history ? fetchJSON(`${RAW}${ksebHistoryName}`) : null
   ]);
 }
 
@@ -183,6 +186,7 @@ function friendlyStatusName(key) {
     era5_reanalysis:'ERA5 reanalysis',
     grid_india_psp:'Grid-India cross-check',
     kseb_project_inventory:'KSEB project inventory',
+    kseb_historical_export:'KSEB historical export',
     hazard_layers:'KSDMA hazard layers',
     hourly_state_load:'Hourly state load'
   };
@@ -231,10 +235,21 @@ function renderElectricity() {
   qs('#electricityKpis').innerHTML = kpis.map(([l,v,m])=>`<div class="kpi-card"><small>${esc(l)}</small><strong>${esc(v)}</strong><span>${esc(m)}</span></div>`).join('');
 
   const select = qs('#electricityMetric');
+  const optionData = {
+    daily: state.daily?.records,
+    monthly: state.monthly?.records,
+    duration: state.duration?.records,
+    kseb_capacity: state.ksebHistory?.series?.installed_capacity,
+    kseb_energy: state.ksebHistory?.series?.annual_energy_balance,
+    kseb_loss: state.ksebHistory?.series?.td_loss,
+    kseb_network: state.ksebHistory?.series?.network
+  };
   for (const option of select.options) {
-    option.disabled = option.value !== 'reference' && !({daily:state.daily,monthly:state.monthly,duration:state.duration}[option.value]?.records?.length);
+    option.disabled = option.value !== 'reference' && !(optionData[option.value]?.length);
   }
-  if (!dailyReady && ['daily','monthly','duration'].includes(select.value)) select.value = 'reference';
+  if (select.options[select.selectedIndex]?.disabled) {
+    select.value = dailyReady ? 'daily' : 'reference';
+  }
   renderElectricityChart(select.value);
   renderCapacityChart();
   renderElectricityEvidence();
@@ -258,6 +273,41 @@ function renderElectricityChart(metric) {
     const d = state.duration.records;
     traces = [{type:'scatter',mode:'lines',x:d.map(r=>r.rank),y:d.map(r=>100*n(r.import_share)),line:{color:c.green,width:2},hovertemplate:'Rank %{x}<br>%{y:.1f}% imports<extra></extra>'}];
     chartLayout = layout({xTitle:'Days ranked from highest import share',yTitle:'Imports / consumption (%)'}); title = 'Import-dependence duration curve'; note = 'Derived from measured daily balance; this is not an hourly duration curve.';
+  } else if (metric === 'kseb_capacity' && state.ksebHistory?.series?.installed_capacity?.length) {
+    const d = state.ksebHistory.series.installed_capacity;
+    traces = [{type:'scatter',mode:'lines',x:d.map(r=>r.year),y:d.map(r=>r.mw),line:{color:c.green,width:2.2},hovertemplate:'%{x}<br>%{y:,.2f} MW<extra></extra>'}];
+    chartLayout = layout({xTitle:'Financial year',yTitle:'Installed capacity (MW)'});
+    title = 'KSEB installed-capacity history';
+    const latest=d[d.length-1];
+    const ref=observed()?.electricity?.installed_capacity_mw;
+    note = `Official KSEB export · ${latest.year}: ${fmt(latest.mw,2)} MW. Economic Review reference: ${fmt(ref,2)} MW; difference ${fmt(latest.mw-ref,2)} MW.`;
+  } else if (metric === 'kseb_energy' && state.ksebHistory?.series?.annual_energy_balance?.length) {
+    const d = state.ksebHistory.series.annual_energy_balance;
+    const defs = [
+      ['Generation excl. auxiliary','generation_excl_aux_mu',c.green],
+      ['Power purchased / import','power_purchased_import_mu',c.amber],
+      ['Sales incl. open access','sales_incl_open_access_mu',c.blue]
+    ];
+    traces = defs.map(([name,key,color])=>({type:'scatter',mode:'lines',name,x:d.map(r=>r.year),y:d.map(r=>r[key]),line:{color,width:2},hovertemplate:`${name}<br>%{x}<br>%{y:,.1f} MU<extra></extra>`}));
+    chartLayout = layout({xTitle:'Financial year',yTitle:'Annual energy (MU)'});
+    title = 'KSEB annual generation, purchases and sales';
+    note = 'The KSEB export label “Power Purchased_Import” is preserved; it is not silently redefined as net interstate imports.';
+  } else if (metric === 'kseb_loss' && state.ksebHistory?.series?.td_loss?.length) {
+    const d = state.ksebHistory.series.td_loss;
+    traces = [{type:'scatter',mode:'lines+markers',x:d.map(r=>r.year),y:d.map(r=>r.pct),line:{color:c.amber,width:2},marker:{size:5},hovertemplate:'%{x}<br>%{y:.2f}%<extra></extra>'}];
+    chartLayout = layout({xTitle:'Financial year',yTitle:'T&D loss (%)'});
+    title = 'KSEB transmission & distribution loss history';
+    note = `Official KSEB export · ${d[0].year}: ${fmt(d[0].pct,2)}% → ${d[d.length-1].year}: ${fmt(d[d.length-1].pct,2)}%.`;
+  } else if (metric === 'kseb_network' && state.ksebHistory?.series?.network?.length) {
+    const d = state.ksebHistory.series.network;
+    traces = [
+      {type:'scatter',mode:'lines',name:'11 kV lines',x:d.map(r=>r.year),y:d.map(r=>r.line_11kv_km),line:{color:c.green,width:2},hovertemplate:'11 kV<br>%{x}<br>%{y:,.0f} km<extra></extra>'},
+      {type:'scatter',mode:'lines',name:'LT lines',x:d.map(r=>r.year),y:d.map(r=>r.lt_line_km),line:{color:c.blue,width:2},hovertemplate:'LT<br>%{x}<br>%{y:,.0f} km<extra></extra>'}
+    ];
+    chartLayout = layout({xTitle:'Financial year',yTitle:'Line length (km)'});
+    title = 'KSEB distribution-network growth';
+    const latest=d[d.length-1];
+    note = `${latest.year}: ${fmt(latest.line_11kv_km,0)} km of 11 kV lines, ${fmt(latest.lt_line_km,0)} km of LT lines and ${fmt(latest.distribution_transformers,0)} distribution transformers.`;
   } else {
     const labels = ['CSTEP 2040', 'CN50 BAU 2040', 'CN50 pathway 2040'];
     const values = [cstep.fy2040.final_demand_with_td_losses_mu/1000, cn50.net_grid_demand_twh.bau_2040, cn50.net_grid_demand_twh.cn50_2040];
@@ -290,6 +340,7 @@ function renderElectricityEvidence() {
     ['NASA POWER weather', st.weather, 'Hourly representative-point weather'],
     ['ERA5 reanalysis', st.era5_reanalysis, 'Independent hourly climate/reanalysis input'],
     ['Grid-India cross-check', st.grid_india_psp, 'Independent official daily cross-check'],
+    ['KSEB historical export', st.kseb_historical_export, 'Annual capacity, generation, purchases, losses, network and consumer history'],
     ['Hourly Kerala load', st.hourly_state_load || {available:false,evidence:'gap'}, 'Needed for chronological capacity-expansion validation']
   ];
   qs('#electricityEvidence').innerHTML = rows.map(([label,s,desc]) => {
@@ -448,6 +499,18 @@ function sourceEntries() {
   ];
 }
 
+function sourceStatusKey(id) {
+  return ({
+    kerala_sldc:'sldc_daily',
+    grid_india_daily_psp:'grid_india_psp',
+    kseb_pms:'kseb_project_inventory',
+    kseb_historical_export:'kseb_historical_export',
+    era5:'era5_reanalysis',
+    nasa_power:'weather',
+    ksdma:'hazard_layers'
+  })[id] || null;
+}
+
 function renderDataCentre() {
   const st=statusMap(); const src=sourceEntries(); const files=state.data?.metadata?.files||{};
   const ready=Object.values(st).filter(v=>v.available).length;
@@ -460,8 +523,11 @@ function renderDataCentre() {
     const url=s.system_statistics_url||s.tracker||s.hazard_maps||s.open_data||s.economic_review_2025||s.catalog||s.endpoint||s.home||s.file_api||'#';
     const label=id.replaceAll('_',' ');
     const probe=audit[id];
-    const probeText=probe?.status ? probe.status.replaceAll('_',' ') : 'not probed in this bundle';
-    return `<article class="source-card" data-search="${esc((label+' '+(s.note||'')+' '+(s.acquisition||'')+' '+probeText).toLowerCase())}"><span class="eyebrow">${esc(s.acquisition||'source')}</span><h3><strong>${esc(label)}</strong></h3><p>${esc(s.note||'Registered research source.')}</p><small>Connectivity: ${esc(probeText)} · connectivity is not data validation</small>${url!=='#'?`<a href="${esc(url)}" target="_blank" rel="noopener">Open source ↗</a>`:''}</article>`;
+    const probeText=probe?.status ? probe.status.replaceAll('_',' ') : 'not probed';
+    const statusKey=sourceStatusKey(id);
+    const dataStatus=statusKey ? st[statusKey] : null;
+    const dataText=dataStatus ? (dataStatus.partial ? 'partial' : dataStatus.available ? 'connected' : dataStatus.evidence==='gap' ? 'gap' : 'pending') : 'registered reference';
+    return `<article class="source-card" data-search="${esc((label+' '+(s.note||'')+' '+(s.acquisition||'')+' '+probeText+' '+dataText).toLowerCase())}"><span class="eyebrow">${esc(s.acquisition||'source')}</span><h3><strong>${esc(label)}</strong></h3><p>${esc(s.note||'Registered research source.')}</p><small>Data: ${esc(dataText)} · Endpoint probe: ${esc(probeText)}</small>${url!=='#'?`<a href="${esc(url)}" target="_blank" rel="noopener">Open source ↗</a>`:''}</article>`;
   }).join('');
 
   const downloads=[
