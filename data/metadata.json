@@ -1,6 +1,6 @@
 {
   "project": "Kerala 2040 \u2014 Open Energy Intelligence",
-  "generated_at_utc": "2026-09-18T09:55:11+00:00",
+  "generated_at_utc": "2026-09-18T14:50:28+00:00",
   "research_repo": "https://github.com/abhijith-sivaprasadan/kerala2040",
   "web_repo": "https://github.com/kerala2040/kerala2040.github.io",
   "git_sha": null,
@@ -76,6 +76,7 @@
     "non_electric_energy": "non-electric-energy.json",
     "ogd_targets": "ogd-targets.json",
     "ecology_constraints": "ecology-constraints.json",
+    "research_scope": "research-scope.json",
     "kseb_projects": "kseb-projects.json",
     "hazard_catalog": "hazard-catalog.json",
     "era5_daily_manifest": "era5-daily-manifest.json",
@@ -93,19 +94,19 @@
     },
     "kseb_project_inventory": {
       "preserved": false,
-      "evidence_bundle_at_utc": "2026-09-18T09:55:11+00:00"
+      "evidence_bundle_at_utc": "2026-09-18T14:50:28+00:00"
     },
     "hazard_layers": {
       "preserved": false,
-      "evidence_bundle_at_utc": "2026-09-18T09:55:11+00:00"
+      "evidence_bundle_at_utc": "2026-09-18T14:50:28+00:00"
     },
     "era5_reanalysis": {
       "preserved": false,
-      "evidence_bundle_at_utc": "2026-09-18T09:55:11+00:00"
+      "evidence_bundle_at_utc": "2026-09-18T14:50:28+00:00"
     },
     "grid_india_psp": {
       "preserved": false,
-      "evidence_bundle_at_utc": "2026-09-18T09:55:11+00:00"
+      "evidence_bundle_at_utc": "2026-09-18T14:50:28+00:00"
     },
     "source_audit": {
       "preserved": true,

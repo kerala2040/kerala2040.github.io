@@ -1,7 +1,7 @@
 {
   "metadata": {
     "project": "Kerala 2040 \u2014 Open Energy Intelligence",
-    "generated_at_utc": "2026-09-18T09:55:11+00:00",
+    "generated_at_utc": "2026-09-18T14:50:28+00:00",
     "research_repo": "https://github.com/abhijith-sivaprasadan/kerala2040",
     "web_repo": "https://github.com/kerala2040/kerala2040.github.io",
     "git_sha": null,
@@ -77,6 +77,7 @@
       "non_electric_energy": "non-electric-energy.json",
       "ogd_targets": "ogd-targets.json",
       "ecology_constraints": "ecology-constraints.json",
+      "research_scope": "research-scope.json",
       "kseb_projects": "kseb-projects.json",
       "hazard_catalog": "hazard-catalog.json",
       "era5_daily_manifest": "era5-daily-manifest.json",
@@ -94,25 +95,50 @@
       },
       "kseb_project_inventory": {
         "preserved": false,
-        "evidence_bundle_at_utc": "2026-09-18T09:55:11+00:00"
+        "evidence_bundle_at_utc": "2026-09-18T14:50:28+00:00"
       },
       "hazard_layers": {
         "preserved": false,
-        "evidence_bundle_at_utc": "2026-09-18T09:55:11+00:00"
+        "evidence_bundle_at_utc": "2026-09-18T14:50:28+00:00"
       },
       "era5_reanalysis": {
         "preserved": false,
-        "evidence_bundle_at_utc": "2026-09-18T09:55:11+00:00"
+        "evidence_bundle_at_utc": "2026-09-18T14:50:28+00:00"
       },
       "grid_india_psp": {
         "preserved": false,
-        "evidence_bundle_at_utc": "2026-09-18T09:55:11+00:00"
+        "evidence_bundle_at_utc": "2026-09-18T14:50:28+00:00"
       },
       "source_audit": {
         "preserved": true,
         "evidence_bundle_at_utc": "2026-09-18T09:03:50+00:00"
       }
     }
+  },
+  "scope": {
+    "version": 1,
+    "geography": "Kerala, India",
+    "scope": "statewide",
+    "districts": [
+      "Thiruvananthapuram",
+      "Kollam",
+      "Pathanamthitta",
+      "Alappuzha",
+      "Kottayam",
+      "Idukki",
+      "Ernakulam",
+      "Thrissur",
+      "Palakkad",
+      "Malappuram",
+      "Kozhikode",
+      "Wayanad",
+      "Kannur",
+      "Kasaragod"
+    ],
+    "initial_model": "A single aggregate electrical bus represents the whole Kerala system, not Kochi or any other city.",
+    "next_model": "A reduced zonal network across Kerala, once transmission and regional demand data are validated.",
+    "atlas_status": "Illustrative research locations only; not a complete transmission or district asset inventory.",
+    "coverage_rule": "Statewide scope does not imply that district demand, all grid assets, or GIS constraints are already measured or connected."
   },
   "observed": {
     "version": 1,
@@ -307,6 +333,8 @@
   },
   "circular_industry": {
     "version": 1,
+    "primary_case": "kmml",
+    "selection_status": "user_confirmed_2026_09_18",
     "classification": "sourced_industrial_circularity_reference",
     "principle": "A by-product or recovery claim enters the Kerala 2040 model only when its process origin, quantity/capacity or composition, recovery route, and source are explicit enough to support a mass/value balance. Planned projects are kept separate from commissioned facilities.",
     "cases": {
@@ -2182,8 +2210,8 @@
       "name": "Kochi industrial-demand hub",
       "lat": 9.9312,
       "lon": 76.2673,
-      "kind": "grid",
-      "note": "Demand, industry, port and flexibility screening node."
+      "kind": "demand",
+      "note": "Illustrative demand, industry and port research location. Not a grid boundary or the extent of the Kerala model."
     },
     {
       "name": "Idukki hydro-storage system",
@@ -2200,11 +2228,11 @@
       "note": "Wind-resource screening area; ecology and grid constraints required."
     },
     {
-      "name": "Chavara circular-industry cluster",
+      "name": "KMML / Chavara case-study area",
       "lat": 9.0,
       "lon": 76.53,
       "kind": "circular",
-      "note": "Mineral-sands, TiO2 and by-product recovery research cluster."
+      "note": "Selected first circular-industry case: KMML. Approximate area marker, not a surveyed facility location; mass-flow and recovery economics still require evidence."
     },
     {
       "name": "Vizhinjam coastal-energy node",

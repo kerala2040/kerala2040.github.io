@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "geography": "Kerala, India",
+  "scope": "statewide",
+  "districts": [
+    "Thiruvananthapuram",
+    "Kollam",
+    "Pathanamthitta",
+    "Alappuzha",
+    "Kottayam",
+    "Idukki",
+    "Ernakulam",
+    "Thrissur",
+    "Palakkad",
+    "Malappuram",
+    "Kozhikode",
+    "Wayanad",
+    "Kannur",
+    "Kasaragod"
+  ],
+  "initial_model": "A single aggregate electrical bus represents the whole Kerala system, not Kochi or any other city.",
+  "next_model": "A reduced zonal network across Kerala, once transmission and regional demand data are validated.",
+  "atlas_status": "Illustrative research locations only; not a complete transmission or district asset inventory.",
+  "coverage_rule": "Statewide scope does not imply that district demand, all grid assets, or GIS constraints are already measured or connected."
+}

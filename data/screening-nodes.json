@@ -5,8 +5,8 @@
       "name": "Kochi industrial-demand hub",
       "lat": 9.9312,
       "lon": 76.2673,
-      "kind": "grid",
-      "note": "Demand, industry, port and flexibility screening node."
+      "kind": "demand",
+      "note": "Illustrative demand, industry and port research location. Not a grid boundary or the extent of the Kerala model."
     },
     {
       "name": "Idukki hydro-storage system",
@@ -23,11 +23,11 @@
       "note": "Wind-resource screening area; ecology and grid constraints required."
     },
     {
-      "name": "Chavara circular-industry cluster",
+      "name": "KMML / Chavara case-study area",
       "lat": 9.0,
       "lon": 76.53,
       "kind": "circular",
-      "note": "Mineral-sands, TiO2 and by-product recovery research cluster."
+      "note": "Selected first circular-industry case: KMML. Approximate area marker, not a surveyed facility location; mass-flow and recovery economics still require evidence."
     },
     {
       "name": "Vizhinjam coastal-energy node",
