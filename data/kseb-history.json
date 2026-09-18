@@ -1,0 +1,1472 @@
+{
+  "version": 1,
+  "classification": "official_kseb_export_user_supplied",
+  "received_date": "2026-09-18",
+  "source_description": "User-supplied KSEB export bundle. Values are preserved from the exported CSV tables; duplicate chart exports are omitted from this normalized web dataset.",
+  "validation": {
+    "installed_capacity_2024_25_mw": 4412.09,
+    "economic_review_reference_mw": 4412.14,
+    "difference_mw": -0.05
+  },
+  "caveats": [
+    "No raw hourly or 15-minute Kerala demand chronology is present in this export.",
+    "Annual series end in different years; coverage is preserved rather than extrapolated.",
+    "The Power Purchased_Import label is retained from the KSEB export and is not silently redefined as net interstate imports."
+  ],
+  "source_files": {
+    "installed_capacity": "Kerala State Electricity Board Limited-KSEB.csv",
+    "annual_generation": "Kerala State Electricity Board Limited-KSEB (5).csv",
+    "renewable_capacity_snapshot": "Kerala State Electricity Board Limited-KSEB (6).csv",
+    "network": "chart (8).csv",
+    "connected_load": "chart (5).csv",
+    "total_consumers": "chart (7).csv",
+    "td_loss": "chart (13).csv",
+    "per_capita_consumption": "chart (9).csv",
+    "substation_counts": "chart (4).csv",
+    "annual_energy_balance": "Kerala State Electricity Board Limited-KSEB (8).csv"
+  },
+  "series": {
+    "installed_capacity": [
+      {
+        "year": "1939-40",
+        "mw": 9
+      },
+      {
+        "year": "1940-41",
+        "mw": 9
+      },
+      {
+        "year": "1941-42",
+        "mw": 13.5
+      },
+      {
+        "year": "1942-43",
+        "mw": 13.5
+      },
+      {
+        "year": "1943-44",
+        "mw": 13.5
+      },
+      {
+        "year": "1944-45",
+        "mw": 13.5
+      },
+      {
+        "year": "1945-46",
+        "mw": 13.5
+      },
+      {
+        "year": "1946-47",
+        "mw": 13.5
+      },
+      {
+        "year": "1947-48",
+        "mw": 13.5
+      },
+      {
+        "year": "1948-49",
+        "mw": 21
+      },
+      {
+        "year": "1949-50",
+        "mw": 28.5
+      },
+      {
+        "year": "1950-51",
+        "mw": 36
+      },
+      {
+        "year": "1951-52",
+        "mw": 36
+      },
+      {
+        "year": "1952-53",
+        "mw": 36
+      },
+      {
+        "year": "1953-54",
+        "mw": 36
+      },
+      {
+        "year": "1954-55",
+        "mw": 84
+      },
+      {
+        "year": "1955-56",
+        "mw": 85.5
+      },
+      {
+        "year": "1956-57",
+        "mw": 96.5
+      },
+      {
+        "year": "1957-58",
+        "mw": 101.5
+      },
+      {
+        "year": "1958-59",
+        "mw": 101.5
+      },
+      {
+        "year": "1959-60",
+        "mw": 117.5
+      },
+      {
+        "year": "1960-61",
+        "mw": 162.5
+      },
+      {
+        "year": "1961-62",
+        "mw": 147.5
+      },
+      {
+        "year": "1962-63",
+        "mw": 147.5
+      },
+      {
+        "year": "1963-64",
+        "mw": 177.5
+      },
+      {
+        "year": "1964-65",
+        "mw": 192.5
+      },
+      {
+        "year": "1965-66",
+        "mw": 192.5
+      },
+      {
+        "year": "1966-67",
+        "mw": 378.5
+      },
+      {
+        "year": "1967-68",
+        "mw": 528.5
+      },
+      {
+        "year": "1968-69",
+        "mw": 528.5
+      },
+      {
+        "year": "1969-70",
+        "mw": 546.5
+      },
+      {
+        "year": "1970-71",
+        "mw": 546.5
+      },
+      {
+        "year": "1971-72",
+        "mw": 546.5
+      },
+      {
+        "year": "1972-73",
+        "mw": 621.5
+      },
+      {
+        "year": "1973-74",
+        "mw": 621.5
+      },
+      {
+        "year": "1974-75",
+        "mw": 621.5
+      },
+      {
+        "year": "1975-76",
+        "mw": 751.5
+      },
+      {
+        "year": "1976-77",
+        "mw": 1011.5
+      },
+      {
+        "year": "1977-78",
+        "mw": 1011.5
+      },
+      {
+        "year": "1978-79",
+        "mw": 1011.5
+      },
+      {
+        "year": "1979-80",
+        "mw": 1011.5
+      },
+      {
+        "year": "1980-81",
+        "mw": 1011.5
+      },
+      {
+        "year": "1981-82",
+        "mw": 1011.5
+      },
+      {
+        "year": "1982-83",
+        "mw": 1011.5
+      },
+      {
+        "year": "1983-84",
+        "mw": 1011.5
+      },
+      {
+        "year": "1984-85",
+        "mw": 1011.5
+      },
+      {
+        "year": "1985-86",
+        "mw": 1271.5
+      },
+      {
+        "year": "1986-87",
+        "mw": 1476.5
+      },
+      {
+        "year": "1987-88",
+        "mw": 1476.5
+      },
+      {
+        "year": "1988-89",
+        "mw": 1476.5
+      },
+      {
+        "year": "1989-90",
+        "mw": 1476.5
+      },
+      {
+        "year": "1990-91",
+        "mw": 1476.5
+      },
+      {
+        "year": "1991-92",
+        "mw": 1476.5
+      },
+      {
+        "year": "1992-93",
+        "mw": 1476.5
+      },
+      {
+        "year": "1993-94",
+        "mw": 1484
+      },
+      {
+        "year": "1994-95",
+        "mw": 1503.53
+      },
+      {
+        "year": "1995-96",
+        "mw": 1505.53
+      },
+      {
+        "year": "1996-97",
+        "mw": 1508.53
+      },
+      {
+        "year": "1997-98",
+        "mw": 1775.81
+      },
+      {
+        "year": "1998-99",
+        "mw": 2046.33
+      },
+      {
+        "year": "1999-00",
+        "mw": 2350.71
+      },
+      {
+        "year": "2000-01",
+        "mw": 2422.61
+      },
+      {
+        "year": "2001-02",
+        "mw": 2605.91
+      },
+      {
+        "year": "2002-03",
+        "mw": 2608.71
+      },
+      {
+        "year": "2003-04",
+        "mw": 2621.31
+      },
+      {
+        "year": "2004-05",
+        "mw": 2623.86
+      },
+      {
+        "year": "2005-06",
+        "mw": 2650.41
+      },
+      {
+        "year": "2006-07",
+        "mw": 2662.96
+      },
+      {
+        "year": "2007-08",
+        "mw": 2676.66
+      },
+      {
+        "year": "2008-09",
+        "mw": 2744.76
+      },
+      {
+        "year": "2009-10",
+        "mw": 2752.96
+      },
+      {
+        "year": "2010-11",
+        "mw": 2869.56
+      },
+      {
+        "year": "2011-12",
+        "mw": 2878.36
+      },
+      {
+        "year": "2012-13",
+        "mw": 2881.22
+      },
+      {
+        "year": "2013-14",
+        "mw": 2891.72
+      },
+      {
+        "year": "2014-15",
+        "mw": 2835.63
+      },
+      {
+        "year": "2015-16",
+        "mw": 2880.18
+      },
+      {
+        "year": "2016-17",
+        "mw": 2915.8
+      },
+      {
+        "year": "2017-18",
+        "mw": 2975.56
+      },
+      {
+        "year": "2018-19",
+        "mw": 2866.19
+      },
+      {
+        "year": "2019-20",
+        "mw": 2916.15
+      },
+      {
+        "year": "2020-21",
+        "mw": 3029.61
+      },
+      {
+        "year": "2021-22",
+        "mw": 3145.98
+      },
+      {
+        "year": "2022-23",
+        "mw": 3514.81
+      },
+      {
+        "year": "2023-24",
+        "mw": 3818.82
+      },
+      {
+        "year": "2024-25",
+        "mw": 4412.09
+      }
+    ],
+    "annual_generation": [
+      {
+        "year": "1957-58",
+        "mu": 441.35
+      },
+      {
+        "year": "1958-59",
+        "mu": 504.583
+      },
+      {
+        "year": "1959-60",
+        "mu": 487.991
+      },
+      {
+        "year": "1960-61",
+        "mu": 581.818
+      },
+      {
+        "year": "1961-62",
+        "mu": 648.681
+      },
+      {
+        "year": "1962-63",
+        "mu": 715.545
+      },
+      {
+        "year": "1963-64",
+        "mu": 762.879
+      },
+      {
+        "year": "1964-65",
+        "mu": 795.108
+      },
+      {
+        "year": "1965-66",
+        "mu": 841.9
+      },
+      {
+        "year": "1966-67",
+        "mu": 1083.11
+      },
+      {
+        "year": "1967-68",
+        "mu": 1353.08
+      },
+      {
+        "year": "1968-69",
+        "mu": 1623.05
+      },
+      {
+        "year": "1969-70",
+        "mu": 2005.6
+      },
+      {
+        "year": "1970-71",
+        "mu": 2125.9
+      },
+      {
+        "year": "1971-72",
+        "mu": 2292.55
+      },
+      {
+        "year": "1972-73",
+        "mu": 2351.27
+      },
+      {
+        "year": "1973-74",
+        "mu": 2510.5
+      },
+      {
+        "year": "1974-75",
+        "mu": 2659.16
+      },
+      {
+        "year": "1975-76",
+        "mu": 2784.43
+      },
+      {
+        "year": "1976-77",
+        "mu": 3164.9
+      },
+      {
+        "year": "1977-78",
+        "mu": 4470.6
+      },
+      {
+        "year": "1978-79",
+        "mu": 5190.2
+      },
+      {
+        "year": "1979-80",
+        "mu": 5118.6
+      },
+      {
+        "year": "1980-81",
+        "mu": 5241.6
+      },
+      {
+        "year": "1981-82",
+        "mu": 5539.2
+      },
+      {
+        "year": "1982-83",
+        "mu": 4487.72
+      },
+      {
+        "year": "1983-84",
+        "mu": 3643.4
+      },
+      {
+        "year": "1984-85",
+        "mu": 4884.93
+      },
+      {
+        "year": "1985-86",
+        "mu": 5357.14
+      },
+      {
+        "year": "1986-87",
+        "mu": 4641.6
+      },
+      {
+        "year": "1987-88",
+        "mu": 4093.09
+      },
+      {
+        "year": "1988-89",
+        "mu": 4547.99
+      },
+      {
+        "year": "1989-90",
+        "mu": 5075.15
+      },
+      {
+        "year": "1990-91",
+        "mu": 5490.75
+      },
+      {
+        "year": "1991-92",
+        "mu": 5325.79
+      },
+      {
+        "year": "1992-93",
+        "mu": 6192.73
+      },
+      {
+        "year": "1993-94",
+        "mu": 5822.26
+      },
+      {
+        "year": "1994-95",
+        "mu": 6572.34
+      },
+      {
+        "year": "1995-96",
+        "mu": 6661.96
+      },
+      {
+        "year": "1996-97",
+        "mu": 5474.84
+      },
+      {
+        "year": "1997-98",
+        "mu": 5158.48
+      },
+      {
+        "year": "1998-99",
+        "mu": 7569.05
+      },
+      {
+        "year": "1999-00",
+        "mu": 7605.04
+      },
+      {
+        "year": "2000-01",
+        "mu": 6921
+      },
+      {
+        "year": "2001-02",
+        "mu": 7085.73
+      },
+      {
+        "year": "2002-03",
+        "mu": 5420.34
+      },
+      {
+        "year": "2003-04",
+        "mu": 4439.96
+      },
+      {
+        "year": "2004-05",
+        "mu": 6328.98
+      },
+      {
+        "year": "2005-06",
+        "mu": 7554.08
+      },
+      {
+        "year": "2006-07",
+        "mu": 7695.11
+      },
+      {
+        "year": "2007-08",
+        "mu": 8647.69
+      },
+      {
+        "year": "2008-09",
+        "mu": 6440.44
+      },
+      {
+        "year": "2009-10",
+        "mu": 7189.51
+      },
+      {
+        "year": "2010-11",
+        "mu": 7359.97
+      },
+      {
+        "year": "2011-12",
+        "mu": 8289.91
+      },
+      {
+        "year": "2012-13",
+        "mu": 5334.27
+      },
+      {
+        "year": "2013-14",
+        "mu": 8163.03
+      },
+      {
+        "year": "2014-15",
+        "mu": 7286.9
+      },
+      {
+        "year": "2015-16",
+        "mu": 6739.25
+      },
+      {
+        "year": "2016-17",
+        "mu": 4325.08
+      },
+      {
+        "year": "2017-18",
+        "mu": 5460.34
+      },
+      {
+        "year": "2018-19",
+        "mu": 7577.02
+      },
+      {
+        "year": "2019-20",
+        "mu": 5722.81
+      },
+      {
+        "year": "2020-21",
+        "mu": 7057.9
+      },
+      {
+        "year": "2021-22",
+        "mu": 9742.28
+      },
+      {
+        "year": "2022-23",
+        "mu": 8537.6
+      },
+      {
+        "year": "2023-24",
+        "mu": 5625.55
+      }
+    ],
+    "renewable_capacity_snapshot": [
+      {
+        "technology": "Small Hydro (CPP+IPP)",
+        "mw": 70.55
+      },
+      {
+        "technology": "Small Hydro (KSEB)",
+        "mw": 183.061
+      },
+      {
+        "technology": "Solar (CPP+IPP)",
+        "mw": 978.19
+      },
+      {
+        "technology": "Solar (KSEB)",
+        "mw": 49.24
+      },
+      {
+        "technology": "Wind (CPP+IPP)",
+        "mw": 68.25
+      },
+      {
+        "technology": "Wind (KSEB)",
+        "mw": 2.025
+      }
+    ],
+    "annual_energy_balance": [
+      {
+        "year": "2000-01",
+        "generation_excl_aux_mu": 6921,
+        "power_purchased_import_mu": 5543,
+        "energy_available_for_sale_mu": 12464,
+        "sales_incl_open_access_mu": 10319,
+        "loss_pct": 17.21,
+        "max_demand_mw": 2316
+      },
+      {
+        "year": "2001-02",
+        "generation_excl_aux_mu": 7085.73,
+        "power_purchased_import_mu": 5699.54,
+        "energy_available_for_sale_mu": 12518.31,
+        "sales_incl_open_access_mu": 8667.31,
+        "loss_pct": 30.76,
+        "max_demand_mw": 2333
+      },
+      {
+        "year": "2002-03",
+        "generation_excl_aux_mu": 5420.34,
+        "power_purchased_import_mu": 7330.8,
+        "energy_available_for_sale_mu": 12391.13,
+        "sales_incl_open_access_mu": 8873.3,
+        "loss_pct": 28.39,
+        "max_demand_mw": 2347
+      },
+      {
+        "year": "2003-04",
+        "generation_excl_aux_mu": 4439.96,
+        "power_purchased_import_mu": 8015.41,
+        "energy_available_for_sale_mu": 12280.87,
+        "sales_incl_open_access_mu": 8910.84,
+        "loss_pct": 27.44,
+        "max_demand_mw": 2426
+      },
+      {
+        "year": "2004-05",
+        "generation_excl_aux_mu": 6328.98,
+        "power_purchased_import_mu": 6390.79,
+        "energy_available_for_sale_mu": 12504.84,
+        "sales_incl_open_access_mu": 9384.4,
+        "loss_pct": 24.95,
+        "max_demand_mw": 2420
+      },
+      {
+        "year": "2005-06",
+        "generation_excl_aux_mu": 7554.08,
+        "power_purchased_import_mu": 6700.5,
+        "energy_available_for_sale_mu": 13331.03,
+        "sales_incl_open_access_mu": 10269.8,
+        "loss_pct": 22.96,
+        "max_demand_mw": 2578
+      },
+      {
+        "year": "2006-07",
+        "generation_excl_aux_mu": 7695.11,
+        "power_purchased_import_mu": 8149.84,
+        "energy_available_for_sale_mu": 14427.96,
+        "sales_incl_open_access_mu": 11331,
+        "loss_pct": 21.46,
+        "max_demand_mw": 2742
+      },
+      {
+        "year": "2007-08",
+        "generation_excl_aux_mu": 8647.69,
+        "power_purchased_import_mu": 8074.52,
+        "energy_available_for_sale_mu": 15065.05,
+        "sales_incl_open_access_mu": 12049.85,
+        "loss_pct": 20.01,
+        "max_demand_mw": 2745
+      },
+      {
+        "year": "2008-09",
+        "generation_excl_aux_mu": 6440.44,
+        "power_purchased_import_mu": 9628.87,
+        "energy_available_for_sale_mu": 15293.41,
+        "sales_incl_open_access_mu": 12414.32,
+        "loss_pct": 18.83,
+        "max_demand_mw": 2765
+      },
+      {
+        "year": "2009-10",
+        "generation_excl_aux_mu": 7189.51,
+        "power_purchased_import_mu": 10204.21,
+        "energy_available_for_sale_mu": 16982.29,
+        "sales_incl_open_access_mu": 13971.09,
+        "loss_pct": 17.73,
+        "max_demand_mw": 2998
+      },
+      {
+        "year": "2010-11",
+        "generation_excl_aux_mu": 7359.97,
+        "power_purchased_import_mu": 10512.27,
+        "energy_available_for_sale_mu": 17340.27,
+        "sales_incl_open_access_mu": 14547.9,
+        "loss_pct": 16.1,
+        "max_demand_mw": 3119
+      },
+      {
+        "year": "2011-12",
+        "generation_excl_aux_mu": 8289.91,
+        "power_purchased_import_mu": 11263.21,
+        "energy_available_for_sale_mu": 18938.81,
+        "sales_incl_open_access_mu": 15980.53,
+        "loss_pct": 15.62,
+        "max_demand_mw": 3348
+      },
+      {
+        "year": "2012-13",
+        "generation_excl_aux_mu": 5334.27,
+        "power_purchased_import_mu": 14908.82,
+        "energy_available_for_sale_mu": 19877.21,
+        "sales_incl_open_access_mu": 16838.34,
+        "loss_pct": 15.29,
+        "max_demand_mw": 3268
+      },
+      {
+        "year": "2013-14",
+        "generation_excl_aux_mu": 8163.03,
+        "power_purchased_import_mu": 14070.42,
+        "energy_available_for_sale_mu": 20542.49,
+        "sales_incl_open_access_mu": 17470.86,
+        "loss_pct": 14.95,
+        "max_demand_mw": 3588
+      },
+      {
+        "year": "2014-15",
+        "generation_excl_aux_mu": 7286.9,
+        "power_purchased_import_mu": 15031.71,
+        "energy_available_for_sale_mu": 21573.16,
+        "sales_incl_open_access_mu": 18430.73,
+        "loss_pct": 14.57,
+        "max_demand_mw": 3602
+      },
+      {
+        "year": "2015-16",
+        "generation_excl_aux_mu": 6739.25,
+        "power_purchased_import_mu": 16448.36,
+        "energy_available_for_sale_mu": 22727.34,
+        "sales_incl_open_access_mu": 19460.32,
+        "loss_pct": 14.37,
+        "max_demand_mw": 3860
+      },
+      {
+        "year": "2016-17",
+        "generation_excl_aux_mu": 4325.08,
+        "power_purchased_import_mu": 19734.93,
+        "energy_available_for_sale_mu": 23763.58,
+        "sales_incl_open_access_mu": 20452.91,
+        "loss_pct": 13.93,
+        "max_demand_mw": 4004
+      },
+      {
+        "year": "2017-18",
+        "generation_excl_aux_mu": 5460.34,
+        "power_purchased_import_mu": 19426.74,
+        "energy_available_for_sale_mu": 24340.79,
+        "sales_incl_open_access_mu": 21150.57,
+        "loss_pct": 13.11,
+        "max_demand_mw": 3884
+      },
+      {
+        "year": "2018-19",
+        "generation_excl_aux_mu": 7577.02,
+        "power_purchased_import_mu": 18761.47,
+        "energy_available_for_sale_mu": 24849.16,
+        "sales_incl_open_access_mu": 21742.21,
+        "loss_pct": 12.5,
+        "max_demand_mw": 4242
+      },
+      {
+        "year": "2019-20",
+        "generation_excl_aux_mu": 5722.81,
+        "power_purchased_import_mu": 21128.51,
+        "energy_available_for_sale_mu": 26226.09,
+        "sales_incl_open_access_mu": 23047.45,
+        "loss_pct": 12.12,
+        "max_demand_mw": 4316
+      },
+      {
+        "year": "2020-21",
+        "generation_excl_aux_mu": 7057.9,
+        "power_purchased_import_mu": 18912.23,
+        "energy_available_for_sale_mu": 25132.92,
+        "sales_incl_open_access_mu": 22540.32,
+        "loss_pct": 10.32,
+        "max_demand_mw": 4284
+      },
+      {
+        "year": "2021-22",
+        "generation_excl_aux_mu": 9742.28,
+        "power_purchased_import_mu": 19532.72,
+        "energy_available_for_sale_mu": 26703.19,
+        "sales_incl_open_access_mu": 23983.42,
+        "loss_pct": 10.19,
+        "max_demand_mw": 4380
+      },
+      {
+        "year": "2022-23",
+        "generation_excl_aux_mu": 8537.6,
+        "power_purchased_import_mu": 21876.93,
+        "energy_available_for_sale_mu": 27977.17,
+        "sales_incl_open_access_mu": 25383.76,
+        "loss_pct": 9.27,
+        "max_demand_mw": 4517
+      },
+      {
+        "year": "2023-24",
+        "generation_excl_aux_mu": 5625.55,
+        "power_purchased_import_mu": 27066.5,
+        "energy_available_for_sale_mu": 31406.33,
+        "sales_incl_open_access_mu": 28360.25,
+        "loss_pct": 9.7,
+        "max_demand_mw": 5301
+      }
+    ],
+    "network": [
+      {
+        "year": "2001-02",
+        "line_11kv_km": 30269,
+        "lt_line_km": 194678,
+        "distribution_transformers": 31767
+      },
+      {
+        "year": "2002-03",
+        "line_11kv_km": 31352,
+        "lt_line_km": 199721,
+        "distribution_transformers": 32637
+      },
+      {
+        "year": "2003-04",
+        "line_11kv_km": 32578,
+        "lt_line_km": 204385,
+        "distribution_transformers": 33940
+      },
+      {
+        "year": "2004-05",
+        "line_11kv_km": 33534,
+        "lt_line_km": 210458,
+        "distribution_transformers": 35822
+      },
+      {
+        "year": "2005-06",
+        "line_11kv_km": 34596,
+        "lt_line_km": 217899,
+        "distribution_transformers": 37573
+      },
+      {
+        "year": "2006-07",
+        "line_11kv_km": 36419,
+        "lt_line_km": 226128,
+        "distribution_transformers": 39697
+      },
+      {
+        "year": "2007-08",
+        "line_11kv_km": 38235,
+        "lt_line_km": 234286,
+        "distribution_transformers": 42250
+      },
+      {
+        "year": "2008-09",
+        "line_11kv_km": 41283,
+        "lt_line_km": 241849,
+        "distribution_transformers": 46359
+      },
+      {
+        "year": "2009-10",
+        "line_11kv_km": 44682,
+        "lt_line_km": 249687,
+        "distribution_transformers": 52149
+      },
+      {
+        "year": "2010-11",
+        "line_11kv_km": 48342,
+        "lt_line_km": 256449,
+        "distribution_transformers": 57954
+      },
+      {
+        "year": "2011-12",
+        "line_11kv_km": 51328,
+        "lt_line_km": 260554,
+        "distribution_transformers": 62329
+      },
+      {
+        "year": "2012-13",
+        "line_11kv_km": 52907,
+        "lt_line_km": 263620,
+        "distribution_transformers": 64972
+      },
+      {
+        "year": "2013-14",
+        "line_11kv_km": 53579,
+        "lt_line_km": 264117,
+        "distribution_transformers": 67546
+      },
+      {
+        "year": "2014-15",
+        "line_11kv_km": 55386,
+        "lt_line_km": 268753,
+        "distribution_transformers": 71195
+      },
+      {
+        "year": "2015-16",
+        "line_11kv_km": 57489,
+        "lt_line_km": 278574,
+        "distribution_transformers": 73460
+      },
+      {
+        "year": "2016-17",
+        "line_11kv_km": 59335,
+        "lt_line_km": 283811,
+        "distribution_transformers": 75580
+      },
+      {
+        "year": "2017-18",
+        "line_11kv_km": 60892,
+        "lt_line_km": 286784,
+        "distribution_transformers": 77724
+      },
+      {
+        "year": "2018-19",
+        "line_11kv_km": 60867,
+        "lt_line_km": 289804,
+        "distribution_transformers": 79876
+      },
+      {
+        "year": "2019-20",
+        "line_11kv_km": 62600,
+        "lt_line_km": 293280,
+        "distribution_transformers": 81470
+      },
+      {
+        "year": "2020-21",
+        "line_11kv_km": 64389,
+        "lt_line_km": 295921,
+        "distribution_transformers": 83465
+      },
+      {
+        "year": "2021-22",
+        "line_11kv_km": 66486,
+        "lt_line_km": 299538,
+        "distribution_transformers": 85594
+      },
+      {
+        "year": "2022-23",
+        "line_11kv_km": 67767.4,
+        "lt_line_km": 302626,
+        "distribution_transformers": 87584
+      },
+      {
+        "year": "2023-24",
+        "line_11kv_km": 68363,
+        "lt_line_km": 310191,
+        "distribution_transformers": 89620
+      }
+    ],
+    "connected_load": [
+      {
+        "year": "2000-01",
+        "mw": 8551
+      },
+      {
+        "year": "2001-02",
+        "mw": 8917.08
+      },
+      {
+        "year": "2002-03",
+        "mw": 9394.5
+      },
+      {
+        "year": "2003-04",
+        "mw": 9910.15
+      },
+      {
+        "year": "2004-05",
+        "mw": 10282.51
+      },
+      {
+        "year": "2005-06",
+        "mw": 10907.2
+      },
+      {
+        "year": "2006-07",
+        "mw": 11465.69
+      },
+      {
+        "year": "2007-08",
+        "mw": 12378
+      },
+      {
+        "year": "2008-09",
+        "mw": 15267.44
+      },
+      {
+        "year": "2009-10",
+        "mw": 15866.55
+      },
+      {
+        "year": "2010-11",
+        "mw": 16681.85
+      },
+      {
+        "year": "2011-12",
+        "mw": 17518.42
+      },
+      {
+        "year": "2012-13",
+        "mw": 18523.51
+      },
+      {
+        "year": "2013-14",
+        "mw": 19684.15
+      },
+      {
+        "year": "2014-15",
+        "mw": 20391.53
+      },
+      {
+        "year": "2015-16",
+        "mw": 20980.82
+      },
+      {
+        "year": "2016-17",
+        "mw": 22040.62
+      },
+      {
+        "year": "2017-18",
+        "mw": 23352.03
+      },
+      {
+        "year": "2018-19",
+        "mw": 24939.97
+      },
+      {
+        "year": "2019-20",
+        "mw": 26843.47
+      },
+      {
+        "year": "2020-21",
+        "mw": 28302.2
+      },
+      {
+        "year": "2021-22",
+        "mw": 29791
+      },
+      {
+        "year": "2022-23",
+        "mw": 31386
+      },
+      {
+        "year": "2023-24",
+        "mw": 33193
+      }
+    ],
+    "total_consumers": [
+      {
+        "year": "2000-01",
+        "count": 6446298
+      },
+      {
+        "year": "2001-02",
+        "count": 6662528
+      },
+      {
+        "year": "2002-03",
+        "count": 6948571
+      },
+      {
+        "year": "2003-04",
+        "count": 7300078
+      },
+      {
+        "year": "2004-05",
+        "count": 7799276
+      },
+      {
+        "year": "2005-06",
+        "count": 8295081
+      },
+      {
+        "year": "2006-07",
+        "count": 8713870
+      },
+      {
+        "year": "2007-08",
+        "count": 9033756
+      },
+      {
+        "year": "2008-09",
+        "count": 9363461
+      },
+      {
+        "year": "2009-10",
+        "count": 9743476
+      },
+      {
+        "year": "2010-11",
+        "count": 10127946
+      },
+      {
+        "year": "2011-12",
+        "count": 10457637
+      },
+      {
+        "year": "2012-13",
+        "count": 10806890
+      },
+      {
+        "year": "2013-14",
+        "count": 11192890
+      },
+      {
+        "year": "2014-15",
+        "count": 11430895
+      },
+      {
+        "year": "2015-16",
+        "count": 11668031
+      },
+      {
+        "year": "2016-17",
+        "count": 11994816
+      },
+      {
+        "year": "2017-18",
+        "count": 12276321
+      },
+      {
+        "year": "2018-19",
+        "count": 12552206
+      },
+      {
+        "year": "2019-20",
+        "count": 12826185
+      },
+      {
+        "year": "2020-21",
+        "count": 13142910
+      },
+      {
+        "year": "2021-22",
+        "count": 13422642
+      },
+      {
+        "year": "2022-23",
+        "count": 13648851
+      },
+      {
+        "year": "2023-24",
+        "count": 13864176
+      }
+    ],
+    "td_loss": [
+      {
+        "year": "2001-02",
+        "pct": 32.15
+      },
+      {
+        "year": "2002-03",
+        "pct": 30.41
+      },
+      {
+        "year": "2003-04",
+        "pct": 27.44
+      },
+      {
+        "year": "2004-05",
+        "pct": 24.95
+      },
+      {
+        "year": "2005-06",
+        "pct": 22.96
+      },
+      {
+        "year": "2006-07",
+        "pct": 21.47
+      },
+      {
+        "year": "2007-08",
+        "pct": 20.02
+      },
+      {
+        "year": "2008-09",
+        "pct": 18.83
+      },
+      {
+        "year": "2009-10",
+        "pct": 17.71
+      },
+      {
+        "year": "2010-11",
+        "pct": 16.09
+      },
+      {
+        "year": "2011-12",
+        "pct": 15.65
+      },
+      {
+        "year": "2012-13",
+        "pct": 15.3
+      },
+      {
+        "year": "2013-14",
+        "pct": 14.96
+      },
+      {
+        "year": "2014-15",
+        "pct": 14.59
+      },
+      {
+        "year": "2015-16",
+        "pct": 14.97
+      },
+      {
+        "year": "2016-17",
+        "pct": 13.93
+      },
+      {
+        "year": "2017-18",
+        "pct": 13.07
+      },
+      {
+        "year": "2018-19",
+        "pct": 12.47
+      },
+      {
+        "year": "2019-20",
+        "pct": 12.08
+      },
+      {
+        "year": "2020-21",
+        "pct": 10.32
+      },
+      {
+        "year": "2021-22",
+        "pct": 10.18
+      },
+      {
+        "year": "2022-23",
+        "pct": 9.27
+      }
+    ],
+    "per_capita_consumption": [
+      {
+        "year": "1990-91",
+        "kwh": 185
+      },
+      {
+        "year": "1991-92",
+        "kwh": 192
+      },
+      {
+        "year": "1992-93",
+        "kwh": 198
+      },
+      {
+        "year": "1993-94",
+        "kwh": 208
+      },
+      {
+        "year": "1994-95",
+        "kwh": 231
+      },
+      {
+        "year": "1995-96",
+        "kwh": 240
+      },
+      {
+        "year": "1996-97",
+        "kwh": 224
+      },
+      {
+        "year": "1997-98",
+        "kwh": 243
+      },
+      {
+        "year": "1998-99",
+        "kwh": 278
+      },
+      {
+        "year": "1999-00",
+        "kwh": 301
+      },
+      {
+        "year": "2000-01",
+        "kwh": 312
+      },
+      {
+        "year": "2001-02",
+        "kwh": 271
+      },
+      {
+        "year": "2002-03",
+        "kwh": 272
+      },
+      {
+        "year": "2003-04",
+        "kwh": 275
+      },
+      {
+        "year": "2004-05",
+        "kwh": 289
+      },
+      {
+        "year": "2005-06",
+        "kwh": 314
+      },
+      {
+        "year": "2006-07",
+        "kwh": 345
+      },
+      {
+        "year": "2007-08",
+        "kwh": 366
+      },
+      {
+        "year": "2008-09",
+        "kwh": 375
+      },
+      {
+        "year": "2009-10",
+        "kwh": 420
+      },
+      {
+        "year": "2010-11",
+        "kwh": 436
+      },
+      {
+        "year": "2011-12",
+        "kwh": 478
+      },
+      {
+        "year": "2012-13",
+        "kwh": 501
+      },
+      {
+        "year": "2013-14",
+        "kwh": 516
+      },
+      {
+        "year": "2014-15",
+        "kwh": 541
+      },
+      {
+        "year": "2015-16",
+        "kwh": 569
+      },
+      {
+        "year": "2016-17",
+        "kwh": 592
+      },
+      {
+        "year": "2017-18",
+        "kwh": 613
+      },
+      {
+        "year": "2018-19",
+        "kwh": 626
+      },
+      {
+        "year": "2019-20",
+        "kwh": 651
+      },
+      {
+        "year": "2020-21",
+        "kwh": 631
+      },
+      {
+        "year": "2021-22",
+        "kwh": 676
+      },
+      {
+        "year": "2022-23",
+        "kwh": 682
+      }
+    ],
+    "substation_counts": [
+      {
+        "voltage": "400kV",
+        "count": 6
+      },
+      {
+        "voltage": "220kV",
+        "count": 27
+      },
+      {
+        "voltage": "110kV",
+        "count": 173
+      },
+      {
+        "voltage": "66kV",
+        "count": 60
+      },
+      {
+        "voltage": "33kV",
+        "count": 160
+      }
+    ]
+  }
+}
