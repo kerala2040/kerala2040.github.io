@@ -1,6 +1,6 @@
 {
-  "project": "Kerala 2040 \u2014 Open Energy Intelligence",
-  "generated_at_utc": "2026-09-18T14:50:28+00:00",
+  "project": "Kerala 2040 — Open Energy Intelligence",
+  "generated_at_utc": "2026-09-18T16:39:00+00:00",
   "research_repo": "https://github.com/abhijith-sivaprasadan/kerala2040",
   "web_repo": "https://github.com/kerala2040/kerala2040.github.io",
   "git_sha": null,
@@ -58,6 +58,11 @@
       "available": false,
       "evidence": "gap",
       "note": "No authenticated FY2024-25 Kerala 8760/35040 state-load chronology is published in this bundle."
+    },
+    "kseb_historical_export": {
+      "available": true,
+      "evidence": "official KSEB export",
+      "note": "10 normalized historical series from the user-supplied KSEB export bundle: capacity, generation, annual balance, T&D losses, network, connected load, consumers, per-capita consumption, renewable-capacity snapshot and substation counts. No hourly/15-minute load chronology."
     }
   },
   "source_audit_summary": {
@@ -85,7 +90,8 @@
     "monthly_balance": "monthly-balance.json",
     "import_duration": "import-duration.json",
     "baseline_summary": "baseline-summary.json",
-    "source_audit": "source-audit.json"
+    "source_audit": "source-audit.json",
+    "kseb_history": "kseb-history.json"
   },
   "layer_provenance": {
     "sldc_daily": {
