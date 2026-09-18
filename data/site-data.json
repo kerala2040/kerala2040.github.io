@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "project": "Kerala 2040 \u2014 Open Energy Intelligence",
-    "generated_at_utc": "2026-09-18T14:50:28+00:00",
+    "project": "Kerala 2040 — Open Energy Intelligence",
+    "generated_at_utc": "2026-09-18T16:39:00+00:00",
     "research_repo": "https://github.com/abhijith-sivaprasadan/kerala2040",
     "web_repo": "https://github.com/kerala2040/kerala2040.github.io",
     "git_sha": null,
@@ -59,6 +59,11 @@
         "available": false,
         "evidence": "gap",
         "note": "No authenticated FY2024-25 Kerala 8760/35040 state-load chronology is published in this bundle."
+      },
+      "kseb_historical_export": {
+        "available": true,
+        "evidence": "official KSEB export",
+        "note": "10 normalized historical series from the user-supplied KSEB export bundle: capacity, generation, annual balance, T&D losses, network, connected load, consumers, per-capita consumption, renewable-capacity snapshot and substation counts. No hourly/15-minute load chronology."
       }
     },
     "source_audit_summary": {
@@ -86,7 +91,8 @@
       "monthly_balance": "monthly-balance.json",
       "import_duration": "import-duration.json",
       "baseline_summary": "baseline-summary.json",
-      "source_audit": "source-audit.json"
+      "source_audit": "source-audit.json",
+      "kseb_history": "kseb-history.json"
     },
     "layer_provenance": {
       "sldc_daily": {
@@ -517,7 +523,7 @@
       "source_url": "https://ppac.gov.in/download.php?file=rep_studies%2F1723691385_PPAC-Oil-and-Gas-Snapshot-14-aug-2024-v4_compressed.pdf",
       "monthly_average_consumption": {
         "pol_tmt": 562.7,
-        "petrol_tmt": 157.0,
+        "petrol_tmt": 157,
         "diesel_tmt": 197.8,
         "lpg_tmt": 90.7,
         "cng_mmscm": 5.34
@@ -874,7 +880,7 @@
         "induction_cooking_demand_mu": 415,
         "final_demand_without_td_losses_mu": 42147,
         "final_demand_with_td_losses_mu": 45519,
-        "td_loss_pct": 8.0,
+        "td_loss_pct": 8,
         "peak_demand_mw": 7594,
         "off_peak_demand_mw": 3169
       },
@@ -1222,6 +1228,21 @@
         "industrial_symbiosis"
       ],
       "note": "Candidate industrial-symbiosis source for post-baseline expansion."
+    },
+    "kseb_historical_export": {
+      "priority": "P0",
+      "organisation": "Kerala State Electricity Board Ltd",
+      "acquisition": "user_supplied_official_export",
+      "use": [
+        "installed_capacity_history",
+        "annual_generation_history",
+        "annual_energy_balance",
+        "peak_demand_history",
+        "td_loss_history",
+        "network_growth",
+        "consumer_growth"
+      ],
+      "note": "Official KSEB table/chart exports supplied by the project author on 2026-09-18. Values are stored as exported and used as historical evidence; the bundle does not contain Kerala's raw hourly or 15-minute state-load chronology."
     }
   },
   "source_audit": {
@@ -1444,15 +1465,15 @@
       "data_as_of_label": "20/02/2023 10:03 AM",
       "ongoing_projects": 11,
       "completed_projects": 59,
-      "capacity_being_added_mw": 227.0,
-      "installed_capacity_mw": 2901.0
+      "capacity_being_added_mw": 227,
+      "installed_capacity_mw": 2901
     },
     "projects": [
       {
         "name": "Mankulam HEP Stage I",
         "technology": "Hydro",
         "status": "Ongoing",
-        "capacity_mw": 40.0,
+        "capacity_mw": 40,
         "district": "Idukki",
         "milestone": "planned_commissioning",
         "milestone_date_label": "14, May 2026"
@@ -1461,7 +1482,7 @@
         "name": "Chinnar SHP",
         "technology": "Hydro",
         "status": "Ongoing",
-        "capacity_mw": 24.0,
+        "capacity_mw": 24,
         "district": "Idukki",
         "milestone": "planned_commissioning",
         "milestone_date_label": "30, Apr 2026"
@@ -1479,7 +1500,7 @@
         "name": "Olikkal SHP",
         "technology": "Hydro",
         "status": "Ongoing",
-        "capacity_mw": 5.0,
+        "capacity_mw": 5,
         "district": "Kozhikode",
         "milestone": "planned_commissioning",
         "milestone_date_label": "01, July 2025"
@@ -1497,7 +1518,7 @@
         "name": "Poovaranthode SHEP",
         "technology": "Hydro",
         "status": "Ongoing",
-        "capacity_mw": 3.0,
+        "capacity_mw": 3,
         "district": "Kozhikode",
         "milestone": "planned_commissioning",
         "milestone_date_label": "01, July 2025"
@@ -1506,7 +1527,7 @@
         "name": "Idamalayar HEP",
         "technology": "Hydro",
         "status": "Completed",
-        "capacity_mw": 75.0,
+        "capacity_mw": 75,
         "district": "Ernakulam",
         "milestone": "commissioned_on",
         "milestone_date_label": "03, Feb 1987"
@@ -1515,7 +1536,7 @@
         "name": "Idukki HEP",
         "technology": "Hydro",
         "status": "Completed",
-        "capacity_mw": 780.0,
+        "capacity_mw": 780,
         "district": "Idukki",
         "milestone": "commissioned_on",
         "milestone_date_label": "12, Feb 1976"
@@ -1533,7 +1554,7 @@
         "name": "Kuttiyadi HEP",
         "technology": "Hydro",
         "status": "Completed",
-        "capacity_mw": 75.0,
+        "capacity_mw": 75,
         "district": "Kozhikode",
         "milestone": "commissioned_on",
         "milestone_date_label": "11, Sept 1972"
@@ -1542,7 +1563,7 @@
         "name": "Poringalkuthu Left Bank Project - PLB 4x9MW",
         "technology": "Hydro",
         "status": "Completed",
-        "capacity_mw": 36.0,
+        "capacity_mw": 36,
         "district": "Thrissur",
         "milestone": "commissioned_on",
         "milestone_date_label": "15, May 1957"
@@ -1551,7 +1572,7 @@
         "name": "Madupetty SHP",
         "technology": "Hydro",
         "status": "Completed",
-        "capacity_mw": 2.0,
+        "capacity_mw": 2,
         "district": "Idukki",
         "milestone": "commissioned_on",
         "milestone_date_label": "14, Jan 1998"
@@ -1560,7 +1581,7 @@
         "name": "Kakkad HEP",
         "technology": "Hydro",
         "status": "Completed",
-        "capacity_mw": 50.0,
+        "capacity_mw": 50,
         "district": "Pathanamthitta",
         "milestone": "commissioned_on",
         "milestone_date_label": "13, Oct 1999"
@@ -1569,7 +1590,7 @@
         "name": "Kallada SHP",
         "technology": "Hydro",
         "status": "Completed",
-        "capacity_mw": 15.0,
+        "capacity_mw": 15,
         "district": "Kollam",
         "milestone": "commissioned_on",
         "milestone_date_label": "15, Sept 1994"
@@ -1587,7 +1608,7 @@
         "name": "Kakkayam SHP",
         "technology": "Hydro",
         "status": "Completed",
-        "capacity_mw": 3.0,
+        "capacity_mw": 3,
         "district": "Kozhikode",
         "milestone": "commissioned_on",
         "milestone_date_label": "16, July 2018"
@@ -1605,7 +1626,7 @@
         "name": "Lower Periyar HEP",
         "technology": "Hydro",
         "status": "Completed",
-        "capacity_mw": 180.0,
+        "capacity_mw": 180,
         "district": "Idukki",
         "milestone": "commissioned_on",
         "milestone_date_label": "27, Sept 1997"
@@ -1650,7 +1671,7 @@
         "name": "Peppara SHP",
         "technology": "Hydro",
         "status": "Completed",
-        "capacity_mw": 3.0,
+        "capacity_mw": 3,
         "district": "Thiruvananthapuram",
         "milestone": "commissioned_on",
         "milestone_date_label": "15, June 1996"
@@ -1659,7 +1680,7 @@
         "name": "Sabarigiri HEP",
         "technology": "Hydro",
         "status": "Completed",
-        "capacity_mw": 340.0,
+        "capacity_mw": 340,
         "district": "Pathanamthitta",
         "milestone": "commissioned_on",
         "milestone_date_label": "18, Apr 1966"
@@ -1695,7 +1716,7 @@
         "name": "BSES, Kochi",
         "technology": "Thermal",
         "status": "Completed",
-        "capacity_mw": 157.0,
+        "capacity_mw": 157,
         "district": "Ernakulam",
         "milestone": "commissioned_on",
         "milestone_date_label": "15, June 2001"
@@ -1722,7 +1743,7 @@
         "name": "Kozhikode (KDPP)",
         "technology": "Thermal",
         "status": "Completed",
-        "capacity_mw": 96.0,
+        "capacity_mw": 96,
         "district": "Kozhikode",
         "milestone": "commissioned_on",
         "milestone_date_label": "11, Sept 1999"
@@ -1749,7 +1770,7 @@
         "name": "Neriamangalam Extension",
         "technology": "Hydro",
         "status": "Completed",
-        "capacity_mw": 25.0,
+        "capacity_mw": 25,
         "district": "Idukki",
         "milestone": "commissioned_on",
         "milestone_date_label": "25, May 2008"
@@ -1758,7 +1779,7 @@
         "name": "Poringalkuthu Left Bank Extension Project - PLBE 1x16MW",
         "technology": "Hydro",
         "status": "Completed",
-        "capacity_mw": 16.0,
+        "capacity_mw": 16,
         "district": "Thrissur",
         "milestone": "commissioned_on",
         "milestone_date_label": "20, Mar 1999"
@@ -1776,7 +1797,7 @@
         "name": "Sholayar HEP",
         "technology": "Hydro",
         "status": "Completed",
-        "capacity_mw": 54.0,
+        "capacity_mw": 54,
         "district": "Thrissur",
         "milestone": "commissioned_on",
         "milestone_date_label": "09, May 1966"
@@ -1830,7 +1851,7 @@
         "name": "Ranni-Perunadu SHP",
         "technology": "Hydro",
         "status": "Completed",
-        "capacity_mw": 4.0,
+        "capacity_mw": 4,
         "district": "Pathanamthitta",
         "milestone": "commissioned_on",
         "milestone_date_label": "16, Feb 2012"
@@ -1875,7 +1896,7 @@
         "name": "Barapole SHP",
         "technology": "Hydro",
         "status": "Completed",
-        "capacity_mw": 15.0,
+        "capacity_mw": 15,
         "district": "Kannur",
         "milestone": "commissioned_on",
         "milestone_date_label": "29, Feb 2016"
@@ -1893,7 +1914,7 @@
         "name": "Chathankottunada II SHP",
         "technology": "Hydro",
         "status": "Completed",
-        "capacity_mw": 6.0,
+        "capacity_mw": 6,
         "district": "Kozhikode",
         "milestone": "commissioned_on",
         "milestone_date_label": "20, Feb 2021"
@@ -1902,7 +1923,7 @@
         "name": "Upper Kallar SHP",
         "technology": "Hydro",
         "status": "Completed",
-        "capacity_mw": 2.0,
+        "capacity_mw": 2,
         "district": "Idukki",
         "milestone": "commissioned_on",
         "milestone_date_label": "30, Sept 2021"
@@ -1911,7 +1932,7 @@
         "name": "Solar KSEB(Kanjikode)",
         "technology": "Solar",
         "status": "Completed",
-        "capacity_mw": 1.0,
+        "capacity_mw": 1,
         "district": "Palakkad",
         "milestone": "commissioned_on",
         "milestone_date_label": "10, Aug 2015"
@@ -1920,7 +1941,7 @@
         "name": "Bhoothathankettu SHP",
         "technology": "Hydro",
         "status": "Ongoing",
-        "capacity_mw": 24.0,
+        "capacity_mw": 24,
         "district": "Ernakulam",
         "milestone": "planned_commissioning",
         "milestone_date_label": null
@@ -1929,7 +1950,7 @@
         "name": "Pallivasal Extension Scheme",
         "technology": "Hydro",
         "status": "Ongoing",
-        "capacity_mw": 60.0,
+        "capacity_mw": 60,
         "district": "Idukki",
         "milestone": "planned_commissioning",
         "milestone_date_label": null
@@ -1947,7 +1968,7 @@
         "name": "Solar KSEB(Kollengode)",
         "technology": "Solar",
         "status": "Completed",
-        "capacity_mw": 1.0,
+        "capacity_mw": 1,
         "district": "Palakkad",
         "milestone": "commissioned_on",
         "milestone_date_label": "08, Aug 2016"
@@ -1956,7 +1977,7 @@
         "name": "Solar 1MW Barapole Canal Bank*",
         "technology": "Solar",
         "status": "Completed",
-        "capacity_mw": 1.0,
+        "capacity_mw": 1,
         "district": "Kannur",
         "milestone": "commissioned_on",
         "milestone_date_label": "07, Nov 2016"
@@ -1965,7 +1986,7 @@
         "name": "Solar 3MW Barapole Canal Top*",
         "technology": "Solar",
         "status": "Completed",
-        "capacity_mw": 3.0,
+        "capacity_mw": 3,
         "district": "Kannur",
         "milestone": "commissioned_on",
         "milestone_date_label": "17, Nov 2016"
@@ -1992,7 +2013,7 @@
         "name": "Pothencode -2000kW",
         "technology": "Solar",
         "status": "Completed",
-        "capacity_mw": 2.0,
+        "capacity_mw": 2,
         "district": "Thiruvananthapuram",
         "milestone": "commissioned_on",
         "milestone_date_label": "01, Feb 2018"
@@ -2001,7 +2022,7 @@
         "name": "Kuttiyadi Extension Scheme",
         "technology": "Hydro",
         "status": "Completed",
-        "capacity_mw": 50.0,
+        "capacity_mw": 50,
         "district": "Kozhikode",
         "milestone": "commissioned_on",
         "milestone_date_label": "27, Jan 2001"
@@ -2010,7 +2031,7 @@
         "name": "Kuttiyadi Addl Extension",
         "technology": "Hydro",
         "status": "Completed",
-        "capacity_mw": 100.0,
+        "capacity_mw": 100,
         "district": "Kozhikode",
         "milestone": "commissioned_on",
         "milestone_date_label": "11, Oct 2010"
@@ -2019,7 +2040,7 @@
         "name": "Poringalkuthu Small HEP ( 1X 24 MW)",
         "technology": "Hydro",
         "status": "Completed",
-        "capacity_mw": 24.0,
+        "capacity_mw": 24,
         "district": "Thrissur",
         "milestone": "commissioned_on",
         "milestone_date_label": "04, May 2022"
@@ -2028,7 +2049,7 @@
         "name": "Sengulam Augmentation",
         "technology": "Hydro",
         "status": "Ongoing",
-        "capacity_mw": 5.0,
+        "capacity_mw": 5,
         "district": "Kozhikode",
         "milestone": "planned_commissioning",
         "milestone_date_label": "05, June 2026"
@@ -2037,7 +2058,7 @@
         "name": "Sabarigiri Augmentation (Upper Moozhiyar, Kullar, Meenar I & II, Gavi, Pumping)",
         "technology": "Hydro",
         "status": "Completed",
-        "capacity_mw": 0.0,
+        "capacity_mw": 0,
         "district": "Pathanamthitta",
         "milestone": "commissioned_on",
         "milestone_date_label": null
@@ -2046,7 +2067,7 @@
         "name": "Upper Sengulam SHEP Stage -I",
         "technology": "Hydro",
         "status": "Ongoing",
-        "capacity_mw": 24.0,
+        "capacity_mw": 24,
         "district": "Idukki",
         "milestone": "planned_commissioning",
         "milestone_date_label": "Maripuzha SHEP"
@@ -2055,7 +2076,7 @@
         "name": "Thottiyar HEP",
         "technology": "Hydro",
         "status": "Ongoing",
-        "capacity_mw": 40.0,
+        "capacity_mw": 40,
         "district": "Idukki",
         "milestone": "planned_commissioning",
         "milestone_date_label": null
@@ -2064,7 +2085,7 @@
         "name": "Poringalkuthu Left Bank Project - Micro Screw Generator 1x11kW",
         "technology": "Hydro",
         "status": "Completed",
-        "capacity_mw": 11.0,
+        "capacity_mw": 11,
         "district": "Thrissur",
         "milestone": "commissioned_on",
         "milestone_date_label": "01, Feb 2016"
@@ -2229,7 +2250,7 @@
     },
     {
       "name": "KMML / Chavara case-study area",
-      "lat": 9.0,
+      "lat": 9,
       "lon": 76.53,
       "kind": "circular",
       "note": "Selected first circular-industry case: KMML. Approximate area marker, not a surveyed facility location; mass-flow and recovery economics still require evidence."
@@ -2241,5 +2262,26 @@
       "kind": "marine",
       "note": "Port, wave-energy history, shore-power and marine-resource screening node."
     }
-  ]
+  ],
+  "kseb_history": {
+    "classification": "official_kseb_export_user_supplied",
+    "received_date": "2026-09-18",
+    "validation": {
+      "installed_capacity_2024_25_mw": 4412.09,
+      "economic_review_reference_mw": 4412.14,
+      "difference_mw": -0.05
+    },
+    "series_available": [
+      "annual_energy_balance",
+      "annual_generation",
+      "connected_load",
+      "installed_capacity",
+      "network",
+      "per_capita_consumption",
+      "renewable_capacity_snapshot",
+      "substation_counts",
+      "td_loss",
+      "total_consumers"
+    ]
+  }
 }
