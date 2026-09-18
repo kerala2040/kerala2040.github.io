@@ -181,7 +181,13 @@ const plotConfig = {displayModeBar:false, responsive:true};
 
 function renderHeadline() {
   const {cstep, cn50} = refs();
-  const metrics = [
+  const o = observed()?.electricity;
+  const metrics = o ? [
+    ['FY2024-25 electricity sales', `${fmt(o.annual_sales_within_state_and_open_access_mu / 1000, 2)} TWh`, 'within state + open access', 'Kerala Economic Review 2025'],
+    ['FY2024-25 maximum peak', `${fmt(o.maximum_peak_demand_mw / 1000, 2)} GW`, o.maximum_peak_date || 'observed maximum', 'Kerala Economic Review 2025'],
+    ['Installed capacity', `${fmt(o.installed_capacity_mw / 1000, 2)} GW`, 'reported FY2024-25 mix', 'Kerala Economic Review 2025'],
+    ['T&D loss', `${fmt(o.td_loss_pct, 2)}%`, 'reported FY2024-25', 'Kerala Economic Review 2025']
+  ] : [
     ['CSTEP 2040 demand', `${fmt(cstep.fy2040?.final_demand_with_td_losses_mu / 1000, 1)} TWh`, 'incl. T&D losses', 'CSTEP 2024'],
     ['CSTEP 2040 peak', `${fmt(cstep.fy2040?.peak_demand_mw / 1000, 2)} GW`, 'published planning benchmark', 'CSTEP 2024'],
     ['In-state resource potential', `${fmt(cn50.in_state_resource_potential_gw?.total, 2)} GW`, 'screened technical potential in CN50', 'Kerala CN50 2026'],
@@ -219,11 +225,12 @@ function renderOverview(metric = state.currentOverviewMetric) {
   } else {
     const st = statusMap();
     const labels = Object.keys(st).map(k => friendlyStatusName(k));
-    const values = Object.values(st).map(v => v.available ? 100 : (v.evidence === 'gap' ? 0 : 30));
+    const values = Object.values(st).map(() => 1);
     const colors = Object.values(st).map(v => v.available ? c.green : (v.evidence === 'gap' ? c.amber : c.blue));
-    traces = [{type:'bar', orientation:'h', y:labels, x:values, marker:{color:colors}, hovertemplate:'%{y}<extra></extra>'}];
-    chartLayout = {...layout({xTitle:'Evidence readiness', margin:{l:160,r:25,t:30,b:58}}), showlegend:false, xaxis:{...layout().xaxis, range:[0,100], ticksuffix:'%'}};
-    note = '100% means a dataset is present in the public bundle. “Pending” is not interpreted as measured evidence.';
+    const words = Object.values(st).map(v => v.available ? 'connected' : (v.evidence === 'gap' ? 'gap' : 'pending'));
+    traces = [{type:'bar', orientation:'h', y:labels, x:values, marker:{color:colors}, text:words, textposition:'inside', hovertemplate:'%{y}: %{text}<extra></extra>'}];
+    chartLayout = {...layout({margin:{l:180,r:25,t:30,b:45}}), showlegend:false, xaxis:{visible:false, range:[0,1]}};
+    note = 'Categorical evidence state only — no artificial completion percentages are assigned.';
     const ready = Object.values(st).filter(v=>v.available).length;
     insight = `<span class="eyebrow">EVIDENCE FIRST</span><h3>${ready} connected evidence layer${ready===1?'':'s'} in the current public bundle.</h3><p>Model outputs remain provisional until the historical system is reconstructed well enough to calibrate dispatch, imports and hydro behaviour.</p><div class="insight-stat"><strong>${Object.values(st).filter(v=>v.evidence==='gap').length}</strong><span>explicit high-priority data gap(s)</span></div><button class="text-button" data-route="data">Inspect sources →</button>`;
   }
@@ -235,7 +242,16 @@ function renderOverview(metric = state.currentOverviewMetric) {
 
 function friendlyStatusName(key) {
   const names = {
-    sldc_daily:'SLDC daily balance', baseline_summary:'Historical summary', reservoir_storage:'Reservoir storage', weather:'Weather chronology', hourly_state_load:'Hourly state load', grid_india_psp:'Grid-India cross-check'
+    official_observed_2024_25:'Official FY2024-25 baseline',
+    sldc_daily:'SLDC daily balance',
+    baseline_summary:'Historical summary',
+    reservoir_storage:'Reservoir storage',
+    weather:'NASA POWER weather',
+    era5_reanalysis:'ERA5 reanalysis',
+    grid_india_psp:'Grid-India cross-check',
+    kseb_project_inventory:'KSEB project inventory',
+    hazard_layers:'KSDMA hazard layers',
+    hourly_state_load:'Hourly state load'
   };
   return names[key] || key.replaceAll('_',' ');
 }
@@ -251,10 +267,12 @@ function renderEvidenceFeed() {
   }).join('');
 }
 
+function observed() { return state.data?.observed || null; }
 function baseline() { return state.data?.baseline || null; }
 
 function renderElectricity() {
   const b = baseline();
+  const o = observed()?.electricity;
   const {cstep} = refs();
   const dailyReady = !!(state.daily?.records?.length);
   const status = qs('#electricityStatus');
@@ -266,6 +284,11 @@ function renderElectricity() {
     ['In-state generation', `${fmt(b.internal_generation_twh,2)} TWh`, `${pct(b.aggregate_internal_share)} of consumption`],
     ['Net imports', `${fmt(b.net_import_twh,2)} TWh`, `${pct(b.aggregate_import_share)} aggregate share`],
     ['Coverage', pct(b.coverage_fraction,1), `${b.rows ?? '—'} daily records`]
+  ] : o ? [
+    ['FY2024-25 electricity sales', `${fmt(o.annual_sales_within_state_and_open_access_mu/1000,2)} TWh`, 'official annual reference'],
+    ['Maximum peak demand', `${fmt(o.maximum_peak_demand_mw/1000,2)} GW`, o.maximum_peak_date || 'FY2024-25'],
+    ['Installed capacity', `${fmt(o.installed_capacity_mw/1000,2)} GW`, 'reported FY2024-25'],
+    ['Hourly chronology', 'Open gap', 'authenticated 8760/35040 series still needed']
   ] : [
     ['2040 demand reference', `${fmt(cstep.fy2040.final_demand_with_td_losses_mu/1000,1)} TWh`, 'CSTEP 2024'],
     ['2040 peak reference', `${fmt(cstep.fy2040.peak_demand_mw/1000,2)} GW`, 'CSTEP 2024'],
@@ -313,20 +336,25 @@ function renderElectricityChart(metric) {
 function renderCapacityChart() {
   if (!window.Plotly) return;
   const c = chartTheme();
-  const cap = refs().cstep.cited_capacity_addition_bau_mw || {};
-  const labels = ['Solar','Wind','Large hydro','Small hydro'];
-  const values = [cap.solar,cap.wind,cap.large_hydro,cap.small_hydro].map(v=>n(v)||0);
+  const observedMix = observed()?.electricity?.capacity_mix_mw;
+  const cap = observedMix || refs().cstep.cited_capacity_addition_bau_mw || {};
+  const labels = observedMix ? ['Hydro','Solar','Thermal','Wind'] : ['Solar','Wind','Large hydro','Small hydro'];
+  const values = observedMix
+    ? [cap.hydel,cap.solar,cap.thermal,cap.wind].map(v=>n(v)||0)
+    : [cap.solar,cap.wind,cap.large_hydro,cap.small_hydro].map(v=>n(v)||0);
   Plotly.react('capacityChart',[{type:'bar',x:labels,y:values,marker:{color:c.green},text:values.map(v=>`${fmt(v/1000,2)} GW`),textposition:'outside',hovertemplate:'%{x}<br>%{y:,.0f} MW<extra></extra>'}],{...layout({height:330,yTitle:'MW'}),showlegend:false},plotConfig);
 }
 
 function renderElectricityEvidence() {
   const st = statusMap();
   const rows = [
+    ['Official FY2024-25 baseline', st.official_observed_2024_25, 'Kerala Economic Review / KSEBL annual reference'],
     ['SLDC daily electricity balance', st.sldc_daily, 'Measured state system accounting'],
     ['Reservoir / hydro chronology', st.reservoir_storage, 'Measured hydro-storage evidence'],
-    ['Weather chronology', st.weather, 'Measured / reanalysis driver'],
-    ['Hourly Kerala load', st.hourly_state_load || {available:false,evidence:'gap'}, 'Needed for chronological capacity-expansion validation'],
-    ['Grid-India cross-check', st.grid_india_psp, 'Independent official cross-check']
+    ['NASA POWER weather', st.weather, 'Hourly representative-point weather'],
+    ['ERA5 reanalysis', st.era5_reanalysis, 'Independent hourly climate/reanalysis input'],
+    ['Grid-India cross-check', st.grid_india_psp, 'Independent official daily cross-check'],
+    ['Hourly Kerala load', st.hourly_state_load || {available:false,evidence:'gap'}, 'Needed for chronological capacity-expansion validation']
   ];
   qs('#electricityEvidence').innerHTML = rows.map(([label,s,desc]) => {
     const available = s?.available; const gap = s?.evidence === 'gap';
@@ -448,10 +476,13 @@ function renderDataCentre() {
   const summary=[['Connected layers',ready],['Registered sources',src.length],['Public data files',Object.keys(files).length||1],['Explicit data gaps',gaps]];
   qs('#dataSummary').innerHTML=`<div class="summary-grid">${summary.map(([l,v])=>`<div class="summary-item"><strong>${esc(v)}</strong><span>${esc(l)}</span></div>`).join('')}</div>`;
 
+  const audit=state.data?.source_audit?.sources||{};
   qs('#sourceRegistry').innerHTML=src.map(([id,s])=>{
-    const url=s.system_statistics_url||s.endpoint||s.home||s.file_api||'#';
+    const url=s.system_statistics_url||s.tracker||s.hazard_maps||s.open_data||s.economic_review_2025||s.catalog||s.endpoint||s.home||s.file_api||'#';
     const label=id.replaceAll('_',' ');
-    return `<article class="source-card" data-search="${esc((label+' '+(s.note||'')+' '+(s.acquisition||'')).toLowerCase())}"><span class="eyebrow">${esc(s.acquisition||'source')}</span><h3><strong>${esc(label)}</strong></h3><p>${esc(s.note||'Registered research source.')}</p>${url!=='#'?`<a href="${esc(url)}" target="_blank" rel="noopener">Open source ↗</a>`:''}</article>`;
+    const probe=audit[id];
+    const probeText=probe?.status ? probe.status.replaceAll('_',' ') : 'not probed in this bundle';
+    return `<article class="source-card" data-search="${esc((label+' '+(s.note||'')+' '+(s.acquisition||'')+' '+probeText).toLowerCase())}"><span class="eyebrow">${esc(s.acquisition||'source')}</span><h3><strong>${esc(label)}</strong></h3><p>${esc(s.note||'Registered research source.')}</p><small>Connectivity: ${esc(probeText)} · connectivity is not data validation</small>${url!=='#'?`<a href="${esc(url)}" target="_blank" rel="noopener">Open source ↗</a>`:''}</article>`;
   }).join('');
 
   const downloads=[
