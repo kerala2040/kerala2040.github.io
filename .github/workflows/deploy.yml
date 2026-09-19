@@ -1,17 +1,20 @@
-name: Publish connected dashboard
+name: Publish pinned research dashboard
 on:
   push:
     branches: [main]
   workflow_dispatch:
   schedule:
     - cron: '37 */6 * * *'
+
 permissions:
   contents: read
   pages: write
   id-token: write
+
 concurrency:
   group: pages
   cancel-in-progress: false
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -19,25 +22,81 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout website release pointer
+        uses: actions/checkout@v4
+        with:
+          path: release-pointer
+          persist-credentials: false
+      - name: Resolve immutable research source
+        id: source
+        shell: bash
+        run: |
+          python - <<'PY' >> "$GITHUB_OUTPUT"
+          import re
+          from pathlib import Path
+
+          pointer = Path("release-pointer/SOURCE_COMMIT").read_text(encoding="utf-8")
+          match = re.search(r"^Research source: abhijith-sivaprasadan/kerala2040@([a-f0-9]{40})$", pointer, re.MULTILINE)
+          if match is None:
+              raise SystemExit("SOURCE_COMMIT must name an immutable 40-character research commit")
+          print(f"sha={match.group(1)}")
+          PY
+      - name: Checkout pinned research release
+        uses: actions/checkout@v4
         with:
           repository: abhijith-sivaprasadan/kerala2040
-          ref: main
+          ref: ${{ steps.source.outputs.sha }}
+          path: research
+          persist-credentials: false
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Check dashboard and snapshot
+      - name: Validate and build pinned release
+        working-directory: research
         run: |
           node --check docs/assets/app.js
           node --test tests/web.test.cjs
+          python scripts/build_site.py --check
           python scripts/build_site.py --output _site
+      - name: Record release and evidence identities
+        env:
+          RESEARCH_SHA: ${{ steps.source.outputs.sha }}
+        shell: bash
+        run: |
+          python - <<'PY'
+          import hashlib
+          import json
+          import os
+          from pathlib import Path
+
+          pointer = Path("release-pointer/SOURCE_COMMIT").read_text(encoding="utf-8")
+          root = Path("research/_site")
+          site_data = root / "data/site-data.json"
+          metadata = json.loads((root / "data/metadata.json").read_text(encoding="utf-8"))
+          source_sha = os.environ["RESEARCH_SHA"]
+          if source_sha not in pointer:
+              raise SystemExit("Research source SHA differs from release pointer")
+          if metadata.get("generated_at_utc") is None:
+              raise SystemExit("Missing evidence snapshot timestamp")
+          release = {
+              "release_scope": "Data Platform / Historical Foundation",
+              "research_source_commit": source_sha,
+              "evidence_snapshot_generated_at_utc": metadata["generated_at_utc"],
+              "evidence_source_git_sha": metadata.get("git_sha"),
+              "published_site_data_sha256": hashlib.sha256(site_data.read_bytes()).hexdigest(),
+              "publication_policy": "observed_and_derived_evidence_plus_labelled_published_external_benchmarks",
+          }
+          (root / "SOURCE_COMMIT").write_text(pointer, encoding="utf-8")
+          (root / "RELEASE_MANIFEST.json").write_text(json.dumps(release, indent=2) + "\n", encoding="utf-8")
+          print(json.dumps(release, indent=2))
+          PY
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: _site
+          path: research/_site
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
