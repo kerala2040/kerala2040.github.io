@@ -86,12 +86,15 @@ jobs:
           if metadata.get("generated_at_utc") is None:
               raise SystemExit("Missing evidence snapshot timestamp")
           release = {
-              "release_scope": "Data Platform / Historical Foundation",
+              "release_scope": "Website edition 2 / observed evidence and classified research experiments",
+              "website_edition": metadata["website_edition"],
               "research_source_commit": source_sha,
               "evidence_snapshot_generated_at_utc": metadata["generated_at_utc"],
               "evidence_source_git_sha": metadata.get("git_sha"),
               "published_site_data_sha256": hashlib.sha256(site_data.read_bytes()).hexdigest(),
-              "publication_policy": "observed_and_derived_evidence_plus_labelled_published_external_benchmarks",
+              "publication_policy": metadata["publication_policy"],
+              "published_model_records": metadata["published_model_records"],
+              "published_source_audits": metadata["published_source_audits"],
           }
           (root / "SOURCE_COMMIT").write_text(pointer, encoding="utf-8")
           (root / "RELEASE_MANIFEST.json").write_text(json.dumps(release, indent=2) + "\n", encoding="utf-8")
