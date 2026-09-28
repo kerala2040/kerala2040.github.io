@@ -1,7 +1,1 @@
-Research source: abhijith-sivaprasadan/kerala2040
-Main scientific baseline: e850576189bb3f2cd5a0fb092f4dc6f390d3c12f
-Scientific QA branch: qa/scientific-validation-conference-20260928@30067521afd7c1701c0f955714b7d6b78bdfb878
-Website branch: feat/cet2026-conference-companion-20260928
-
-Release intent: CET 2026 poster companion microsite.
-The conference companion uses the post-PR122/PR123 research baseline plus the separate scientific QA branch for corrected interpretation, source verification, methodology-defense notes and reproducibility caveats. The QA branch remains a distinct audit trail and is not treated as operator-grade validation.
+Research source: abhijith-sivaprasadan/kerala2040@30067521afd7c1701c0f955714b7d6b78bdfb878
