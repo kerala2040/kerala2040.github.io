@@ -18,7 +18,21 @@
 .danger-list{display:grid;gap:10px}.danger-item{padding:15px 17px;border-left:4px solid var(--rust);background:#eadbd0}.danger-item strong{display:block;margin-bottom:4px}
 .qa-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.qa-card{border:1px solid var(--line);background:var(--surface);padding:18px}.qa-card h3{font:600 21px/1.2 var(--display);margin:0 0 10px}.qa-card p{margin:7px 0;color:var(--muted)}.qa-card .answer{color:var(--ink);font-weight:500}
 .cheat-table td:first-child{font-weight:700;white-space:nowrap}.cheat-table td:nth-child(2){font-family:var(--mono)}
-@media(max-width:850px){.memory-grid{grid-template-columns:1fr 1fr}.qa-grid{grid-template-columns:1fr}}@media(max-width:560px){.memory-grid{grid-template-columns:1fr}}
+.search-shell{background:#f7f2e4;border-bottom:1px solid var(--line);padding:18px 0 14px}
+.search-box{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center}
+.search-box input{width:100%;padding:14px 16px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font:16px var(--body);outline:none}
+.search-box input:focus{border-color:var(--gold);box-shadow:0 0 0 3px #b1884322}
+.search-box button{padding:13px 16px;border:1px solid var(--line);background:var(--surface);font-weight:700;cursor:pointer}
+.search-meta{display:flex;justify-content:space-between;gap:14px;align-items:center;margin-top:9px;font:11px/1.45 var(--mono);color:var(--muted)}
+.filter-chips{display:flex;gap:7px;overflow:auto;padding:12px 0 2px}
+.filter-chip{border:1px solid var(--line);background:var(--surface);padding:7px 10px;border-radius:999px;white-space:nowrap;font:600 11px var(--body);cursor:pointer}
+.filter-chip.active{background:var(--deep);color:var(--cream);border-color:var(--deep)}
+.search-hidden{display:none!important}.search-hit{outline:2px solid #b1884366;outline-offset:2px}
+.no-results{display:none;margin:26px 0;padding:22px;border:1px dashed var(--rust);background:#eadbd0}.no-results.show{display:block}
+.future-matrix td:first-child{font-weight:700}.future-priority{font:600 10px var(--mono);text-transform:uppercase;letter-spacing:.5px;display:inline-block;padding:4px 7px;border-radius:999px;background:#dce9df}.future-priority.high{background:#eadbd0;color:#6e2f21}.future-priority.medium{background:#f0e6ca;color:#6b5318}
+.future-track{border:1px solid var(--line);background:var(--surface);padding:20px}.future-track h3{margin:0 0 8px;font:600 22px/1.2 var(--display)}.future-track p{margin:5px 0;color:var(--muted)}
+.kbd{font:600 10px var(--mono);border:1px solid var(--line);border-bottom-width:2px;border-radius:4px;padding:2px 5px;background:var(--surface)}
+@media(max-width:850px){.memory-grid{grid-template-columns:1fr 1fr}.qa-grid{grid-template-columns:1fr}.search-meta{align-items:flex-start;flex-direction:column}}@media(max-width:560px){.memory-grid{grid-template-columns:1fr}.search-box{grid-template-columns:1fr}.filter-chips{padding-bottom:6px}}
 </style>
 </head>
 <body>
@@ -28,12 +42,36 @@
 <p>This is the private-by-obscurity study manual for CET 2026: what to know by heart, exact claim boundaries, likely expert questions, short answers, method choices, equations, QA corrections and wording traps.</p>
 <p style="font:12px var(--mono);color:#c7d3ca">Not access-controlled. Anyone who knows this URL can read it.</p>
 </div></section>
+<section class="search-shell" aria-label="Defense manual search"><div class="wrap">
+  <div class="search-box">
+    <input id="forme-search" type="search" autocomplete="off" spellcheck="false" placeholder="Search anything: Shoranur, 1470, ERA5, LOLP, future work, WACC…" aria-label="Search personal defense manual">
+    <button id="forme-clear" type="button">Clear</button>
+  </div>
+  <div class="search-meta"><span id="search-status">Showing the full defense manual</span><span><span class="kbd">/</span> focus search · <span class="kbd">Esc</span> clear</span></div>
+  <div class="filter-chips" id="forme-filters" aria-label="Filter by category">
+    <button class="filter-chip active" data-filter="all">All</button>
+    <button class="filter-chip" data-filter="core">Core</button>
+    <button class="filter-chip" data-filter="numbers">Numbers</button>
+    <button class="filter-chip" data-filter="methods">Methods</button>
+    <button class="filter-chip" data-filter="demand">Demand</button>
+    <button class="filter-chip" data-filter="hydro">Hydro</button>
+    <button class="filter-chip" data-filter="imports">Imports</button>
+    <button class="filter-chip" data-filter="network">Network</button>
+    <button class="filter-chip" data-filter="economics">Economics</button>
+    <button class="filter-chip" data-filter="solutions">Solutions</button>
+    <button class="filter-chip" data-filter="future">Future work</button>
+    <button class="filter-chip" data-filter="qa">Q&A</button>
+    <button class="filter-chip" data-filter="sources">Sources</button>
+    <button class="filter-chip" data-filter="warnings">Warnings</button>
+  </div>
+  <div class="no-results" id="forme-no-results"><strong>No matches.</strong> Try a shorter term or switch the category back to “All”.</div>
+</div></section>
 <nav class="private-nav"><div class="wrap">
-<a href="#core">Core story</a><a href="#rqs">RQ map</a><a href="#numbers">Numbers</a><a href="#methods">Methods</a><a href="#equations">Equations</a><a href="#demand">Demand</a><a href="#hydro">Hydro</a><a href="#imports">Imports</a><a href="#network">Network</a><a href="#economics">Economics</a><a href="#solutions">Solutions</a><a href="#qa">Likely questions</a><a href="#sourcesquick">Sources</a><a href="#danger">Never say</a><a href="#lastminute">Last-minute drill</a>
+<a href="#core">Core story</a><a href="#rqs">RQ map</a><a href="#numbers">Numbers</a><a href="#methods">Methods</a><a href="#equations">Equations</a><a href="#demand">Demand</a><a href="#hydro">Hydro</a><a href="#imports">Imports</a><a href="#network">Network</a><a href="#economics">Economics</a><a href="#solutions">Solutions</a><a href="#future">Future work</a><a href="#qa">Likely questions</a><a href="#sourcesquick">Sources</a><a href="#danger">Never say</a><a href="#lastminute">Last-minute drill</a>
 </div></nav>
 
 <main>
-<section class="section" id="core"><div class="wrap">
+<section class="section searchable-section" id="core" data-category="core"><div class="wrap">
 <div class="section-intro"><p class="eyebrow">Memorize this first</p><h2>The core story in 30 seconds.</h2></div>
 <div class="script"><b>30-second answer:</b> “Kerala2040 is a public-data diagnostic of Kerala's electricity system. I reconstructed the historical balance and a bounded hourly chronology, then tested whether stress is driven by difficult-hour demand, hydropower timing, dependence on interstate transfer and internal transmission deliverability. I treat ecology and finance as feasibility constraints and use storage/flexibility cases only as candidate response mechanisms. The result is not a final 2040 plan; it is a structured diagnosis of which mechanisms matter and which evidence is still missing.”</div>
 <div class="script" style="margin-top:12px"><b>One-sentence contribution:</b> “The contribution is a source-audited evidence chain that separates observation, reconstruction, sensitivity and validation, and keeps higher-confidence claims fail-closed when the public data cannot support them.”</div>
@@ -41,7 +79,7 @@
 <div class="script" style="margin-top:12px"><b>Working synthesis:</b> “Kerala's susceptibility to stress is an interaction problem rather than a simple annual-energy deficit: demand timing and weather, hydro timing and availability, dependable external transfer and internal network deliverability can each become binding under different conditions.”</div>
 </div></section>
 
-<section class="section" id="rqs"><div class="wrap">
+<section class="section searchable-section" id="rqs" data-category="core"><div class="wrap">
 <div class="section-intro"><p class="eyebrow">RQ1–RQ6</p><h2>Know what each question is doing.</h2></div>
 <div class="qa-grid">
 <div class="qa-card"><h3>RQ1 · Historical balance</h3><p class="answer">How has Kerala's electricity balance changed, and how structurally important is electricity arriving from outside the state?</p><p><strong>Evidence:</strong> annual official statistics + SLDC daily archive. <strong>Key boundary:</strong> do not collapse different import/consumption definitions into one percentage.</p></div>
@@ -53,7 +91,7 @@
 </div>
 </div></section>
 
-<section class="section" id="numbers"><div class="wrap">
+<section class="section searchable-section" id="numbers" data-category="numbers"><div class="wrap">
 <div class="section-intro"><p class="eyebrow">Numbers to know cold</p><h2>Do not hesitate on these.</h2></div>
 <div class="memory-grid">
 <div class="memory"><strong>36.207m</strong><span>Kerala 2026 projected population.</span></div>
@@ -98,7 +136,7 @@
 </tbody></table></div>
 </div></section>
 
-<section class="section" id="methods"><div class="wrap">
+<section class="section searchable-section" id="methods" data-category="methods"><div class="wrap">
 <div class="section-intro"><p class="eyebrow">Methodology logic</p><h2>Why each method was chosen.</h2></div>
 <div class="qa-grid">
 <div class="qa-card"><h3>Why source/accounting reconstruction first?</h3><p class="answer">Because capacity-expansion precision is meaningless if historical inputs mix different boundaries. I preserved definitions and missingness before optimization.</p></div>
@@ -114,7 +152,7 @@
 </div>
 </div></section>
 
-<section class="section" id="equations"><div class="wrap">
+<section class="section searchable-section" id="equations" data-category="methods"><div class="wrap">
 <div class="section-intro"><p class="eyebrow">Equations to understand</p><h2>You do not need to derive everything at the poster, but know what each equation means.</h2></div>
 <div class="qa-grid">
 <div class="qa-card"><h3>Daily-energy conservation</h3><div class="equation">Σₕ Load(d,h) = E_obs(d)</div><p>The 24 reconstructed hourly values must sum to the observed SLDC daily MWh on qualified days. Therefore daily energy is data; intraday shape is the modeled part.</p></div>
@@ -126,7 +164,7 @@
 </div>
 </div></section>
 
-<section class="section" id="demand"><div class="wrap">
+<section class="section searchable-section" id="demand" data-category="demand"><div class="wrap">
 <div class="section-intro"><p class="eyebrow">Demand / ERA5</p><h2>Questions you are very likely to get.</h2></div>
 <div class="qa-grid">
 <div class="qa-card"><h3>You don't have hourly telemetry. How can you model 8,760 hours?</h3><p class="answer">“It is a reconstruction, not telemetry. I conserve the observed daily MWh exactly on 354 days and reconstruct only the intraday shape using reported extrema, clock time, weekend structure and ERA5 weather.”</p></div>
@@ -139,7 +177,7 @@
 <div class="qa-card"><h3>Can the v2 fit be regenerated?</h3><p class="answer">“The released 8,760-hour payload is hash-pinned and downstream use is reproducible, but the original fitting script and raw ERA5 archive are not currently committed, so the coefficient fit itself is not fully source-to-fit reproducible from a fresh clone.”</p></div>
 </div></div></section>
 
-<section class="section" id="hydro"><div class="wrap">
+<section class="section searchable-section" id="hydro" data-category="hydro"><div class="wrap">
 <div class="section-intro"><p class="eyebrow">Hydro / Idukki</p><h2>Keep sensitivity, reservoir physics and hydrology separate.</h2></div>
 <div class="qa-grid">
 <div class="qa-card"><h3>96.9% reduction sounds too large.</h3><p class="answer">“It is large and case-specific. The experiment holds daily hydro energy fixed and changes only its timing. In the high-transfer reference case shortage is mostly a timing problem. Under tighter transfer the benefit collapses—that contrast is the result.”</p></div>
@@ -152,7 +190,7 @@
 <div class="qa-card"><h3>Phase 4 rainfall-inflow: forecast?</h3><p class="answer">“No. Same-day rainfall is used, so the 37.24% held-out MAE improvement is a retrospective diagnostic on complete cases, not a one-day-ahead forecast.”</p></div>
 </div></div></section>
 
-<section class="section" id="imports"><div class="wrap">
+<section class="section searchable-section" id="imports" data-category="imports"><div class="wrap">
 <div class="section-intro"><p class="eyebrow">Imports / transfer</p><h2>Do not turn interconnection into an ideological claim.</h2></div>
 <div class="qa-grid">
 <div class="qa-card"><h3>Are imports a weakness?</h3><p class="answer">“Not inherently. Interconnection is normal and valuable. The vulnerability is dependence on external supply that may not be available at the required hour or through the required transfer path. The issue is dependable access, not autarky.”</p></div>
@@ -163,7 +201,7 @@
 <div class="qa-card"><h3>What exactly is ₹5.24/kWh?</h3><p class="answer">“The FY2023–24 IEX average MCP, rounded from ₹5.23759/kWh. The volume-weighted MCP is ₹5.17449/kWh, so I do not call ₹5.24 weighted.”</p></div>
 </div></div></section>
 
-<section class="section" id="network"><div class="wrap">
+<section class="section searchable-section" id="network" data-category="network"><div class="wrap">
 <div class="section-intro"><p class="eyebrow">Transmission</p><h2>The geography is stronger than the exact loading magnitude.</h2></div>
 <div class="qa-grid">
 <div class="qa-card"><h3>Why “network screen” and not “grid model”?</h3><p class="answer">“I have source-backed topology and partial equipment evidence but not measured bus loads, unit dispatch, full source impedances, reactive power or N-1 states.”</p></div>
@@ -176,7 +214,7 @@
 <div class="qa-card"><h3>Can you size upgrades from overload MW?</h3><p class="answer">“No. Required reinforcement depends on future topology, redispatch, generation/load changes and contingency criteria.”</p></div>
 </div></div></section>
 
-<section class="section" id="economics"><div class="wrap">
+<section class="section searchable-section" id="economics" data-category="economics"><div class="wrap">
 <div class="section-intro"><p class="eyebrow">Economics / finance / budgets</p><h2>Always state the price boundary and project stage.</h2></div>
 <div class="qa-grid">
 <div class="qa-card"><h3>Is this a least-cost plan?</h3><p class="answer">“No. Existing fleet economics and several system costs are omitted. It is a partial economic expansion screen.”</p></div>
@@ -187,7 +225,7 @@
 <div class="qa-card"><h3>Why convert to SEK?</h3><p class="answer">“Only to give the Swedish conference audience intuitive scale. INR remains authoritative and the FX date/project stage must be visible.”</p></div>
 </div></div></section>
 
-<section class="section" id="solutions"><div class="wrap">
+<section class="section searchable-section" id="solutions" data-category="solutions"><div class="wrap">
 <div class="section-intro"><p class="eyebrow">Solutions / technology questions</p><h2>Candidate mechanisms, not recommendations.</h2></div>
 <div class="qa-grid">
 <div class="qa-card"><h3>Does storage save electricity?</h3><p class="answer">“No. It normally loses energy. It reduces stress by moving usable energy between hours.”</p></div>
@@ -200,7 +238,84 @@
 <div class="qa-card"><h3>Are these policy recommendations?</h3><p class="answer">“No. They are candidate response classes motivated by the diagnostic evidence and need deeper technical, economic, ecological and reliability modelling.”</p></div>
 </div></div></section>
 
-<section class="section" id="qa"><div class="wrap">
+<section class="section searchable-section" id="future" data-category="future"><div class="wrap">
+<div class="section-intro"><p class="eyebrow">Future work</p><h2>What should come next — and why.</h2><p>Future work should upgrade the weakest physical evidence before adding solver complexity. The ordering below is based on how much each step could change the current conclusions.</p></div>
+
+<div class="script"><b>Best short answer if asked “what is next?”</b> “The next step is not another optimization model. It is better physical evidence: synchronized interval demand and interface flows, current network parameters and bus injections, direct Idukki water-balance observations with a verified catchment, and complete statutory siting layers. Those data would let the existing framework move from screening to probabilistic reliability, calibrated network analysis and investment planning.”</div>
+
+<h3 style="margin-top:30px">Priority roadmap</h3>
+<div class="table-wrap"><table class="future-matrix"><thead><tr><th>Priority</th><th>Future work</th><th>New evidence needed</th><th>Method</th><th>What it would change</th></tr></thead><tbody>
+<tr><td><span class="future-priority high">1 · Highest</span></td><td>Measured interval demand + interchange reconstruction</td><td>15-min/hourly state demand, interface schedules/flows, curtailment/load-shedding intervals</td><td>Direct chronological calibration; event reconstruction</td><td>Would replace the hourly demand proxy and allow exact stressed-event attribution.</td></tr>
+<tr><td><span class="future-priority high">2 · Highest</span></td><td>Planning-grade transmission model</td><td>Current bus injections, generator dispatch, branch/transformer impedances and ratings, reactive data, contingency set</td><td>AC power flow, N-1, contingency ranking, transfer studies</td><td>Would confirm or overturn candidate corridor overload magnitudes and size reinforcement needs.</td></tr>
+<tr><td><span class="future-priority high">3 · Highest</span></td><td>Idukki physical hydrology / cascade</td><td>Verified catchment, direct inflows/releases/spill, reservoir levels, rule curves, head, plant outages</td><td>Water-balance + reservoir/cascade optimization</td><td>Would convert hydro timing bounds into physically achievable flexibility.</td></tr>
+<tr><td><span class="future-priority medium">4</span></td><td>Probabilistic resource adequacy</td><td>Forced-outage distributions, multiple weather years, demand uncertainty, hydro uncertainty</td><td>Monte Carlo chronological simulation; LOLE/LOLP/EUE/ELCC</td><td>Would turn deterministic shortage screens into reliability metrics with probabilities.</td></tr>
+<tr><td><span class="future-priority medium">5</span></td><td>Multi-year weather and climate sensitivity</td><td>10–30 years reanalysis/station data; possibly climate projections for planning horizons</td><td>Weather-year ensemble; drought/heat/monsoon stress testing</td><td>Would show whether FY2024–25 is mild, typical or extreme and quantify weather-driven risk spread.</td></tr>
+<tr><td><span class="future-priority medium">6</span></td><td>Statutory renewable-siting model</td><td>Forest, wetland, ESZ, CRZ, paddy, hazard, setbacks, ownership/access, connection capacity</td><td>GIS exclusion + hosting-capacity + project clustering</td><td>Would replace research envelopes with defensible technical/buildable potential ranges.</td></tr>
+<tr><td><span class="future-priority medium">7</span></td><td>Project-specific flexibility economics</td><td>Kerala BESS/PSP costs, augmentation/replacement, network costs, financing, hourly landed electricity prices</td><td>Co-optimized storage/transmission/import expansion under reliability constraint</td><td>Would rank flexibility investments economically rather than only technically.</td></tr>
+<tr><td><span class="future-priority">8</span></td><td>Demand-flexibility potential</td><td>Smart-meter/feeder load shapes, EV fleet/charging, cooling stock, water pumping, industrial process flexibility</td><td>Bottom-up adoption + control models; rebound/service constraints</td><td>Would turn synthetic WP6 examples into statewide achievable MW/MWh and cost curves.</td></tr>
+<tr><td><span class="future-priority">9</span></td><td>Integrated sector / technology portfolio</td><td>All stronger inputs above + technology-specific project definitions</td><td>Probabilistic capacity expansion + network + spatial feasibility</td><td>Only then would an “optimal 2040 portfolio” become scientifically defensible.</td></tr>
+</tbody></table></div>
+
+<h3 style="margin-top:32px">Likely future-work questions</h3>
+<div class="qa-grid">
+<div class="qa-card"><h3>If you had access to one new dataset, what would you choose?</h3><p class="answer">“Synchronized state demand, interstate interface flows/schedules and load-shedding intervals at 15-minute or hourly resolution. That single dataset would replace the biggest reconstruction layer and allow event-level validation of the core stress mechanisms.”</p></div>
+<div class="qa-card"><h3>What would you do first with KSEBL collaboration?</h3><p class="answer">“Freeze a common historical event window, obtain measured bus/interface/plant/reservoir data for that period, reproduce it in the model without fitting to the answer, and compare flows, dispatch and shortage chronologically. That would create a proper calibration/validation benchmark.”</p></div>
+<div class="qa-card"><h3>How would you turn the network screen into planning-grade work?</h3><p class="answer">“Replace proxy bus loads and generic reactances with utility data, build an AC model, validate a normal operating snapshot, then run N-1 contingencies and transfer studies before evaluating specific reinforcement options.”</p></div>
+<div class="qa-card"><h3>How would you turn hydro timing into a real operating recommendation?</h3><p class="answer">“Use measured catchment inflow, releases, spill, reservoir elevation, rule curves, environmental/minimum releases, cascade routing, outage states and head-dependent conversion; then optimize under those physical constraints and validate against historical operation.”</p></div>
+<div class="qa-card"><h3>Would you use machine learning next?</h3><p class="answer">“Only after obtaining dense interval labels. Then I would benchmark simple statistical models first, followed by gradient-boosted or sequence models if they add genuine out-of-sample value. Model complexity should follow the data.”</p></div>
+<div class="qa-card"><h3>Would you use climate-change projections?</h3><p class="answer">“Yes for long-term robustness, but after validating the historical weather-demand-hydro chain. I would first use multi-year reanalysis to quantify present climate variability, then add bias-corrected climate scenarios to test heat, monsoon and drought shifts.”</p></div>
+<div class="qa-card"><h3>How would you calculate LOLE/LOLP properly?</h3><p class="answer">“Use many chronological weather/load/hydro realizations plus generator and transfer forced-outage distributions, simulate the system repeatedly, and report probability/frequency/duration metrics. The current shortage-hour count is not a substitute.”</p></div>
+<div class="qa-card"><h3>How would you quantify ELCC for storage or renewables?</h3><p class="answer">“Within a probabilistic adequacy model, increase load until the reliability metric returns to the baseline after adding the resource. The load increase is the capacity contribution. That requires a stochastic model, not the current deterministic screen.”</p></div>
+<div class="qa-card"><h3>Could demand response be a serious resource in Kerala?</h3><p class="answer">“Potentially, especially for cooling, EV charging, pumping and some industry, but the current pilots are mechanism demonstrations. I would need measured end-use profiles, adoption constraints, control windows, rebound and participation costs before estimating statewide potential.”</p></div>
+<div class="qa-card"><h3>How would you compare BESS versus pumped storage fairly?</h3><p class="answer">“Compare them against the same service requirement and reliability constraint, including duration, efficiency, power/energy sizing, degradation or civil-life assumptions, connection/reinforcement, siting, environmental constraints and financing. ₹/kW alone is not enough.”</p></div>
+<div class="qa-card"><h3>What about nuclear / SMRs in future work?</h3><p class="answer">“I would include them only as project-defined scenarios with credible unit size, construction schedule, capex/finance, availability, cooling/siting, regulatory/federal ownership and network-integration assumptions. They should compete on the same reliability and cost basis as other firm options.”</p></div>
+<div class="qa-card"><h3>What about offshore wind?</h3><p class="answer">“It can be evaluated as a future supply option only after a Kerala-relevant resource, bathymetry, port/logistics, environmental, transmission-landing and cost boundary is defined. Generic national potential would not be enough for this framework.”</p></div>
+<div class="qa-card"><h3>Could more rooftop solar worsen evening stress?</h3><p class="answer">“It can reduce daytime net load without directly supplying the evening peak, so its adequacy value depends on coincidence, storage, flexible demand and network conditions. I would quantify that through net-load and ELCC analysis rather than infer it from annual solar energy.”</p></div>
+<div class="qa-card"><h3>How would you model EV growth toward 2040?</h3><p class="answer">“Use scenario-specific vehicle stock, charging access, arrival/departure distributions, energy-per-trip and charger power; compare unmanaged, time-of-use and managed/V2G cases while preserving mobility service. I would not simply add annual EV TWh uniformly.”</p></div>
+<div class="qa-card"><h3>Would you model distribution networks?</h3><p class="answer">“Yes if electrification and rooftop PV become central. The present study stops at the public 110-kV+ system. Distribution hosting capacity, voltage and feeder congestion require a different data/model layer.”</p></div>
+<div class="qa-card"><h3>How would you estimate the value of reinforcement at Shoranur?</h3><p class="answer">“First confirm the constraint in a calibrated AC/N-1 model. Then compare candidate reinforcement packages by incremental transfer capability, avoided unserved energy/redispatch, reliability benefit, cost, construction constraints and interaction with generation/storage alternatives.”</p></div>
+<div class="qa-card"><h3>What research result could overturn your current response hierarchy?</h3><p class="answer">“If planning-grade evidence showed the stress is dominated by a firm annual-energy deficit rather than timing/deliverability, then new firm supply would move up the hierarchy. If AC/N-1 work showed the screened network hotspots disappear, grid reinforcement would move down.”</p></div>
+<div class="qa-card"><h3>How would you turn this into a publishable paper?</h3><p class="answer">“Narrow the paper to one falsifiable contribution—e.g. hydro flexibility under transfer uncertainty or public-data network hotspot screening—freeze inputs and hypotheses, add stronger independent validation/sensitivity, benchmark alternative methods, and separate the broader Kerala2040 platform as supporting infrastructure.”</p></div>
+<div class="qa-card"><h3>What would a PhD-scale extension look like?</h3><p class="answer">“A coupled uncertainty-aware adequacy framework linking weather-sensitive demand, reservoir hydrology, interstate transfer and network deliverability, validated against operator data and used to value flexibility/investment under climate and demand-growth uncertainty.”</p></div>
+<div class="qa-card"><h3>What would a real digital twin require?</h3><p class="answer">“Live or regularly synchronized telemetry, validated topology/parameters, state estimation, asset/outage status, calibrated load/generation models and continuous residual/error monitoring. The current project is not a digital twin.”</p></div>
+</div>
+
+<h3 style="margin-top:32px">Future work by time horizon</h3>
+<div class="grid-3">
+<div class="future-track"><h3>Next 1–3 months</h3><p><strong>Goal:</strong> strengthen reproducibility and event evidence without changing the research question.</p><p>Recover/rebuild the ERA5-v2 fitting pipeline; ingest any newly available exact SLDC/KSEBL data; reproduce one historical stressed period end-to-end; complete verified Idukki catchment only if independent geometry becomes available.</p></div>
+<div class="future-track"><h3>Next 6–12 months</h3><p><strong>Goal:</strong> replace major proxies.</p><p>Calibrate interval load and interstate-flow chronology; build a current AC/N-1 network model with utility data; develop direct reservoir/cascade hydrology; run multi-weather-year deterministic and stochastic adequacy.</p></div>
+<div class="future-track"><h3>Research / PhD scale</h3><p><strong>Goal:</strong> decision-grade integrated planning.</p><p>Couple weather-sensitive demand, hydrology, stochastic outages, interstate transfer, AC deliverability, statutory spatial feasibility and investment decisions under climate/demand uncertainty.</p></div>
+</div>
+
+<h3 style="margin-top:32px">Resource/access hypotheticals</h3>
+<div class="qa-grid">
+<div class="qa-card"><h3>If KSEBL gave you one week of full SCADA data, what would you do?</h3><p class="answer">“Pick a stressed week and a normal comparison week, align state demand, generator output, reservoir operation, interface flows, outages and substation states, and test whether the present reconstruction reproduces the timing and spatial pattern without tuning to the outcome.”</p></div>
+<div class="qa-card"><h3>If you had one year of 15-minute data?</h3><p class="answer">“Replace the reconstructed hourly demand with measured chronology, estimate weather-load relationships on actual interval targets, calibrate import timing, and build event-based validation sets for adequacy and network screens.”</p></div>
+<div class="qa-card"><h3>If you had full transmission-system data?</h3><p class="answer">“Build a validated AC base case, compare modeled and measured branch/substation states, perform N-1 and transfer-capability studies, then test candidate reinforcements and storage/generation alternatives on the same contingency set.”</p></div>
+<div class="qa-card"><h3>If you had ₹/SEK project-cost data from Kerala utilities?</h3><p class="answer">“Replace national benchmark costs with project-specific cost distributions, separate greenfield from brownfield/reinforcement costs, and evaluate reliability benefit per rupee rather than only least-cost energy.”</p></div>
+<div class="qa-card"><h3>If you had a 100,000 SEK research budget, what would you spend it on?</h3><p class="answer">“Not on a larger solver. I would prioritize data acquisition/cleaning, measurement access and a focused validation campaign—especially interval electrical data and reservoir/weather instrumentation or access—because those reduce epistemic uncertainty directly.”</p></div>
+<div class="qa-card"><h3>If a utility offered only anonymized data?</h3><p class="answer">“That is still useful if timestamps, electrical relationships and scaling are preserved. I would design validation around normalized profiles, constraint occurrence and chronology while keeping commercially sensitive identifiers private.”</p></div>
+<div class="qa-card"><h3>What could become a journal paper immediately?</h3><p class="answer">“The strongest candidate is a narrow methods/results paper, not the entire platform: for example, quantifying the adequacy value of hydro timing under transfer uncertainty with explicit evidence classes and public-data limits, or testing whether public network evidence can identify externally corroborated hotspot geography.”</p></div>
+<div class="qa-card"><h3>What would make the work useful to policy makers?</h3><p class="answer">“Convert the diagnosis into decision thresholds: when does additional transfer, hydro flexibility, storage, demand response or reinforcement reduce expected unserved energy enough to justify its cost? That requires probabilistic reliability and project-specific costs.”</p></div>
+</div>
+
+<h3 style="margin-top:32px">Future-work answer structure</h3>
+<div class="script"><b>Use this four-part pattern:</b> 1) identify the unresolved question; 2) name the missing data; 3) name the method that becomes justified with those data; 4) state which current conclusion the result could confirm, refine or overturn. This keeps future-work answers scientific instead of sounding like a technology wish list.</div>
+
+<h3 style="margin-top:32px">If asked “why didn't you do all this already?”</h3>
+<div class="script"><b>Answer:</b> “Because each upgrade needs new evidence, not just more coding. I stopped at the level the public data could support rather than populate a more sophisticated model with assumed inputs and call that progress.”</div>
+
+<h3 style="margin-top:32px">Future-work traps</h3>
+<div class="danger-list">
+<div class="danger-item"><strong>Do not promise a specific future result.</strong><span>Describe the question, new data, method and decision it would enable.</span></div>
+<div class="danger-item"><strong>Do not say the next step is simply “more AI”.</strong><span>The highest-value next step is better physical evidence and calibration.</span></div>
+<div class="danger-item"><strong>Do not call probabilistic adequacy a small add-on.</strong><span>It needs outage distributions, multiple weather/hydro years and repeated simulation.</span></div>
+<div class="danger-item"><strong>Do not say a future AC model will prove the current screen right.</strong><span>It may confirm, refine or overturn the screening signal.</span></div>
+<div class="danger-item"><strong>Do not give a buildable-renewables number before statutory GIS and grid-hosting constraints are complete.</strong></div>
+</div>
+</div></section>
+
+<section class="section searchable-section" id="qa" data-category="qa"><div class="wrap">
 <div class="section-intro"><p class="eyebrow">Likely high-level questions</p><h2>Short, clean answers.</h2></div>
 <div class="qa-grid">
 <div class="qa-card"><h3>What is the biggest limitation?</h3><p class="answer">“Lack of synchronized operator-grade interval and spatial data. That forces hourly demand and bus allocation to be reconstructed.”</p></div>
@@ -213,7 +328,7 @@
 <div class="qa-card"><h3>So why did the 2026 load shedding happen?</h3><p class="answer">“I cannot reconstruct the exact event cause from the admitted public data. I would need interval dispatch, unit outages, interface schedules/flows, market availability, reservoir constraints and internal telemetry. The event motivates the study; the model tests structural vulnerabilities.”</p></div>
 </div></div></section>
 
-<section class="section" id="sourcesquick"><div class="wrap">
+<section class="section searchable-section" id="sourcesquick" data-category="sources"><div class="wrap">
 <div class="section-intro"><p class="eyebrow">Fast source lookup</p><h2>If someone challenges a number, know which source family it came from.</h2></div>
 <div class="table-wrap"><table class="cheat-table"><thead><tr><th>Topic</th><th>Primary source family</th><th>Remember</th></tr></thead><tbody>
 <tr><td>Annual Kerala electricity</td><td>Kerala State Planning Board / Economic Review</td><td>Official annual accounting; keep boundary/year visible.</td></tr>
@@ -228,7 +343,7 @@
 </tbody></table></div>
 </div></section>
 
-<section class="section" id="danger"><div class="wrap">
+<section class="section searchable-section" id="danger" data-category="warnings"><div class="wrap">
 <div class="section-intro"><p class="eyebrow">Wording traps</p><h2>Never say these casually.</h2></div>
 <div class="danger-list">
 <div class="danger-item"><strong>Do not say: “The model proves why the 2026 load shedding happened.”</strong><span>Say: “The study tests structural vulnerabilities that can make the system susceptible to stress; it does not reconstruct the exact event.”</span></div>
@@ -247,7 +362,7 @@
 <div class="danger-item"><strong>Do not say: “Every result is reproducible from a fresh clone.”</strong><span>Say: “Most retained transformations/model runs are reproducible; the ERA5-sensitive v2 fit is integrity-verifiable but the original fitter/raw archive are not public in the repo.”</span></div>
 </div></div></section>
 
-<section class="section" id="lastminute"><div class="wrap">
+<section class="section searchable-section" id="lastminute" data-category="core"><div class="wrap">
 <div class="section-intro"><p class="eyebrow">15-minute pre-poster drill</p><h2>Read this immediately before the session.</h2></div>
 <ol>
 <li><strong>Say the question:</strong> susceptibility to shortages / peak-hour restrictions; structural + operational factors.</li>
@@ -266,4 +381,102 @@
 <div class="script" style="margin-top:20px"><b>Best closing sentence:</b> “The central result is not that Kerala needs one specific technology. It is that timing, external transfer and internal deliverability can become binding for different reasons, so the next investment should be chosen against the diagnosed constraint rather than against an annual energy headline.”</div>
 </div></section>
 </main>
+<script>
+(() => {
+  const search = document.getElementById('forme-search');
+  const clear = document.getElementById('forme-clear');
+  const status = document.getElementById('search-status');
+  const filters = [...document.querySelectorAll('.filter-chip')];
+  const sections = [...document.querySelectorAll('.searchable-section')];
+  const noResults = document.getElementById('forme-no-results');
+  let activeCategory = 'all';
+
+  const normalize = value => (value || '').toLowerCase().replace(/\s+/g, ' ').trim();
+
+  function itemNodes(section) {
+    const items = [...section.querySelectorAll('.qa-card, .memory, .danger-item, .script, table tbody tr, .future-track')];
+    return items.length ? items : [section];
+  }
+
+  function applyFilter({scrollToFirst = false} = {}) {
+    const query = normalize(search.value);
+    let visibleSections = 0;
+    let visibleItems = 0;
+    let firstVisible = null;
+
+    sections.forEach(section => {
+      const categoryMatch = activeCategory === 'all' || section.dataset.category === activeCategory;
+      const items = itemNodes(section);
+      let sectionMatches = false;
+
+      items.forEach(item => {
+        item.classList.remove('search-hit', 'search-hidden');
+        const textMatch = !query || normalize(item.innerText).includes(query);
+        const show = categoryMatch && textMatch;
+        if (show) {
+          sectionMatches = true;
+          visibleItems += 1;
+          if (query) item.classList.add('search-hit');
+          if (!firstVisible) firstVisible = item;
+        } else if (items.length > 1) {
+          item.classList.add('search-hidden');
+        }
+      });
+
+      // If a table has hidden rows, keep the table header visible if any row matches.
+      section.classList.toggle('search-hidden', !sectionMatches);
+      if (sectionMatches) visibleSections += 1;
+    });
+
+    if (!query && activeCategory === 'all') {
+      status.textContent = 'Showing the full defense manual';
+    } else {
+      status.textContent = visibleSections
+        ? `Showing ${visibleItems} matching items across ${visibleSections} sections`
+        : 'No matching items';
+    }
+    noResults.classList.toggle('show', visibleSections === 0);
+
+    if (scrollToFirst && firstVisible) {
+      firstVisible.scrollIntoView({behavior:'smooth', block:'center'});
+    }
+  }
+
+  search.addEventListener('input', () => applyFilter());
+  search.addEventListener('keydown', event => {
+    if (event.key === 'Enter') applyFilter({scrollToFirst:true});
+  });
+
+  clear.addEventListener('click', () => {
+    search.value = '';
+    activeCategory = 'all';
+    filters.forEach(button => button.classList.toggle('active', button.dataset.filter === 'all'));
+    applyFilter();
+    search.focus();
+  });
+
+  filters.forEach(button => button.addEventListener('click', () => {
+    activeCategory = button.dataset.filter;
+    filters.forEach(b => b.classList.toggle('active', b === button));
+    applyFilter({scrollToFirst:true});
+  }));
+
+  document.addEventListener('keydown', event => {
+    if (event.key === '/' && document.activeElement !== search && !event.ctrlKey && !event.metaKey && !event.altKey) {
+      event.preventDefault();
+      search.focus();
+      search.select();
+    }
+    if (event.key === 'Escape') {
+      search.value = '';
+      activeCategory = 'all';
+      filters.forEach(button => button.classList.toggle('active', button.dataset.filter === 'all'));
+      applyFilter();
+      search.blur();
+    }
+  });
+
+  applyFilter();
+})();
+</script>
 </body></html>
