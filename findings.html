@@ -63,15 +63,24 @@
 
 <section class="section" id="rq3"><div class="wrap">
 <div class="section-intro"><p class="eyebrow">RQ3 · Hydropower timing</p><h2>The same hydro energy can have very different adequacy value.</h2></div>
-<div class="visual-panel">
-  <h3>Reference demand · modeled unserved energy</h3>
-  <div class="bar-chart">
-    <div class="bar-row"><span class="bar-label">4,455 MW transfer · frozen hydro</span><span class="bar-track"><span class="bar-fill rust" style="width:100%"></span></span><span class="bar-value">375.03 GWh</span></div>
-    <div class="bar-row"><span class="bar-label">4,455 MW · same-day flexible</span><span class="bar-track"><span class="bar-fill" style="width:3.13%"></span></span><span class="bar-value">11.75 GWh</span></div>
-    <div class="bar-row"><span class="bar-label">3,564 MW · same-day flexible</span><span class="bar-track"><span class="bar-fill gold" style="width:31.7%"></span></span><span class="bar-value">1,187.85 GWh*</span></div>
-    <div class="bar-row"><span class="bar-label">2,673 MW · same-day flexible</span><span class="bar-track"><span class="bar-fill rust" style="width:100%"></span></span><span class="bar-value">5,571.39 GWh*</span></div>
+<div class="finding-visual">
+  <div class="visual-panel">
+    <h3>Full-transfer reference case</h3>
+    <div class="bar-chart">
+      <div class="bar-row"><span class="bar-label">Frozen daily-average hydro</span><span class="bar-track"><span class="bar-fill rust" style="width:100%"></span></span><span class="bar-value">375.03 GWh</span></div>
+      <div class="bar-row"><span class="bar-label">Same-day flexible hydro</span><span class="bar-track"><span class="bar-fill" style="width:3.13%"></span></span><span class="bar-value">11.75 GWh</span></div>
+    </div>
+    <p class="caption">Same hydro energy; different timing. Modeled unserved energy falls 96.87% in this one case.</p>
   </div>
-  <p class="caption">*Bars with different transfer ceilings are not on the same absolute scale as the first pair; the values show why hydro timing helps less when transfer/energy deficits become deep. See the interday table below.</p>
+  <div class="visual-panel">
+    <h3>Benefit of same-day hydro flexibility</h3>
+    <div class="bar-chart">
+      <div class="bar-row"><span class="bar-label">4,455 MW transfer</span><span class="bar-track"><span class="bar-fill" style="width:96.9%"></span></span><span class="bar-value">−96.9%</span></div>
+      <div class="bar-row"><span class="bar-label">3,564 MW transfer</span><span class="bar-track"><span class="bar-fill gold" style="width:48.4%"></span></span><span class="bar-value">−48.4%</span></div>
+      <div class="bar-row"><span class="bar-label">2,673 MW transfer</span><span class="bar-track"><span class="bar-fill rust" style="width:15.6%"></span></span><span class="bar-value">−15.6%</span></div>
+    </div>
+    <p class="caption">Percentage reduction relative to frozen-hydro counterpart at each transfer ceiling.</p>
+  </div>
 </div>
 <div class="table-wrap" style="margin-top:18px"><table><thead><tr><th>Transfer ceiling</th><th>1-day window</th><th>3-day</th><th>15-day</th><th>30-day</th></tr></thead><tbody>
 <tr><td>4,455 MW</td><td>11.751 GWh</td><td>7.422 GWh</td><td>0.160 GWh</td><td>0.160 GWh</td></tr>
