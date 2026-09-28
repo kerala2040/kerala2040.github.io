@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+<meta name="theme-color" content="#10382d">
+<title>Kerala2040 · Personal conference defense</title>
+<link rel="icon" href="../assets/mark.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/companion.css">
+<style>
+.private-head{padding:56px 0 34px;background:#10382d;color:#fff8e7}.private-head h1{font:500 clamp(42px,6vw,76px)/1 var(--display);margin:0 0 18px}.private-head p{max-width:900px;color:#d8e0da;font-size:18px}
+.private-nav{position:sticky;top:0;z-index:40;background:#fffdf5f5;border-bottom:1px solid var(--line);backdrop-filter:blur(10px)}.private-nav .wrap{display:flex;gap:16px;overflow:auto;padding:12px 0}.private-nav a{font:600 12px var(--body);white-space:nowrap;text-decoration:none}
+.memory-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.memory{padding:18px;border:1px solid var(--line);background:var(--surface)}.memory strong{display:block;font:600 27px/1 var(--display);color:var(--leaf);margin-bottom:8px}.memory span{font-size:12px;color:var(--muted)}
+.script{padding:18px 20px;border:1px solid var(--line);background:var(--surface);font-size:15px}.script b{color:var(--rust)}
+.danger-list{display:grid;gap:10px}.danger-item{padding:15px 17px;border-left:4px solid var(--rust);background:#eadbd0}.danger-item strong{display:block;margin-bottom:4px}
+.qa-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.qa-card{border:1px solid var(--line);background:var(--surface);padding:18px}.qa-card h3{font:600 21px/1.2 var(--display);margin:0 0 10px}.qa-card p{margin:7px 0;color:var(--muted)}.qa-card .answer{color:var(--ink);font-weight:500}
+.cheat-table td:first-child{font-weight:700;white-space:nowrap}.cheat-table td:nth-child(2){font-family:var(--mono)}
+@media(max-width:850px){.memory-grid{grid-template-columns:1fr 1fr}.qa-grid{grid-template-columns:1fr}}@media(max-width:560px){.memory-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<section class="private-head"><div class="wrap">
+<p class="eyebrow" style="color:#d6b46d">Personal study page · unlinked · noindex</p>
+<h1>Kerala2040 conference defense</h1>
+<p>This is the private-by-obscurity study manual for CET 2026: what to know by heart, exact claim boundaries, likely expert questions, short answers, method choices, equations, QA corrections and wording traps.</p>
+<p style="font:12px var(--mono);color:#c7d3ca">Not access-controlled. Anyone who knows this URL can read it.</p>
+</div></section>
+<nav class="private-nav"><div class="wrap">
+<a href="#core">Core story</a><a href="#rqs">RQ map</a><a href="#numbers">Numbers</a><a href="#methods">Methods</a><a href="#equations">Equations</a><a href="#demand">Demand</a><a href="#hydro">Hydro</a><a href="#imports">Imports</a><a href="#network">Network</a><a href="#economics">Economics</a><a href="#solutions">Solutions</a><a href="#qa">Likely questions</a><a href="#sourcesquick">Sources</a><a href="#danger">Never say</a><a href="#lastminute">Last-minute drill</a>
+</div></nav>
+
+<main>
+<section class="section" id="core"><div class="wrap">
+<div class="section-intro"><p class="eyebrow">Memorize this first</p><h2>The core story in 30 seconds.</h2></div>
+<div class="script"><b>30-second answer:</b> “Kerala2040 is a public-data diagnostic of Kerala's electricity system. I reconstructed the historical balance and a bounded hourly chronology, then tested whether stress is driven by difficult-hour demand, hydropower timing, dependence on interstate transfer and internal transmission deliverability. I treat ecology and finance as feasibility constraints and use storage/flexibility cases only as candidate response mechanisms. The result is not a final 2040 plan; it is a structured diagnosis of which mechanisms matter and which evidence is still missing.”</div>
+<div class="script" style="margin-top:12px"><b>One-sentence contribution:</b> “The contribution is a source-audited evidence chain that separates observation, reconstruction, sensitivity and validation, and keeps higher-confidence claims fail-closed when the public data cannot support them.”</div>
+<div class="script" style="margin-top:12px"><b>Main research question:</b> “Why is Kerala susceptible to electricity shortages and peak-hour supply restrictions, and what structural and operational factors determine whether the system can meet demand under stress?”</div>
+<div class="script" style="margin-top:12px"><b>Working synthesis:</b> “Kerala's susceptibility to stress is an interaction problem rather than a simple annual-energy deficit: demand timing and weather, hydro timing and availability, dependable external transfer and internal network deliverability can each become binding under different conditions.”</div>
+</div></section>
+
+<section class="section" id="rqs"><div class="wrap">
+<div class="section-intro"><p class="eyebrow">RQ1–RQ6</p><h2>Know what each question is doing.</h2></div>
+<div class="qa-grid">
+<div class="qa-card"><h3>RQ1 · Historical balance</h3><p class="answer">How has Kerala's electricity balance changed, and how structurally important is electricity arriving from outside the state?</p><p><strong>Evidence:</strong> annual official statistics + SLDC daily archive. <strong>Key boundary:</strong> do not collapse different import/consumption definitions into one percentage.</p></div>
+<div class="qa-card"><h3>RQ2 · Energy vs chronology</h3><p class="answer">Is the problem mainly annual energy shortage, or difficult-hour timing/flexibility?</p><p><strong>Evidence:</strong> reconstructed 8,760-hour demand, ERA5 shape terms, chronological adequacy. <strong>Key result:</strong> annual energy alone cannot describe stressed hours.</p></div>
+<div class="qa-card"><h3>RQ3 · Hydro flexibility</h3><p class="answer">How much adequacy value comes from being able to move hydro energy in time?</p><p><strong>Evidence:</strong> v1.1 same-day timing + v1.2 interday windows. <strong>Key result:</strong> very large benefit when timing-limited; much smaller under deep transfer/energy deficit.</p></div>
+<div class="qa-card"><h3>RQ4 · Interstate transfer</h3><p class="answer">How sensitive is Kerala to dependable external supply and transfer capability?</p><p><strong>Evidence:</strong> CEA 4,455 MW ATC reference + 80%/60% synthetic stress cases. <strong>Key result:</strong> adequacy deteriorates sharply under strong transfer constraints.</p></div>
+<div class="qa-card"><h3>RQ5 · Internal deliverability</h3><p class="answer">Can statewide balance appear adequate while internal corridors remain stressed?</p><p><strong>Evidence:</strong> public 110-kV+ multibus screen under eight import-allocation cases. <strong>Key result:</strong> persistent Shoranur-area geographic signal, externally corroborated by CEA.</p></div>
+<div class="qa-card"><h3>RQ6 · Response classes</h3><p class="answer">Given the diagnosed vulnerabilities, which interventions deserve deeper modelling?</p><p><strong>Candidate classes:</strong> better use of existing hydro/demand flexibility → storage/reinforcement → new supply. <strong>Not:</strong> an optimized policy portfolio.</p></div>
+</div>
+</div></section>
+
+<section class="section" id="numbers"><div class="wrap">
+<div class="section-intro"><p class="eyebrow">Numbers to know cold</p><h2>Do not hesitate on these.</h2></div>
+<div class="memory-grid">
+<div class="memory"><strong>36.207m</strong><span>Kerala 2026 projected population.</span></div>
+<div class="memory"><strong>38,863 km²</strong><span>Kerala geographical area.</span></div>
+<div class="memory"><strong>816 kWh/person</strong><span>Official FY2024–25 Kerala per-capita electricity statistic.</span></div>
+<div class="memory"><strong>22.54 → 29.31 TWh</strong><span>Broad consumption FY2020–21 → FY2024–25.</span></div>
+<div class="memory"><strong>354 / 365</strong><span>Qualified FY2024–25 SLDC daily records; 11 missing.</span></div>
+<div class="memory"><strong>124.9 MW</strong><span>ERA5-sensitive held-out extrema MAE.</span></div>
+<div class="memory"><strong>155.2 MW</strong><span>ERA5-sensitive held-out extrema RMSE; static = 162.0 MW.</span></div>
+<div class="memory"><strong>0.968</strong><span>ERA5-sensitive held-out extrema correlation.</span></div>
+<div class="memory"><strong>5,923.3 MW</strong><span>Reconstructed FY peak.</span></div>
+<div class="memory"><strong>5,904 MW</strong><span>CEA generation-RA planning/calibration reference used by proxy.</span></div>
+<div class="memory"><strong>5,797 MW</strong><span>Separate CEA transmission-RA recorded FY2024–25 peak.</span></div>
+<div class="memory"><strong>4,575 / 4,455 MW</strong><span>CEA TTC / ATC current reference.</span></div>
+<div class="memory"><strong>3,564 / 2,673 MW</strong><span>80% / 60% ATC stress cases; synthetic, not observed.</span></div>
+<div class="memory"><strong>375.03 → 11.75 GWh</strong><span>Reference/full-transfer unserved energy: frozen hydro → same-day flexible hydro.</span></div>
+<div class="memory"><strong>−96.87%</strong><span>Hydro timing benefit in that one reference case only.</span></div>
+<div class="memory"><strong>7.431 TWh</strong><span>Annual admitted hydro energy in v1.2.</span></div>
+<div class="memory"><strong>780 MW</strong><span>Idukki HEP = six 130 MW units.</span></div>
+<div class="memory"><strong>1,460 MCM</strong><span>Idukki full reservoir storage field in retained SLDC data.</span></div>
+<div class="memory"><strong>1,470 MWh/MCM</strong><span>Station energy-equivalent used in v1.3; operational ratio, not hydraulic derivation.</span></div>
+<div class="memory"><strong>542 / 561</strong><span>Network skeleton buses / lines.</span></div>
+<div class="memory"><strong>233</strong><span>Source-backed primary lines in robustness screen.</span></div>
+<div class="memory"><strong>21</strong><span>Lines over screening rating in all eight boundary-allocation cases.</span></div>
+<div class="memory"><strong>12</strong><span>Robust corridor groups in that screen.</span></div>
+<div class="memory"><strong>200 + 100 MVA</strong><span>Current CEA existing Shoranur transformation; do not say current capacity is 100 MVA.</span></div>
+</div>
+
+<h3 style="margin-top:34px">Economics / cost figures</h3>
+<div class="table-wrap"><table class="cheat-table"><thead><tr><th>Item</th><th>Figure</th><th>How to describe it</th></tr></thead><tbody>
+<tr><td>Solar capex</td><td>₹41,000/kW</td><td>CEA Version 2.0 planning assumption at 2021–22 cost level, not Kerala EPC quote.</td></tr>
+<tr><td>Onshore wind</td><td>₹60,000/kW</td><td>CEA planning assumption.</td></tr>
+<tr><td>4h BESS</td><td>₹47,200–82,200/kW</td><td>CEA planning range; 88% round-trip efficiency from 12% loss assumption.</td></tr>
+<tr><td>CERC discount benchmark</td><td>9.08%</td><td>Post-tax WACC-equivalent benchmark for non-SHP RE, not Kerala project WACC.</td></tr>
+<tr><td>Loan benchmark</td><td>10.71%</td><td>CERC order.</td></tr>
+<tr><td>Debt/equity</td><td>70:30</td><td>CERC regulatory benchmark.</td></tr>
+<tr><td>IEX average MCP</td><td>₹5.23759/kWh</td><td>FY2023–24 average MCP; model rounds to ₹5.24.</td></tr>
+<tr><td>IEX weighted MCP</td><td>₹5.17449/kWh</td><td>Do not call ₹5.24 weighted MCP.</td></tr>
+<tr><td>Kerala power outlay</td><td>₹1,156.76 crore</td><td>2025–26 budget allocation, not realized expenditure.</td></tr>
+<tr><td>Manjappara PSP</td><td>₹180 crore</td><td>30 MW planning-stage estimate, not completed cost.</td></tr>
+<tr><td>Mudirapuzha PSP</td><td>₹573 crore</td><td>100 MW planning-stage estimate, not completed cost.</td></tr>
+</tbody></table></div>
+</div></section>
+
+<section class="section" id="methods"><div class="wrap">
+<div class="section-intro"><p class="eyebrow">Methodology logic</p><h2>Why each method was chosen.</h2></div>
+<div class="qa-grid">
+<div class="qa-card"><h3>Why source/accounting reconstruction first?</h3><p class="answer">Because capacity-expansion precision is meaningless if historical inputs mix different boundaries. I preserved definitions and missingness before optimization.</p></div>
+<div class="qa-card"><h3>Why not reconcile all annual numbers?</h3><p class="answer">Because broad consumption, category sales, periphery input and SLDC balance use different definitions. Reconciliation without source-supported adjustments would invent data.</p></div>
+<div class="qa-card"><h3>Why 8,760 hours?</h3><p class="answer">Peak adequacy, renewable coincidence and storage depend on chronology. Representative periods can hide rare stressful sequences.</p></div>
+<div class="qa-card"><h3>Why FY2024–25?</h3><p class="answer">It has the strongest near-complete daily SLDC evidence bundle and aligns well with current planning baselines. It is not claimed to be a climatological design year.</p></div>
+<div class="qa-card"><h3>Why PyPSA?</h3><p class="answer">Open, transparent, chronological and reproducible. The limiting factor was evidence, not solver capability.</p></div>
+<div class="qa-card"><h3>Why cross-check with SciPy/OSeMOSYS?</h3><p class="answer">To reduce framework-implementation risk. Agreement verifies the common mathematical formulation, not physical reality.</p></div>
+<div class="qa-card"><h3>Why adequacy-first before cost?</h3><p class="answer">No Kerala-specific VOLL was admitted. A monetary objective with invented VOLL would choose how much load shedding is “worth it.” I first minimize unserved energy, then cost among equally adequate solutions.</p></div>
+<div class="qa-card"><h3>Why no unit commitment?</h3><p class="answer">Plant-level minimum output, ramping, startup, heat-rate and outage data are incomplete. Guessed parameters would create false precision.</p></div>
+<div class="qa-card"><h3>Why no probabilistic LOLP?</h3><p class="answer">Proper LOLP requires outage distributions, multiple weather years, hydro uncertainty and demand uncertainty. I report deterministic unserved MWh and shortage hours.</p></div>
+<div class="qa-card"><h3>Why no AC / N-1 network model?</h3><p class="answer">Missing measured bus injections, full impedances, reactive-power data and current operating states. An AC solver can converge with bad inputs; convergence is not validation.</p></div>
+</div>
+</div></section>
+
+<section class="section" id="equations"><div class="wrap">
+<div class="section-intro"><p class="eyebrow">Equations to understand</p><h2>You do not need to derive everything at the poster, but know what each equation means.</h2></div>
+<div class="qa-grid">
+<div class="qa-card"><h3>Daily-energy conservation</h3><div class="equation">Σₕ Load(d,h) = E_obs(d)</div><p>The 24 reconstructed hourly values must sum to the observed SLDC daily MWh on qualified days. Therefore daily energy is data; intraday shape is the modeled part.</p></div>
+<div class="qa-card"><h3>Lexicographic adequacy</h3><div class="equation">Stage 1: min Σₜ Uₜ<br>Stage 2: hold U* and min partial cost</div><p>U is unserved energy. This avoids inventing a Kerala-specific VOLL that would decide how much load shedding the optimizer tolerates.</p></div>
+<div class="qa-card"><h3>Idukki v1.3 reconstructed forcing</h3><div class="equation">Bₜ = Sₜ₊₁ − Sₜ + Gₜ/c</div><p>B is reconstructed net water-equivalent balance, S storage, G generation and c the fixed station energy equivalent. Because B uses S and G, historical closure is algebraic.</p></div>
+<div class="qa-card"><h3>Idukki state transition</h3><div class="equation">Sₜ₊₁ = Sₜ + Bₜ − Gₜ/c</div><p>This makes v1.3 stateful, but it does not turn reconstructed B into measured catchment inflow.</p></div>
+<div class="qa-card"><h3>Gross Idukki source ratio</h3><div class="equation">2,190,000 MWh / 1,460 MCM = 1,500 MWh/MCM</div><p>The model uses 1,470 MWh/MCM instead because it derives the median station-capability/effective-storage ratio across the retained source rows.</p></div>
+<div class="qa-card"><h3>Transmission thermal apparent-power screen</h3><div class="equation">S ≈ √3 · V · I</div><p>Used where a source current rating and nominal voltage define a screening MVA. It is not an operator seasonal/emergency rating.</p></div>
+</div>
+</div></section>
+
+<section class="section" id="demand"><div class="wrap">
+<div class="section-intro"><p class="eyebrow">Demand / ERA5</p><h2>Questions you are very likely to get.</h2></div>
+<div class="qa-grid">
+<div class="qa-card"><h3>You don't have hourly telemetry. How can you model 8,760 hours?</h3><p class="answer">“It is a reconstruction, not telemetry. I conserve the observed daily MWh exactly on 354 days and reconstruct only the intraday shape using reported extrema, clock time, weekend structure and ERA5 weather.”</p></div>
+<div class="qa-card"><h3>What does 124.9 MW MAE mean?</h3><p class="answer">“It is the MAE on held-out reported intraday extrema, conditional on knowing that day's total energy. It validates shape reconstruction, not a day-ahead hourly load forecast.”</p></div>
+<div class="qa-card"><h3>Is daily-energy normalization leakage?</h3><p class="answer">“Only if I claimed to forecast daily demand. I don't. Daily energy is intentionally an observed constraint; the validation target is intraday shape.”</p></div>
+<div class="qa-card"><h3>Why ERA5?</h3><p class="answer">“It provides complete, physically consistent and reproducible hourly weather chronology. It is reanalysis, not local station measurement.”</p></div>
+<div class="qa-card"><h3>Do weather coefficients prove causation?</h3><p class="answer">“No. They are associational shape terms. Weather, season, behavior and clock time are correlated, and the series is daily-normalized.”</p></div>
+<div class="qa-card"><h3>Why not LSTM/XGBoost?</h3><p class="answer">“I do not have a dense measured hourly target series. Complex supervised forecasting without hourly labels would be pseudo-sophistication.”</p></div>
+<div class="qa-card"><h3>Why are 5,904 and 5,797 MW both present?</h3><p class="answer">“They come from different CEA planning/reporting contexts. 5,904 MW is the generation-RA reference used by the proxy; 5,797 MW is the recorded FY2024–25 peak in the newer transmission-RA plan. I keep them separate.”</p></div>
+<div class="qa-card"><h3>Can the v2 fit be regenerated?</h3><p class="answer">“The released 8,760-hour payload is hash-pinned and downstream use is reproducible, but the original fitting script and raw ERA5 archive are not currently committed, so the coefficient fit itself is not fully source-to-fit reproducible from a fresh clone.”</p></div>
+</div></div></section>
+
+<section class="section" id="hydro"><div class="wrap">
+<div class="section-intro"><p class="eyebrow">Hydro / Idukki</p><h2>Keep sensitivity, reservoir physics and hydrology separate.</h2></div>
+<div class="qa-grid">
+<div class="qa-card"><h3>96.9% reduction sounds too large.</h3><p class="answer">“It is large and case-specific. The experiment holds daily hydro energy fixed and changes only its timing. In the high-transfer reference case shortage is mostly a timing problem. Under tighter transfer the benefit collapses—that contrast is the result.”</p></div>
+<div class="qa-card"><h3>Does v1.1 represent actual KSEB dispatch freedom?</h3><p class="answer">“No. It is an upper-bound timing sensitivity. It omits reservoir inflow, cascade routing, minimum releases, rule curves and head-dependent efficiency.”</p></div>
+<div class="qa-card"><h3>What are 1/3/15/30-day windows?</h3><p class="answer">“Synthetic temporal brackets that test how added interday freedom changes adequacy. They are not reservoir durations.”</p></div>
+<div class="qa-card"><h3>Is v1.3 a validated reservoir model?</h3><p class="answer">“No. It is a stateful pilot with reconstructed net-water-balance forcing.”</p></div>
+<div class="qa-card"><h3>But historical storage closes exactly.</h3><p class="answer">“That closure is algebraic by construction because the forcing is derived from the same storage change and generation. It validates implementation and alignment, not hydrology.”</p></div>
+<div class="qa-card"><h3>What is 1,470 MWh/MCM?</h3><p class="answer">“A source-derived station energy-equivalent ratio from reported generation capability and effective storage. It is not a first-principles head/efficiency curve.”</p></div>
+<div class="qa-card"><h3>Why isn't Phase 5 catchment finished?</h3><p class="answer">“Candidate reconstructions did not pass independent geometry checks. I refused to tune a polygon just to match the 649.3 km² reference area.”</p></div>
+<div class="qa-card"><h3>Phase 4 rainfall-inflow: forecast?</h3><p class="answer">“No. Same-day rainfall is used, so the 37.24% held-out MAE improvement is a retrospective diagnostic on complete cases, not a one-day-ahead forecast.”</p></div>
+</div></div></section>
+
+<section class="section" id="imports"><div class="wrap">
+<div class="section-intro"><p class="eyebrow">Imports / transfer</p><h2>Do not turn interconnection into an ideological claim.</h2></div>
+<div class="qa-grid">
+<div class="qa-card"><h3>Are imports a weakness?</h3><p class="answer">“Not inherently. Interconnection is normal and valuable. The vulnerability is dependence on external supply that may not be available at the required hour or through the required transfer path. The issue is dependable access, not autarky.”</p></div>
+<div class="qa-card"><h3>Why 4,455 MW?</h3><p class="answer">“CEA reports current TTC 4,575 MW and ATC 4,455 MW in the dated Kerala transmission plan. I use 4,455 as a current screening reference, not a guaranteed future capability.”</p></div>
+<div class="qa-card"><h3>Why 80% and 60%?</h3><p class="answer">“They are transparent stress cases to test sensitivity to external-transfer availability. They are not observed outage states or predictions.”</p></div>
+<div class="qa-card"><h3>Why not calculate future ATC from planned line MVA?</h3><p class="answer">“ATC is a simultaneous system property constrained by topology, contingencies, voltage, thermal limits and operating point. You cannot add line ratings arithmetically.”</p></div>
+<div class="qa-card"><h3>Are the import costs hourly landed prices?</h3><p class="answer">“No. They are flat source-derived benchmarks from different accounting boundaries, which is why the economics are partial.”</p></div>
+<div class="qa-card"><h3>What exactly is ₹5.24/kWh?</h3><p class="answer">“The FY2023–24 IEX average MCP, rounded from ₹5.23759/kWh. The volume-weighted MCP is ₹5.17449/kWh, so I do not call ₹5.24 weighted.”</p></div>
+</div></div></section>
+
+<section class="section" id="network"><div class="wrap">
+<div class="section-intro"><p class="eyebrow">Transmission</p><h2>The geography is stronger than the exact loading magnitude.</h2></div>
+<div class="qa-grid">
+<div class="qa-card"><h3>Why “network screen” and not “grid model”?</h3><p class="answer">“I have source-backed topology and partial equipment evidence but not measured bus loads, unit dispatch, full source impedances, reactive power or N-1 states.”</p></div>
+<div class="qa-card"><h3>Why generic X?</h3><p class="answer">“Conductor identity does not uniquely determine positive-sequence reactance. Where source X was unavailable I used explicit voltage-class screening assumptions.”</p></div>
+<div class="qa-card"><h3>Why load ∝ transformer MVA?</h3><p class="answer">“No public hourly bus-load series exists. Distribution-interface transformer MVA is an electrically grounded proxy for connection scale; it is still only a proxy.”</p></div>
+<div class="qa-card"><h3>What does 21 robust lines mean?</h3><p class="answer">“The same 21 source-rating-backed lines exceed their screening rating in every one of eight boundary-injection allocation cases. Robust only to that uncertainty dimension.”</p></div>
+<div class="qa-card"><h3>Did you discover Shoranur independently?</h3><p class="answer">“The public screen independently highlighted the geography. QA then found the old transformer magnitude used a 2023 100 MVA snapshot, while current CEA reports 200+100 MVA and independently identifies Shoranur and nearby corridors as constrained. I retain the location, not the old current-loading interpretation.”</p></div>
+<div class="qa-card"><h3>Does the Shoranur correction invalidate the network study?</h3><p class="answer">“It downgrades one transformer magnitude. It does not erase the topology or line-screen signal, and current CEA independently corroborates several hotspot locations.”</p></div>
+<div class="qa-card"><h3>Can you say grid stability?</h3><p class="answer">“No. I say network stress, congestion or deliverability screening. No transient, small-signal, frequency or voltage-stability analysis was performed.”</p></div>
+<div class="qa-card"><h3>Can you size upgrades from overload MW?</h3><p class="answer">“No. Required reinforcement depends on future topology, redispatch, generation/load changes and contingency criteria.”</p></div>
+</div></div></section>
+
+<section class="section" id="economics"><div class="wrap">
+<div class="section-intro"><p class="eyebrow">Economics / finance / budgets</p><h2>Always state the price boundary and project stage.</h2></div>
+<div class="qa-grid">
+<div class="qa-card"><h3>Is this a least-cost plan?</h3><p class="answer">“No. Existing fleet economics and several system costs are omitted. It is a partial economic expansion screen.”</p></div>
+<div class="qa-card"><h3>Are CEA costs Kerala project quotes?</h3><p class="answer">“No. They are national planning assumptions at a 2021–22 cost basis.”</p></div>
+<div class="qa-card"><h3>Is 9.08% Kerala WACC?</h3><p class="answer">“No. It is CERC's non-SHP post-tax WACC-equivalent regulatory benchmark used for research annualization.”</p></div>
+<div class="qa-card"><h3>Are Kerala projects unusually cheap?</h3><p class="answer">“I do not claim that. Some planning estimates look modest in SEK, but scope and project stage differ and overruns exist. The defensible point is that capital constraints make prioritization important.”</p></div>
+<div class="qa-card"><h3>What are the PSP budget figures?</h3><p class="answer">“₹180 crore for 30 MW Manjappara and ₹573 crore for 100 MW Mudirapuzha are early planning estimates, not final EPC costs.”</p></div>
+<div class="qa-card"><h3>Why convert to SEK?</h3><p class="answer">“Only to give the Swedish conference audience intuitive scale. INR remains authoritative and the FX date/project stage must be visible.”</p></div>
+</div></div></section>
+
+<section class="section" id="solutions"><div class="wrap">
+<div class="section-intro"><p class="eyebrow">Solutions / technology questions</p><h2>Candidate mechanisms, not recommendations.</h2></div>
+<div class="qa-grid">
+<div class="qa-card"><h3>Does storage save electricity?</h3><p class="answer">“No. It normally loses energy. It reduces stress by moving usable energy between hours.”</p></div>
+<div class="qa-card"><h3>Is pumped storage cheap?</h3><p class="answer">“Not categorically. Civil works, tunnels, ecology, geology and grid connection are site-specific.”</p></div>
+<div class="qa-card"><h3>What do EV/TES/industry pilots prove?</h3><p class="answer">“Only that the mechanism can shift authored service away from stressed hours. They do not establish statewide MW.”</p></div>
+<div class="qa-card"><h3>Why not nuclear / SMRs?</h3><p class="answer">“I did not exclude them ideologically. A credible Kerala nuclear scenario needs project-specific cost, construction time, siting, cooling, federal/regulatory ownership, unit size and grid assumptions. Adding a generic SMR variable without those would be invented precision.”</p></div>
+<div class="qa-card"><h3>Could nuclear still be useful?</h3><p class="answer">“Yes, firm low-carbon generation is a mechanism worth comparing in a properly defined long-term scenario. This study does not establish whether it is or is not the best Kerala option.”</p></div>
+<div class="qa-card"><h3>Why not coal/gas?</h3><p class="answer">“Same principle: serious comparison requires fuel logistics, emissions/policy, project costs and operating assumptions. The diagnosis does not need to preselect a technology.”</p></div>
+<div class="qa-card"><h3>What is the response hierarchy?</h3><p class="answer">“First improve use of existing assets and flexible demand; then add storage/reinforcement; then add new supply where the diagnosed constraint and feasibility evidence justify it.”</p></div>
+<div class="qa-card"><h3>Are these policy recommendations?</h3><p class="answer">“No. They are candidate response classes motivated by the diagnostic evidence and need deeper technical, economic, ecological and reliability modelling.”</p></div>
+</div></div></section>
+
+<section class="section" id="qa"><div class="wrap">
+<div class="section-intro"><p class="eyebrow">Likely high-level questions</p><h2>Short, clean answers.</h2></div>
+<div class="qa-grid">
+<div class="qa-card"><h3>What is the biggest limitation?</h3><p class="answer">“Lack of synchronized operator-grade interval and spatial data. That forces hourly demand and bus allocation to be reconstructed.”</p></div>
+<div class="qa-card"><h3>What would falsify your synthesis?</h3><p class="answer">“Measured events showing restrictions while dependable generation, external transfer and internal network headroom were all ample would mean my mechanism set is incomplete. Calibrated network evidence contradicting the hotspot geography would also force revision.”</p></div>
+<div class="qa-card"><h3>Why should I trust a screening model?</h3><p class="answer">“Only for the question it is designed to answer. Sensitivities can isolate mechanisms and prioritize where better evidence is worth acquiring; they are not substitutes for operator-grade validation.”</p></div>
+<div class="qa-card"><h3>Was this peer reviewed?</h3><p class="answer">“No. It is independent research presented for technical discussion. That is why the repository publishes the evidence classes, assumptions, limitations and QA corrections.”</p></div>
+<div class="qa-card"><h3>Did AI build this?</h3><p class="answer">“AI tools assisted with coding, source discovery, QA and documentation. AI output is not used as evidence; the evidence layer is the primary documents, retained data, explicit transformations and reproducible tests. I remain responsible for every claim.”</p></div>
+<div class="qa-card"><h3>Why compare Kerala with Sweden?</h3><p class="answer">“Only to give the CET audience scale intuition. It is not a development or performance ranking; climate, heating, industry and electricity systems differ substantially.”</p></div>
+<div class="qa-card"><h3>Why include Kerala culture/geography?</h3><p class="answer">“Because geography is part of the engineering boundary: mountains, monsoon, dense settlement, forests, coast and backwaters affect hydro, hazards, land availability and transmission. Cultural context simply makes the place legible to an international audience.”</p></div>
+<div class="qa-card"><h3>So why did the 2026 load shedding happen?</h3><p class="answer">“I cannot reconstruct the exact event cause from the admitted public data. I would need interval dispatch, unit outages, interface schedules/flows, market availability, reservoir constraints and internal telemetry. The event motivates the study; the model tests structural vulnerabilities.”</p></div>
+</div></div></section>
+
+<section class="section" id="sourcesquick"><div class="wrap">
+<div class="section-intro"><p class="eyebrow">Fast source lookup</p><h2>If someone challenges a number, know which source family it came from.</h2></div>
+<div class="table-wrap"><table class="cheat-table"><thead><tr><th>Topic</th><th>Primary source family</th><th>Remember</th></tr></thead><tbody>
+<tr><td>Annual Kerala electricity</td><td>Kerala State Planning Board / Economic Review</td><td>Official annual accounting; keep boundary/year visible.</td></tr>
+<tr><td>Daily electricity / reservoir fields</td><td>Kerala SLDC</td><td>Daily archive, not continuous interval telemetry.</td></tr>
+<tr><td>Future demand / generation adequacy</td><td>CEA/KSERC generation RA</td><td>5,904 MW is this planning context.</td></tr>
+<tr><td>Recorded peaks / TTC / ATC / constraints</td><td>CEA Kerala transmission RA</td><td>5,797 MW FY24–25 recorded peak; TTC 4,575 / ATC 4,455; Shoranur current evidence.</td></tr>
+<tr><td>Weather</td><td>ECMWF ERA5-Land</td><td>Reanalysis, not station observation.</td></tr>
+<tr><td>Technology planning costs</td><td>CEA Optimal Generation Mix v2</td><td>2021–22 planning cost basis.</td></tr>
+<tr><td>Finance benchmark</td><td>CERC Order 12/SM/2026</td><td>9.08% non-SHP WACC-equivalent, not Kerala project WACC.</td></tr>
+<tr><td>IEX price</td><td>IEX FY23–24 DAM snapshot</td><td>₹5.24 is average MCP, not weighted MCP.</td></tr>
+<tr><td>CIAL / KMRL / Water Metro</td><td>First-party organization pages/reports</td><td>Keep project stage/current-vintage wording precise.</td></tr>
+</tbody></table></div>
+</div></section>
+
+<section class="section" id="danger"><div class="wrap">
+<div class="section-intro"><p class="eyebrow">Wording traps</p><h2>Never say these casually.</h2></div>
+<div class="danger-list">
+<div class="danger-item"><strong>Do not say: “The model proves why the 2026 load shedding happened.”</strong><span>Say: “The study tests structural vulnerabilities that can make the system susceptible to stress; it does not reconstruct the exact event.”</span></div>
+<div class="danger-item"><strong>Do not say: “Grid stability.”</strong><span>Say: “Network congestion/deliverability screening” or “power-system stress.”</span></div>
+<div class="danger-item"><strong>Do not say: “Hourly forecast.”</strong><span>Say: “Weather-sensitive hourly reconstruction conditional on observed daily energy.”</span></div>
+<div class="danger-item"><strong>Do not say: “OSeMOSYS validates PyPSA.”</strong><span>Say: “Cross-framework agreement verifies implementation equivalence under shared assumptions.”</span></div>
+<div class="danger-item"><strong>Do not say: “v1.3 validates Idukki hydrology.”</strong><span>Say: “v1.3 is a stateful pilot with algebraic historical closure under reconstructed forcing.”</span></div>
+<div class="danger-item"><strong>Do not say: “Shoranur is a 100 MVA station.”</strong><span>Say: “The old model used a 2023 100 MVA element; current CEA reports 200+100 MVA existing transformation and still identifies the location as constrained.”</span></div>
+<div class="danger-item"><strong>Do not say: “21 proven congested lines.”</strong><span>Say: “21 source-rating-backed lines exceed screening rating in all eight tested boundary-injection allocations.”</span></div>
+<div class="danger-item"><strong>Do not say: “17 MWp installed at Water Metro.”</strong><span>Say: “The annual report envisages about 17 MWp capable of meeting its energy needs.”</span></div>
+<div class="danger-item"><strong>Do not say: “5.389 MWp is Kochi Metro's total current solar capacity.”</strong><span>Say: “It is a documented project-stage configuration; later deployment expanded.”</span></div>
+<div class="danger-item"><strong>Do not say: “Buildable renewable potential.”</strong><span>Say: “Research scenario envelope; statutory siting stack remains incomplete.”</span></div>
+<div class="danger-item"><strong>Do not say: “Optimal 2040 solution / least-cost plan.”</strong><span>Say: “Partial economic screening and candidate response classes.”</span></div>
+<div class="danger-item"><strong>Do not say: “Pumped storage is cheap” or “storage saves electricity.”</strong><span>Say: “Storage shifts energy with losses; PSP economics/feasibility are site-specific.”</span></div>
+<div class="danger-item"><strong>Do not say: “Kerala builds cheaply and high-quality.”</strong><span>Say: “Capital-constrained/budget-conscious planning makes prioritization important.”</span></div>
+<div class="danger-item"><strong>Do not say: “Every result is reproducible from a fresh clone.”</strong><span>Say: “Most retained transformations/model runs are reproducible; the ERA5-sensitive v2 fit is integrity-verifiable but the original fitter/raw archive are not public in the repo.”</span></div>
+</div></div></section>
+
+<section class="section" id="lastminute"><div class="wrap">
+<div class="section-intro"><p class="eyebrow">15-minute pre-poster drill</p><h2>Read this immediately before the session.</h2></div>
+<ol>
+<li><strong>Say the question:</strong> susceptibility to shortages / peak-hour restrictions; structural + operational factors.</li>
+<li><strong>Say the contribution:</strong> source-audited evidence chain, not new solver.</li>
+<li><strong>Know the four mechanisms:</strong> demand/weather · hydro timing · external transfer · internal deliverability.</li>
+<li><strong>Know the data boundary:</strong> 354 observed FY24–25 days; 11 missing; hourly chronology reconstructed.</li>
+<li><strong>Know the load metric caveat:</strong> 124.9 MW MAE is held-out intraday extrema conditional on known daily MWh.</li>
+<li><strong>Know the transfer reference:</strong> TTC 4575 / ATC 4455 MW; 3564/2673 are synthetic stress cases.</li>
+<li><strong>Know the hydro result:</strong> 375.03 → 11.75 GWh at full transfer/reference demand; upper-bound timing sensitivity.</li>
+<li><strong>Know Idukki:</strong> 780 MW, 1460 MCM, 1470 MWh/MCM operational equivalent; v1.3 closure is algebraic.</li>
+<li><strong>Know network:</strong> 233 primary lines, 21 robust to eight import-allocation cases, 12 corridor groups.</li>
+<li><strong>Know Shoranur correction:</strong> old 100 MVA element vs current CEA 200+100 MVA; keep location, drop old current-loading interpretation.</li>
+<li><strong>Know what is not done:</strong> no AC/N-1, LOLP, event reconstruction, validated catchment, buildable GW or least-cost portfolio.</li>
+<li><strong>If uncertain:</strong> say “I don't have evidence to answer that at the required boundary; the data I would need are …” Do not improvise.</li>
+</ol>
+<div class="script" style="margin-top:20px"><b>Best closing sentence:</b> “The central result is not that Kerala needs one specific technology. It is that timing, external transfer and internal deliverability can become binding for different reasons, so the next investment should be chosen against the diagnosed constraint rather than against an annual energy headline.”</div>
+</div></section>
+</main>
+</body></html>

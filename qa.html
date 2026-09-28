@@ -1,62 +1,89 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#164c3b"><meta name="description" content="Red-team scientific QA of Kerala2040: corrections, validation classes, assumptions and conference-safe claims."><title>Scientific QA · Kerala2040 CET 2026</title><link rel="icon" href="assets/mark.svg" type="image/svg+xml"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet"><link rel="stylesheet" href="assets/companion.css"></head><body><a class="skip" href="#main">Skip to content</a><header class="site-header"><a class="brand" href="research.html"><span class="brand-mark">ക</span><span>kerala<b>2040</b></span></a><span class="menu-note">CET 2026 research companion</span><nav aria-label="Conference companion"><a href="research.html">Research</a><a href="system.html">System</a><a href="methodology.html">Methodology</a><a href="findings.html">Findings</a><a href="responses.html">Responses</a><a href="qa.html" aria-current="page">QA</a><a href="sources.html">Sources</a><a class="poster-link" href="index.html">Main site ↗</a></nav></header>
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#164c3b"><meta name="description" content="Validation, scope and scientific QA for Kerala2040.">
+<title>Validation & scope · Kerala2040 CET 2026</title>
+<link rel="icon" href="assets/mark.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/companion.css"></head>
+<body><a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><a class="brand" href="index.html"><span class="brand-mark">ക</span><span>kerala<b>2040</b></span></a><span class="menu-note">CET 2026 research companion</span>
+<nav aria-label="Conference companion"><a href="research.html">Research</a><a href="system.html">System</a><a href="methodology.html">Methodology</a><a href="findings.html">Findings</a><a href="responses.html">Responses</a><a href="qa.html" aria-current="page">Validation</a><a href="sources.html">Sources</a><a class="poster-link" href="index.html">Home</a></nav></header>
 <main id="main">
-<section class="page-head"><div class="wrap"><p class="eyebrow">Scientific red-team</p><h1>What survived.<br><em>What was corrected.</em></h1><p class="lede">The QA pass was designed to find problems, not certify the existing story. The final verdict is <strong>PASS WITH DISCLOSED LIMITATIONS</strong> as a public-data diagnostic and screening study.</p><p><span class="status-pass">Pass with disclosed limitations</span></p></div></section>
-<nav class="reading-nav"><div class="wrap"><a href="#classes">Validation classes</a><a href="#corrections">Corrections found</a><a href="#green">Strongest claims</a><a href="#red">Do not claim</a><a href="#repro">Reproducibility</a><a href="#viva">Conference defense</a></div></nav>
+<section class="page-head"><div class="wrap"><p class="eyebrow">Scientific validation & scope</p><h1>Transparent about <em>what the evidence supports.</em></h1><p class="lede">A dedicated red-team pass checked source provenance, circular validation, stale assumptions, reproducibility and claim wording before the conference release.</p><p><span class="status-pass">Pass with disclosed limitations</span></p></div></section>
+<nav class="reading-nav"><div class="wrap"><a href="#classes">Evidence classes</a><a href="#corrections">Material corrections</a><a href="#supported">Supported conclusions</a><a href="#scope">Not established</a><a href="#repro">Reproducibility</a></div></nav>
 
-<section class="section" id="classes"><div class="wrap"><div class="section-intro"><p class="eyebrow">Validation taxonomy</p><h2>“Validation” is not one thing.</h2><p>A conservation identity, a unit test and an out-of-sample physical comparison answer different questions.</p></div>
-<div class="table-wrap"><table><thead><tr><th>Class</th><th>What it shows</th><th>Example in Kerala2040</th></tr></thead><tbody>
-<tr><td>S1 · Provenance</td><td>Value is traceable to a named source/date/boundary.</td><td>CEA ATC; annual Kerala consumption.</td></tr>
-<tr><td>S2 · Arithmetic/invariant</td><td>Transformation conserves the intended quantity.</td><td>Daily-energy conservation; accounting closure.</td></tr>
-<tr><td>S3 · Code verification</td><td>Software implements the intended equations/guards.</td><td>Unit tests; state-equation checks.</td></tr>
-<tr><td>S4 · Independent implementation</td><td>Different implementations solve the common mathematical problem consistently.</td><td>PyPSA ↔ SciPy ↔ OSeMOSYS.</td></tr>
-<tr><td>S5 · Out-of-sample statistical</td><td>Held-out observations are reconstructed/predicted better.</td><td>Jan–Mar intraday extrema holdout.</td></tr>
-<tr><td>S6 · Independent physical/planning</td><td>External engineering evidence supports the physical inference.</td><td>CEA independently corroborating Shoranur as constrained.</td></tr>
-<tr><td>S7 · Planning-grade</td><td>Calibrated operational/reliability/economic evidence supports a decision.</td><td><strong>Not achieved by this study.</strong></td></tr>
-</tbody></table></div></div></section>
-
-<section class="section" id="corrections"><div class="wrap"><div class="section-intro"><p class="eyebrow">Material QA findings</p><h2>The audit changed several claims.</h2></div>
-<div class="grid-2">
-<div class="card"><span class="badge limit">Corrected</span><h3>Shornur transformer</h3><p>The 100 MVA input is a genuine 2023 KSEBL PSS entry, but current 2026 CEA planning reports 200+100 MVA at Shoranur. The hotspot geography survives and is independently corroborated; the old overload ratio is not current whole-station loading.</p></div>
-<div class="card"><span class="badge limit">Corrected</span><h3>Idukki v1.3 closure</h3><p>The net-water forcing is reconstructed from storage change and generation. Historical storage replay therefore closes algebraically. This verifies implementation—not hydrology.</p></div>
-<div class="card"><span class="badge limit">Narrowed</span><h3>ERA5 load validation</h3><p>The Jan–Mar test is a valid held-out <strong>intraday-shape</strong> evaluation conditional on known daily energy. It is not a day-ahead hourly demand forecast.</p></div>
-<div class="card"><span class="badge limit">Narrowed</span><h3>Network “robustness”</h3><p>21 lines are robust only to the eight tested residual-import injection allocations—not to every load, dispatch, impedance, rating or contingency uncertainty.</p></div>
-<div class="card"><span class="badge limit">Relabelled</span><h3>IEX ₹5.24/kWh</h3><p>It is the FY2023–24 average MCP (~₹5.2376/kWh), not the volume-weighted MCP (~₹5.1745/kWh).</p></div>
-<div class="card"><span class="badge limit">Separated</span><h3>5,904 vs 5,797 MW</h3><p>5,904 MW is the generation-RA planning/calibration reference used by the proxy; 5,797 MW is the recorded FY2024–25 peak in the newer transmission-RA study. Different source contexts are kept separate.</p></div>
-</div></div></section>
-
-<section class="section" id="green"><div class="wrap"><div class="section-intro"><p class="eyebrow">Strongest conference claims</p><h2>Claims that survived red-team review.</h2></div>
-<div class="grid-3">
-<div class="card"><span class="badge">Strong</span><h3>Historical growth</h3><p>Official broad consumption grew from 22.54 to 29.31 TWh between FY2020–21 and FY2024–25.</p></div>
-<div class="card"><span class="badge">Strong</span><h3>Chronology matters</h3><p>Screening produces renewable spill and shortage in the same year, so annual MWh alone cannot establish adequacy.</p></div>
-<div class="card"><span class="badge screen">Strong sensitivity</span><h3>Hydro timing matters</h3><p>The same hydro energy has very different adequacy value depending on temporal freedom and transfer conditions.</p></div>
-<div class="card"><span class="badge">Strong source</span><h3>4,455 MW ATC</h3><p>Current CEA Kerala transmission planning provides a dated 4,455 MW ATC reference.</p></div>
-<div class="card"><span class="badge">Independent check</span><h3>Shoranur geography</h3><p>Current CEA planning independently corroborates the station/corridor area as constrained.</p></div>
-<div class="card"><span class="badge">Methodological</span><h3>Fail-closed gates</h3><p>No invalid catchment, incomplete statutory GIS stack or unsupported future ATC is promoted merely to finish the model.</p></div>
-</div></div></section>
-
-<section class="section" id="red"><div class="wrap"><div class="section-intro"><p class="eyebrow">Red claims</p><h2>Things this project must not say.</h2></div>
-<div class="grid-3">
-<div class="warning"><h3>Not an event post-mortem</h3><p>It does not prove the exact cause of a specific 2026 load-shedding episode.</p></div>
-<div class="warning"><h3>Not “grid stability”</h3><p>No transient, frequency, small-signal or voltage-stability study was performed.</p></div>
-<div class="warning"><h3>Not an hourly forecast</h3><p>The FY2024–25 demand chronology is reconstructed conditional on known daily energy.</p></div>
-<div class="warning"><h3>Not validated hydrology</h3><p>v1.3's historical storage closure is algebraic; Phase 5 catchment remains gated.</p></div>
-<div class="warning"><h3>Not buildable GW</h3><p>Ecological/statutory siting layers are not complete enough for a legal buildable-capacity claim.</p></div>
-<div class="warning"><h3>Not an optimal 2040 portfolio</h3><p>Economics are partial and key reliability/network/spatial gates remain open.</p></div>
-</div></div></section>
-
-<section class="section" id="repro"><div class="wrap"><div class="section-intro"><p class="eyebrow">Reproducibility</p><h2>Most model runs are reproducible; one important fit is only integrity-verifiable.</h2></div>
-<div class="grid-2">
-<div class="card"><h3>Reproducible layers</h3><p>Historical transformations, PyPSA screens, hydro timing experiments, cross-solver comparisons, public network screens and synthetic flexibility pilots retain code/config/evidence sufficient to reproduce their released calculations subject to source access.</p></div>
-<div class="card"><h3>ERA5-sensitive v2 gap</h3><p>The released 8,760 values, hashes, metadata and downstream use are reproducible. The original v2 coefficient-fitting script and raw ERA5 archive were not committed, so the fit cannot currently be regenerated from a fresh public clone.</p></div>
-</div></div></section>
-
-<section class="section" id="viva"><div class="wrap"><div class="section-intro"><p class="eyebrow">How to challenge the work</p><h2>The best answer is sometimes “I did not have evidence for that.”</h2></div>
-<div class="details-list">
-<details><summary>Why not use a sophisticated AC or probabilistic model?</summary><div class="inside">Because the missing input evidence—not solver capability—is the dominant limitation. A sophisticated model populated with invented bus loads, impedances, forced-outage rates or hydrology would create false precision.</div></details>
-<details><summary>Why should I trust a screening model?</summary><div class="inside">Only for the question it was designed to answer. Sensitivities isolate mechanisms and can prioritize what deserves deeper measurement/modeling. They are not substitutes for operator-grade validation.</div></details>
-<details><summary>What is the project's biggest limitation?</summary><div class="inside">Lack of synchronized operator-grade interval and spatial data. That forces the hourly demand and bus allocation to be reconstructed. The study responds by testing sensitivity and narrowing claims.</div></details>
-<details><summary>What would falsify the central synthesis?</summary><div class="inside">Measured event-level data showing restrictions while dependable generation, external transfer and internal network headroom were all ample would mean the mechanism set is incomplete. Calibrated network evidence contradicting the hotspot geography would also force revision.</div></details>
-</div>
-<div class="action-row"><a class="button" href="sources.html">Inspect sources & reproducibility →</a><a class="button secondary" href="https://github.com/abhijith-sivaprasadan/kerala2040/tree/qa/scientific-validation-conference-20260928/docs/qa">Full QA documents ↗</a></div>
+<section class="section" id="classes"><div class="wrap">
+<div class="section-intro"><p class="eyebrow">Evidence classes</p><h2>Not every successful check is the same kind of validation.</h2></div>
+<div class="table-wrap"><table><thead><tr><th>Class</th><th>Question answered</th><th>Example</th></tr></thead><tbody>
+<tr><td>S1 · Provenance</td><td>Can the number be traced to a named source, date and boundary?</td><td>CEA ATC; official annual electricity consumption.</td></tr>
+<tr><td>S2 · Arithmetic / invariant</td><td>Does the transformation conserve what it should?</td><td>Daily-energy conservation; accounting identities.</td></tr>
+<tr><td>S3 · Code verification</td><td>Does the software implement the intended equations and guards?</td><td>Unit/integration tests; state-equation checks.</td></tr>
+<tr><td>S4 · Independent implementation</td><td>Do different implementations solve the same mathematical problem consistently?</td><td>PyPSA ↔ SciPy ↔ OSeMOSYS.</td></tr>
+<tr><td>S5 · Held-out statistical</td><td>Does the method perform on observations withheld from fitting?</td><td>January–March intraday extrema reconstruction.</td></tr>
+<tr><td>S6 · External physical/planning</td><td>Does independent engineering evidence support the physical inference?</td><td>CEA independently identifying Shoranur as constrained.</td></tr>
+<tr><td>S7 · Planning-grade</td><td>Is the model calibrated enough for operational/investment decisions?</td><td>Not claimed by this study.</td></tr>
+</tbody></table></div>
 </div></section>
-</main><footer class="footer"><div class="wrap"><div><div class="brand"><span class="brand-mark">ക</span><span>kerala<b>2040</b></span></div><p>Independent public-data power-systems research · CET 2026 · Abhijith Sivaprasadan</p></div><div><a href="https://github.com/abhijith-sivaprasadan/kerala2040">Research repository ↗</a></div></div></footer></body></html>
+
+<section class="section" id="corrections"><div class="wrap">
+<div class="section-intro"><p class="eyebrow">What the QA changed</p><h2>The audit corrected interpretation, not just formatting.</h2></div>
+<div class="grid-2">
+  <div class="card"><span class="badge limit">Source vintage</span><h3>Shoranur transformer</h3><p>The public model used a genuine 2023 100 MVA transformer element. Current 2026 CEA planning reports 200+100 MVA existing transformation. The hotspot geography remains independently corroborated; the old overload magnitude is not current whole-station loading.</p></div>
+  <div class="card"><span class="badge limit">Circularity</span><h3>Idukki v1.3 storage replay</h3><p>Historical storage closure is algebraic because the forcing is reconstructed from storage change and generation. It verifies implementation, not hydrology.</p></div>
+  <div class="card"><span class="badge limit">Validation scope</span><h3>ERA5 demand reconstruction</h3><p>The held-out test evaluates intraday shape conditional on known daily energy. It is not an hourly demand forecast.</p></div>
+  <div class="card"><span class="badge limit">Robustness scope</span><h3>21 network lines</h3><p>“Robust” means the same lines exceed screening rating across eight tested residual-import injection allocations—not across every load, dispatch, impedance or contingency uncertainty.</p></div>
+  <div class="card"><span class="badge limit">Price statistic</span><h3>IEX ₹5.24/kWh</h3><p>This is the FY2023–24 average MCP (~₹5.23759/kWh), not the volume-weighted MCP (~₹5.17449/kWh).</p></div>
+  <div class="card"><span class="badge limit">Source context</span><h3>5,904 vs 5,797 MW</h3><p>The first is the CEA generation-RA planning reference used by the load proxy; the second is the separately reported FY2024–25 recorded peak in the newer transmission-RA plan.</p></div>
+</div>
+</div></section>
+
+<section class="section" id="supported"><div class="wrap">
+<div class="section-intro"><p class="eyebrow">Supported conclusions</p><h2>What can be stated confidently within the study boundary.</h2></div>
+<div class="grid-3">
+  <div class="card"><span class="badge">Official</span><h3>Demand growth is real.</h3><p>Broad electricity consumption rose from 22.54 to 29.31 TWh between FY2020–21 and FY2024–25.</p></div>
+  <div class="card"><span class="badge screen">Chronological screen</span><h3>Timing matters.</h3><p>Renewable spill and shortage can coexist within the same screening year; annual energy alone cannot establish adequacy.</p></div>
+  <div class="card"><span class="badge screen">Sensitivity</span><h3>Hydro flexibility matters.</h3><p>The same hydro energy can have very different adequacy value depending on timing and transfer conditions.</p></div>
+  <div class="card"><span class="badge">Official</span><h3>4,455 MW ATC is a valid dated reference.</h3><p>CEA provides this current Kerala transfer-capability figure; the model does not treat it as a guaranteed future capability.</p></div>
+  <div class="card"><span class="badge">Independent corroboration</span><h3>Shoranur is a defensible hotspot location.</h3><p>The public screen and current CEA planning independently point to the same geography.</p></div>
+  <div class="card"><span class="badge">Methodological</span><h3>Fail-closed gates are part of the result.</h3><p>Unverified catchment geometry, incomplete statutory siting layers and unsupported future ATC are not promoted to stronger claims.</p></div>
+</div>
+</div></section>
+
+<section class="section" id="scope"><div class="wrap">
+<div class="section-intro"><p class="eyebrow">Scope boundary</p><h2>What this study does not establish.</h2></div>
+<div class="scope-band">
+  <div><h3>Not demonstrated here</h3><ul>
+    <li>Exact operational cause of a specific 2026 load-shedding event.</li>
+    <li>Measured hourly demand telemetry or day-ahead hourly forecast skill.</li>
+    <li>Transient, frequency, voltage or small-signal “grid stability”.</li>
+    <li>AC/N-1 security or operator-validated congestion.</li>
+    <li>Hydrologically validated Idukki catchment/cascade operation.</li>
+    <li>Statutory buildable renewable capacity.</li>
+    <li>Probabilistic LOLP/ELCC.</li>
+    <li>A total-system least-cost 2040 portfolio.</li>
+  </ul></div>
+  <div><h3>What the study does provide</h3><ul>
+    <li>Source-audited historical electricity evidence.</li>
+    <li>A bounded hourly demand reconstruction.</li>
+    <li>Chronological adequacy and transfer sensitivities.</li>
+    <li>Hydro timing and stateful pilot experiments.</li>
+    <li>Public-data transmission stress screening.</li>
+    <li>Independent implementation checks.</li>
+    <li>Candidate response mechanisms and evidence gaps.</li>
+  </ul></div>
+</div>
+</div></section>
+
+<section class="section" id="repro"><div class="wrap">
+<div class="section-intro"><p class="eyebrow">Reproducibility</p><h2>Most released model runs are reproducible; one fitting stage remains incomplete.</h2></div>
+<div class="grid-2">
+  <div class="card"><h3>Reproducible layers</h3><p>Historical transformations, PyPSA screens, hydro timing experiments, cross-solver comparisons, network screens and synthetic flexibility pilots retain code/config/evidence sufficient to reproduce released calculations subject to source access.</p></div>
+  <div class="card"><h3>ERA5-sensitive v2 fit</h3><p>The released 8,760-hour payload, hashes, metadata and downstream use are reproducible. The original fitting script and raw ERA5 archive were not committed, so the coefficient fit cannot currently be regenerated from a fresh public clone.</p></div>
+</div>
+<div class="action-row"><a class="button" href="sources.html">Inspect the evidence trail →</a><a class="button secondary" href="https://github.com/abhijith-sivaprasadan/kerala2040/blob/qa/scientific-validation-conference-20260928/docs/qa/QA_FINAL_VERDICT.md">Final QA verdict ↗</a></div>
+</div></section>
+</main>
+<footer class="footer"><div class="wrap"><div><div class="brand"><span class="brand-mark">ക</span><span>kerala<b>2040</b></span></div><p>Independent public-data power-systems research · CET 2026 · Abhijith Sivaprasadan</p></div><div><a href="sources.html">Sources</a></div></div></footer>
+</body></html>

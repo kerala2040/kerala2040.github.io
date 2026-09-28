@@ -6,7 +6,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/companion.css"></head><body><a class="skip" href="#main">Skip to content</a><header class="site-header">
-<a class="brand" href="research.html"><span class="brand-mark">ക</span><span>kerala<b>2040</b></span></a>
+<a class="brand" href="index.html"><span class="brand-mark">ക</span><span>kerala<b>2040</b></span></a>
 <span class="menu-note">CET 2026 research companion</span>
 <nav aria-label="Conference companion">
 <a href="research.html" aria-current="page">Research</a>
@@ -14,22 +14,22 @@
 <a href="methodology.html">Methodology</a>
 <a href="findings.html">Findings</a>
 <a href="responses.html">Responses</a>
-<a href="qa.html">QA</a>
+<a href="qa.html">Validation</a>
 <a href="sources.html">Sources</a>
-<a class="poster-link" href="index.html">Main site ↗</a>
+<a class="poster-link" href="index.html">Home</a>
 </nav></header>
 <main id="main">
 <section class="hero"><div class="wrap hero-grid"><div>
-<p class="eyebrow">Poster companion · start here</p>
+<p class="eyebrow">Research framing</p>
 <h1>Kerala's power system.<br><em>Diagnose before prescribing.</em></h1>
-<p class="lede">This companion explains the full scientific logic behind the CET 2026 poster: what was observed, what had to be reconstructed, what the models actually test, which conclusions survived QA, and which questions remain deliberately open.</p>
+<p class="lede">The study separates source-reported evidence from reconstruction and screening, then asks which mechanisms make Kerala vulnerable during difficult hours.</p>
 <div class="action-row"><a class="button" href="findings.html">See the findings →</a><a class="button secondary" href="methodology.html">Read the methodology</a></div>
 </div><aside class="hero-card"><strong>Main research question</strong><p>Why is Kerala susceptible to electricity shortages and peak-hour supply restrictions, and what structural and operational factors determine whether the system can meet demand under stress?</p></aside></div></section>
 
-<nav class="reading-nav" aria-label="Reading paths"><div class="wrap"><span>Choose depth:</span><a href="#overview">2-minute overview</a><a href="#questions">Research questions</a><a href="#logic">Study logic</a><a href="#boundaries">Claim boundaries</a><a href="qa.html">Scientific QA ↗</a></div></nav>
+<nav class="reading-nav" aria-label="Reading paths"><div class="wrap"><span>Choose depth:</span><a href="#overview">2-minute overview</a><a href="#questions">Research questions</a><a href="#logic">Study logic</a><a href="#boundaries">Claim boundaries</a><a href="qa.html">Validation & scope ↗</a></div></nav>
 
 <section class="section" id="overview"><div class="wrap">
-<div class="section-intro"><p class="eyebrow">Two-minute overview</p><h2>The project changed question before it changed answer.</h2><p>Kerala2040 began as a broad transition-planning exercise. The evidence showed that a stronger scientific question came first: understand <em>why</em> the present system becomes stressed before deciding which technologies should be built.</p></div>
+<div class="section-intro"><p class="eyebrow">Why diagnosis first?</p><h2>A capacity plan is useful only if it targets the constraint that actually binds.</h2><p>Annual energy, evening peaks, reservoir timing, interstate transfer and internal transmission can describe different failure mechanisms. The study therefore diagnoses them separately before considering interventions.</p></div>
 <div class="grid-4">
 <div class="card"><span class="badge">Official</span><span class="value">29.31 TWh</span><p>Official broad electricity consumption in FY2024–25, up from 22.54 TWh in FY2020–21.</p><small>Annual state statistics; boundary retained.</small></div>
 <div class="card"><span class="badge screen">Reconstructed</span><span class="value">8,760 h</span><p>A weather-sensitive hourly chronology built while conserving observed daily energy on 354 days.</p><small>Proxy, not telemetry or a day-ahead forecast.</small></div>
@@ -52,13 +52,13 @@
 
 <section class="section" id="logic"><div class="wrap">
 <div class="section-intro"><p class="eyebrow">Study logic</p><h2>Evidence ladder, not one giant model.</h2><p>Each layer answers only the question its data can support. Higher sophistication is admitted only when the underlying evidence exists.</p></div>
-<div class="grid-2">
-<div class="method-step"><span class="step">01</span><h3>Audit the source boundary</h3><p>Preserve dates, definitions, missingness and contradictory records rather than forcing all official numbers to agree.</p></div>
-<div class="method-step"><span class="step">02</span><h3>Reconstruct only what is missing</h3><p>Daily energy is observed; intraday shape is reconstructed. Missing observed days stay explicitly model-only.</p></div>
-<div class="method-step"><span class="step">03</span><h3>Test mechanisms separately</h3><p>Transfer, hydro timing, candidate capacity and network injection are varied one mechanism at a time before synthesis.</p></div>
-<div class="method-step"><span class="step">04</span><h3>Cross-check implementation</h3><p>PyPSA, a custom SciPy formulation and OSeMOSYS are compared where the mathematical contracts overlap.</p></div>
-<div class="method-step"><span class="step">05</span><h3>Seek independent physical corroboration</h3><p>For example, current CEA transmission planning is used to challenge—not merely confirm—the public network screen.</p></div>
-<div class="method-step"><span class="step">06</span><h3>Fail closed</h3><p>No validated catchment, buildable-MW ceiling, N-1 result or optimal portfolio is manufactured when the required evidence is absent.</p></div>
+<div class="process-line" aria-label="Research workflow">
+  <div class="process-node"><strong>Source audit</strong><span>Dates, definitions, boundaries and missingness.</span></div>
+  <div class="process-node"><strong>Reconstruct</strong><span>Model only quantities that are not observed.</span></div>
+  <div class="process-node"><strong>Constrain</strong><span>Preserve observed totals and official planning anchors.</span></div>
+  <div class="process-node"><strong>Stress-test</strong><span>Vary transfer, hydro timing and candidate resources.</span></div>
+  <div class="process-node"><strong>Corroborate</strong><span>Compare implementations and external engineering evidence.</span></div>
+  <div class="process-node"><strong>Gate claims</strong><span>Stop where evidence is insufficient.</span></div>
 </div></div></section>
 
 <section class="section" id="boundaries"><div class="wrap">
@@ -69,7 +69,7 @@
 <tr><td><strong>Screening / sensitivity</strong></td><td>Counterfactual result under stated assumptions.</td><td>Hydro timing, ATC stress, candidate expansion, network flow screen.</td><td>Operator-grade loading, probability of outage or least-cost investment.</td></tr>
 <tr><td><strong>Candidate response</strong></td><td>Mechanism worth deeper testing.</td><td>BESS, PSP, flexible demand, reinforcement, new supply.</td><td>Optimality, project feasibility or policy recommendation.</td></tr>
 </tbody></table></div>
-<div class="action-row"><a class="button" href="methodology.html">Methodology in detail →</a><a class="button secondary" href="qa.html">Read the red-team QA</a></div>
+<div class="action-row"><a class="button" href="methodology.html">Methodology in detail →</a><a class="button secondary" href="qa.html">Validation & scope</a></div>
 </div></section>
 </main><footer class="footer"><div class="wrap"><div>
 <div class="brand"><span class="brand-mark">ക</span><span>kerala<b>2040</b></span></div>
