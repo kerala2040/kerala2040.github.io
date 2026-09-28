@@ -76,6 +76,8 @@ jobs:
           done
           cp "release-pointer/assets/companion.css" "$root/assets/companion.css"
           cp "release-pointer/assets/mark.svg" "$root/assets/mark.svg"
+          mkdir -p "$root/forme"
+          cp "release-pointer/forme/index.html" "$root/forme/index.html"
           cp "release-pointer/SOURCE_PROVENANCE.md" "$root/SOURCE_PROVENANCE.md"
           python - <<'PY'
           from pathlib import Path
@@ -92,6 +94,7 @@ jobs:
               "sources.html",
               "assets/companion.css",
               "assets/mark.svg",
+              "forme/index.html",
           ]
           missing = [name for name in required if not (root / name).is_file()]
           if missing:
