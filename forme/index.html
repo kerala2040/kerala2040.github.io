@@ -29,7 +29,7 @@
 <p style="font:12px var(--mono);color:#c7d3ca">Not access-controlled. Anyone who knows this URL can read it.</p>
 </div></section>
 <nav class="private-nav"><div class="wrap">
-<a href="#core">Core story</a><a href="#numbers">Numbers</a><a href="#methods">Methods</a><a href="#demand">Demand</a><a href="#hydro">Hydro</a><a href="#imports">Imports</a><a href="#network">Network</a><a href="#economics">Economics</a><a href="#solutions">Solutions</a><a href="#qa">Likely questions</a><a href="#danger">Never say</a><a href="#lastminute">Last-minute drill</a>
+<a href="#core">Core story</a><a href="#rqs">RQ map</a><a href="#numbers">Numbers</a><a href="#methods">Methods</a><a href="#equations">Equations</a><a href="#demand">Demand</a><a href="#hydro">Hydro</a><a href="#imports">Imports</a><a href="#network">Network</a><a href="#economics">Economics</a><a href="#solutions">Solutions</a><a href="#qa">Likely questions</a><a href="#sourcesquick">Sources</a><a href="#danger">Never say</a><a href="#lastminute">Last-minute drill</a>
 </div></nav>
 
 <main>
@@ -39,6 +39,18 @@
 <div class="script" style="margin-top:12px"><b>One-sentence contribution:</b> “The contribution is a source-audited evidence chain that separates observation, reconstruction, sensitivity and validation, and keeps higher-confidence claims fail-closed when the public data cannot support them.”</div>
 <div class="script" style="margin-top:12px"><b>Main research question:</b> “Why is Kerala susceptible to electricity shortages and peak-hour supply restrictions, and what structural and operational factors determine whether the system can meet demand under stress?”</div>
 <div class="script" style="margin-top:12px"><b>Working synthesis:</b> “Kerala's susceptibility to stress is an interaction problem rather than a simple annual-energy deficit: demand timing and weather, hydro timing and availability, dependable external transfer and internal network deliverability can each become binding under different conditions.”</div>
+</div></section>
+
+<section class="section" id="rqs"><div class="wrap">
+<div class="section-intro"><p class="eyebrow">RQ1–RQ6</p><h2>Know what each question is doing.</h2></div>
+<div class="qa-grid">
+<div class="qa-card"><h3>RQ1 · Historical balance</h3><p class="answer">How has Kerala's electricity balance changed, and how structurally important is electricity arriving from outside the state?</p><p><strong>Evidence:</strong> annual official statistics + SLDC daily archive. <strong>Key boundary:</strong> do not collapse different import/consumption definitions into one percentage.</p></div>
+<div class="qa-card"><h3>RQ2 · Energy vs chronology</h3><p class="answer">Is the problem mainly annual energy shortage, or difficult-hour timing/flexibility?</p><p><strong>Evidence:</strong> reconstructed 8,760-hour demand, ERA5 shape terms, chronological adequacy. <strong>Key result:</strong> annual energy alone cannot describe stressed hours.</p></div>
+<div class="qa-card"><h3>RQ3 · Hydro flexibility</h3><p class="answer">How much adequacy value comes from being able to move hydro energy in time?</p><p><strong>Evidence:</strong> v1.1 same-day timing + v1.2 interday windows. <strong>Key result:</strong> very large benefit when timing-limited; much smaller under deep transfer/energy deficit.</p></div>
+<div class="qa-card"><h3>RQ4 · Interstate transfer</h3><p class="answer">How sensitive is Kerala to dependable external supply and transfer capability?</p><p><strong>Evidence:</strong> CEA 4,455 MW ATC reference + 80%/60% synthetic stress cases. <strong>Key result:</strong> adequacy deteriorates sharply under strong transfer constraints.</p></div>
+<div class="qa-card"><h3>RQ5 · Internal deliverability</h3><p class="answer">Can statewide balance appear adequate while internal corridors remain stressed?</p><p><strong>Evidence:</strong> public 110-kV+ multibus screen under eight import-allocation cases. <strong>Key result:</strong> persistent Shoranur-area geographic signal, externally corroborated by CEA.</p></div>
+<div class="qa-card"><h3>RQ6 · Response classes</h3><p class="answer">Given the diagnosed vulnerabilities, which interventions deserve deeper modelling?</p><p><strong>Candidate classes:</strong> better use of existing hydro/demand flexibility → storage/reinforcement → new supply. <strong>Not:</strong> an optimized policy portfolio.</p></div>
+</div>
 </div></section>
 
 <section class="section" id="numbers"><div class="wrap">
@@ -99,6 +111,18 @@
 <div class="qa-card"><h3>Why no unit commitment?</h3><p class="answer">Plant-level minimum output, ramping, startup, heat-rate and outage data are incomplete. Guessed parameters would create false precision.</p></div>
 <div class="qa-card"><h3>Why no probabilistic LOLP?</h3><p class="answer">Proper LOLP requires outage distributions, multiple weather years, hydro uncertainty and demand uncertainty. I report deterministic unserved MWh and shortage hours.</p></div>
 <div class="qa-card"><h3>Why no AC / N-1 network model?</h3><p class="answer">Missing measured bus injections, full impedances, reactive-power data and current operating states. An AC solver can converge with bad inputs; convergence is not validation.</p></div>
+</div>
+</div></section>
+
+<section class="section" id="equations"><div class="wrap">
+<div class="section-intro"><p class="eyebrow">Equations to understand</p><h2>You do not need to derive everything at the poster, but know what each equation means.</h2></div>
+<div class="qa-grid">
+<div class="qa-card"><h3>Daily-energy conservation</h3><div class="equation">Σₕ Load(d,h) = E_obs(d)</div><p>The 24 reconstructed hourly values must sum to the observed SLDC daily MWh on qualified days. Therefore daily energy is data; intraday shape is the modeled part.</p></div>
+<div class="qa-card"><h3>Lexicographic adequacy</h3><div class="equation">Stage 1: min Σₜ Uₜ<br>Stage 2: hold U* and min partial cost</div><p>U is unserved energy. This avoids inventing a Kerala-specific VOLL that would decide how much load shedding the optimizer tolerates.</p></div>
+<div class="qa-card"><h3>Idukki v1.3 reconstructed forcing</h3><div class="equation">Bₜ = Sₜ₊₁ − Sₜ + Gₜ/c</div><p>B is reconstructed net water-equivalent balance, S storage, G generation and c the fixed station energy equivalent. Because B uses S and G, historical closure is algebraic.</p></div>
+<div class="qa-card"><h3>Idukki state transition</h3><div class="equation">Sₜ₊₁ = Sₜ + Bₜ − Gₜ/c</div><p>This makes v1.3 stateful, but it does not turn reconstructed B into measured catchment inflow.</p></div>
+<div class="qa-card"><h3>Gross Idukki source ratio</h3><div class="equation">2,190,000 MWh / 1,460 MCM = 1,500 MWh/MCM</div><p>The model uses 1,470 MWh/MCM instead because it derives the median station-capability/effective-storage ratio across the retained source rows.</p></div>
+<div class="qa-card"><h3>Transmission thermal apparent-power screen</h3><div class="equation">S ≈ √3 · V · I</div><p>Used where a source current rating and nominal voltage define a screening MVA. It is not an operator seasonal/emergency rating.</p></div>
 </div>
 </div></section>
 
@@ -188,6 +212,21 @@
 <div class="qa-card"><h3>Why include Kerala culture/geography?</h3><p class="answer">“Because geography is part of the engineering boundary: mountains, monsoon, dense settlement, forests, coast and backwaters affect hydro, hazards, land availability and transmission. Cultural context simply makes the place legible to an international audience.”</p></div>
 <div class="qa-card"><h3>So why did the 2026 load shedding happen?</h3><p class="answer">“I cannot reconstruct the exact event cause from the admitted public data. I would need interval dispatch, unit outages, interface schedules/flows, market availability, reservoir constraints and internal telemetry. The event motivates the study; the model tests structural vulnerabilities.”</p></div>
 </div></div></section>
+
+<section class="section" id="sourcesquick"><div class="wrap">
+<div class="section-intro"><p class="eyebrow">Fast source lookup</p><h2>If someone challenges a number, know which source family it came from.</h2></div>
+<div class="table-wrap"><table class="cheat-table"><thead><tr><th>Topic</th><th>Primary source family</th><th>Remember</th></tr></thead><tbody>
+<tr><td>Annual Kerala electricity</td><td>Kerala State Planning Board / Economic Review</td><td>Official annual accounting; keep boundary/year visible.</td></tr>
+<tr><td>Daily electricity / reservoir fields</td><td>Kerala SLDC</td><td>Daily archive, not continuous interval telemetry.</td></tr>
+<tr><td>Future demand / generation adequacy</td><td>CEA/KSERC generation RA</td><td>5,904 MW is this planning context.</td></tr>
+<tr><td>Recorded peaks / TTC / ATC / constraints</td><td>CEA Kerala transmission RA</td><td>5,797 MW FY24–25 recorded peak; TTC 4,575 / ATC 4,455; Shoranur current evidence.</td></tr>
+<tr><td>Weather</td><td>ECMWF ERA5-Land</td><td>Reanalysis, not station observation.</td></tr>
+<tr><td>Technology planning costs</td><td>CEA Optimal Generation Mix v2</td><td>2021–22 planning cost basis.</td></tr>
+<tr><td>Finance benchmark</td><td>CERC Order 12/SM/2026</td><td>9.08% non-SHP WACC-equivalent, not Kerala project WACC.</td></tr>
+<tr><td>IEX price</td><td>IEX FY23–24 DAM snapshot</td><td>₹5.24 is average MCP, not weighted MCP.</td></tr>
+<tr><td>CIAL / KMRL / Water Metro</td><td>First-party organization pages/reports</td><td>Keep project stage/current-vintage wording precise.</td></tr>
+</tbody></table></div>
+</div></section>
 
 <section class="section" id="danger"><div class="wrap">
 <div class="section-intro"><p class="eyebrow">Wording traps</p><h2>Never say these casually.</h2></div>
