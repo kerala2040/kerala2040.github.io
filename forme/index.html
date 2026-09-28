@@ -280,6 +280,28 @@
 <div class="qa-card"><h3>What would a real digital twin require?</h3><p class="answer">“Live or regularly synchronized telemetry, validated topology/parameters, state estimation, asset/outage status, calibrated load/generation models and continuous residual/error monitoring. The current project is not a digital twin.”</p></div>
 </div>
 
+<h3 style="margin-top:32px">Future work by time horizon</h3>
+<div class="grid-3">
+<div class="future-track"><h3>Next 1–3 months</h3><p><strong>Goal:</strong> strengthen reproducibility and event evidence without changing the research question.</p><p>Recover/rebuild the ERA5-v2 fitting pipeline; ingest any newly available exact SLDC/KSEBL data; reproduce one historical stressed period end-to-end; complete verified Idukki catchment only if independent geometry becomes available.</p></div>
+<div class="future-track"><h3>Next 6–12 months</h3><p><strong>Goal:</strong> replace major proxies.</p><p>Calibrate interval load and interstate-flow chronology; build a current AC/N-1 network model with utility data; develop direct reservoir/cascade hydrology; run multi-weather-year deterministic and stochastic adequacy.</p></div>
+<div class="future-track"><h3>Research / PhD scale</h3><p><strong>Goal:</strong> decision-grade integrated planning.</p><p>Couple weather-sensitive demand, hydrology, stochastic outages, interstate transfer, AC deliverability, statutory spatial feasibility and investment decisions under climate/demand uncertainty.</p></div>
+</div>
+
+<h3 style="margin-top:32px">Resource/access hypotheticals</h3>
+<div class="qa-grid">
+<div class="qa-card"><h3>If KSEBL gave you one week of full SCADA data, what would you do?</h3><p class="answer">“Pick a stressed week and a normal comparison week, align state demand, generator output, reservoir operation, interface flows, outages and substation states, and test whether the present reconstruction reproduces the timing and spatial pattern without tuning to the outcome.”</p></div>
+<div class="qa-card"><h3>If you had one year of 15-minute data?</h3><p class="answer">“Replace the reconstructed hourly demand with measured chronology, estimate weather-load relationships on actual interval targets, calibrate import timing, and build event-based validation sets for adequacy and network screens.”</p></div>
+<div class="qa-card"><h3>If you had full transmission-system data?</h3><p class="answer">“Build a validated AC base case, compare modeled and measured branch/substation states, perform N-1 and transfer-capability studies, then test candidate reinforcements and storage/generation alternatives on the same contingency set.”</p></div>
+<div class="qa-card"><h3>If you had ₹/SEK project-cost data from Kerala utilities?</h3><p class="answer">“Replace national benchmark costs with project-specific cost distributions, separate greenfield from brownfield/reinforcement costs, and evaluate reliability benefit per rupee rather than only least-cost energy.”</p></div>
+<div class="qa-card"><h3>If you had a 100,000 SEK research budget, what would you spend it on?</h3><p class="answer">“Not on a larger solver. I would prioritize data acquisition/cleaning, measurement access and a focused validation campaign—especially interval electrical data and reservoir/weather instrumentation or access—because those reduce epistemic uncertainty directly.”</p></div>
+<div class="qa-card"><h3>If a utility offered only anonymized data?</h3><p class="answer">“That is still useful if timestamps, electrical relationships and scaling are preserved. I would design validation around normalized profiles, constraint occurrence and chronology while keeping commercially sensitive identifiers private.”</p></div>
+<div class="qa-card"><h3>What could become a journal paper immediately?</h3><p class="answer">“The strongest candidate is a narrow methods/results paper, not the entire platform: for example, quantifying the adequacy value of hydro timing under transfer uncertainty with explicit evidence classes and public-data limits, or testing whether public network evidence can identify externally corroborated hotspot geography.”</p></div>
+<div class="qa-card"><h3>What would make the work useful to policy makers?</h3><p class="answer">“Convert the diagnosis into decision thresholds: when does additional transfer, hydro flexibility, storage, demand response or reinforcement reduce expected unserved energy enough to justify its cost? That requires probabilistic reliability and project-specific costs.”</p></div>
+</div>
+
+<h3 style="margin-top:32px">Future-work answer structure</h3>
+<div class="script"><b>Use this four-part pattern:</b> 1) identify the unresolved question; 2) name the missing data; 3) name the method that becomes justified with those data; 4) state which current conclusion the result could confirm, refine or overturn. This keeps future-work answers scientific instead of sounding like a technology wish list.</div>
+
 <h3 style="margin-top:32px">If asked “why didn't you do all this already?”</h3>
 <div class="script"><b>Answer:</b> “Because each upgrade needs new evidence, not just more coding. I stopped at the level the public data could support rather than populate a more sophisticated model with assumed inputs and call that progress.”</div>
 
