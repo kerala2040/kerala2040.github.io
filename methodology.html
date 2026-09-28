@@ -1,0 +1,90 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#164c3b"><meta name="description" content="Scientific methodology: source audit, load reconstruction, adequacy, hydro, network and validation logic.">
+<title>Methodology · Kerala2040 CET 2026</title>
+<link rel="icon" href="assets/mark.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/companion.css"></head><body><a class="skip" href="#main">Skip to content</a><header class="site-header">
+<a class="brand" href="research.html"><span class="brand-mark">ക</span><span>kerala<b>2040</b></span></a>
+<span class="menu-note">CET 2026 research companion</span>
+<nav aria-label="Conference companion">
+<a href="research.html">Research</a>
+<a href="system.html">System</a>
+<a href="methodology.html" aria-current="page">Methodology</a>
+<a href="findings.html">Findings</a>
+<a href="responses.html">Responses</a>
+<a href="qa.html">QA</a>
+<a href="sources.html">Sources</a>
+<a class="poster-link" href="index.html">Main site ↗</a>
+</nav></header>
+<main id="main">
+<section class="page-head"><div class="wrap"><p class="eyebrow">Methods</p><h1>How the study <em>was built.</em></h1><p class="lede">Model complexity was limited by evidence, not software availability. A simpler model with visible assumptions was preferred to a sophisticated model populated with invented parameters.</p></div></section>
+<nav class="reading-nav"><div class="wrap"><a href="#pipeline">Pipeline</a><a href="#load">Demand</a><a href="#adequacy">Adequacy</a><a href="#hydro">Hydro</a><a href="#network">Network</a><a href="#alternatives">Why not other methods?</a></div></nav>
+
+<section class="section" id="pipeline"><div class="wrap">
+<div class="section-intro"><p class="eyebrow">Methodological philosophy</p><h2>Progressive evidence ladder.</h2><p>Start with the strongest observable quantity; preserve its accounting boundary; add only the simplest model required to answer the next question; test sensitivities; seek independent corroboration; fail closed when the evidence gate is not passed.</p></div>
+<div class="grid-3">
+<div class="method-step"><span class="step">01</span><h3>Acquire & audit</h3><p>Official annual statistics, SLDC daily reports, CEA planning studies, KSEBL network material, ERA5 weather and project documents.</p></div>
+<div class="method-step"><span class="step">02</span><h3>Classify evidence</h3><p>Observed/source-reported, derived, proxy/screening and candidate-response evidence are not treated as interchangeable.</p></div>
+<div class="method-step"><span class="step">03</span><h3>Reconstruct gaps</h3><p>Only what is unobserved is modeled. Missing source dates remain explicitly missing in observational analyses.</p></div>
+<div class="method-step"><span class="step">04</span><h3>Stress mechanisms</h3><p>Demand, hydro timing, transfer capability, candidate resources and boundary injections are varied transparently.</p></div>
+<div class="method-step"><span class="step">05</span><h3>Verify implementation</h3><p>Conservation checks, unit tests, direct PyPSA runs, custom SciPy LP and OSeMOSYS comparisons.</p></div>
+<div class="method-step"><span class="step">06</span><h3>Red-team conclusions</h3><p>Source vintage, circular validation, leakage and claim wording are independently audited before presentation.</p></div>
+</div></div></section>
+
+<section class="section" id="load"><div class="wrap">
+<div class="section-intro"><p class="eyebrow">Hourly demand reconstruction</p><h2>Known daily energy; modeled intraday shape.</h2><p>Continuous measured Kerala hourly load was not available in the admitted public data. The model therefore conserves the strongest observed quantity—the daily MWh—and reconstructs only the 24-hour distribution.</p></div>
+<div class="equation">For observed day d:  Σₕ Load(d,h) = observed SLDC daily energy(d)</div>
+<div class="grid-2" style="margin-top:18px">
+<div class="card"><h3>Features</h3><ul><li>Clock-time structure from sparse reported extrema.</li><li>Weekend structure.</li><li>ERA5 temperature / humidity-related terms and other weather descriptors.</li><li>Each day renormalized back to its known daily MWh.</li></ul></div>
+<div class="card"><h3>Validation boundary</h3><p>January–March reported extrema were withheld from fitting. The resulting error assesses <strong>intraday shape conditional on known daily energy</strong>. It is not a day-ahead load forecast.</p><p>Weather-sensitive RMSE: 155.2 MW vs sparse-static 162.0 MW.</p></div>
+</div>
+<div class="warning" style="margin-top:18px"><h3>Reproducibility limitation</h3><p>The released v2 8,760-hour payload is cryptographically pinned and downstream use is reproducible, but the original coefficient-fitting script and raw ERA5 archive are not currently committed. The fit itself is therefore not source-to-fit reproducible from a fresh clone.</p></div>
+</div></section>
+
+<section class="section" id="adequacy"><div class="wrap">
+<div class="section-intro"><p class="eyebrow">Chronological adequacy & expansion</p><h2>8,760 hours before “optimal capacity”.</h2><p>The statewide model asks whether available generation, storage and imports can meet each hour. Future demand scenarios are source-specific and are not averaged into a fictional consensus case.</p></div>
+<div class="grid-2">
+<div class="card"><h3>Why full chronology?</h3><p>Storage, evening peaks and renewable coincidence depend on sequence. Representative days can miss stressful runs unless carefully designed.</p></div>
+<div class="card"><h3>Why adequacy-first?</h3><p>No Kerala-specific Value of Lost Load was admitted. A lexicographic objective first minimizes unserved energy, then minimizes partial investment/import cost among equally adequate solutions.</p></div>
+</div>
+<div class="equation" style="margin-top:18px">Stage 1: minimize Σ unserved_energyₜ<br>Stage 2: hold Stage-1 optimum, then minimize candidate investment + partial import cost</div>
+<p class="source-note" style="margin-top:18px">This is not a total-system welfare or least-cost model: existing fleet economics, unit commitment, forced outages, hourly landed import price and several system costs are absent.</p>
+</div></section>
+
+<section class="section" id="hydro"><div class="wrap">
+<div class="section-intro"><p class="eyebrow">Hydropower hierarchy</p><h2>Timing bound → stateful pilot → physical-source gate.</h2></div>
+<div class="grid-3">
+<div class="card"><span class="badge screen">v1.1</span><h3>Same-day timing</h3><p>Preserve each day's hydro MWh exactly; allow different hourly scheduling subject to power limits. Isolates the value of timing.</p></div>
+<div class="card"><span class="badge screen">v1.2</span><h3>Interday windows</h3><p>Preserve hydro energy over 1/3/15/30-day windows to bracket how added temporal freedom changes adequacy.</p></div>
+<div class="card"><span class="badge screen">v1.3+</span><h3>Stateful Idukki</h3><p>Add a storage state. v1.3 uses reconstructed net water balance; later gates require direct source-reported inflow/storage before physical claims.</p></div>
+</div>
+<div class="equation" style="margin-top:18px">v1.3 reconstructed forcing: Bₜ = Sₜ₊₁ − Sₜ + Gₜ / c<br>Replay: Sₜ₊₁ = Sₜ + Bₜ − Gₜ / c</div>
+<p class="source-note" style="margin-top:18px">Because B is constructed from the same storage change and generation, historical storage closure is algebraic. It verifies the state equation and alignment—not catchment hydrology.</p>
+</div></section>
+
+<section class="section" id="network"><div class="wrap">
+<div class="section-intro"><p class="eyebrow">Public network screen</p><h2>Why linear screening instead of pretending to have an AC digital twin?</h2><p>The public evidence supports topology and partial equipment ratings, but not measured bus-load chronology, unit dispatch, complete source impedances, reactive power or N-1 operating states.</p></div>
+<div class="grid-2">
+<div class="card"><h3>Inputs</h3><ul><li>Source-backed 110-kV+ topology.</li><li>Conductor/current evidence where available.</li><li>PSS transformer-capacity evidence.</li><li>Bus load proxy from distribution-interface transformer MVA.</li><li>Eight extreme residual-import injection allocations.</li></ul></div>
+<div class="card"><h3>Outputs</h3><ul><li>Candidate stressed corridors.</li><li>Robustness to boundary-injection location.</li><li>Independent comparison with CEA planning.</li></ul><p><strong>Not outputs:</strong> voltage stability, frequency stability, transient stability, N-1 security or operator loading.</p></div>
+</div>
+</div></section>
+
+<section class="section" id="alternatives"><div class="wrap">
+<div class="section-intro"><p class="eyebrow">Why not the popular alternative?</p><h2>Methods not used—and why.</h2></div>
+<div class="table-wrap"><table><thead><tr><th>Alternative</th><th>Why it was not the main method here</th><th>When it should be used next</th></tr></thead><tbody>
+<tr><td>Deep-learning hourly forecast</td><td>No dense measured hourly target series; complexity would exceed evidence.</td><td>After acquiring multi-year interval load and weather.</td></tr>
+<tr><td>Full unit commitment</td><td>Plant-level ramp, minimum output, startup, heat-rate and outage data incomplete.</td><td>With operator-grade fleet parameters.</td></tr>
+<tr><td>Probabilistic LOLP / ELCC</td><td>Forced-outage distributions, multi-weather-year uncertainty and hydro uncertainty not admitted.</td><td>Reliability-planning upgrade.</td></tr>
+<tr><td>AC / N-1 network model</td><td>Bus injections, complete impedances, reactive data and validated station configuration incomplete.</td><td>With utility-grade electrical data.</td></tr>
+<tr><td>Single “least-cost 2040” solve</td><td>Would hide uncertainty in demand, transfer, ecology, costs and physical limits behind one precise-looking answer.</td><td>After physical/spatial gates are resolved.</td></tr>
+<tr><td>Average conflicting official scenarios</td><td>Creates a new scenario with no source behind it.</td><td>Only if a formal probabilistic weighting framework is justified.</td></tr>
+</tbody></table></div>
+<div class="action-row"><a class="button" href="findings.html">What these methods found →</a><a class="button secondary" href="qa.html">How they were red-teamed</a></div>
+</div></section>
+</main><footer class="footer"><div class="wrap"><div>
+<div class="brand"><span class="brand-mark">ക</span><span>kerala<b>2040</b></span></div>
+<p>Independent public-data power-systems research · CET 2026 · Abhijith Sivaprasadan</p>
+</div><div><a href="https://github.com/abhijith-sivaprasadan/kerala2040">Research repository ↗</a></div></div></footer></body></html>

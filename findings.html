@@ -1,0 +1,75 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#164c3b"><meta name="description" content="Detailed Kerala2040 results by research question, with confidence boundaries and interpretations."><title>Findings · Kerala2040 CET 2026</title><link rel="icon" href="assets/mark.svg" type="image/svg+xml"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet"><link rel="stylesheet" href="assets/companion.css"></head><body><a class="skip" href="#main">Skip to content</a><header class="site-header"><a class="brand" href="research.html"><span class="brand-mark">ക</span><span>kerala<b>2040</b></span></a><span class="menu-note">CET 2026 research companion</span><nav aria-label="Conference companion"><a href="research.html">Research</a><a href="system.html">System</a><a href="methodology.html">Methodology</a><a href="findings.html" aria-current="page">Findings</a><a href="responses.html">Responses</a><a href="qa.html">QA</a><a href="sources.html">Sources</a><a class="poster-link" href="index.html">Main site ↗</a></nav></header>
+<main id="main">
+<section class="page-head"><div class="wrap"><p class="eyebrow">Results</p><h1>What the evidence <em>actually says.</em></h1><p class="lede">Each finding below is labelled by evidence class. Numerical model results are reported as screening results—not silently promoted to observations.</p></div></section>
+<nav class="reading-nav"><div class="wrap"><a href="#rq1">RQ1 balance</a><a href="#rq2">RQ2 chronology</a><a href="#rq3">RQ3 hydro</a><a href="#rq4">RQ4 imports</a><a href="#rq5">RQ5 network</a><a href="#synthesis">Synthesis</a></div></nav>
+
+<section class="section" id="rq1"><div class="wrap"><div class="section-intro"><p class="eyebrow">RQ1 · Historical balance</p><h2>Demand has grown; external electricity remains structurally important.</h2></div>
+<div class="grid-3">
+<div class="card"><span class="badge">Official annual</span><span class="value">22.54 → 29.31 TWh</span><p>Broad electricity consumption, FY2020–21 to FY2024–25.</p></div>
+<div class="card"><span class="badge">Matched SLDC dates</span><span class="value">+24.1%</span><p>Daily consumption increase between FY2020–21 and FY2025–26 on 356 matched calendar dates.</p></div>
+<div class="card"><span class="badge limit">Boundary rule</span><h3>No invented “import share”.</h3><p>Official annual consumption, category sales, periphery input and reported import-energy totals are not divided into one percentage when definitions differ.</p></div>
+</div>
+<div class="callout" style="margin-top:20px"><strong>Inference:</strong> Kerala's system cannot be analysed as a self-contained generation island. External electricity is part of the normal balance, but the exact dependence metric depends on accounting boundary and timescale.</div></div></section>
+
+<section class="section" id="rq2"><div class="wrap"><div class="section-intro"><p class="eyebrow">RQ2 · Chronology & weather</p><h2>The difficult hour matters more than an annual total alone.</h2><p>The hourly chronology is reconstructed because continuous public interval telemetry is unavailable.</p></div>
+<div class="table-wrap"><table><thead><tr><th>Shape model</th><th>Held-out Jan–Mar MAE</th><th>RMSE</th><th>Correlation</th><th>Interpretation</th></tr></thead><tbody>
+<tr><td>Old fixed shape</td><td>367.9 MW</td><td>477.9 MW</td><td>0.659</td><td>Weak baseline.</td></tr>
+<tr><td>Sparse static shape</td><td>132.8 MW</td><td>162.0 MW</td><td>0.966</td><td>Clock-time structure captures most of the extrema shape.</td></tr>
+<tr><td>ERA5-sensitive shape</td><td><strong>124.9 MW</strong></td><td><strong>155.2 MW</strong></td><td><strong>0.968</strong></td><td>Weather adds modest additional held-out shape information.</td></tr>
+</tbody></table></div>
+<p class="source-note" style="margin-top:16px">These are held-out <strong>intraday extrema</strong> conditional on each day's known total energy. They are not day-ahead hourly forecast errors.</p>
+<div class="grid-2" style="margin-top:18px">
+<div class="card"><span class="badge screen">Consistency anchor</span><h3>5,923.3 MW reconstructed peak</h3><p>The proxy was calibrated/checked against a 5,904 MW CEA generation-resource-adequacy planning reference.</p></div>
+<div class="card"><span class="badge">Separate official context</span><h3>5,797 MW recorded FY2024–25 peak</h3><p>A newer CEA transmission-resource-adequacy study reports 5,797 MW as the recorded FY2024–25 peak. The two CEA contexts are not forced into one number.</p></div>
+</div>
+<div class="callout" style="margin-top:20px"><strong>Inference:</strong> weather improves temporal shape, but it is a contributor/stress multiplier—not a demonstrated sole cause of supply stress.</div></div></section>
+
+<section class="section" id="rq3"><div class="wrap"><div class="section-intro"><p class="eyebrow">RQ3 · Hydropower timing</p><h2>The same hydro energy can have radically different adequacy value depending on when it is used.</h2></div>
+<div class="grid-3">
+<div class="card"><span class="badge screen">4,455 MW transfer</span><span class="value">375.03 → 11.75 GWh</span><p>Reference-demand modeled unserved energy: frozen daily-average hydro versus same-day flexible hydro.</p><small>−96.87% in this specific screening case.</small></div>
+<div class="card"><span class="badge screen">3,564 MW transfer</span><span class="value">−48.4%</span><p>Hydro timing still helps, but external-transfer limitation becomes more important.</p></div>
+<div class="card"><span class="badge screen">2,673 MW transfer</span><span class="value">−15.6%</span><p>When the underlying deficit is deep, timing alone cannot create missing energy or transfer capacity.</p></div>
+</div>
+<h3 style="margin-top:30px">Interday timing bracket</h3>
+<div class="table-wrap"><table><thead><tr><th>Transfer ceiling</th><th>1-day</th><th>3-day</th><th>15-day</th><th>30-day</th></tr></thead><tbody>
+<tr><td>4,455 MW</td><td>11.751 GWh</td><td>7.422 GWh</td><td>0.160 GWh</td><td>0.160 GWh</td></tr>
+<tr><td>3,564 MW</td><td>1,187.854 GWh</td><td>1,167.909 GWh</td><td>1,060.346 GWh</td><td>965.093 GWh</td></tr>
+<tr><td>2,673 MW</td><td>5,571.388 GWh</td><td>5,542.035 GWh</td><td>5,468.566 GWh</td><td>5,454.820 GWh</td></tr>
+</tbody></table></div>
+<p class="source-note" style="margin-top:16px">These windows are synthetic timing bounds, not reservoir storage durations or operating rules.</p>
+<div class="callout" style="margin-top:20px"><strong>Inference:</strong> hydro flexibility is most valuable when the system is timing-constrained. It cannot compensate indefinitely for a severe transfer/energy deficit.</div></div></section>
+
+<section class="section" id="rq4"><div class="wrap"><div class="section-intro"><p class="eyebrow">RQ4 · Interstate transfer</p><h2>Dependable transfer capability is one of the strongest adequacy levers in the screen.</h2></div>
+<div class="grid-3">
+<div class="card"><span class="badge">CEA current reference</span><span class="value">4,455 MW</span><p>ATC/import capability reference in the dated Kerala transmission study; TTC 4,575 MW.</p></div>
+<div class="card"><span class="badge screen">Stress case</span><span class="value">3,564 MW</span><p>80% of the reference ATC. Authored sensitivity—not an observed outage state.</p></div>
+<div class="card"><span class="badge screen">Stress case</span><span class="value">2,673 MW</span><p>60% of the reference ATC. Deliberately severe transfer sensitivity.</p></div>
+</div>
+<h3 style="margin-top:30px">Reference-demand modeled unserved-energy fraction</h3>
+<div class="table-wrap"><table><thead><tr><th>Transfer ceiling</th><th>Low RE envelope</th><th>Reference RE envelope</th><th>High RE envelope</th></tr></thead><tbody>
+<tr><td>4,455 MW</td><td>0.891%</td><td>0.839%</td><td>0.798%</td></tr>
+<tr><td>3,564 MW</td><td>5.795%</td><td>5.146%</td><td>4.539%</td></tr>
+<tr><td>2,673 MW</td><td>16.935%</td><td>14.757%</td><td>12.230%</td></tr>
+</tbody></table></div>
+<p class="source-note" style="margin-top:16px">Absolute values are scenario outcomes, not forecasts. The robust result is the direction: transfer availability dominates many otherwise useful local flexibility measures when it becomes severely constrained.</p>
+</div></section>
+
+<section class="section" id="rq5"><div class="wrap"><div class="section-intro"><p class="eyebrow">RQ5 · Internal deliverability</p><h2>A statewide balance can still hide stressed corridors.</h2></div>
+<div class="grid-4">
+<div class="card"><span class="value">542</span><p>Public-model buses in the reconstructed network skeleton.</p></div>
+<div class="card"><span class="value">561</span><p>Lines in the larger topology reconstruction before primary-screen filtering.</p></div>
+<div class="card"><span class="value">233</span><p>Source-backed primary lines in the robustness screen.</p></div>
+<div class="card"><span class="value">21</span><p>Lines above screening rating in all eight tested boundary-injection allocations.</p></div>
+</div>
+<div class="grid-2" style="margin-top:18px">
+<div class="card"><h3>12 robust corridor groups</h3><p>The strongest clusters include Shornur–Koppam–Perinthalmanna–Melattur at 110 kV and Shornur–Areacode–Elankur at 220 kV.</p></div>
+<div class="card"><h3>Shoranur: corrected interpretation</h3><p>The model's historical 2023 transformer snapshot included a 100 MVA Shornur element. Current 2026 CEA material reports 200+100 MVA existing transformation and independently identifies Shoranur as constrained. The <strong>location</strong> is corroborated; the old 100 MVA overload magnitude is not current whole-station loading.</p></div>
+</div>
+<p class="source-note" style="margin-top:16px">This is linear congestion/deliverability screening. It does not establish AC voltage stability, transient stability, frequency stability or N-1 security.</p>
+</div></section>
+
+<section class="section" id="synthesis"><div class="wrap"><div class="section-intro"><p class="eyebrow">Synthesis</p><h2>No single “root cause” survives the evidence as the whole story.</h2></div>
+<div class="callout"><strong>Conference-safe conclusion:</strong> Under the current public-data evidence, Kerala's susceptibility to electricity stress is best treated as an interaction among demand timing and weather, hydropower timing/availability, dependable interstate transfer and internal network deliverability. The relative causal contribution of those mechanisms to any specific restriction event is not identified.</div>
+<div class="action-row"><a class="button" href="responses.html">What should be tested next? →</a><a class="button secondary" href="qa.html">Read what failed QA</a></div>
+</div></section>
+</main><footer class="footer"><div class="wrap"><div><div class="brand"><span class="brand-mark">ക</span><span>kerala<b>2040</b></span></div><p>Independent public-data power-systems research · CET 2026 · Abhijith Sivaprasadan</p></div><div><a href="https://github.com/abhijith-sivaprasadan/kerala2040">Research repository ↗</a></div></div></footer></body></html>
