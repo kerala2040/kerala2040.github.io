@@ -39,7 +39,7 @@
 <section class="private-head"><div class="wrap">
 <p class="eyebrow" style="color:#d6b46d">Personal study page · unlinked · noindex</p>
 <h1>Kerala2040 conference defense</h1>
-<p>This is the private-by-obscurity study manual for CET 2026: what to know by heart, exact claim boundaries, likely expert questions, short answers, method choices, equations, QA corrections and wording traps.</p>
+<p>This is the private-by-obscurity study manual for CET 2026: what to say at the poster, what to know by heart, exact claim boundaries, likely expert questions, short answers, method choices, equations, QA corrections and wording traps.</p>
 <p style="font:12px var(--mono);color:#c7d3ca">Not access-controlled. Anyone who knows this URL can read it.</p>
 </div></section>
 <section class="search-shell" aria-label="Defense manual search"><div class="wrap">
@@ -51,6 +51,7 @@
   <div class="filter-chips" id="forme-filters" aria-label="Filter by category">
     <button class="filter-chip active" data-filter="all">All</button>
     <button class="filter-chip" data-filter="core">Core</button>
+    <button class="filter-chip" data-filter="poster">Poster</button>
     <button class="filter-chip" data-filter="numbers">Numbers</button>
     <button class="filter-chip" data-filter="methods">Methods</button>
     <button class="filter-chip" data-filter="demand">Demand</button>
@@ -67,7 +68,7 @@
   <div class="no-results" id="forme-no-results"><strong>No matches.</strong> Try a shorter term or switch the category back to “All”.</div>
 </div></section>
 <nav class="private-nav"><div class="wrap">
-<a href="#core">Core story</a><a href="#rqs">RQ map</a><a href="#numbers">Numbers</a><a href="#methods">Methods</a><a href="#equations">Equations</a><a href="#demand">Demand</a><a href="#hydro">Hydro</a><a href="#imports">Imports</a><a href="#network">Network</a><a href="#economics">Economics</a><a href="#solutions">Solutions</a><a href="#future">Future work</a><a href="#qa">Likely questions</a><a href="#sourcesquick">Sources</a><a href="#danger">Never say</a><a href="#lastminute">Last-minute drill</a>
+<a href="#core">Core story</a><a href="#poster-talk">Poster talk</a><a href="#rqs">RQ map</a><a href="#numbers">Numbers</a><a href="#methods">Methods</a><a href="#equations">Equations</a><a href="#demand">Demand</a><a href="#hydro">Hydro</a><a href="#imports">Imports</a><a href="#network">Network</a><a href="#economics">Economics</a><a href="#solutions">Solutions</a><a href="#future">Future work</a><a href="#qa">Likely questions</a><a href="#sourcesquick">Sources</a><a href="#danger">Never say</a><a href="#lastminute">Last-minute drill</a>
 </div></nav>
 
 <main>
@@ -77,6 +78,57 @@
 <div class="script" style="margin-top:12px"><b>One-sentence contribution:</b> “The contribution is a source-audited evidence chain that separates observation, reconstruction, sensitivity and validation, and keeps higher-confidence claims fail-closed when the public data cannot support them.”</div>
 <div class="script" style="margin-top:12px"><b>Main research question:</b> “Why is Kerala susceptible to electricity shortages and peak-hour supply restrictions, and what structural and operational factors determine whether the system can meet demand under stress?”</div>
 <div class="script" style="margin-top:12px"><b>Working synthesis:</b> “Kerala's susceptibility to stress is an interaction problem rather than a simple annual-energy deficit: demand timing and weather, hydro timing and availability, dependable external transfer and internal network deliverability can each become binding under different conditions.”</div>
+</div></section>
+
+
+<section class="section searchable-section" id="poster-talk" data-category="poster"><div class="wrap">
+<div class="section-intro"><p class="eyebrow">Poster talk track · v9</p><h2>What to say while pointing at the CET poster.</h2><p>Do not read the poster. Use it as a map: question → observed evidence → reconstruction → hydro/transfer experiments → network screen → bounded conclusion.</p></div>
+
+<div class="script"><b>60-second version:</b> “The question is what makes Kerala vulnerable to electricity supply stress. I start from 354 observed FY2024–25 SLDC days and keep the 11 missing reports explicitly missing. The hourly demand is then reconstructed, not treated as telemetry: on 430 held-out extrema the ERA5-sensitive shape reduces RMSE from 162.0 to 155.2 MW versus the fitted static shape, a modest 4.2% improvement. The hydro experiments then show that timing flexibility can matter a lot when transfer is reasonably available, but much less under deep transfer stress. In the stateful Idukki pilot, unserved energy falls from 1.178 to 0.367 TWh at the 80% transfer stress, while 5.1 TWh still remains at 60%. Separately, the public network screen tests 233 source-rated lines and finds 21 that exceed their screening ratings in all eight boundary-allocation cases. So the main result is not one technology recommendation: demand timing, hydro flexibility, external transfer and internal deliverability can become binding for different reasons.”</div>
+
+<div class="script" style="margin-top:12px"><b>2-minute default walkthrough:</b> “I would read the poster from top left to bottom right. First, the research question is why Kerala becomes vulnerable to supply stress, not simply whether annual energy is sufficient. The observed-data panel uses 354 qualified SLDC days. The hydro-import scatter is descriptive: hydro is part of internal generation and imports share the same daily accounting balance, so I do not interpret that association causally. Next I reconstruct the missing intraday chronology while preserving every observed daily energy total. On held-out January–March extrema, the fitted static shape has 162.0 MW RMSE and the ERA5-sensitive version 155.2 MW, so weather adds a small but measurable 4.2% improvement to intraday shape; this is not an hourly forecast. Then I test hydro timing. The stateful Idukki pilot gives a large benefit at the 80% transfer stress—1.178 to 0.367 TWh unserved energy—but only a modest reduction at 60%, where 5.131 TWh remains. The separate timing-window experiment tells the same mechanism story: with the same 7.43 TWh annual hydro energy, longer timing nearly removes residual shortage at full transfer, helps at 80%, and barely helps at 60%. That points to a deeper transfer or firm-capacity constraint rather than a pure hydro-timing problem. Finally, the network screen asks whether statewide balance can hide internal deliverability problems. Of 233 source-rated lines tested, 21 exceed their screening ratings in every one of eight import-allocation cases. That is a robustness screen, not operator-validated congestion, although the Shoranur location is independently corroborated by current CEA planning. The conclusion is therefore a diagnosis: different constraints bind in different conditions, and investment should target the diagnosed constraint rather than an annual-energy headline.”</div>
+
+<h3 style="margin-top:32px">How to physically walk through the poster</h3>
+<div class="qa-grid">
+<div class="qa-card"><h3>Opening · point at the research question</h3><p class="answer">“The question is not ‘does Kerala have enough annual electricity?’ It is ‘what makes the system vulnerable in difficult hours?’”</p><p>Then point once to the four ideas you will return to: demand timing, hydro flexibility, external transfer and internal deliverability.</p></div>
+<div class="qa-card"><h3>Methods strip · move quickly</h3><p class="answer">“I start with public evidence, reconstruct only what is missing, and then run bounded adequacy and network sensitivities. The equations are conservation constraints, not claims that the physical system is fully observed.”</p><p>Do not spend a minute deriving equations unless someone asks.</p></div>
+</div>
+
+<h3 style="margin-top:32px">Panel-by-panel script</h3>
+<div class="qa-grid">
+<div class="qa-card"><h3>A · Imports and hydropower</h3><p class="answer">“These are the 354 observed FY2024–25 SLDC days. You can see the seasonal operating pattern, but I deliberately do not call this causal: hydropower is part of internal generation and net imports share the same daily accounting balance. Demand and other generation also move.”</p><p><strong>If pushed:</strong> “This panel is descriptive context and an accounting-consistency view, not an independent validation of import dependence.”</p></div>
+
+<div class="qa-card"><h3>B · Held-out demand reconstruction</h3><p class="answer">“The key comparison is 162.0 versus 155.2 MW RMSE on 430 held-out SLDC extrema. The ERA5-sensitive shape improves on an already strong static fitted shape by 4.2%. The old fixed two-peak proxy was much worse at 477.9 MW, but that is background, not the weather effect.”</p><p><strong>Boundary:</strong> “Daily energy is known and conserved. This validates intraday shape conditional on daily energy; it is not an hourly load forecast or telemetry validation.”</p></div>
+
+<div class="qa-card"><h3>C · Stateful Idukki reservoir</h3><p class="answer">“Here I replace the arbitrary timing window for Idukki with an explicit storage state. At 80% transfer, unserved energy falls from 1.178 to 0.367 TWh—about 69%. At 60%, it only falls from 5.542 to 5.131 TWh, so a large shortage remains.”</p><p><strong>Important:</strong> “The comparator is a one-day aggregate hydro timing bracket rerun on the same 364-day horizon. It is not a one-day Idukki reservoir.”</p><p><strong>Hydrology boundary:</strong> “W is a reconstructed net-water-balance residual, not measured catchment inflow; exact terminal closure is algebraic implementation verification, not hydrological validation.”</p></div>
+
+<div class="qa-card"><h3>D · Longer hydro timing windows</h3><p class="answer">“This holds annual hydro energy fixed at 7.43 TWh and only changes how far energy can move in time. At full transfer, modeled shortage falls from 11.8 GWh at one day to 0.16 GWh by 15 days. At 80%, 1,188 falls to 965 GWh by 30 days. At 60%, 5,571 only falls to 5,455 GWh.”</p><p><strong>Interpretation:</strong> “Timing is powerful when timing is the constraint. Once transfer or firm capacity becomes deeply limiting, more timing flexibility cannot solve the problem.”</p><p><strong>Do not say:</strong> the windows are reservoir durations.</p></div>
+
+<div class="qa-card"><h3>E · Persistent network screening overloads</h3><p class="answer">“I test 233 lines with source-backed screening ratings under eight radically different allocations of the same residual import. Twenty-one lines exceed their screening rating in every case; those 21 are what I plot here.”</p><p><strong>Axes:</strong> “For each line, each axis uses its own worst-case-robust minimum across the eight cases. The minimum peak loading and minimum overload duration do not have to come from the same case.”</p><p><strong>Boundary:</strong> “This is robustness to boundary-injection allocation only. It is not AC/N-1 validation or proof of operator congestion.”</p></div>
+
+<div class="qa-card"><h3>Conclusion · point here last</h3><p class="answer">“The useful conclusion is not ‘build technology X’. Hydro timing reduces modeled shortage, but deep transfer stress persists, and internal deliverability is a separate planning gate. The next investment should therefore be matched to the binding constraint.”</p><p>Then point to the QR: “The full sources, methods and limitations are public here.”</p></div>
+</div>
+
+<h3 style="margin-top:32px">Exact transitions so the story flows</h3>
+<div class="table-wrap"><table class="cheat-table"><thead><tr><th>Move</th><th>Say this</th></tr></thead><tbody>
+<tr><td>Question → A</td><td>“I start with what is actually observed before introducing any hourly model.”</td></tr>
+<tr><td>A → methods</td><td>“Daily evidence is strong, but the difficult-hour chronology is not directly observed, so the next step is a bounded reconstruction.”</td></tr>
+<tr><td>Methods → B</td><td>“Before using that chronology in adequacy experiments, I test whether the reconstructed intraday shape improves out of sample.”</td></tr>
+<tr><td>B → C</td><td>“With the demand chronology bounded, the next question is how much flexibility comes from hydro timing.”</td></tr>
+<tr><td>C → D</td><td>“The stateful Idukki result is one physical pilot; the separate window experiment isolates the timing mechanism across the whole hydro block.”</td></tr>
+<tr><td>D → E</td><td>“But statewide energy balance is not enough if electricity cannot be delivered internally, so I test the network separately.”</td></tr>
+<tr><td>E → conclusion</td><td>“Those experiments point to different constraints becoming binding in different conditions, which is the main diagnosis.”</td></tr>
+</tbody></table></div>
+
+<h3 style="margin-top:32px">If someone interrupts at a figure</h3>
+<div class="qa-grid">
+<div class="qa-card"><h3>“What is the single strongest result?”</h3><p class="answer">“Mechanistically, the strongest result is that the value of hydro timing collapses as transfer stress deepens: the same flexibility that nearly removes residual shortage at healthy transfer leaves multi-TWh shortage at 60% transfer.”</p></div>
+<div class="qa-card"><h3>“Which result is observed rather than modeled?”</h3><p class="answer">“Panel A is observed daily SLDC accounting. B is a held-out reconstruction test. C and D are model experiments. E is a public-data network screening experiment.”</p></div>
+<div class="qa-card"><h3>“What should I remember from B?”</h3><p class="answer">“Not that weather explains demand. The result is narrower: adding ERA5 terms improves held-out intraday-shape RMSE by 4.2% relative to the fitted static baseline while daily energy is fixed.”</p></div>
+<div class="qa-card"><h3>“What should I remember from E?”</h3><p class="answer">“The geography is persistent to how residual imports are allocated, but the magnitudes are screening outputs. Shoranur's location is independently corroborated; the historical 100 MVA transformer loading magnitude is not current-station validation.”</p></div>
+</div>
+
+<div class="script" style="margin-top:24px"><b>Best 10-second finish:</b> “Kerala's stress is an interaction problem: timing, external transfer and internal deliverability can each become binding. The engineering response should follow the diagnosed constraint.”</div>
 </div></section>
 
 <section class="section searchable-section" id="rqs" data-category="core"><div class="wrap">
@@ -113,7 +165,7 @@
 <div class="memory"><strong>780 MW</strong><span>Idukki HEP = six 130 MW units.</span></div>
 <div class="memory"><strong>1,460 MCM</strong><span>Idukki full reservoir storage field in retained SLDC data.</span></div>
 <div class="memory"><strong>1,470 MWh/MCM</strong><span>Station energy-equivalent used in v1.3; operational ratio, not hydraulic derivation.</span></div>
-<div class="memory"><strong>542 / 561</strong><span>Network skeleton buses / lines.</span></div>
+<div class="memory"><strong>364 / 8,736</strong><span>Idukki v1.3 model days / hours; terminal observed storage closes the horizon.</span></div>
 <div class="memory"><strong>233</strong><span>Source-backed primary lines in robustness screen.</span></div>
 <div class="memory"><strong>21</strong><span>Lines over screening rating in all eight boundary-allocation cases.</span></div>
 <div class="memory"><strong>12</strong><span>Robust corridor groups in that screen.</span></div>
@@ -369,11 +421,11 @@
 <li><strong>Say the contribution:</strong> source-audited evidence chain, not new solver.</li>
 <li><strong>Know the four mechanisms:</strong> demand/weather · hydro timing · external transfer · internal deliverability.</li>
 <li><strong>Know the data boundary:</strong> 354 observed FY24–25 days; 11 missing; hourly chronology reconstructed.</li>
-<li><strong>Know the load metric caveat:</strong> 124.9 MW MAE is held-out intraday extrema conditional on known daily MWh.</li>
+<li><strong>Know Panel B:</strong> 162.0 → 155.2 MW held-out RMSE = 4.2% improvement; daily MWh is known and conserved. The 477.9 MW fixed proxy is only older context.</li>
 <li><strong>Know the transfer reference:</strong> TTC 4575 / ATC 4455 MW; 3564/2673 are synthetic stress cases.</li>
-<li><strong>Know the hydro result:</strong> 375.03 → 11.75 GWh at full transfer/reference demand; upper-bound timing sensitivity.</li>
+<li><strong>Know Panels C–D:</strong> C: 1.178 → 0.367 TWh at 80% transfer; 5.131 TWh remains at 60%. D: fixed 7.43 TWh hydro; 11.8 → 0.16 GWh at full transfer, but 5,571 → 5,455 GWh at 60%.</li>
 <li><strong>Know Idukki:</strong> 780 MW, 1460 MCM, 1470 MWh/MCM operational equivalent; v1.3 closure is algebraic.</li>
-<li><strong>Know network:</strong> 233 primary lines, 21 robust to eight import-allocation cases, 12 corridor groups.</li>
+<li><strong>Know Panel E:</strong> 233 source-rated lines tested; 21 robust lines shown across eight allocation cases. Each plotted axis takes its own minimum; minima need not come from the same case.</li>
 <li><strong>Know Shoranur correction:</strong> old 100 MVA element vs current CEA 200+100 MVA; keep location, drop old current-loading interpretation.</li>
 <li><strong>Know what is not done:</strong> no AC/N-1, LOLP, event reconstruction, validated catchment, buildable GW or least-cost portfolio.</li>
 <li><strong>If uncertain:</strong> say “I don't have evidence to answer that at the required boundary; the data I would need are …” Do not improvise.</li>
