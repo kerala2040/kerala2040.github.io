@@ -1,4 +1,4 @@
-name: Publish pinned research dashboard
+name: Publish pinned CET research companion
 on:
   push:
     branches: [main]
@@ -65,6 +65,43 @@ jobs:
           node --test tests/web.test.cjs
           python scripts/build_site.py --check
           python scripts/build_site.py --output _site
+      - name: Overlay CET 2026 conference companion
+        shell: bash
+        run: |
+          set -euo pipefail
+          root="research/_site"
+          mkdir -p "$root/assets"
+          for page in index research system methodology findings responses qa sources; do
+            cp "release-pointer/${page}.html" "$root/${page}.html"
+          done
+          cp "release-pointer/assets/companion.css" "$root/assets/companion.css"
+          cp "release-pointer/assets/mark.svg" "$root/assets/mark.svg"
+          cp "release-pointer/SOURCE_PROVENANCE.md" "$root/SOURCE_PROVENANCE.md"
+          python - <<'PY'
+          from pathlib import Path
+
+          root = Path("research/_site")
+          required = [
+              "index.html",
+              "research.html",
+              "system.html",
+              "methodology.html",
+              "findings.html",
+              "responses.html",
+              "qa.html",
+              "sources.html",
+              "assets/companion.css",
+              "assets/mark.svg",
+          ]
+          missing = [name for name in required if not (root / name).is_file()]
+          if missing:
+              raise SystemExit(f"Missing companion outputs: {missing}")
+          index = (root / "index.html").read_text(encoding="utf-8")
+          if "Energy Data & Modelling" in index:
+              raise SystemExit("Old broad dashboard framing leaked back into public index")
+          if "Why is Kerala susceptible" not in index:
+              raise SystemExit("Diagnosis-first research question missing from public index")
+          PY
       - name: Record release and evidence identities
         env:
           RESEARCH_SHA: ${{ steps.source.outputs.sha }}
@@ -86,7 +123,7 @@ jobs:
           if metadata.get("generated_at_utc") is None:
               raise SystemExit("Missing evidence snapshot timestamp")
           release = {
-              "release_scope": "Website edition 2 / observed evidence and classified research experiments",
+              "release_scope": "CET 2026 diagnosis-first research companion / observed evidence, screening models and scientific QA",
               "website_edition": metadata["website_edition"],
               "research_source_commit": source_sha,
               "evidence_snapshot_generated_at_utc": metadata["generated_at_utc"],
