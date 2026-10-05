@@ -1,4 +1,4 @@
-/* Kerala2040 · CET 2026 conference companion microsite */
+/* Kerala2040 · open research and publication-track microsite */
 :root{
   color-scheme:light;
   --paper:#f7f2e4;--surface:#fffdf5;--surface2:#eee8d8;--ink:#143b30;--muted:#52685f;
@@ -49,7 +49,7 @@ table{width:100%;border-collapse:collapse;background:var(--surface);font-size:14
 @media(max-width:680px){.wrap,.narrow{width:min(100% - 28px,1180px)}.hero-grid,.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}.hero h1,.page-head h1{letter-spacing:-2px}.hero{padding-top:52px}.section{padding:56px 0}.footer .wrap{grid-template-columns:1fr}.rq{padding-left:24px}.rq-num{position:static;margin-bottom:12px}.site-header nav a{font-size:12px}}
 
 
-/* Conference-facing visual language */
+/* Research-facing visual language */
 .hero-note{margin-top:18px;max-width:720px;font:500 12px/1.55 var(--mono);color:var(--muted)}
 .visual-panel{background:var(--surface);border:1px solid var(--line);padding:26px;overflow:hidden}
 .visual-panel h3{font:600 24px/1.2 var(--display);margin:0 0 18px}
