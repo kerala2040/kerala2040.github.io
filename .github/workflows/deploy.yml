@@ -71,7 +71,7 @@ jobs:
           set -euo pipefail
           root="research/_site"
           mkdir -p "$root/assets"
-          for page in index research system methodology findings responses qa sources; do
+          for page in index research paper system methodology findings responses qa sources; do
             cp "release-pointer/${page}.html" "$root/${page}.html"
           done
           cp "release-pointer/assets/companion.css" "$root/assets/companion.css"
@@ -79,6 +79,8 @@ jobs:
           mkdir -p "$root/forme"
           cp "release-pointer/forme/index.html" "$root/forme/index.html"
           cp "release-pointer/SOURCE_PROVENANCE.md" "$root/SOURCE_PROVENANCE.md"
+          mkdir -p "$root/data"
+          cp "release-pointer/data/daily-demand-ml-robustness-v0.2.json" "$root/data/daily-demand-ml-robustness-v0.2.json"
           python - <<'PY'
           from pathlib import Path
 
@@ -86,6 +88,7 @@ jobs:
           required = [
               "index.html",
               "research.html",
+              "paper.html",
               "system.html",
               "methodology.html",
               "findings.html",
@@ -95,6 +98,7 @@ jobs:
               "assets/companion.css",
               "assets/mark.svg",
               "forme/index.html",
+              "data/daily-demand-ml-robustness-v0.2.json",
           ]
           missing = [name for name in required if not (root / name).is_file()]
           if missing:
@@ -104,6 +108,8 @@ jobs:
               raise SystemExit("Old broad dashboard framing leaked back into public index")
           if "Why is Kerala susceptible" not in index:
               raise SystemExit("Diagnosis-first research question missing from public index")
+          if "New result · 6 October 2026" not in index:
+              raise SystemExit("6 October daily-demand ML robustness result missing from public index")
           PY
       - name: Record release and evidence identities
         env:
