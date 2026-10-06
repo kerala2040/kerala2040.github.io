@@ -40,10 +40,10 @@
 <div class="section-intro"><p class="eyebrow">RQ2 · Chronology & weather</p><h2>The difficult hour cannot be inferred from annual energy alone.</h2></div>
 <div class="finding-visual">
   <div>
-    <span class="badge screen">Held-out shape reconstruction</span>
-    <h3>Weather adds useful—but modest—information beyond clock time.</h3>
-    <p>A sparse static shape already reconstructs reported intraday extrema well. Adding ERA5 weather improves the held-out error further.</p>
-    <p class="source-note">Daily energy is known and conserved on held-out days. These are intraday-shape errors, not day-ahead forecast errors.</p>
+    <span class="badge screen">Held-out hourly-shape reconstruction</span>
+    <h3>Weather adds modest information to the reconstructed intraday shape.</h3>
+    <p>A sparse static shape already reconstructs reported intraday extrema well. Adding ERA5 weather improves the held-out error further, but this part of the study is still conditional on known daily energy.</p>
+    <p class="source-note">This hourly-shape result is distinct from the observed-daily machine-learning result below. Neither is a day-ahead forecast.</p>
   </div>
   <div class="visual-panel">
     <h3>Held-out Jan–Mar extrema RMSE</h3>
@@ -58,6 +58,70 @@
 <div class="grid-2" style="margin-top:18px">
   <div class="card"><span class="badge screen">Reconstructed peak</span><span class="value">5,923.3 MW</span><p>FY2024–25 proxy maximum.</p></div>
   <div class="card"><span class="badge">Separate CEA contexts</span><h3>5,904 MW ≠ 5,797 MW</h3><p>5,904 MW is the generation-RA planning/calibration reference used by the proxy. 5,797 MW is the separately reported recorded FY2024–25 peak in the newer transmission-RA study.</p></div>
+</div>
+
+<div class="section-rule"></div>
+<div class="section-intro">
+  <p class="eyebrow">Observed daily demand · rolling robustness</p>
+  <h2>Temperature is the dominant currently demonstrated weather predictor.</h2>
+  <p>This second analysis uses source-reported SLDC daily consumption directly rather than the reconstructed hourly load proxy. Of 354 published FY2024–25 daily observations, 353 match complete local-day ERA5 weather; 1 April is excluded because the recovered UTC window does not contain a full IST day.</p>
+</div>
+
+<div class="data-strip" aria-label="Rolling daily demand model results">
+  <div class="item"><strong>5 / 7</strong><span>LightGBM monthly holdouts improved with weather</span></div>
+  <div class="item"><strong>6 / 7</strong><span>XGBoost monthly holdouts improved with weather</span></div>
+  <div class="item"><strong>37.1%</strong><span>Pooled XGBoost RMSE reduction</span></div>
+  <div class="item"><strong>48.1%</strong><span>Temperature-only Jan–Mar RMSE reduction</span></div>
+</div>
+
+<div class="table-wrap" style="margin-top:18px"><table>
+<thead><tr><th>Monthly holdout</th><th>LightGBM · weather RMSE change</th><th>XGBoost · weather RMSE change</th></tr></thead>
+<tbody>
+<tr><td>Sep 2024</td><td>+16.33%</td><td>+10.77%</td></tr>
+<tr><td>Oct 2024</td><td>−3.37%</td><td>+7.79%</td></tr>
+<tr><td>Nov 2024</td><td>−2.44%</td><td>−3.66%</td></tr>
+<tr><td>Dec 2024</td><td>+20.71%</td><td>+40.82%</td></tr>
+<tr><td>Jan 2025</td><td>+57.49%</td><td>+43.98%</td></tr>
+<tr><td>Feb 2025</td><td>+57.31%</td><td>+60.28%</td></tr>
+<tr><td>Mar 2025</td><td>+24.47%</td><td>+13.52%</td></tr>
+</tbody></table></div>
+<p class="caption" style="margin-top:10px">Positive values mean lower holdout RMSE after adding ERA5 weather to an independently Optuna-tuned calendar-only model of the same family. November is retained as the shared failure month.</p>
+
+<div class="grid-2" style="margin-top:18px">
+  <div class="visual-panel">
+    <h3>Pooled rolling RMSE</h3>
+    <div class="bar-chart">
+      <div class="bar-row"><span class="bar-label">XGBoost · calendar only</span><span class="bar-track"><span class="bar-fill rust" style="width:100%"></span></span><span class="bar-value">4.558 MU/day</span></div>
+      <div class="bar-row"><span class="bar-label">XGBoost · + ERA5</span><span class="bar-track"><span class="bar-fill" style="width:62.9%"></span></span><span class="bar-value">2.865 MU/day</span></div>
+      <div class="bar-row"><span class="bar-label">LightGBM · calendar only</span><span class="bar-track"><span class="bar-fill gold" style="width:100%"></span></span><span class="bar-value">4.657 MU/day</span></div>
+      <div class="bar-row"><span class="bar-label">LightGBM · + ERA5</span><span class="bar-track"><span class="bar-fill" style="width:62.3%"></span></span><span class="bar-value">2.903 MU/day</span></div>
+    </div>
+    <p class="caption">Pooled weather RMSE reduction: 37.13% for XGBoost and 37.67% for LightGBM.</p>
+  </div>
+  <div class="visual-panel">
+    <h3>XGBoost feature-group ablation · Jan–Mar 2025</h3>
+    <div class="bar-chart">
+      <div class="bar-row"><span class="bar-label">Calendar only</span><span class="bar-track"><span class="bar-fill rust" style="width:71.7%"></span></span><span class="bar-value">6.557</span></div>
+      <div class="bar-row"><span class="bar-label">+ temperature</span><span class="bar-track"><span class="bar-fill" style="width:37.2%"></span></span><span class="bar-value">3.402</span></div>
+      <div class="bar-row"><span class="bar-label">+ precipitation</span><span class="bar-track"><span class="bar-fill gold" style="width:74.5%"></span></span><span class="bar-value">6.813</span></div>
+      <div class="bar-row"><span class="bar-label">+ radiation</span><span class="bar-track"><span class="bar-fill rust" style="width:100%"></span></span><span class="bar-value">9.146</span></div>
+      <div class="bar-row"><span class="bar-label">+ wind</span><span class="bar-track"><span class="bar-fill gold" style="width:73.5%"></span></span><span class="bar-value">6.720</span></div>
+      <div class="bar-row"><span class="bar-label">All except temperature</span><span class="bar-track"><span class="bar-fill gold" style="width:73.1%"></span></span><span class="bar-value">6.683</span></div>
+      <div class="bar-row"><span class="bar-label">All weather</span><span class="bar-track"><span class="bar-fill" style="width:46.2%"></span></span><span class="bar-value">4.227</span></div>
+    </div>
+    <p class="caption">RMSE in MU/day. Temperature alone improves RMSE 48.11% versus calendar-only; removing temperature eliminates the weather gain in this holdout.</p>
+  </div>
+</div>
+
+<div class="grid-2" style="margin-top:18px">
+  <div class="card"><span class="status-pass">Within-year robustness</span><h3>The signal survives most independent months.</h3><p>Across seven strictly chronological monthly holdouts, weather improves XGBoost in six and LightGBM in five. Annual-cycle terms still dominate SHAP overall, while temperature variables recur among the leading weather attributions.</p></div>
+  <div class="warning"><span class="badge limit">Interpretation boundary</span><h3>Not causal and not operational forecasting.</h3><p>The models use same-day realized ERA5 reanalysis from one financial year. The result supports a retrospective within-year weather–demand association. It does not establish causal elasticities, day-ahead forecast skill or multi-year generalization.</p></div>
+</div>
+
+<div class="action-row">
+  <a class="button secondary" href="methodology.html#daily-weather-ml">How the rolling validation works →</a>
+  <a class="button secondary" href="https://github.com/abhijith-sivaprasadan/kerala2040/blob/main/docs/DAILY_DEMAND_ML_ROBUSTNESS_V0_2.md">Full v0.2 research note ↗</a>
+  <a class="button secondary" href="https://github.com/abhijith-sivaprasadan/kerala2040/blob/main/data/evidence/daily_demand_ml_robustness_v0_2_2026_10_06.json">Machine-readable evidence ↗</a>
 </div>
 </div></section>
 
