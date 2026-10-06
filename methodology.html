@@ -12,7 +12,7 @@
 <nav aria-label="Primary navigation"><a href="research.html">Research</a><a href="paper.html">Paper</a><a href="system.html">System</a><a href="methodology.html" aria-current="page">Methodology</a><a href="findings.html">Findings</a><a href="responses.html">Responses</a><a href="qa.html">Validation</a><a href="sources.html">Sources</a></nav></header>
 <main id="main">
 <section class="page-head"><div class="wrap"><p class="eyebrow">Methods</p><h1>Complexity follows <em>evidence.</em></h1><p class="lede">The study uses the simplest transparent model that the available public evidence can support, then adds complexity only when the next question requires it.</p></div></section>
-<nav class="reading-nav"><div class="wrap"><a href="#pipeline">Workflow</a><a href="#demand">Demand</a><a href="#adequacy">Adequacy</a><a href="#hydro">Hydro</a><a href="#network">Network</a><a href="#verification">Verification</a><a href="#selection">Method selection</a></div></nav>
+<nav class="reading-nav"><div class="wrap"><a href="#pipeline">Workflow</a><a href="#demand">Demand</a><a href="#daily-weather-ml">Daily ML</a><a href="#adequacy">Adequacy</a><a href="#hydro">Hydro</a><a href="#network">Network</a><a href="#verification">Verification</a><a href="#selection">Method selection</a></div></nav>
 
 <section class="section" id="pipeline"><div class="wrap">
 <div class="section-intro"><p class="eyebrow">Progressive evidence ladder</p><h2>From source record to bounded inference.</h2></div>
@@ -43,6 +43,32 @@
     <p class="caption">January–March extrema were withheld from fitting. These errors measure intraday-shape reconstruction conditional on known daily energy, not day-ahead forecasting.</p>
   </div>
 </div>
+</div></section>
+
+<section class="section" id="daily-weather-ml"><div class="wrap">
+<div class="section-intro"><p class="eyebrow">Observed daily demand · weather robustness</p><h2>Separate the weather question from the reconstructed hourly proxy.</h2><p>The daily-demand experiment uses source-reported Kerala SLDC daily consumption directly. It tests whether same-day ERA5 weather contains predictive information beyond calendar structure, without using reconstructed hourly load as a target or feature.</p></div>
+
+<div class="grid-3">
+  <div class="card"><span class="badge">Observed target</span><h3>353 matched daily observations</h3><p>Of 354 published FY2024–25 SLDC daily-consumption records, 353 match a complete IST weather day. 1 April 2024 is excluded because the recovered ERA5 artifact begins at 00:00 UTC and therefore does not contain all 24 hours of that local day.</p></div>
+  <div class="card"><span class="badge screen">Rolling validation</span><h3>Seven monthly holdouts</h3><p>September 2024 through March 2025 are tested as seven non-overlapping holdout months. Every fold trains only on earlier dates using an expanding window; no random train/test split is used.</p></div>
+  <div class="card"><span class="badge screen">Same-family ablation</span><h3>Weather must beat the same algorithm without weather</h3><p>LightGBM and XGBoost are independently Optuna-tuned for calendar-only and calendar+ERA5 variants inside each fold. This distinguishes a weather contribution from an improvement caused only by switching to nonlinear models.</p></div>
+</div>
+
+<div class="process-line" style="margin-top:18px">
+  <div class="process-node"><strong>Observed target</strong><span>SLDC daily consumption · MU/day.</span></div>
+  <div class="process-node"><strong>Weather</strong><span>Five representative ERA5 points aggregated to complete IST days.</span></div>
+  <div class="process-node"><strong>Past-only train</strong><span>All dates strictly before the monthly holdout.</span></div>
+  <div class="process-node"><strong>Optuna</strong><span>Expanding TimeSeriesSplit inside training only.</span></div>
+  <div class="process-node"><strong>Same-family test</strong><span>Calendar-only versus calendar + ERA5.</span></div>
+  <div class="process-node"><strong>Interpret</strong><span>SHAP only on folds where weather reduces holdout RMSE.</span></div>
+</div>
+
+<div class="grid-2" style="margin-top:18px">
+  <div class="card"><h3>Weather features</h3><ul><li>Mean, maximum and minimum temperature.</li><li>Temperature range, cooling degree-hours and hot-hour count.</li><li>Daily shortwave radiation.</li><li>Daily precipitation and wet-hour count.</li><li>Mean and maximum 10 m wind speed.</li></ul></div>
+  <div class="card"><h3>Feature-group ablation</h3><p>XGBoost is separately tuned on calendar-only, temperature, precipitation, radiation, wind, all-weather-except-temperature and all-weather variants over the original Jan–Mar 2025 holdout. The purpose is to test which weather family carries the observed gain, not simply to rank SHAP bars.</p></div>
+</div>
+
+<div class="callout" style="margin-top:18px"><strong>Boundary:</strong> same-day realized ERA5 reanalysis makes this a retrospective weather–demand experiment. It is not a day-ahead operational forecast, a causal elasticity estimate or multi-year validation.</div>
 </div></section>
 
 <section class="section" id="adequacy"><div class="wrap">
@@ -93,6 +119,9 @@
 <tr><td>Unit/integration tests</td><td>Check software guards and equations.</td><td>Implementation correctness.</td></tr>
 <tr><td>PyPSA ↔ SciPy ↔ OSeMOSYS</td><td>Reproduce common mathematical formulations independently.</td><td>Reduced framework-specific implementation risk.</td></tr>
 <tr><td>Held-out extrema</td><td>Evaluate demand-shape reconstruction on withheld observations.</td><td>Out-of-sample shape evidence.</td></tr>
+<tr><td>Rolling-origin daily demand</td><td>Test seven non-overlapping monthly holdouts using strictly past-only training.</td><td>Within-year robustness of the weather contribution.</td></tr>
+<tr><td>Same-family weather ablation</td><td>Compare independently tuned calendar-only and calendar+ERA5 versions of LightGBM/XGBoost.</td><td>Whether weather adds information beyond nonlinear calendar modelling.</td></tr>
+<tr><td>Weather feature-group ablation</td><td>Retune XGBoost with temperature, precipitation, radiation, wind and exclusion variants.</td><td>Which weather family currently carries predictive value.</td></tr>
 <tr><td>CEA transmission plan comparison</td><td>Compare network-screen geography with independent planning evidence.</td><td>External corroboration of selected hotspot locations.</td></tr>
 </tbody></table></div>
 </div></section>
