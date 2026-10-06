@@ -1,4 +1,4 @@
-name: Publish pinned CET research companion
+name: Publish pinned Kerala2040 research companion
 on:
   push:
     branches: [main]
@@ -65,7 +65,7 @@ jobs:
           node --test tests/web.test.cjs
           python scripts/build_site.py --check
           python scripts/build_site.py --output _site
-      - name: Overlay CET 2026 conference companion
+      - name: Overlay Kerala2040 research companion
         shell: bash
         run: |
           set -euo pipefail
@@ -132,7 +132,7 @@ jobs:
           if metadata.get("generated_at_utc") is None:
               raise SystemExit("Missing evidence snapshot timestamp")
           release = {
-              "release_scope": "CET 2026 diagnosis-first research companion / observed evidence, screening models and scientific QA",
+              "release_scope": "Kerala2040 diagnosis-first research companion / observed evidence, screening models and scientific QA",
               "website_edition": metadata["website_edition"],
               "research_source_commit": source_sha,
               "evidence_snapshot_generated_at_utc": metadata["generated_at_utc"],
