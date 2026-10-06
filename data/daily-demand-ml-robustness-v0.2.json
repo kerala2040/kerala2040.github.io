@@ -1,0 +1,176 @@
+{
+  "title": "Kerala2040 daily demand ML robustness v0.2",
+  "published_on": "2026-10-06",
+  "classification": "experimental_daily_observed_demand_ml_robustness_v0_2",
+  "research_source_commit": "81082de8787805ecd50bf0677a570352c2c75866",
+  "source_observed_rows": 354,
+  "matched_observed_rows": 353,
+  "rolling_design": {
+    "folds": [
+      "2024-09",
+      "2024-10",
+      "2024-11",
+      "2024-12",
+      "2025-01",
+      "2025-02",
+      "2025-03"
+    ],
+    "training_rule": "strictly earlier dates only; expanding window",
+    "optuna_trials_per_model_variant_per_fold": 10
+  },
+  "rolling_summary": {
+    "lightgbm": {
+      "fold_count": 7,
+      "weather_rmse_wins": 5,
+      "weather_rmse_win_rate": 0.7142857142857143,
+      "median_weather_rmse_reduction_pct": 20.70871277962765,
+      "mean_weather_rmse_reduction_pct": 24.357000350575245,
+      "worst_weather_rmse_reduction_pct": -3.365616961618346,
+      "best_weather_rmse_reduction_pct": 57.4891071052194,
+      "pooled_calendar_only": {
+        "mae_mu": 3.2987371053440975,
+        "rmse_mu": 4.657485225232754,
+        "correlation": 0.8248619525736564
+      },
+      "pooled_weather": {
+        "mae_mu": 2.2594349103328133,
+        "rmse_mu": 2.903243352352031,
+        "correlation": 0.8924497901527235
+      }
+    },
+    "xgboost": {
+      "fold_count": 7,
+      "weather_rmse_wins": 6,
+      "weather_rmse_win_rate": 0.8571428571428571,
+      "median_weather_rmse_reduction_pct": 13.51809625673428,
+      "mean_weather_rmse_reduction_pct": 24.78645294662366,
+      "worst_weather_rmse_reduction_pct": -3.655926563637229,
+      "best_weather_rmse_reduction_pct": 60.28430724278989,
+      "pooled_calendar_only": {
+        "mae_mu": 3.2641677116167425,
+        "rmse_mu": 4.557847463813009,
+        "correlation": 0.8308838375294457
+      },
+      "pooled_weather": {
+        "mae_mu": 2.2712834389261674,
+        "rmse_mu": 2.865329032715009,
+        "correlation": 0.8980388542187691
+      }
+    }
+  },
+  "fold_weather_rmse_reduction_pct": [
+    {
+      "fold": "2024-09",
+      "lightgbm": 16.329664305090414,
+      "xgboost": 10.769460068696972
+    },
+    {
+      "fold": "2024-10",
+      "lightgbm": -3.365616961618346,
+      "xgboost": 7.792261888407023
+    },
+    {
+      "fold": "2024-11",
+      "lightgbm": -2.4409732118021776,
+      "xgboost": -3.655926563637229
+    },
+    {
+      "fold": "2024-12",
+      "lightgbm": 20.70871277962765,
+      "xgboost": 40.81814553995613
+    },
+    {
+      "fold": "2025-01",
+      "lightgbm": 57.4891071052194,
+      "xgboost": 43.97882619341856
+    },
+    {
+      "fold": "2025-02",
+      "lightgbm": 57.313507503532584,
+      "xgboost": 60.28430724278989
+    },
+    {
+      "fold": "2025-03",
+      "lightgbm": 24.46460093397718,
+      "xgboost": 13.51809625673428
+    }
+  ],
+  "xgboost_feature_group_ablation": {
+    "holdout": "2025-01-01/2025-03-31",
+    "variants": [
+      {
+        "variant": "calendar_only",
+        "feature_count": 7,
+        "holdout_mae_mu": 5.2412785824797865,
+        "holdout_rmse_mu": 6.556687745656139,
+        "holdout_correlation": 0.8718967551209514,
+        "rmse_reduction_vs_calendar_pct": 0
+      },
+      {
+        "variant": "temperature",
+        "feature_count": 13,
+        "holdout_mae_mu": 2.822640191934274,
+        "holdout_rmse_mu": 3.4020026442112914,
+        "holdout_correlation": 0.9243639914343686,
+        "rmse_reduction_vs_calendar_pct": 48.11400548294912
+      },
+      {
+        "variant": "precipitation",
+        "feature_count": 9,
+        "holdout_mae_mu": 5.623648974041607,
+        "holdout_rmse_mu": 6.813363860498144,
+        "holdout_correlation": 0.8931159228560812,
+        "rmse_reduction_vs_calendar_pct": -3.914722262197937
+      },
+      {
+        "variant": "radiation",
+        "feature_count": 8,
+        "holdout_mae_mu": 8.350685261713073,
+        "holdout_rmse_mu": 9.145633172573199,
+        "holdout_correlation": 0.8766079000313243,
+        "rmse_reduction_vs_calendar_pct": -39.48556843556044
+      },
+      {
+        "variant": "wind",
+        "feature_count": 9,
+        "holdout_mae_mu": 5.590498510742187,
+        "holdout_rmse_mu": 6.7199603314612855,
+        "holdout_correlation": 0.8998286578096598,
+        "rmse_reduction_vs_calendar_pct": -2.4901686970424386
+      },
+      {
+        "variant": "all_except_temperature",
+        "feature_count": 12,
+        "holdout_mae_mu": 5.603346812545421,
+        "holdout_rmse_mu": 6.683401644410431,
+        "holdout_correlation": 0.9091799346364662,
+        "rmse_reduction_vs_calendar_pct": -1.9325901075316723
+      },
+      {
+        "variant": "all_weather",
+        "feature_count": 18,
+        "holdout_mae_mu": 3.540156118703443,
+        "holdout_rmse_mu": 4.22737199702419,
+        "holdout_correlation": 0.9184482238657705,
+        "rmse_reduction_vs_calendar_pct": 35.525799595613506
+      }
+    ]
+  },
+  "interpretation": [
+    "Weather improves rolling monthly holdout RMSE in 5 of 7 LightGBM folds and 6 of 7 XGBoost folds.",
+    "November 2024 is a shared failure month; LightGBM also slightly loses in October 2024.",
+    "Pooled out-of-sample RMSE is substantially lower with weather for both model families.",
+    "On the Jan-Mar XGBoost feature-group ablation, temperature features alone outperform calendar-only by 48.1% RMSE.",
+    "Removing temperature eliminates the weather gain in that holdout, while all-weather improves RMSE by 35.5%.",
+    "The one-year result supports a robust retrospective weather-demand association, not causal inference or multi-year forecasting generalization."
+  ],
+  "limitations": [
+    "All rolling folds come from one financial year.",
+    "Same-day realized ERA5 reanalysis means retrospective prediction, not day-ahead forecasting.",
+    "Five representative ERA5 points are equally weighted rather than load weighted.",
+    "The feature-group ablation uses XGBoost only.",
+    "The feature-group ablation uses 10 Optuna trials per variant and should not be read as a definitive ranking of all possible model configurations.",
+    "Holiday and event indicators are absent."
+  ],
+  "source_evidence_url": "https://github.com/abhijith-sivaprasadan/kerala2040/blob/main/data/evidence/daily_demand_ml_robustness_v0_2_2026_10_06.json"
+}

@@ -35,6 +35,7 @@
   <div class="card"><h3>Research synthesis</h3><p>Research questions, findings, confidence boundaries and limitations.</p><a href="https://github.com/abhijith-sivaprasadan/kerala2040/blob/main/docs/POWER_SYSTEM_STRESS_SYNTHESIS_2026_09_28.md">Open synthesis ↗</a></div>
   <div class="card"><h3>Research plan</h3><p>Diagnosis-first work-package structure and evidence logic.</p><a href="https://github.com/abhijith-sivaprasadan/kerala2040/blob/main/docs/research_plan.md">Open plan ↗</a></div>
   <div class="card"><h3>Scientific QA verdict</h3><p>Release verdict, supported claim tiers and disclosed limitations after the final red-team pass.</p><a href="https://github.com/abhijith-sivaprasadan/kerala2040/blob/qa/scientific-validation-conference-20260928/docs/qa/QA_FINAL_VERDICT.md">Open final verdict ↗</a></div>
+  <div class="card"><span class="status-pass">6 Oct 2026</span><h3>Daily demand ML robustness v0.2</h3><p>Seven rolling monthly holdouts, same-family weather ablations, XGBoost weather-group ablation and SHAP stability using observed SLDC daily targets and verified ERA5.</p><a href="https://github.com/abhijith-sivaprasadan/kerala2040/blob/main/docs/DAILY_DEMAND_ML_ROBUSTNESS_V0_2.md">Open research note ↗</a><br><a href="https://github.com/abhijith-sivaprasadan/kerala2040/blob/main/data/evidence/daily_demand_ml_robustness_v0_2_2026_10_06.json">Machine-readable evidence ↗</a></div>
 </div>
 </div></section>
 
@@ -82,7 +83,8 @@
 <tr><td>R3 · Source-to-result</td><td>Acquisition + transformation + model reproduce a result, subject to upstream access.</td><td>Several source-bounded model chains.</td></tr>
 <tr><td>R4 · Independent implementation</td><td>Separate implementations reproduce the same mathematical result.</td><td>PyPSA/SciPy and PyPSA/OSeMOSYS common formulations.</td></tr>
 </tbody></table></div>
-<div class="annotation" style="margin-top:18px">Known gap: the original ERA5-sensitive v2 fitting script and raw ERA5 archive are not committed. The released chronology is integrity-verifiable, but the original fit is not fully source-to-fit reproducible from a fresh clone.</div>
+<div class="annotation" style="margin-top:18px">Known gap: the original ERA5-sensitive v2 hourly-shape fitting script and raw ERA5 archive are not committed. The released chronology is integrity-verifiable, but that original hourly fit is not fully source-to-fit reproducible from a fresh clone.</div>
+<div class="annotation" style="margin-top:12px">The newer observed-daily ML v0.1/v0.2 chain is separately reproducible: GitHub Actions re-downloads the verified FY2024–25 ERA5 source artifacts, re-runs source QA, rebuilds the weather table, tunes LightGBM/XGBoost with Optuna, evaluates chronological holdouts and generates conditional SHAP outputs. The frozen v0.2 evidence records the reference workflow run and artifact digest.</div>
 <div class="action-row"><a class="button secondary" href="https://github.com/abhijith-sivaprasadan/kerala2040">Open research repository ↗</a><a class="button secondary" href="SOURCE_PROVENANCE.md">Website release provenance</a></div>
 </div></section>
 </main>
