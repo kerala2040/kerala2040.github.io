@@ -100,12 +100,33 @@
 <section class="section">
   <div class="wrap">
     <div class="section-intro">
+      <p class="eyebrow">New result · 6 October 2026</p>
+      <h2>The weather signal survives rolling daily-demand tests—and temperature carries most of it.</h2>
+      <p>A new observed-demand experiment uses 353 source-reported FY2024–25 SLDC daily-consumption records matched to complete local-day ERA5 weather. It is separate from the reconstructed 8,760-hour load proxy.</p>
+    </div>
+    <div class="data-strip" aria-label="Daily demand machine-learning robustness results">
+      <div class="item"><strong>6 / 7</strong><span>XGBoost monthly holdouts improved with ERA5 weather</span></div>
+      <div class="item"><strong>37.1%</strong><span>Pooled XGBoost RMSE reduction vs tuned calendar-only</span></div>
+      <div class="item"><strong>48.1%</strong><span>Jan–Mar RMSE reduction from temperature features alone</span></div>
+      <div class="item"><strong>Nov 2024</strong><span>Shared failure month retained in both model families</span></div>
+    </div>
+    <div class="grid-2" style="margin-top:18px">
+      <div class="card"><span class="status-pass">Within-year robustness passed</span><h3>Weather helps in most independent months.</h3><p>LightGBM improves in 5 of 7 rolling holdouts and XGBoost in 6 of 7. Pooled RMSE falls from 4.558 to 2.865 MU/day for XGBoost and from 4.657 to 2.903 MU/day for LightGBM.</p></div>
+      <div class="warning"><span class="badge limit">Boundary</span><h3>Retrospective association, not a forecast.</h3><p>The models use same-day realized ERA5 reanalysis from one financial year. The result supports a robust within-year weather–demand relationship; it does not establish causality, day-ahead forecasting performance or multi-year generalization.</p></div>
+    </div>
+    <div class="action-row"><a class="button" href="findings.html#rq2">See the rolling results →</a><a class="button secondary" href="methodology.html#daily-weather-ml">Validation design →</a></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-intro">
       <p class="eyebrow">What the current evidence says</p>
       <h2>Five findings are strong enough to carry forward.</h2>
     </div>
     <div class="grid-3">
       <div class="card"><span class="badge">Observed</span><h3>Demand has risen materially.</h3><p>Official broad consumption rose from 22.54 TWh in FY2020–21 to 29.31 TWh in FY2024–25.</p><a href="findings.html#rq1">Evidence →</a></div>
-      <div class="card"><span class="badge screen">Reconstructed</span><h3>Hourly shape matters.</h3><p>The ERA5-sensitive reconstruction improves held-out intraday-extrema error over a strong static shape while conserving observed daily energy. It remains a proxy, not measured hourly load.</p><a href="findings.html#rq2">Evidence →</a></div>
+      <div class="card"><span class="badge screen">Reconstructed + observed daily ML</span><h3>Chronology and weather both matter.</h3><p>The hourly reconstruction still remains a proxy, but a separate observed-daily experiment now shows that ERA5 weather improves rolling out-of-sample demand prediction in most monthly holdouts, with temperature carrying the clearest signal.</p><a href="findings.html#rq2">Evidence →</a></div>
       <div class="card"><span class="badge screen">Sensitivity</span><h3>Hydro timing can be decisive.</h3><p>At the 4,455 MW transfer reference, allowing the same daily hydro energy to move within the day reduces modeled unserved energy from about 375.0 GWh to 11.75 GWh in the reference sensitivity.</p><a href="findings.html#rq3">Evidence →</a></div>
       <div class="card"><span class="badge">Official + sensitivity</span><h3>Interstate transfer is a major adequacy lever.</h3><p>CEA reports a 4,455 MW ATC reference. Modeled adequacy deteriorates substantially under transparent 80% and 60% transfer stress cases.</p><a href="findings.html#rq4">Evidence →</a></div>
       <div class="card"><span class="badge">Robust screen</span><h3>Internal geography also matters.</h3><p>Twenty-one source-backed lines remain overloaded across all eight tested boundary-injection allocations, grouped into twelve robust corridor signals; the Shoranur area has independent CEA corroboration.</p><a href="findings.html#rq5">Evidence →</a></div>
