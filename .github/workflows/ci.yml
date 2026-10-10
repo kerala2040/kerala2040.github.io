@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  static:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+      - name: Check dashboard JavaScript
+        run: node --check assets/app.js
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - name: Validate dashboard data
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          files = list(Path('data').rglob('*.json')) + [Path('manifest.webmanifest')]
+          assert Path('index.html').is_file()
+          assert files
+          for p in files:
+              json.loads(p.read_text(encoding='utf-8-sig'))
+          print(f'Validated {len(files)} data/manifest files')
+          PY
