@@ -1,6 +1,8 @@
 name: CI
 
 on:
+  schedule:
+    - cron: "52 3 * * 3"
   push:
   pull_request:
   workflow_dispatch:
@@ -38,3 +40,5 @@ jobs:
               json.loads(p.read_text(encoding='utf-8-sig'))
           print(f'Validated {len(files)} data/manifest files')
           PY
+      - name: Check HTML and local links/assets
+        run: python .github/scripts/check_site.py
