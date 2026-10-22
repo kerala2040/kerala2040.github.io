@@ -12,7 +12,7 @@
 <nav aria-label="Primary navigation"><a href="research.html">Research</a><a href="paper.html">Paper</a><a href="system.html" aria-current="page">System</a><a href="methodology.html">Methodology</a><a href="findings.html">Findings</a><a href="responses.html">Responses</a><a href="qa.html">Validation</a><a href="sources.html">Sources</a></nav></header>
 <main id="main">
 <section class="page-head"><div class="wrap"><p class="eyebrow">Regional context</p><h1>Kerala's electricity system</h1><p class="lede">A narrow tropical state between the Arabian Sea and the Western Ghats: densely settled, hydro-dependent, weather-coupled and strongly interconnected with the wider Indian grid.</p></div></section>
-<nav class="reading-nav"><div class="wrap"><a href="#place">Place</a><a href="#scale">Population</a><a href="#electricity">Electricity</a><a href="#weather">Weather & hydro</a><a href="#network">Grid</a><a href="#capital">Planning estimates</a></div></nav>
+<nav class="reading-nav"><div class="wrap"><a href="#place">Place</a><a href="#scale">Population</a><a href="#electricity">Electricity</a><a href="#generation">Generation</a><a href="#resources">Solar & wind</a><a href="#weather">Weather & hydro</a><a href="#network">Grid</a><a href="#capital">Planning estimates</a></div></nav>
 
 <section class="section" id="place"><div class="wrap">
 <div class="section-intro"><p class="eyebrow">Kerala in one cross-section</p><h2>Coastal lowlands and the Western Ghats</h2><p>Topography and monsoon rainfall affect hydropower resources, electricity demand, exposure to hazards and possible transmission routes.</p></div>
@@ -66,6 +66,49 @@
     <div class="annotation">Annual consumption, category sales, periphery input and SLDC-reported imports use different accounting boundaries. The study therefore avoids manufacturing one universal “import dependence” percentage.</div>
   </div>
 </div>
+</div></section>
+
+<section class="section" id="generation"><div class="wrap">
+<div class="section-intro"><p class="eyebrow">Installed generation · 31 March 2025</p><h2>In-state installed generating capacity</h2><p>The published Kerala installed-capacity total is <strong>4,412.14 MW</strong> at the end of FY2024–25. This is a nameplate-capacity accounting figure, not assured generation, firm capacity or available power during the evening peak.</p></div>
+<div class="finding-visual">
+ <div class="visual-panel"><h3>Official technology breakdown</h3><div class="bar-chart"><div class="bar-row"><span class="bar-label">Hydro</span><span class="bar-track"><span class="bar-fill soft" style="width:51.78%"></span></span><span class="bar-value">2,284.42 MW</span></div>
+<div class="bar-row"><span class="bar-label">Thermal</span><span class="bar-track"><span class="bar-fill gold" style="width:12.16%"></span></span><span class="bar-value">536.54 MW</span></div>
+<div class="bar-row"><span class="bar-label">Solar</span><span class="bar-track"><span class="bar-fill " style="width:34.44%"></span></span><span class="bar-value">1,519.66 MW</span></div>
+<div class="bar-row"><span class="bar-label">Wind</span><span class="bar-track"><span class="bar-fill rust" style="width:1.62%"></span></span><span class="bar-value">71.53 MW</span></div></div>
+ <p class="caption">Economic Review 2025. Category values add to 4,412.15 MW because of a 0.01 MW discrepancy in the published category totals; the official headline is retained unchanged.</p></div>
+ <div><h3>What is included</h3><p>Hydropower, thermal, solar and wind generating capacity physically installed within Kerala. Interstate power contracts and imported electricity are excluded. Rooftop and distributed installations are not all individually enumerated in the asset register.</p>
+ <p>Installed MW cannot establish generation output or adequacy without dispatch, outages, hydro availability and demand chronology.</p>
+ <p><a href="data/research-installed-generation.json">Source-backed capacity summary (JSON) ↗</a></p><p><a href="https://github.com/abhijith-sivaprasadan/kerala2040/blob/4e16836c7201637ee4a065abe259c9a47e004332/data/evidence/generation/fy2024_25_generator_capacity_census.json">Detailed generation census and source references ↗</a></p></div>
+</div></div></section>
+
+<section class="section" id="resources"><div class="wrap">
+<div class="section-intro"><p class="eyebrow">Renewable resource evidence</p><h2>Solar seasonality and wind/terrain screening</h2><p>These are descriptive analyses of source-modelled resources and terrain samples, not estimates of new installed capacity or approved development sites.</p></div>
+<div class="grid-2">
+ <div class="card"><h3>Modelled solar PV yield</h3><span class="value">1,493.51 kWh/kWp/year</span><p>Median annual Global Solar Atlas 2.0 PVOUT across 46,241 source-grid pixel centres assigned to Kerala's 14 districts. The source describes a 1999–2018 climatology, not generation recorded in FY2024–25.</p>
+ <p>At matched pixels, the median February-to-July daily-yield decrease is <strong>43.60%</strong>. This paired median is not calculated by dividing the two statewide monthly medians.</p>
+ <p><a href="data/research-solar-pvout.json">Solar district data (JSON) ↗</a></p></div>
+ <div class="card"><h3>Modelled onshore wind and terrain</h3><span class="value">8,637 sample points</span><p>Out of 199,853 NIWE resource points with valid sampled GLO-90 surface slope, 8,637 (4.32%) meet the illustrative combination of modelled 150 m wind speed ≥7 m/s and surface slope ≤10°.</p>
+ <p>The thresholds are hypothetical. The point counts cannot be converted directly into turbine sites, developable area or feasible capacity. <strong>No MW estimate is admitted.</strong></p>
+ <p><a href="data/research-wind-terrain.json">Wind/terrain screen (JSON) ↗</a></p></div>
+</div>
+<div class="section-intro" style="margin-top:36px"><h3>Solar reference yield by district</h3><p>Source-pixel median annual PVOUT and median within-pixel February-to-July decrease. Districts are alphabetical; this is not an investment ranking.</p></div>
+<div class="table-wrap"><table><thead><tr><th>District</th><th>Source pixels</th><th>Annual PVOUT (kWh/kWp)</th><th>Feb–Jul paired decrease</th></tr></thead><tbody>
+<tr><td>Alappuzha</td><td>1,695</td><td>1553.41</td><td>34.68%</td></tr>
+<tr><td>Ernakulam</td><td>3,635</td><td>1487.66</td><td>42.62%</td></tr>
+<tr><td>Idukki</td><td>5,168</td><td>1442.55</td><td>48.38%</td></tr>
+<tr><td>Kannur</td><td>3,532</td><td>1502.64</td><td>47.05%</td></tr>
+<tr><td>Kasaragod</td><td>2,382</td><td>1532.95</td><td>46.90%</td></tr>
+<tr><td>Kollam</td><td>2,955</td><td>1487.30</td><td>36.74%</td></tr>
+<tr><td>Kottayam</td><td>2,608</td><td>1475.97</td><td>39.32%</td></tr>
+<tr><td>Kozhikode</td><td>2,802</td><td>1488.58</td><td>44.15%</td></tr>
+<tr><td>Malappuram</td><td>4,235</td><td>1495.70</td><td>43.11%</td></tr>
+<tr><td>Palakkad</td><td>5,338</td><td>1510.31</td><td>43.94%</td></tr>
+<tr><td>Pathanamthitta</td><td>3,139</td><td>1458.81</td><td>41.19%</td></tr>
+<tr><td>Thiruvananthapuram</td><td>2,596</td><td>1498.26</td><td>32.23%</td></tr>
+<tr><td>Thrissur</td><td>3,608</td><td>1516.15</td><td>41.31%</td></tr>
+<tr><td>Wayanad</td><td>2,548</td><td>1504.46</td><td>49.22%</td></tr>
+</tbody></table></div>
+<p class="source-note" style="margin-top:16px">Global Solar Atlas reference-system output and NIWE modelled wind data do not quantify usable rooftops, legal land eligibility, distribution hosting capacity, site-specific generation or actual grid-connected projects. Original source-raster and administrative-boundary reuse rights have not been independently verified; only derived descriptive summaries are provided here. <a href="sources.html#research-data">Research data and provenance →</a></p>
 </div></section>
 
 <section class="section" id="weather"><div class="wrap">
