@@ -41,4 +41,6 @@ jobs:
           print(f'Validated {len(files)} data/manifest files')
           PY
       - name: Check HTML and local links/assets
-        run: python .github/scripts/check_site.py
+        run: |
+          python .github/scripts/check_site.py
+          python .github/scripts/check_editorial.py
