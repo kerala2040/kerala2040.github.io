@@ -24,7 +24,7 @@ if '--display:"Playfair Display"' not in css:
     errors.append("assets/companion.css: Playfair Display heading stack was removed")
 for name in pages:
     content = (root / name).read_text(encoding="utf-8").lower()
-    if "family=Playfair+Display:ital,wght@0,500;0,600;1,500" not in content:
+    if "family=playfair+display:ital,wght@0,500;0,600;1,500" not in content:
         errors.append(f"{name}: missing Playfair Display Google Fonts stylesheet")
     for phrase in disallowed:
         if phrase.lower() in content:
