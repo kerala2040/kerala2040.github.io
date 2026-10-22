@@ -81,6 +81,11 @@ jobs:
           cp "release-pointer/SOURCE_PROVENANCE.md" "$root/SOURCE_PROVENANCE.md"
           mkdir -p "$root/data"
           cp "release-pointer/data/daily-demand-ml-robustness-v0.2.json" "$root/data/daily-demand-ml-robustness-v0.2.json"
+          for record in research-installed-generation research-solar-pvout research-wind-terrain; do
+            cp "release-pointer/data/${record}.json" "$root/data/${record}.json"
+          done
+          python release-pointer/scripts/verify_research_mirrors.py --research-dir research --website-dir release-pointer
+
           python - <<'PY'
           from pathlib import Path
 
@@ -99,6 +104,9 @@ jobs:
               "assets/mark.svg",
               "forme/index.html",
               "data/daily-demand-ml-robustness-v0.2.json",
+              "data/research-installed-generation.json",
+              "data/research-solar-pvout.json",
+              "data/research-wind-terrain.json",
           ]
           missing = [name for name in required if not (root / name).is_file()]
           if missing:
