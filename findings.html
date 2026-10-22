@@ -5,19 +5,19 @@
 <title>Findings · Kerala2040</title>
 <link rel="icon" href="assets/mark.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/companion.css"></head>
 <body><a class="skip" href="#main">Skip to content</a>
 <header class="site-header"><a class="brand" href="index.html"><span class="brand-mark">ക</span><span>kerala<b>2040</b></span></a><span class="menu-note">Independent research · Work in progress</span>
 <nav aria-label="Primary navigation"><a href="research.html">Research</a><a href="paper.html">Paper</a><a href="system.html">System</a><a href="methodology.html">Methodology</a><a href="findings.html" aria-current="page">Findings</a><a href="responses.html">Responses</a><a href="qa.html">Validation</a><a href="sources.html">Sources</a></nav></header>
 <main id="main">
-<section class="page-head"><div class="wrap"><p class="eyebrow">Results</p><h1>Results and sensitivity analyses</h1><p class="lede">Source-reported facts, reconstructed quantities and screening results are labelled separately so a modeled sensitivity is not presented as an observation.</p>
+<section class="page-head"><div class="wrap"><p class="eyebrow">Results</p><h1>Five results across<br><em>demand, hydro and the grid</em></h1><p class="lede">Official annual consumption rose from 22.54 to 29.31 TWh. In the reference hydro-timing experiment, modelled unserved energy fell from 375.03 to 11.75 GWh. Under eight import-allocation tests, 21 source-backed lines repeatedly exceeded their screening ratings. These are different evidence classes, not measured causes of a particular outage.</p>
 <div class="evidence-key"><span class="badge">Official / source-reported</span><span class="badge screen">Reconstruction / sensitivity</span><span class="badge limit">Scope boundary</span></div>
 </div></section>
 <nav class="reading-nav"><div class="wrap"><a href="#rq1">Demand</a><a href="#rq2">Chronology</a><a href="#rq3">Hydro</a><a href="#rq4">Transfer</a><a href="#rq5">Network</a><a href="#synthesis">Synthesis</a></div></nav>
 
 <section class="section" id="rq1"><div class="wrap">
-<div class="section-intro"><p class="eyebrow">RQ1 · Historical balance</p><h2>Annual electricity consumption increased</h2></div>
+<div class="section-intro"><p class="eyebrow">RQ1 · Historical balance</p><h2>Official consumption grew by about 30% between FY2020–21 and FY2024–25</h2></div>
 <div class="finding-visual">
   <div class="visual-panel">
     <h3>Official broad consumption</h3>
@@ -37,7 +37,7 @@
 </div></section>
 
 <section class="section" id="rq2"><div class="wrap">
-<div class="section-intro"><p class="eyebrow">RQ2 · Chronology & weather</p><h2>Demand timing and weather</h2></div>
+<div class="section-intro"><p class="eyebrow">RQ2 · Chronology & weather</p><h2>Hourly reconstruction and observed daily weather tests</h2></div>
 <div class="finding-visual">
   <div>
     <span class="badge screen">Held-out hourly-shape reconstruction</span>
@@ -63,7 +63,7 @@
 <div class="section-rule"></div>
 <div class="section-intro">
   <p class="eyebrow">Observed daily demand · rolling robustness</p>
-  <h2>Temperature features account for most of the Jan–Mar weather improvement</h2>
+  <h2>Temperature alone cuts Jan–Mar XGBoost RMSE by 48.1%</h2>
   <p>This second analysis uses source-reported SLDC daily consumption directly rather than the reconstructed hourly load proxy. Of 354 published FY2024–25 daily observations, 353 match complete local-day ERA5 weather; 1 April is excluded because the recovered UTC window does not contain a full IST day.</p>
 </div>
 
@@ -114,7 +114,7 @@
 </div>
 
 <div class="grid-2" style="margin-top:18px">
-  <div class="card"><span class="status-pass">Seven monthly holdouts</span><h3>Rolling monthly validation results</h3><p>Across seven strictly chronological monthly holdouts, weather improves XGBoost in six and LightGBM in five. Annual-cycle terms still dominate SHAP overall, while temperature variables recur among the leading weather attributions.</p></div>
+  <div class="card"><span class="status-pass">Seven monthly holdouts</span><h3>Weather improves five LightGBM and six XGBoost holdouts</h3><p>Across seven strictly chronological monthly holdouts, weather improves XGBoost in six and LightGBM in five. Annual-cycle terms still dominate SHAP overall, while temperature variables recur among the leading weather attributions.</p></div>
   <div class="warning"><span class="badge limit">Interpretation boundary</span><h3>Retrospective analysis only</h3><p>The models use same-day realized ERA5 reanalysis from one financial year. The result supports a retrospective within-year weather–demand association. It does not establish causal elasticities, day-ahead forecast skill or multi-year generalization.</p></div>
 </div>
 
@@ -126,7 +126,7 @@
 </div></section>
 
 <section class="section" id="rq3"><div class="wrap">
-<div class="section-intro"><p class="eyebrow">RQ3 · Hydropower timing</p><h2>Hydropower timing sensitivity</h2></div>
+<div class="section-intro"><p class="eyebrow">RQ3 · Hydropower timing</p><h2>Same-day hydro re-timing: 375.03 → 11.75 GWh unserved</h2></div>
 <div class="finding-visual">
   <div class="visual-panel">
     <h3>Full-transfer reference case</h3>
@@ -155,7 +155,7 @@
 </div></section>
 
 <section class="section" id="rq4"><div class="wrap">
-<div class="section-intro"><p class="eyebrow">RQ4 · Interstate transfer</p><h2>Interstate transfer sensitivity</h2></div>
+<div class="section-intro"><p class="eyebrow">RQ4 · Interstate transfer</p><h2>Unserved energy rises when transfer is capped at 80% or 60%</h2></div>
 <div class="grid-3">
   <div class="card"><span class="badge">CEA reference</span><span class="value">4,455 MW</span><p>Current ATC reference; TTC 4,575 MW.</p></div>
   <div class="card"><span class="badge screen">Stress sensitivity</span><span class="value">3,564 MW</span><p>80% of current ATC reference.</p></div>
@@ -173,7 +173,7 @@
 </div></section>
 
 <section class="section" id="rq5"><div class="wrap">
-<div class="section-intro"><p class="eyebrow">RQ5 · Internal deliverability</p><h2>Shoranur-area transmission screening</h2></div>
+<div class="section-intro"><p class="eyebrow">RQ5 · Internal deliverability</p><h2>21 rated lines exceed limits in all eight spatial allocations</h2></div>
 <div class="data-strip">
   <div class="item"><strong>233</strong><span>source-backed primary lines</span></div>
   <div class="item"><strong>8</strong><span>extreme residual-import allocation cases</span></div>
@@ -182,13 +182,13 @@
 </div>
 <div class="grid-2" style="margin-top:18px">
   <div class="card"><h3>Strongest corridor cluster</h3><p>Robust 110-kV and 220-kV screening groups meet around Shornur/Shoranur, including directions toward Koppam, Perinthalmanna, Melattur, Areacode and Elankur.</p></div>
-  <div class="card"><span class="badge">Independent CEA corroboration</span><h3>Comparison with updated CEA station data</h3><p>The historical model included a 2023 100 MVA transformer element. Current CEA reports 200+100 MVA existing transformation and still identifies Shoranur as constrained with reinforcement planned.</p></div>
+  <div class="card"><span class="badge">Independent CEA corroboration</span><h3>Shoranur: historical 100 MVA element versus current 200+100 MVA</h3><p>The historical model included a 2023 100 MVA transformer element. Current CEA reports 200+100 MVA existing transformation and still identifies Shoranur as constrained with reinforcement planned.</p></div>
 </div>
 <p class="source-note" style="margin-top:16px">The geographic signal is stronger than the exact modeled loading magnitude. This is not operator congestion validation or an AC/N-1 result.</p>
 </div></section>
 
 <section class="section" id="synthesis"><div class="wrap">
-<div class="section-intro"><p class="eyebrow">Synthesis</p><h2>Combined interpretation</h2></div>
+<div class="section-intro"><p class="eyebrow">Synthesis</p><h2>What these tests establish—and what remains unknown</h2></div>
 <div class="flow">
   <div class="node"><strong>Demand timing & weather</strong><p>When the difficult hour arrives.</p></div>
   <div class="arrow">+</div>

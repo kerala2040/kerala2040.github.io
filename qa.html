@@ -5,17 +5,17 @@
 <title>Validation & scope · Kerala2040</title>
 <link rel="icon" href="assets/mark.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/companion.css"></head>
 <body><a class="skip" href="#main">Skip to content</a>
 <header class="site-header"><a class="brand" href="index.html"><span class="brand-mark">ക</span><span>kerala<b>2040</b></span></a><span class="menu-note">Independent research · Work in progress</span>
 <nav aria-label="Primary navigation"><a href="research.html">Research</a><a href="paper.html">Paper</a><a href="system.html">System</a><a href="methodology.html">Methodology</a><a href="findings.html">Findings</a><a href="responses.html">Responses</a><a href="qa.html" aria-current="page">Validation</a><a href="sources.html">Sources</a></nav></header>
 <main id="main">
-<section class="page-head"><div class="wrap"><p class="eyebrow">Scientific validation & scope</p><h1>Verification, validation and limitations</h1><p class="lede">Internal checks reviewed data sources, model consistency, circular validation and interpretation limits. These checks do not substitute for external peer review or validation against utility operational records.</p><p><span class="status-pass">Internal review · limitations documented</span></p></div></section>
+<section class="page-head"><div class="wrap"><p class="eyebrow">Scientific validation & scope</p><h1>Verification results<br><em>and data limitations</em></h1><p class="lede">The checks include preserving 354 daily SLDC energy totals, cross-implementation comparisons using PyPSA/SciPy/OSeMOSYS, held-out demand-shape extrema and seven monthly weather-model tests. The public transmission screen is compared with CEA planning evidence. None of these replaces a calibrated operational network model or continuous measured hourly demand.</p><p><span class="status-pass">Internal review · limitations documented</span></p></div></section>
 <nav class="reading-nav"><div class="wrap"><a href="#classes">Evidence classes</a><a href="#corrections">Material corrections</a><a href="#supported">Supported conclusions</a><a href="#scope">Not established</a><a href="#repro">Reproducibility</a></div></nav>
 
 <section class="section" id="classes"><div class="wrap">
-<div class="section-intro"><p class="eyebrow">Evidence classes</p><h2>Types of checks</h2></div>
+<div class="section-intro"><p class="eyebrow">Evidence classes</p><h2>Seven kinds of checks—from source tracing to external comparison</h2></div>
 <div class="table-wrap"><table><thead><tr><th>Class</th><th>Question answered</th><th>Example</th></tr></thead><tbody>
 <tr><td>S1 · Provenance</td><td>Can the number be traced to a named source, date and boundary?</td><td>CEA ATC; official annual electricity consumption.</td></tr>
 <tr><td>S2 · Arithmetic / invariant</td><td>Does the transformation conserve what it should?</td><td>Daily-energy conservation; accounting identities.</td></tr>
@@ -28,7 +28,7 @@
 </div></section>
 
 <section class="section" id="corrections"><div class="wrap">
-<div class="section-intro"><p class="eyebrow">What the QA changed</p><h2>Corrections and interpretation changes</h2></div>
+<div class="section-intro"><p class="eyebrow">What the QA changed</p><h2>Corrections to Shoranur, demand validation and model boundaries</h2></div>
 <div class="grid-2">
   <div class="card"><span class="badge limit">Source vintage</span><h3>Shoranur transformer</h3><p>The public model used a genuine 2023 100 MVA transformer element. Current 2026 CEA planning reports 200+100 MVA existing transformation. The hotspot geography remains independently corroborated; the old overload magnitude is not current whole-station loading.</p></div>
   <div class="card"><span class="badge limit">Circularity</span><h3>Idukki v1.3 storage replay</h3><p>Historical storage closure is algebraic because the forcing is reconstructed from storage change and generation. It verifies implementation, not hydrology.</p></div>
@@ -40,19 +40,19 @@
 </div></section>
 
 <section class="section" id="supported"><div class="wrap">
-<div class="section-intro"><p class="eyebrow">Supported conclusions</p><h2>Conclusions supported by the current evidence</h2></div>
+<div class="section-intro"><p class="eyebrow">Supported conclusions</p><h2>Conclusions that survive the stated screening assumptions</h2></div>
 <div class="grid-3">
   <div class="card"><span class="badge">Official</span><h3>Reported electricity consumption increased</h3><p>Broad electricity consumption rose from 22.54 to 29.31 TWh between FY2020–21 and FY2024–25.</p></div>
-  <div class="card"><span class="badge screen">Chronological screen</span><h3>Hourly timing affects modelled adequacy</h3><p>Renewable spill and shortage can coexist within the same screening year; annual energy alone cannot establish adequacy.</p></div>
-  <div class="card"><span class="badge screen">Sensitivity</span><h3>Hydro timing changes modelled unserved energy</h3><p>The same hydro energy can have very different adequacy value depending on timing and transfer conditions.</p></div>
+  <div class="card"><span class="badge screen">Chronological screen</span><h3>Chronological adequacy changes when supply is re-timed</h3><p>Renewable spill and shortage can coexist within the same screening year; annual energy alone cannot establish adequacy.</p></div>
+  <div class="card"><span class="badge screen">Sensitivity</span><h3>Hydro timing changes unserved energy in the reference case</h3><p>The same hydro energy can have very different adequacy value depending on timing and transfer conditions.</p></div>
   <div class="card"><span class="badge">Official</span><h3>CEA ATC reference</h3><p>CEA provides this current Kerala transfer-capability figure; the model does not treat it as a guaranteed future capability.</p></div>
   <div class="card"><span class="badge">Independent corroboration</span><h3>Shoranur-area corroboration</h3><p>The public screen and current CEA planning independently point to the same geography.</p></div>
-  <div class="card"><span class="badge">Methodological</span><h3>Inputs excluded from stronger claims</h3><p>Unverified catchment geometry, incomplete statutory siting layers and unsupported future ATC are not promoted to stronger claims.</p></div>
+  <div class="card"><span class="badge">Methodological</span><h3>Unverified siting and hydrological inputs excluded</h3><p>Unverified catchment geometry, incomplete statutory siting layers and unsupported future ATC are not promoted to stronger claims.</p></div>
 </div>
 </div></section>
 
 <section class="section" id="scope"><div class="wrap">
-<div class="section-intro"><p class="eyebrow">Scope boundary</p><h2>Not established by the current work</h2></div>
+<div class="section-intro"><p class="eyebrow">Scope boundary</p><h2>No measured-hour validation, AC security study or outage attribution</h2></div>
 <div class="scope-band">
   <div><h3>Not demonstrated here</h3><ul>
     <li>Exact operational cause of a specific 2026 load-shedding event.</li>
@@ -77,7 +77,7 @@
 </div></section>
 
 <section class="section" id="repro"><div class="wrap">
-<div class="section-intro"><p class="eyebrow">Reproducibility</p><h2>Reproducibility status</h2></div>
+<div class="section-intro"><p class="eyebrow">Reproducibility</p><h2>Released outputs are traceable; one ERA5 fitting stage is incomplete</h2></div>
 <div class="grid-2">
   <div class="card"><h3>Reproducible layers</h3><p>Historical transformations, PyPSA screens, hydro timing experiments, cross-solver comparisons, network screens and synthetic flexibility pilots retain code/config/evidence sufficient to reproduce released calculations subject to source access.</p></div>
   <div class="card"><h3>ERA5-sensitive v2 fit</h3><p>The released 8,760-hour payload, hashes, metadata and downstream use are reproducible. The original fitting script and raw ERA5 archive were not committed, so the coefficient fit cannot currently be regenerated from a fresh public clone.</p></div>
