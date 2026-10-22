@@ -1,0 +1,96 @@
+{
+  "source_repo": "abhijith-sivaprasadan/kerala2040",
+  "source_commit": "4e16836c7201637ee4a065abe259c9a47e004332",
+  "source_path": "data/evidence/gis/niwe_nwic_district_normalized_wind_terrain_2026_09_23.json",
+  "classification": "NIWE_NWIC_DISTRICT_NORMALIZED_DESCRIPTIVE_WIND_TERRAIN_SENSITIVITY_NOT_SUITABILITY",
+  "reviewed_date": "2026-09-23",
+  "scope": "NIWE modelled 150 m wind-speed sample centres and GLO-90 DSM slope, with hypothetical cutoffs; not viable sites, developable area or MW.",
+  "thresholds": {
+    "minimum_modelled_wind_speed_150m_m_s_inclusive": [
+      5,
+      6,
+      7,
+      8
+    ],
+    "maximum_DSM_surface_slope_degrees_inclusive": [
+      5,
+      10,
+      15,
+      20
+    ]
+  },
+  "statewide": {
+    "source_point_centres": 200692,
+    "finite_DSM_slope_point_centres": 199853,
+    "missing_DSM_slope_point_centres": 839,
+    "threshold_count_matrix": [
+      [
+        22279,
+        34290,
+        41980,
+        47959
+      ],
+      [
+        9684,
+        14642,
+        18971,
+        22625
+      ],
+      [
+        6263,
+        8637,
+        10757,
+        12710
+      ],
+      [
+        3593,
+        4691,
+        5654,
+        6554
+      ]
+    ],
+    "threshold_pct_of_valid_slope_centres": [
+      [
+        11.1477,
+        17.1576,
+        21.0054,
+        23.9971
+      ],
+      [
+        4.8456,
+        7.3264,
+        9.4925,
+        11.3208
+      ],
+      [
+        3.1338,
+        4.3217,
+        5.3825,
+        6.3597
+      ],
+      [
+        1.7978,
+        2.3472,
+        2.8291,
+        3.2794
+      ]
+    ]
+  },
+  "spotlight_descriptive_example": {
+    "wind_min_m_s": 7,
+    "max_DSM_slope_degrees": 10,
+    "statewide_matching_point_centres": 8637,
+    "statewide_pct_of_valid_slope_centres": 4.3217,
+    "palakkad_matching_point_centres": 6330,
+    "palakkad_pct_of_district_valid_slope_centres": 27.4978,
+    "idukki_matching_point_centres": 1804,
+    "idukki_pct_of_district_valid_slope_centres": 8.0795
+  },
+  "release_limits": {
+    "source_reuse_rights_verified": false,
+    "eligible_area_km2": null,
+    "feasible_capacity_MW": null,
+    "hourly_generation_validated": false,
+    "model_admitted": false
+  }
+}
