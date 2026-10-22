@@ -66,4 +66,14 @@ jobs:
           persist-credentials: false
       - name: Verify published research data mirrors
         run: python scripts/verify_research_mirrors.py --research-dir research --website-dir .
+      - name: Install pinned build dependencies
+        run: python -m pip install 'pyyaml>=6,<7' 'cairosvg>=2.7,<3'
+      - name: Validate pinned research site build
+        env:
+          PYTHONPATH: research/src
+        run: |
+          node --check research/docs/assets/app.js
+          node --test research/tests/web.test.cjs
+          python research/scripts/build_site.py --check
+
 
