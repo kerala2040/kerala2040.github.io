@@ -2,7 +2,7 @@
   "title": "Kerala2040 daily demand ML robustness v0.2",
   "published_on": "2026-10-06",
   "classification": "experimental_daily_observed_demand_ml_robustness_v0_2",
-  "research_source_commit": "81082de8787805ecd50bf0677a570352c2c75866",
+  "research_source_commit": "4e16836c7201637ee4a065abe259c9a47e004332",
   "source_observed_rows": 354,
   "matched_observed_rows": 353,
   "rolling_design": {
