@@ -5,17 +5,17 @@
 <title>Methodology · Kerala2040</title>
 <link rel="icon" href="assets/mark.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/companion.css"></head>
 <body><a class="skip" href="#main">Skip to content</a>
-<header class="site-header"><a class="brand" href="index.html"><span class="brand-mark">ക</span><span>kerala<b>2040</b></span></a><span class="menu-note">Open research · publication track</span>
+<header class="site-header"><a class="brand" href="index.html"><span class="brand-mark">ക</span><span>kerala<b>2040</b></span></a><span class="menu-note">Independent research · Work in progress</span>
 <nav aria-label="Primary navigation"><a href="research.html">Research</a><a href="paper.html">Paper</a><a href="system.html">System</a><a href="methodology.html" aria-current="page">Methodology</a><a href="findings.html">Findings</a><a href="responses.html">Responses</a><a href="qa.html">Validation</a><a href="sources.html">Sources</a></nav></header>
 <main id="main">
-<section class="page-head"><div class="wrap"><p class="eyebrow">Methods</p><h1>Complexity follows <em>evidence.</em></h1><p class="lede">The study uses the simplest transparent model that the available public evidence can support, then adds complexity only when the next question requires it.</p></div></section>
+<section class="page-head"><div class="wrap"><p class="eyebrow">Methods</p><h1>Methods and assumptions</h1><p class="lede">This page describes the data sources, demand reconstruction, adequacy modelling, transmission screening and verification methods used in the project.</p></div></section>
 <nav class="reading-nav"><div class="wrap"><a href="#pipeline">Workflow</a><a href="#demand">Demand</a><a href="#daily-weather-ml">Daily ML</a><a href="#adequacy">Adequacy</a><a href="#hydro">Hydro</a><a href="#network">Network</a><a href="#verification">Verification</a><a href="#selection">Method selection</a></div></nav>
 
 <section class="section" id="pipeline"><div class="wrap">
-<div class="section-intro"><p class="eyebrow">Progressive evidence ladder</p><h2>From source record to bounded inference.</h2></div>
+<div class="section-intro"><p class="eyebrow">Data and model workflow</p><h2>Analysis steps</h2></div>
 <div class="process-line">
   <div class="process-node"><strong>Audit</strong><span>Source dates, definitions, missingness and accounting boundaries.</span></div>
   <div class="process-node"><strong>Reconstruct</strong><span>Model only quantities that are not directly observed.</span></div>
@@ -46,12 +46,12 @@
 </div></section>
 
 <section class="section" id="daily-weather-ml"><div class="wrap">
-<div class="section-intro"><p class="eyebrow">Observed daily demand · weather robustness</p><h2>Separate the weather question from the reconstructed hourly proxy.</h2><p>The daily-demand experiment uses source-reported Kerala SLDC daily consumption directly. It tests whether same-day ERA5 weather contains predictive information beyond calendar structure, without using reconstructed hourly load as a target or feature.</p></div>
+<div class="section-intro"><p class="eyebrow">Observed daily demand · weather robustness</p><h2>Observed daily demand and weather</h2><p>The daily-demand experiment uses source-reported Kerala SLDC daily consumption directly. It tests whether same-day ERA5 weather contains predictive information beyond calendar structure, without using reconstructed hourly load as a target or feature.</p></div>
 
 <div class="grid-3">
   <div class="card"><span class="badge">Observed target</span><h3>353 matched daily observations</h3><p>Of 354 published FY2024–25 SLDC daily-consumption records, 353 match a complete IST weather day. 1 April 2024 is excluded because the recovered ERA5 artifact begins at 00:00 UTC and therefore does not contain all 24 hours of that local day.</p></div>
   <div class="card"><span class="badge screen">Rolling validation</span><h3>Seven monthly holdouts</h3><p>September 2024 through March 2025 are tested as seven non-overlapping holdout months. Every fold trains only on earlier dates using an expanding window; no random train/test split is used.</p></div>
-  <div class="card"><span class="badge screen">Same-family ablation</span><h3>Weather must beat the same algorithm without weather</h3><p>LightGBM and XGBoost are independently Optuna-tuned for calendar-only and calendar+ERA5 variants inside each fold. This distinguishes a weather contribution from an improvement caused only by switching to nonlinear models.</p></div>
+  <div class="card"><span class="badge screen">Same-family ablation</span><h3>Weather versus calendar-only features</h3><p>LightGBM and XGBoost are independently Optuna-tuned for calendar-only and calendar+ERA5 variants inside each fold. This distinguishes a weather contribution from an improvement caused only by switching to nonlinear models.</p></div>
 </div>
 
 <div class="process-line" style="margin-top:18px">
@@ -72,7 +72,7 @@
 </div></section>
 
 <section class="section" id="adequacy"><div class="wrap">
-<div class="section-intro"><p class="eyebrow">Chronological adequacy</p><h2>Every hour is solved in sequence.</h2><p>The statewide screen asks whether generation, storage and imports can meet demand in each of 8,760 hours.</p></div>
+<div class="section-intro"><p class="eyebrow">Chronological adequacy</p><h2>Hourly adequacy model</h2><p>The statewide screen asks whether generation, storage and imports can meet demand in each of 8,760 hours.</p></div>
 <div class="grid-3">
   <div class="card"><h3>Demand scenarios</h3><p>Official future energy/peak trajectories from different studies remain separate rather than being averaged into a synthetic consensus.</p></div>
   <div class="card"><h3>Transfer scenarios</h3><p>CEA's 4,455 MW ATC is the dated reference. 80% and 60% cases are transparent stress sensitivities.</p></div>
@@ -83,7 +83,7 @@
 </div></section>
 
 <section class="section" id="hydro"><div class="wrap">
-<div class="section-intro"><p class="eyebrow">Hydropower hierarchy</p><h2>Separate timing value from reservoir physics.</h2></div>
+<div class="section-intro"><p class="eyebrow">Hydropower hierarchy</p><h2>Hydropower scheduling assumptions</h2></div>
 <div class="flow">
   <div class="node"><strong>v1.1 · same-day timing</strong><p>Daily hydro MWh fixed; hourly timing flexible within power limits.</p></div>
   <div class="arrow">→</div>
@@ -98,7 +98,7 @@
 </div></section>
 
 <section class="section" id="network"><div class="wrap">
-<div class="section-intro"><p class="eyebrow">Public transmission screen</p><h2>A source-backed topology with explicit proxy layers.</h2></div>
+<div class="section-intro"><p class="eyebrow">Public transmission screen</p><h2>Transmission network data and proxies</h2></div>
 <div class="data-strip">
   <div class="item"><strong>542</strong><span>buses</span></div>
   <div class="item"><strong>561</strong><span>lines in reconstructed topology</span></div>
@@ -112,7 +112,7 @@
 </div></section>
 
 <section class="section" id="verification"><div class="wrap">
-<div class="section-intro"><p class="eyebrow">Verification & validation</p><h2>Different checks answer different questions.</h2></div>
+<div class="section-intro"><p class="eyebrow">Verification & validation</p><h2>Verification and validation methods</h2></div>
 <div class="table-wrap"><table><thead><tr><th>Check</th><th>Purpose</th><th>What it establishes</th></tr></thead><tbody>
 <tr><td>Source provenance</td><td>Trace values to a named agency/document/date.</td><td>Evidence identity and accounting boundary.</td></tr>
 <tr><td>Conservation / invariant checks</td><td>Verify energy/accounting transformations.</td><td>Arithmetic correctness, not physical truth.</td></tr>
@@ -127,7 +127,7 @@
 </div></section>
 
 <section class="section" id="selection"><div class="wrap">
-<div class="section-intro"><p class="eyebrow">Method selection</p><h2>Why more complex methods were not used yet.</h2></div>
+<div class="section-intro"><p class="eyebrow">Method selection</p><h2>Methods not used in the current study</h2></div>
 <div class="table-wrap"><table><thead><tr><th>Method</th><th>Why it was not the primary approach</th><th>Evidence needed to upgrade</th></tr></thead><tbody>
 <tr><td>Deep-learning hourly forecasting</td><td>No dense measured hourly target series.</td><td>Multi-year interval load + weather observations.</td></tr>
 <tr><td>Full unit commitment</td><td>Plant-level ramping, startup, minimum-output, heat-rate and outage data incomplete.</td><td>Operator-grade fleet parameters.</td></tr>
@@ -137,5 +137,5 @@
 </tbody></table></div>
 </div></section>
 </main>
-<footer class="footer"><div class="wrap"><div><div class="brand"><span class="brand-mark">ക</span><span>kerala<b>2040</b></span></div><p>Independent public-data power-systems research · publication track · Abhijith Sivaprasadan</p></div><div><a href="sources.html">Sources</a></div></div></footer>
+<footer class="footer"><div class="wrap"><div><div class="brand"><span class="brand-mark">ക</span><span>kerala<b>2040</b></span></div><p>Abhijith Sivaprasadan · Independent research on Kerala's electricity system</p></div><div><a href="sources.html">Sources</a></div></div></footer>
 </body></html>

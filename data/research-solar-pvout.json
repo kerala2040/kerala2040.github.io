@@ -1,0 +1,135 @@
+{
+  "source_repo": "abhijith-sivaprasadan/kerala2040",
+  "source_commit": "4e16836c7201637ee4a065abe259c9a47e004332",
+  "source_path": "data/evidence/solar/gsa2_nwic_district_paired_seasonality_2026_09_23.json",
+  "classification": "GSA2_1999_2018_NWIC_KERALA_PVOUT_DISTRICT_PAIRED_SEASONALITY_DESCRIPTIVE_NOT_MW",
+  "source_period": "1999-2018 long-term GSA2 source climatology",
+  "reviewed_date": "2026-09-23",
+  "scope": "Descriptive modelled GSA2 reference-system PVOUT; not measured generation, installed rooftop PV, eligible land or feasible MW.",
+  "statewide": {
+    "source_pixel_centres": 46241,
+    "median_annual_PVOUT_kWh_kWp": 1493.50696,
+    "median_paired_Feb_minus_Jul_kWh_kWp_day": 2.267,
+    "median_paired_Feb_to_Jul_drop_pct": 43.60289,
+    "monthly_marginal_pixel_median_PVOUT_kWh_kWp_day": {
+      "Jan": 4.999,
+      "Feb": 5.212,
+      "Mar": 5.036,
+      "Apr": 4.363,
+      "May": 3.841,
+      "Jun": 3.035,
+      "Jul": 2.941,
+      "Aug": 3.27,
+      "Sep": 3.937,
+      "Oct": 3.87,
+      "Nov": 4.032,
+      "Dec": 4.562
+    }
+  },
+  "districts": [
+    {
+      "district": "Alappuzha",
+      "finite_native_source_pixel_centres": 1695,
+      "median_annual_PVOUT_kWh_kWp": 1553.40796,
+      "median_pixelwise_Feb_minus_Jul_kWh_kWp_day": 1.793,
+      "median_pixelwise_Feb_to_Jul_decline_pct": 34.68197
+    },
+    {
+      "district": "Ernakulam",
+      "finite_native_source_pixel_centres": 3635,
+      "median_annual_PVOUT_kWh_kWp": 1487.66296,
+      "median_pixelwise_Feb_minus_Jul_kWh_kWp_day": 2.213,
+      "median_pixelwise_Feb_to_Jul_decline_pct": 42.61919
+    },
+    {
+      "district": "Idukki",
+      "finite_native_source_pixel_centres": 5168,
+      "median_annual_PVOUT_kWh_kWp": 1442.55499,
+      "median_pixelwise_Feb_minus_Jul_kWh_kWp_day": 2.536,
+      "median_pixelwise_Feb_to_Jul_decline_pct": 48.37858
+    },
+    {
+      "district": "Kannur",
+      "finite_native_source_pixel_centres": 3532,
+      "median_annual_PVOUT_kWh_kWp": 1502.63794,
+      "median_pixelwise_Feb_minus_Jul_kWh_kWp_day": 2.452,
+      "median_pixelwise_Feb_to_Jul_decline_pct": 47.05485
+    },
+    {
+      "district": "Kasaragod",
+      "finite_native_source_pixel_centres": 2382,
+      "median_annual_PVOUT_kWh_kWp": 1532.95398,
+      "median_pixelwise_Feb_minus_Jul_kWh_kWp_day": 2.4895,
+      "median_pixelwise_Feb_to_Jul_decline_pct": 46.89824
+    },
+    {
+      "district": "Kollam",
+      "finite_native_source_pixel_centres": 2955,
+      "median_annual_PVOUT_kWh_kWp": 1487.29797,
+      "median_pixelwise_Feb_minus_Jul_kWh_kWp_day": 1.875,
+      "median_pixelwise_Feb_to_Jul_decline_pct": 36.74065
+    },
+    {
+      "district": "Kottayam",
+      "finite_native_source_pixel_centres": 2608,
+      "median_annual_PVOUT_kWh_kWp": 1475.97498,
+      "median_pixelwise_Feb_minus_Jul_kWh_kWp_day": 1.997,
+      "median_pixelwise_Feb_to_Jul_decline_pct": 39.31523
+    },
+    {
+      "district": "Kozhikode",
+      "finite_native_source_pixel_centres": 2802,
+      "median_annual_PVOUT_kWh_kWp": 1488.57654,
+      "median_pixelwise_Feb_minus_Jul_kWh_kWp_day": 2.267,
+      "median_pixelwise_Feb_to_Jul_decline_pct": 44.14976
+    },
+    {
+      "district": "Malappuram",
+      "finite_native_source_pixel_centres": 4235,
+      "median_annual_PVOUT_kWh_kWp": 1495.69897,
+      "median_pixelwise_Feb_minus_Jul_kWh_kWp_day": 2.233,
+      "median_pixelwise_Feb_to_Jul_decline_pct": 43.11482
+    },
+    {
+      "district": "Palakkad",
+      "finite_native_source_pixel_centres": 5338,
+      "median_annual_PVOUT_kWh_kWp": 1510.30896,
+      "median_pixelwise_Feb_minus_Jul_kWh_kWp_day": 2.319,
+      "median_pixelwise_Feb_to_Jul_decline_pct": 43.9417
+    },
+    {
+      "district": "Pathanamthitta",
+      "finite_native_source_pixel_centres": 3139,
+      "median_annual_PVOUT_kWh_kWp": 1458.80798,
+      "median_pixelwise_Feb_minus_Jul_kWh_kWp_day": 2.092,
+      "median_pixelwise_Feb_to_Jul_decline_pct": 41.19155
+    },
+    {
+      "district": "Thiruvananthapuram",
+      "finite_native_source_pixel_centres": 2596,
+      "median_annual_PVOUT_kWh_kWp": 1498.25598,
+      "median_pixelwise_Feb_minus_Jul_kWh_kWp_day": 1.6355,
+      "median_pixelwise_Feb_to_Jul_decline_pct": 32.23369
+    },
+    {
+      "district": "Thrissur",
+      "finite_native_source_pixel_centres": 3608,
+      "median_annual_PVOUT_kWh_kWp": 1516.15295,
+      "median_pixelwise_Feb_minus_Jul_kWh_kWp_day": 2.155,
+      "median_pixelwise_Feb_to_Jul_decline_pct": 41.31226
+    },
+    {
+      "district": "Wayanad",
+      "finite_native_source_pixel_centres": 2548,
+      "median_annual_PVOUT_kWh_kWp": 1504.46497,
+      "median_pixelwise_Feb_minus_Jul_kWh_kWp_day": 2.616,
+      "median_pixelwise_Feb_to_Jul_decline_pct": 49.21673
+    }
+  ],
+  "release_limits": {
+    "source_reuse_rights_verified": false,
+    "installed_capacity_MW": null,
+    "year_specific_hourly_generation_validated": false,
+    "model_admitted": false
+  }
+}
