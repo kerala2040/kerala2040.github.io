@@ -44,3 +44,26 @@ jobs:
         run: |
           python .github/scripts/check_site.py
           python .github/scripts/check_editorial.py
+      - name: Resolve research evidence pin
+        id: research-pin
+        shell: bash
+        run: |
+          python - <<'PY' >> "$GITHUB_OUTPUT"
+          import re
+          from pathlib import Path
+          pointer = Path("SOURCE_COMMIT").read_text(encoding="utf-8")
+          match = re.search(r"^Research source: abhijith-sivaprasadan/kerala2040@([0-9a-f]{40})$", pointer, re.MULTILINE)
+          if not match:
+              raise SystemExit("Missing or malformed research-source pin")
+          print(f"sha={match.group(1)}")
+          PY
+      - name: Checkout pinned research evidence
+        uses: actions/checkout@v4
+        with:
+          repository: abhijith-sivaprasadan/kerala2040
+          ref: ${{ steps.research-pin.outputs.sha }}
+          path: research
+          persist-credentials: false
+      - name: Verify published research data mirrors
+        run: python scripts/verify_research_mirrors.py --research-dir research --website-dir .
+
