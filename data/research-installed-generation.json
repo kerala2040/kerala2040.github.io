@@ -1,0 +1,45 @@
+{
+  "source_repo": "abhijith-sivaprasadan/kerala2040",
+  "source_commit": "4e16836c7201637ee4a065abe259c9a47e004332",
+  "source_path": "data/evidence/generation/fy2024_25_generator_capacity_census.json",
+  "classification": "fy2024_25_capacity_accounting_census_reconciled_with_distributed_aggregate_buckets",
+  "snapshot_date": "2025-03-31",
+  "scope": "Geographically installed generation in Kerala. Interstate contracted generation and imports are excluded.",
+  "official_headline": {
+    "reported_total_mw": 4412.14,
+    "technology_mix_mw": {
+      "hydro": 2284.42,
+      "thermal": 536.54,
+      "solar": 1519.66,
+      "wind": 71.53
+    },
+    "source_id": "economic_review_2025_v1"
+  },
+  "official_sector_anchors_mw": {
+    "state": 2409.77,
+    "central": 359.58,
+    "private": 1642.79
+  },
+  "arithmetic_discrepancies_to_preserve": {
+    "official_category_sum_mw": 4412.15,
+    "official_category_sum_minus_reported_total_mw": 0.01,
+    "state_crosscheck_corrected_total_mw": 4412.15,
+    "note": "Do not force the Appendix 11.2.4 category arithmetic to 4412.14. Government of Kerala's Carbon Neutral Kerala by 2050 explicitly records 4412.15 MW as the corrected bifurcation total."
+  },
+  "release_gate": {
+    "capacity_accounting_reconciled": true,
+    "every_physical_rooftop_asset_individually_enumerated": false,
+    "plant_level_hourly_availability_verified": false,
+    "unit_outage_derating_verified": false,
+    "station_generation_reconciled": false,
+    "dispatch_model_ready_from_installed_capacity_alone": false
+  },
+  "official_source": {
+    "tier": "official_primary",
+    "publisher": "Kerala State Planning Board",
+    "title": "Economic Review 2025 Volume I",
+    "url": "https://spb.kerala.gov.in/sites/default/files/2026-01/ER%202025%20Volume1%20Eng%20final.pdf",
+    "locator": "Chapter 11 power section, installed capacity as at 31.03.2025",
+    "role": "Official headline total, technology mix and KSEBL-owned rounded composition."
+  }
+}
