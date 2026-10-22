@@ -9,7 +9,7 @@ This Pages site is the public-facing research companion for the Kerala2040 power
 - Current research source: `abhijith-sivaprasadan/kerala2040@81082de8787805ecd50bf0677a570352c2c75866`
 - 6 October 2026 update: observed-daily demand ML v0.1/v0.2 added using 353 source-reported SLDC daily targets matched to verified FY2024–25 ERA5 weather, seven rolling monthly holdouts, same-family LightGBM/XGBoost weather ablations, XGBoost feature-group ablation and conditional SHAP stability.
 
-The September 2026 QA branch is retained as an audit trail because it contains the conservative red-team review that established the current claim boundaries. The website has since been reframed away from CET 2026 and toward the project's longer-term publication goal.
+The September 2026 QA branch is retained as an audit trail because it contains the conservative red-team review that established the current claim boundaries. The public pages focus on research questions, sources, methods and results. The unlinked `/forme` page is archived CET 2026 preparation material and is not a statement of current publication plans.
 
 The QA source state includes corrected interpretation of Shoranur, ERA5 load-validation scope, Idukki v1.3 circularity, IEX price boundary, CEA peak-context distinction, cost/finance provenance and reproducibility caveats.
 
