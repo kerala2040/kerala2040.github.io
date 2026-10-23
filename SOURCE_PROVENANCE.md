@@ -20,3 +20,7 @@ The most important unresolved publication issue remains the absence of measured 
 The website now includes derived read-only research-data mirrors for the 31 March 2025 installed-generation census, long-term GSA2 PVOUT seasonality, and NIWE wind/terrain thresholds. These mirrors are source-commit pinned and do not report actual PV hosting capacity, wind farm feasibility, or time-resolved dispatch. The older standalone dashboard data files are historical snapshots and must not be treated as live, updated telemetry.
 
 For current scientific status, use the website's [Paper](paper.html), [Validation](qa.html), [Methodology](methodology.html) and [Sources](sources.html) pages together with the research repository.
+
+## Subsequent standalone methods exercise (23 October 2026)
+
+The companion website's annual-results dashboard and principal research synthesis remain pinned to the source SHA above. A separate, reproducible seven-day experimental study is linked from [Methodology](methodology.html): [hydro supply/chronology timing v0.2](https://github.com/abhijith-sivaprasadan/kerala2040/blob/main/docs/HYDRO_SUPPLY_TIMING_V0_2.md). It uses SLDC **observed daily energy** but reconstructed hourly demand and **hypothetical** hourly import and hydro-ramp constraints. Its historical screening results should not be confused with measured outages or validation of the existing FY2030–31 annual hydro model.

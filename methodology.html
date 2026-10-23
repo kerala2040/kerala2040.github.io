@@ -95,6 +95,13 @@
 </div>
 <div class="equation" style="margin-top:18px">v1.3 reconstructed forcing: Bₜ = Sₜ₊₁ − Sₜ + Gₜ/c<br>State replay: Sₜ₊₁ = Sₜ + Bₜ − Gₜ/c</div>
 <p class="source-note" style="margin-top:16px">Because B is constructed from storage change and generation, historical storage closure is algebraic. It verifies implementation and date alignment, not hydrology.</p>
+<div class="card" style="margin-top:18px">
+  <span class="badge">23 October 2026 · separate methodological experiment</span>
+  <h3>When a two-hour demand shift changes the model—and when it does not</h3>
+  <p>An independent, source-traceable seven-day test holds observed daily electricity and hydro MWh fixed while varying reconstructed hourly demand and explicitly hypothetical import availability. With flat hourly supply limits, shifting the load curve leaves the result unchanged; a stylised evening import-capacity reduction makes clock-time alignment affect fixed-hydro shortages. A hypothetical aggregate hydro ramp is also tested.</p>
+  <p>This checks the sensitivity of a simplified model formulation. It is <strong>not measured-hour validation, a historical import event, a reservoir model or confirmation of the separate FY2030–31 result</strong>. The website's main scenario figures remain pinned to their previously documented research-source commit.</p>
+  <p><a href="https://github.com/abhijith-sivaprasadan/kerala2040/blob/main/docs/HYDRO_SUPPLY_TIMING_V0_2.md">Read the methods, verified results and limits ↗</a> · <a href="https://github.com/abhijith-sivaprasadan/kerala2040/blob/main/examples/hydro_supply_timing_v0_2.py">Run the experiment ↗</a></p>
+</div>
 </div></section>
 
 <section class="section" id="network"><div class="wrap">
