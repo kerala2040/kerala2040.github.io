@@ -127,12 +127,14 @@ def main() -> None:
 
     system = (site / "system.html").read_text(encoding="utf-8")
     sources_page = (site / "sources.html").read_text(encoding="utf-8")
-    if 'id="generation"' not in system or 'id="resources"' not in system:
-        raise SystemExit("System page is missing the pinned resource sections")
-    if 'id="research-data"' not in sources_page:
-        raise SystemExit("Sources page is missing the pinned research data links")
+    if 'id="capacity"' not in system or 'id="annual"' not in system:
+        raise SystemExit("Scientific data page is missing the observed annual/capacity records")
+    if 'data/research-installed-generation.json' not in sources_page:
+        raise SystemExit("Source register does not link pinned reported generation data")
+    if 'data/daily-demand-ml-robustness-v0.2.json' not in sources_page:
+        raise SystemExit("Source register does not link the observed-daily experiment")
 
-    print(f"Verified three research data mirrors and daily-demand ML evidence at {source_sha}")
+    print(f"Verified source-backed mirrors and daily-demand ML evidence at {source_sha}")
 
 
 if __name__ == "__main__":

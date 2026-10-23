@@ -1,10 +1,8 @@
-name: Publish pinned Kerala2040 research companion
+name: Publish frozen Kerala2040 research record
 on:
   push:
     branches: [main]
   workflow_dispatch:
-  schedule:
-    - cron: '37 */6 * * *'
 
 permissions:
   contents: read
@@ -22,26 +20,25 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Checkout website release pointer
+      - name: Checkout frozen website release
         uses: actions/checkout@v4
         with:
           path: release-pointer
           persist-credentials: false
-      - name: Resolve immutable research source
+      - name: Resolve immutable research data reference
         id: source
         shell: bash
         run: |
           python - <<'PY' >> "$GITHUB_OUTPUT"
           import re
           from pathlib import Path
-
           pointer = Path("release-pointer/SOURCE_COMMIT").read_text(encoding="utf-8")
-          match = re.search(r"^Research source: abhijith-sivaprasadan/kerala2040@([a-f0-9]{40})$", pointer, re.MULTILINE)
-          if match is None:
-              raise SystemExit("SOURCE_COMMIT must name an immutable 40-character research commit")
-          print(f"sha={match.group(1)}")
+          m = re.search(r"^Research source: abhijith-sivaprasadan/kerala2040@([a-f0-9]{40})$", pointer, re.MULTILINE)
+          if not m:
+              raise SystemExit("SOURCE_COMMIT must identify a single pinned research commit")
+          print(f"sha={m.group(1)}")
           PY
-      - name: Checkout pinned research release
+      - name: Checkout pinned research dataset
         uses: actions/checkout@v4
         with:
           repository: abhijith-sivaprasadan/kerala2040
@@ -54,110 +51,56 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Install website audit build dependency
-        run: python -m pip install 'pyyaml>=6,<7' 'cairosvg>=2.7,<3'
-      - name: Validate and build pinned release
-        working-directory: research
-        env:
-          PYTHONPATH: src
+      - name: Validate pinned source data and model packaging contracts
         run: |
-          node --check docs/assets/app.js
-          node --test tests/web.test.cjs
-          python scripts/build_site.py --check
-          python scripts/build_site.py --output _site
-      - name: Overlay Kerala2040 research companion
+          python -m pip install 'pyyaml>=6,<7' 'cairosvg>=2.7,<3'
+          node --check research/docs/assets/app.js
+          node --test research/tests/web.test.cjs
+          PYTHONPATH=research/src python research/scripts/build_site.py --check
+          python release-pointer/scripts/verify_research_mirrors.py --research-dir research --website-dir release-pointer
+      - name: Assemble only admitted scientific publication files
         shell: bash
         run: |
           set -euo pipefail
-          root="research/_site"
-          mkdir -p "$root/assets"
+          root="release-site"
+          mkdir -p "$root/assets" "$root/data"
           for page in index research paper system methodology findings responses qa sources; do
             cp "release-pointer/${page}.html" "$root/${page}.html"
           done
-          cp "release-pointer/assets/companion.css" "$root/assets/companion.css"
-          cp "release-pointer/assets/mark.svg" "$root/assets/mark.svg"
-          mkdir -p "$root/forme"
-          cp "release-pointer/forme/index.html" "$root/forme/index.html"
-          cp "release-pointer/SOURCE_PROVENANCE.md" "$root/SOURCE_PROVENANCE.md"
-          mkdir -p "$root/data"
-          cp "release-pointer/data/daily-demand-ml-robustness-v0.2.json" "$root/data/daily-demand-ml-robustness-v0.2.json"
-          for record in research-installed-generation research-solar-pvout research-wind-terrain; do
-            cp "release-pointer/data/${record}.json" "$root/data/${record}.json"
-          done
-          python release-pointer/scripts/verify_research_mirrors.py --research-dir research --website-dir release-pointer
+          cp release-pointer/assets/companion.css "$root/assets/companion.css"
+          cp release-pointer/assets/mark.svg "$root/assets/mark.svg"
+          cp release-pointer/SOURCE_COMMIT "$root/SOURCE_COMMIT"
+          cp release-pointer/SOURCE_PROVENANCE.md "$root/SOURCE_PROVENANCE.md"
+          cp release-pointer/data/daily-demand-ml-robustness-v0.2.json "$root/data/daily-demand-ml-robustness-v0.2.json"
+          cp release-pointer/data/research-installed-generation.json "$root/data/research-installed-generation.json"
 
           python - <<'PY'
+          import hashlib, json
           from pathlib import Path
-
-          root = Path("research/_site")
-          required = [
-              "index.html",
-              "research.html",
-              "paper.html",
-              "system.html",
-              "methodology.html",
-              "findings.html",
-              "responses.html",
-              "qa.html",
-              "sources.html",
-              "assets/companion.css",
-              "assets/mark.svg",
-              "forme/index.html",
-              "data/daily-demand-ml-robustness-v0.2.json",
-              "data/research-installed-generation.json",
-              "data/research-solar-pvout.json",
-              "data/research-wind-terrain.json",
-          ]
-          missing = [name for name in required if not (root / name).is_file()]
-          if missing:
-              raise SystemExit(f"Missing companion outputs: {missing}")
-          index = (root / "index.html").read_text(encoding="utf-8")
-          if "Energy Data & Modelling" in index:
-              raise SystemExit("Old broad dashboard framing leaked back into public index")
-          if "Why is Kerala susceptible" not in index:
-              raise SystemExit("Diagnosis-first research question missing from public index")
-          if "New result · 6 October 2026" not in index:
-              raise SystemExit("6 October daily-demand ML robustness result missing from public index")
-          PY
-      - name: Record release and evidence identities
-        env:
-          RESEARCH_SHA: ${{ steps.source.outputs.sha }}
-        shell: bash
-        run: |
-          python - <<'PY'
-          import hashlib
-          import json
-          import os
-          from pathlib import Path
-
-          pointer = Path("release-pointer/SOURCE_COMMIT").read_text(encoding="utf-8")
-          root = Path("research/_site")
-          site_data = root / "data/site-data.json"
-          metadata = json.loads((root / "data/metadata.json").read_text(encoding="utf-8"))
-          source_sha = os.environ["RESEARCH_SHA"]
-          if source_sha not in pointer:
-              raise SystemExit("Research source SHA differs from release pointer")
-          if metadata.get("generated_at_utc") is None:
-              raise SystemExit("Missing evidence snapshot timestamp")
-          release = {
-              "release_scope": "Kerala2040 diagnosis-first research companion / observed evidence, screening models and scientific QA",
-              "website_edition": metadata["website_edition"],
-              "research_source_commit": source_sha,
-              "evidence_snapshot_generated_at_utc": metadata["generated_at_utc"],
-              "evidence_source_git_sha": metadata.get("git_sha"),
-              "published_site_data_sha256": hashlib.sha256(site_data.read_bytes()).hexdigest(),
-              "publication_policy": metadata["publication_policy"],
-              "published_model_records": metadata["published_model_records"],
-              "published_source_audits": metadata["published_source_audits"],
+          root = Path("release-site")
+          records = sorted(p for p in root.rglob("*") if p.is_file())
+          source_pin = (root / "SOURCE_COMMIT").read_text(encoding="utf-8").strip()
+          manifest = {
+              "edition": "2026-10-23-scientific-evidence-freeze",
+              "release_type": "descriptive historical evidence and retrospective observed-daily modelling",
+              "research_source": source_pin,
+              "source_data_definition": "KSEBL annual consumer-side and SLDC operational daily values kept separate",
+              "physical_hourly_validation": False,
+              "featured_scenario_results": False,
+              "public_file_sha256": {
+                  p.relative_to(root).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest()
+                  for p in records
+              },
           }
-          (root / "SOURCE_COMMIT").write_text(pointer, encoding="utf-8")
-          (root / "RELEASE_MANIFEST.json").write_text(json.dumps(release, indent=2) + "\n", encoding="utf-8")
-          print(json.dumps(release, indent=2))
+          (root / "RELEASE_MANIFEST.json").write_text(
+              json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+          print(json.dumps(manifest, indent=2))
           PY
+          python release-pointer/.github/scripts/check_frozen_release.py --root release-site
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: research/_site
+          path: release-site
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
