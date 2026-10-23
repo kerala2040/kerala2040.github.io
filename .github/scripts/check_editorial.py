@@ -13,8 +13,8 @@ disallowed = ("375.03", "11.75 GWh", "96.87%", "96.9%",
               "research under stress", "energy data & modelling")
 errors = []
 css = (root / "assets/companion.css").read_text(encoding="utf-8")
-if "Playfair Display" in css or "var(--display)" in css:
-    errors.append("Editorial/site CSS must use restrained scientific typography")
+if '"Playfair Display"' not in css or '--leaf:#20583e' not in css:
+    errors.append("Original Kerala2040 green/serif visual design not preserved")
 if "color-scheme:light" not in css:
     errors.append("Site style lacks color contrast baseline")
 for filename in pages:

@@ -4,19 +4,17 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Data of the Kerala2040 independent research record, frozen 23 October 2026.">
-<meta name="theme-color" content="#f7f8f8">
+<meta name="theme-color" content="#164c3b">
 <title>Historical electricity-system data · Kerala2040</title>
 <link rel="icon" href="assets/mark.svg" type="image/svg+xml">
-<link rel="stylesheet" href="assets/companion.css">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet"><link rel="stylesheet" href="assets/companion.css">
 </head>
 <body>
 <a class="skip" href="#main">Skip to main content</a>
-<header class="site-header"><div class="wrap">
-<div class="head-grid"><a class="brand" href="index.html">Kerala2040<em>Public electricity-system data research</em></a><span class="meta">Evidence snapshot: 23 October 2026</span></div>
-<nav aria-label="Research site navigation"><a href="index.html">Overview</a><a href="research.html">Research</a><a href="system.html" aria-current="page">Data</a><a href="methodology.html">Methods</a><a href="findings.html">Results</a><a href="qa.html">Quality</a><a href="sources.html">Sources</a><a href="paper.html">Status</a><a href="responses.html">Data needed</a></nav>
-</div></header>
+<header class="site-header"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">ക</span><span>kerala<b>2040</b></span></a><span class="menu-note">Research record · 23 October 2026</span><nav aria-label="Primary navigation"><a href="index.html">Overview</a><a href="research.html">Research</a><a href="system.html" aria-current="page">System</a><a href="methodology.html">Methods</a><a href="findings.html">Findings</a><a href="qa.html">Validation</a><a href="sources.html">Sources</a><a href="paper.html">Status</a><a href="responses.html">Data requests</a></nav></header>
 <main id="main">
-<div class="page-head"><div class="wrap"><p class="eyebrow">Data / independent research record</p><h1>Historical electricity-system data</h1><p class="intro">Official annual consumer-side consumption, geographically installed generation capacity, and operational daily SLDC records are presented as separate source populations.</p></div></div>
+<section class="page-head"><div class="wrap"><p class="eyebrow">Kerala2040 / system</p><h1>Kerala electricity<br><em>statistics and source records</em></h1><p class="lede">Official annual consumer-side consumption, geographically installed generation capacity, and operational daily SLDC records are presented as separate source populations.</p><p class="publication-note">Scientific source snapshot · 23 October 2026</p></div></section>
+<nav class="reading-nav" aria-label="Page sections"><div class="wrap"><span>On this page</span><a href="#annual">Reported annual electric…</a><a href="#capacity">Reported installed in-st…</a><a href="#daily">FY2024–25 SLDC operation…</a><a href="#resources">Resource datasets retain…</a></div></nav>
 <section class="section" id="annual"><div class="wrap"><div class="section-intro"><h2>Reported annual electricity consumption</h2></div><div class="table-wrap"><table><thead><tr><th>Financial year</th><th>Consumption (MU)</th><th>Series definition</th></tr></thead><tbody>
 <tr><td>FY2020–21</td><td>22,540.32</td><td>KSEBL-attributed consumer-side consumption</td></tr>
 <tr><td>FY2023–24</td><td>28,360.25</td><td>Same published annual series</td></tr>
@@ -29,9 +27,9 @@
 <tr><td><strong>Official reported total</strong></td><td><strong>4,412.14</strong></td></tr>
 </tbody></table></div>
 <p class="source">Source: <a href="https://spb.kerala.gov.in/sites/default/files/2026-01/ER%202025%20Volume1%20Eng%20final.pdf">Economic Review 2025</a>; <a href="data/research-installed-generation.json">published numerical reconciliation</a>. Listed categories sum to 4,412.15 MW because the published reported total and its rounded components differ by 0.01 MW.</p>
-<p class="note">Installed power capacity is a stock statistic. It is not a measurement of hourly availability, generation energy or dispatchable flexibility.</p></div></section><section class="section" id="daily"><div class="wrap"><div class="section-intro"><h2>FY2024–25 SLDC operational-day archive</h2></div><div class="facts"><div class="fact"><span class="value">354</span><span class="name">Source-observed days</span></div><div class="fact"><span class="value">11</span><span class="name">Missing source days</span></div><div class="fact"><span class="value">30,666.2569 MU</span><span class="name">SLDC consumption field summed over observed days only</span></div></div>
+<p class="note">Installed power capacity is a stock statistic. It is not a measurement of hourly availability, generation energy or dispatchable flexibility.</p></div></section><section class="section" id="daily"><div class="wrap"><div class="section-intro"><h2>FY2024–25 SLDC operational-day archive</h2></div><div class="data-strip"><div class="item"><strong class="value">354</strong><span class="name">Source-observed days</span></div><div class="item"><strong class="value">11</strong><span class="name">Missing source days</span></div><div class="item"><strong class="value">30,666.2569 MU</strong><span class="name">SLDC consumption field summed over observed days only</span></div></div>
 <p class="source">Source: <a href="https://sldckerala.com/index.php?id=1">Kerala SLDC dated reports</a>; <a href="https://github.com/abhijith-sivaprasadan/kerala2040/blob/main/data/external/sldc_fy2024_25/qa_report.json">source QA report</a>.</p>
 <p class="note">The SLDC daily-operational quantity uses a different source definition from the published consumer-side annual consumption values above. The 354-day SLDC aggregate excludes 11 unobserved days and is not an alternative annual electricity-use estimate.</p></div></section><section class="section" id="resources"><div class="wrap"><div class="section-intro"><h2>Resource datasets retained as reference material</h2></div><p class="prose">The source register includes ERA5 reanalysis, long-term modelled solar PVOUT and NIWE wind-resource records. These are meteorological or modelled resource datasets. They are not recorded installed generation, metered hourly output, or statutory renewable project capacity. <a href="sources.html">See their original sources and data definitions.</a></p></div></section>
 </main>
-<footer class="footer"><div class="wrap"><span>Abhijith Sivaprasadan · Independent research · 23 October 2026</span><span><a href="sources.html">Source register</a><a href="SOURCE_PROVENANCE.md">Dataset identity</a><a href="https://github.com/abhijith-sivaprasadan/kerala2040">Code</a></span></div></footer>
+<footer class="footer"><div class="wrap"><span>Abhijith Sivaprasadan · Kerala2040 · Independent research</span><span><a href="sources.html">Sources</a><a href="paper.html">Research status</a><a href="https://github.com/abhijith-sivaprasadan/kerala2040">GitHub ↗</a></span></div></footer>
 </body></html>
