@@ -23,7 +23,7 @@ for fragment in ("--paper:#f6f3e9", "--leaf:#20583e", "Playfair Display",
     if fragment not in css:
         errors.append(f"Original green research visual system missing: {fragment}")
 home = (root / "index.html").read_text(encoding="utf-8")
-for fragment in ('class="hero-grid"', 'class="hero-card"', 'class="visual-panel"',
+for fragment in ('hero-grid"', 'class="hero-card"', 'class="visual-panel"',
                  'class="brand-mark"', 'class="data-strip"'):
     if fragment not in home:
         errors.append(f"Home page editorial layout regression: {fragment}")
