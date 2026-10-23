@@ -26,7 +26,7 @@ REQUIRED_TEXT = {
     "index.html": ("29,311.76", "354 / 365", "accounting"),
     "system.html": ("22,540.32", "29,311.76", "30,666.2569", "different"),
     "findings.html": ("353", "6 / 7", "5 / 7", "retrospective"),
-    "qa.html": ("354", "11", "0.0001", "limitations"),
+    "qa.html": ("354", "11", "0.0001", "limits"),
 }
 
 
