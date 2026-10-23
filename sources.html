@@ -1,105 +1,37 @@
 <!doctype html>
-<html lang="en"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#164c3b"><meta name="description" content="Primary evidence, research artifacts and reproducibility trail for Kerala2040.">
-<title>Sources & evidence · Kerala2040</title>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Sources of the Kerala2040 independent research record, frozen 23 October 2026.">
+<meta name="theme-color" content="#f7f8f8">
+<title>Primary sources and published research artifacts · Kerala2040</title>
 <link rel="icon" href="assets/mark.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/companion.css"></head>
-<body><a class="skip" href="#main">Skip to content</a>
-<header class="site-header"><a class="brand" href="index.html"><span class="brand-mark">ക</span><span>kerala<b>2040</b></span></a><span class="menu-note">Independent research · Work in progress</span>
-<nav aria-label="Primary navigation"><a href="research.html">Research</a><a href="paper.html">Paper</a><a href="system.html">System</a><a href="methodology.html">Methodology</a><a href="findings.html">Findings</a><a href="responses.html">Responses</a><a href="qa.html">Validation</a><a href="sources.html" aria-current="page">Sources</a></nav></header>
+<link rel="stylesheet" href="assets/companion.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+<header class="site-header"><div class="wrap">
+<div class="head-grid"><a class="brand" href="index.html">Kerala2040<em>Public electricity-system data research</em></a><span class="meta">Evidence snapshot: 23 October 2026</span></div>
+<nav aria-label="Research site navigation"><a href="index.html">Overview</a><a href="research.html">Research</a><a href="system.html">Data</a><a href="methodology.html">Methods</a><a href="findings.html">Results</a><a href="qa.html">Quality</a><a href="sources.html" aria-current="page">Sources</a><a href="paper.html">Status</a><a href="responses.html">Data needed</a></nav>
+</div></header>
 <main id="main">
-<section class="page-head"><div class="wrap"><p class="eyebrow">Evidence trail</p><h1>Source data, models<br><em>and reproducibility</em></h1><p class="lede">The research draws on Kerala SLDC daily balances, state economic reviews, CEA generation and transmission adequacy plans, ERA5 weather and published grid information. The links below distinguish official source records from Kerala2040 reconstructions and sensitivity results, with pinned GitHub evidence files.</p></div></section>
-<nav class="reading-nav"><div class="wrap"><a href="#primary">Primary sources</a><a href="#models">Research artifacts</a><a href="#research-data">Data releases</a><a href="#costs">Costs & markets</a><a href="#hydro">Hydro provenance</a><a href="#network">Network provenance</a><a href="#repro">Reproducibility</a></div></nav>
-
-<section class="section" id="primary"><div class="wrap">
-<div class="section-intro"><p class="eyebrow">Primary evidence</p><h2>CEA, KSEBL, SLDC and state statistical sources</h2></div>
-<div class="source-grid">
-<a href="https://cea.nic.in/resource_adequacy_st/report-on-resource-adequacy-plan-for-kerala-up-to-2035-36/" target="_blank" rel="noopener"><strong>CEA · Kerala Generation Resource Adequacy</strong><small>Demand and peak planning trajectories; generation-RA context.</small></a>
-<a href="https://cea.nic.in/wp-content/uploads/2021/03/Kerela_RA_Plan.pdf" target="_blank" rel="noopener"><strong>CEA · Kerala Transmission Resource Adequacy</strong><small>Recorded peaks, TTC/ATC, transmission constraints and reinforcement planning.</small></a>
-<a href="https://spb.kerala.gov.in/en/7036/" target="_blank" rel="noopener"><strong>Kerala State Planning Board · Economic Review</strong><small>Annual electricity statistics, population projections and state context.</small></a>
-<a href="https://ecostat.kerala.gov.in/page/key-statistics" target="_blank" rel="noopener"><strong>Kerala Department of Economics & Statistics</strong><small>Geographical area and official statistics.</small></a>
-<a href="https://dams.kseb.in/?p=108" target="_blank" rel="noopener"><strong>KSEBL Dam Safety · Idukki</strong><small>Idukki project/reservoir configuration and installed-capacity context.</small></a>
-<a href="https://www.cial.aero/News-Updates/AGM2025" target="_blank" rel="noopener"><strong>CIAL · AGM 2025</strong><small>Renewable capacity, daytime export and BESS-development context.</small></a>
-<a href="https://corporate.kochimetro.org/the-project" target="_blank" rel="noopener"><strong>Kochi Metro · project page</strong><small>Documented solar project configuration.</small></a>
-
-</div>
-</div></section>
-
-<section class="section" id="models"><div class="wrap">
-<div class="section-intro"><p class="eyebrow">Research artifacts</p><h2>Research notes, model code and internal checks</h2></div>
-<div class="grid-3">
-  <div class="card"><h3>Publication roadmap</h3><p>Current paper concept, readiness, data gaps and result-freeze sequence.</p><a href="paper.html">Open paper roadmap →</a></div>
-  <div class="card"><h3>Research synthesis</h3><p>Research questions, findings, confidence boundaries and limitations.</p><a href="https://github.com/abhijith-sivaprasadan/kerala2040/blob/main/docs/POWER_SYSTEM_STRESS_SYNTHESIS_2026_09_28.md">Open synthesis ↗</a></div>
-  <div class="card"><h3>Research plan</h3><p>Diagnosis-first work-package structure and evidence logic.</p><a href="https://github.com/abhijith-sivaprasadan/kerala2040/blob/main/docs/research_plan.md">Open plan ↗</a></div>
-  <div class="card"><h3>September 2026 internal QA notes</h3><p>Archived internal review of the model assumptions, sources and interpretation limits.</p><a href="https://github.com/abhijith-sivaprasadan/kerala2040/blob/qa/scientific-validation-conference-20260928/docs/qa/QA_FINAL_VERDICT.md">Open archived QA notes ↗</a></div>
-  <div class="card"><span class="status-pass">6 Oct 2026</span><h3>Daily demand ML robustness v0.2</h3><p>Seven rolling monthly holdouts, same-family weather ablations, XGBoost weather-group ablation and SHAP stability using observed SLDC daily targets and verified ERA5.</p><a href="https://github.com/abhijith-sivaprasadan/kerala2040/blob/main/docs/DAILY_DEMAND_ML_ROBUSTNESS_V0_2.md">Open research note ↗</a><br><a href="https://github.com/abhijith-sivaprasadan/kerala2040/blob/main/data/evidence/daily_demand_ml_robustness_v0_2_2026_10_06.json">Machine-readable evidence ↗</a></div>
-</div>
-</div></section>
-
-<section class="section" id="research-data"><div class="wrap">
-<div class="section-intro"><p class="eyebrow">Data releases</p><h2>Four derived datasets pinned to the research commit</h2><p>The downloadable JSON summaries below are derived from the research repository at a pinned commit. The website presents only selected results; original reports contain the full methods and limitations.</p></div>
-<div class="grid-3">
-<div class="card"><h3>FY2024–25 generation capacity</h3><p>Official installed total and technology/sector breakdown at 31 March 2025, with the published 0.01 MW rounding discrepancy retained. Installed MW is not an operational availability measure.</p><p><a href="data/research-installed-generation.json">Website summary (JSON) →</a></p><a href="https://github.com/abhijith-sivaprasadan/kerala2040/blob/4e16836c7201637ee4a065abe259c9a47e004332/data/evidence/generation/fy2024_25_generator_capacity_census.json">Research evidence ↗</a></div>
-<div class="card"><h3>GSA2 solar PVOUT across 14 districts (1999–2018)</h3><p>Global Solar Atlas modelled reference-system PVOUT for the 1999–2018 climatology, summarized across 14 Kerala districts. It is not measured production or assessed rooftop capacity.</p><p><a href="data/research-solar-pvout.json">District summary (JSON) →</a></p><a href="https://github.com/abhijith-sivaprasadan/kerala2040/blob/4e16836c7201637ee4a065abe259c9a47e004332/docs/SOLAR_PHASE1_NWIC_DISTRICT_SEASONALITY_RESULT_2026_09_23.md">Methods and QA ↗</a></div>
-<div class="card"><h3>NIWE wind-resource points against sampled terrain slope</h3><p>Modelled NIWE 150 m wind sample points and sampled GLO-90 surface slope with hypothetical screening thresholds. The dataset does not identify permitted sites or establish feasible MW.</p><p><a href="data/research-wind-terrain.json">Wind/terrain summary (JSON) →</a></p><a href="https://github.com/abhijith-sivaprasadan/kerala2040/blob/4e16836c7201637ee4a065abe259c9a47e004332/docs/WIND_PHASE1_DISTRICT_NORMALIZED_CLOSEOUT_2026_09_23.md">Methods and QA ↗</a></div>
-<div class="card"><h3>Daily demand machine learning</h3><p>Observed Kerala SLDC daily energy, seven rolling holdouts and ERA5 weather-feature ablations. Same-day reanalysis provides retrospective prediction only.</p><p><a href="data/daily-demand-ml-robustness-v0.2.json">Published v0.2 summary (JSON) →</a></p><a href="https://github.com/abhijith-sivaprasadan/kerala2040/blob/4e16836c7201637ee4a065abe259c9a47e004332/data/evidence/daily_demand_ml_robustness_v0_2_2026_10_06.json">Frozen evidence ↗</a></div>
-<div class="card"><h3>Transmission screening</h3><p>233 source-backed line ratings examined under eight import-boundary allocations. The 21 repeated exceedances are model outputs, not field-measured overloads.</p><p><a href="https://github.com/abhijith-sivaprasadan/kerala2040/blob/4e16836c7201637ee4a065abe259c9a47e004332/data/evidence/network/kseb_network_robust_bottlenecks_v1_0_2026_09_28.json">Network screening evidence ↗</a></p></div>
-<div class="card"><h3>Hydro flexibility</h3><p>Observed and imputed daily hydro-energy boundary with synthetic timing and availability sensitivities. The scenarios are not a calibrated reservoir operating plan.</p><p><a href="https://github.com/abhijith-sivaprasadan/kerala2040/blob/4e16836c7201637ee4a065abe259c9a47e004332/data/evidence/hydro/kerala_hydro_dispatch_boundaries_v1_1_2026_09_26.json">Hydro dispatch boundaries ↗</a></p></div>
-</div>
-<p class="source-note" style="margin-top:16px">Data versions, source documents and derivations are recorded in the <a href="SOURCE_COMMIT">research commit pointer</a> and <a href="SOURCE_PROVENANCE.md">website provenance note</a>. Legacy dashboard JSON may have earlier evidence timestamps; do not treat it as a live operational feed.</p>
-</div></section>
-
-<section class="section" id="costs"><div class="wrap">
-<div class="section-intro"><p class="eyebrow">Costs, finance & markets</p><h2>CEA planning costs and IEX/CERC benchmarks</h2></div>
-<div class="source-grid">
-<a href="https://cea.nic.in/wp-content/uploads/notification/2023/05/Optimal_mix_report__2029_30_Version_2.0__For_Uploading.pdf" target="_blank" rel="noopener"><strong>CEA · Optimal Generation Capacity Mix 2029–30, Version 2.0</strong><small>2021–22 planning cost basis: solar, onshore wind and four-hour BESS assumptions.</small></a>
-<a href="https://cercind.gov.in/2026/Orders/12-SM-2026.pdf" target="_blank" rel="noopener"><strong>CERC · Order 12/SM/2026</strong><small>Debt/equity, loan, RoE and WACC-equivalent regulatory benchmarks.</small></a>
-<a href="https://www.iexindia.com/market-data/day-ahead-market/market-snapshot?dp=FINANCIAL_YEAR&fromDate=1&interval=YEARLY&showGraph=false&toDate=2023-2024" target="_blank" rel="noopener"><strong>IEX · FY2023–24 Day-Ahead Market</strong><small>Average MCP ₹5.23759/kWh; weighted MCP ₹5.17449/kWh.</small></a>
-<a href="https://finance.kerala.gov.in/" target="_blank" rel="noopener"><strong>Kerala Finance Department</strong><small>State budget documents used for the 2025–26 power-sector allocation.</small></a>
-</div>
-<div class="grid-3" style="margin-top:18px">
-  <div class="card"><span class="value">₹41,000/kW</span><p>CEA solar planning assumption.</p></div>
-  <div class="card"><span class="value">₹60,000/kW</span><p>CEA onshore-wind planning assumption.</p></div>
-  <div class="card"><span class="value">₹47,200–82,200/kW</span><p>CEA four-hour BESS planning range.</p></div>
-</div>
-<p class="source-note" style="margin-top:16px">These are national planning/regulatory benchmarks, not realized Kerala project EPC costs or a Kerala project-specific WACC.</p>
-</div></section>
-
-<section class="section" id="hydro"><div class="wrap">
-<div class="section-intro"><p class="eyebrow">Hydro provenance</p><h2>Idukki storage figures and the model's energy-equivalent factor</h2></div>
-<div class="table-wrap"><table><thead><tr><th>Quantity</th><th>Value</th><th>Evidence status</th></tr></thead><tbody>
-<tr><td>Idukki full reservoir storage</td><td>1,460 MCM</td><td>Directly retained in FY2024–25 SLDC reservoir rows.</td></tr>
-<tr><td>Full reported generation capability</td><td>2,190 MU</td><td>Direct source field; gross arithmetic ratio = 1,500 MWh/MCM.</td></tr>
-<tr><td>Station energy equivalent used in v1.3</td><td>1,470 MWh/MCM</td><td>Median of station-generation-capability / effective-storage across 354 Idukki rows. Operational approximation, not a head/efficiency curve.</td></tr>
-<tr><td>Idukki HEP</td><td>780 MW</td><td>KSEBL project/rule-level evidence; six 130 MW units.</td></tr>
-<tr><td>Phase 5 catchment</td><td>Not admitted</td><td>Candidate geometries did not pass independent reconstruction checks.</td></tr>
+<div class="page-head"><div class="wrap"><p class="eyebrow">Sources / independent research record</p><h1>Primary sources and published research artifacts</h1><p class="intro">This register identifies the source institution, observation type, temporal resolution and repository location of the current frozen results.</p></div></div>
+<section class="section" id="register"><div class="wrap"><div class="section-intro"><h2>Primary records</h2></div><div class="table-wrap"><table><thead><tr><th>Source</th><th>Variable or dataset</th><th>Temporal coverage / distinction</th></tr></thead><tbody>
+<tr><td><a href="https://spb.kerala.gov.in/sites/default/files/2026-01/ER%202025%20Volume1%20Eng%20final.pdf">Kerala State Planning Board, Economic Review 2025</a></td><td>KSEBL-attributed annual consumer-side electricity consumption; installed capacity at 31 March 2025</td><td>Published financial-year and dated stock statistics; separate from SLDC operational daily data</td></tr>
+<tr><td><a href="https://sldckerala.com/index.php?id=1">Kerala State Load Despatch Centre</a></td><td>Daily consumption, in-state generation, hydropower, interchange and reservoir-related reports</td><td>Daily operational reports; 354/365 observed FY2024–25 records in the audited archive</td></tr>
+<tr><td><a href="https://cds.climate.copernicus.eu/datasets/reanalysis-era5-single-levels">Copernicus Climate Data Store / ERA5</a></td><td>Historical temperature, wind, precipitation and radiation reanalysis</td><td>Reanalysis aggregated to complete India-local days for retrospective daily modelling</td></tr>
+<tr><td><a href="https://cea.nic.in/">Central Electricity Authority (CEA)</a></td><td>Planning and resource-adequacy references</td><td>Separate planning materials, not direct hour-by-hour dispatch observations</td></tr>
+<tr><td><a href="https://cstep.in/publication/kerala-energy-transition-roadmap-2040/">CSTEP, Kerala Energy Transition Roadmap 2040</a></td><td>External published scenario comparator</td><td>Future projections, not observed hourly Kerala telemetry</td></tr>
+</tbody></table></div></div></section><section class="section" id="artifacts"><div class="wrap"><div class="section-intro"><h2>Project datasets and methods</h2></div><div class="table-wrap"><table><thead><tr><th>Research artifact</th><th>Contents and classification</th></tr></thead><tbody>
+<tr><td><a href="https://github.com/abhijith-sivaprasadan/kerala2040/blob/main/data/external/sldc_fy2024_25/qa_report.json">SLDC FY2024–25 QA report</a></td><td>Observed-day mask, source-archive digest, accounting residuals</td></tr>
+<tr><td><a href="data/research-installed-generation.json">Installed-generation reconciliation</a></td><td>Source-reported MW, 31 March 2025; official category rounding difference preserved</td></tr>
+<tr><td><a href="data/daily-demand-ml-robustness-v0.2.json">Daily-demand ML outcomes</a></td><td>Seven chronological holdouts, observed daily SLDC targets with ERA5</td></tr>
+<tr><td><a href="https://github.com/abhijith-sivaprasadan/kerala2040/blob/main/docs/evidence_register.md">Evidence register</a></td><td>Primary source definitions and published-model distinctions</td></tr>
+<tr><td><a href="https://github.com/abhijith-sivaprasadan/kerala2040/blob/main/docs/RESEARCH_FREEZE_2026-10-23.md">Scientific freeze specification</a></td><td>Admitted conclusions and excluded exploratory claims</td></tr>
+<tr><td><a href="https://github.com/abhijith-sivaprasadan/kerala2040/blob/main/docs/EXPLORATORY_WORKSTREAMS.md">Exploratory-model inventory</a></td><td>Preserved historical code and methods; not operational findings</td></tr>
 </tbody></table></div>
-</div></section>
-
-<section class="section" id="network"><div class="wrap">
-<div class="section-intro"><p class="eyebrow">Network provenance</p><h2>Public 110-kV+ topology and the Shoranur CEA cross-check</h2></div>
-<div class="grid-2">
-  <div class="card"><h3>KSEBL public topology</h3><p>Grid maps, SLDs and historical power-system statistics support the 110-kV+ network structure and partial equipment evidence used by the screen.</p></div>
-  <div class="card"><h3>CEA external check</h3><p>The current Kerala transmission plan reports 200+100 MVA existing transformation at Shoranur and independently identifies the station and nearby corridors as constrained.</p></div>
-</div>
-<p class="source-note" style="margin-top:16px">The older 2023 PSS snapshot is retained as historical model provenance, not current station configuration.</p>
-</div></section>
-
-<section class="section" id="repro"><div class="wrap">
-<div class="section-intro"><p class="eyebrow">Reproducibility</p><h2>Four levels: file integrity through independent implementation</h2></div>
-<div class="table-wrap"><table><thead><tr><th>Level</th><th>Meaning</th><th>Example</th></tr></thead><tbody>
-<tr><td>R1 · Integrity</td><td>Released artifact can be hash-checked and consumed deterministically.</td><td>ERA5-sensitive v2 hourly payload.</td></tr>
-<tr><td>R2 · Transformation</td><td>Retained inputs + code regenerate a derived artifact.</td><td>Most historical/model transformations.</td></tr>
-<tr><td>R3 · Source-to-result</td><td>Acquisition + transformation + model reproduce a result, subject to upstream access.</td><td>Several source-bounded model chains.</td></tr>
-<tr><td>R4 · Independent implementation</td><td>Separate implementations reproduce the same mathematical result.</td><td>PyPSA/SciPy and PyPSA/OSeMOSYS common formulations.</td></tr>
-</tbody></table></div>
-<div class="annotation" style="margin-top:18px">Known gap: the original ERA5-sensitive v2 hourly-shape fitting script and raw ERA5 archive are not committed. The released chronology is integrity-verifiable, but that original hourly fit is not fully source-to-fit reproducible from a fresh clone.</div>
-<div class="annotation" style="margin-top:12px">The newer observed-daily ML v0.1/v0.2 chain is separately reproducible: GitHub Actions re-downloads the verified FY2024–25 ERA5 source artifacts, re-runs source QA, rebuilds the weather table, tunes LightGBM/XGBoost with Optuna, evaluates chronological holdouts and generates conditional SHAP outputs. The frozen v0.2 evidence records the reference workflow run and artifact digest.</div>
-<div class="action-row"><a class="button secondary" href="https://github.com/abhijith-sivaprasadan/kerala2040">Open research repository ↗</a><a class="button secondary" href="SOURCE_PROVENANCE.md">Website release provenance</a></div>
-</div></section>
+<p class="source">Pinned data source SHA and website release metadata: <a href="SOURCE_PROVENANCE.md">SOURCE_PROVENANCE.md</a>.</p></div></section>
 </main>
-<footer class="footer"><div class="wrap"><div><div class="brand"><span class="brand-mark">ക</span><span>kerala<b>2040</b></span></div><p>Abhijith Sivaprasadan · Independent research on Kerala's electricity system</p></div><div><a href="https://github.com/abhijith-sivaprasadan/kerala2040">Repository ↗</a></div></div></footer>
+<footer class="footer"><div class="wrap"><span>Abhijith Sivaprasadan · Independent research · 23 October 2026</span><span><a href="sources.html">Source register</a><a href="SOURCE_PROVENANCE.md">Dataset identity</a><a href="https://github.com/abhijith-sivaprasadan/kerala2040">Code</a></span></div></footer>
 </body></html>

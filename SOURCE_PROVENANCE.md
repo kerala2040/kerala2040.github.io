@@ -1,26 +1,13 @@
-# Kerala2040 website provenance
+# Kerala2040 public data and website identity
 
-This Pages site is the public-facing research companion for the Kerala2040 power-system stress project.
+**Edition:** 23 October 2026, descriptive scientific research freeze.
 
-- Research repository: `abhijith-sivaprasadan/kerala2040`
-- Current public research line: diagnosis-first investigation of demand chronology, hydropower flexibility, interstate transfer and internal network deliverability
-- Historical scientific QA branch: `qa/scientific-validation-conference-20260928`
-- Publication status: active research / publication hardening; not yet a submitted journal manuscript
-- Current research source: `abhijith-sivaprasadan/kerala2040@4e16836c7201637ee4a065abe259c9a47e004332`
-- 6 October 2026 update: observed-daily demand ML v0.1/v0.2 added using 353 source-reported SLDC daily targets matched to verified FY2024–25 ERA5 weather, seven rolling monthly holdouts, same-family LightGBM/XGBoost weather ablations, XGBoost feature-group ablation and conditional SHAP stability.
+- Research repository: https://github.com/abhijith-sivaprasadan/kerala2040
+- Pinned website input-data commit: `4e16836c7201637ee4a065abe259c9a47e004332`
+- Current research scope statement: https://github.com/abhijith-sivaprasadan/kerala2040/blob/main/docs/RESEARCH_FREEZE_2026-10-23.md
+- Public research record: annual consumer-side electricity statistics, audited daily SLDC records, installed-generation reporting and observed-daily retrospective weather modelling.
+- Operational and future-system simulations: retained in historical research code, excluded from the website's featured conclusions.
+- Data mirror `data/research-installed-generation.json`: official installed-capacity source reconciliation; its `source_commit` remains the original immutable research-data commit.
+- Data mirror `data/daily-demand-ml-robustness-v0.2.json`: seven chronological same-day ERA5 model tests, using 353 observed SLDC daily targets.
 
-The September 2026 QA branch is retained as an audit trail because it contains the conservative red-team review that established the current claim boundaries. The public pages focus on research questions, sources, methods and results. The unlinked `/forme` page is archived CET 2026 preparation material and is not a statement of current publication plans.
-
-The QA source state includes corrected interpretation of Shoranur, ERA5 load-validation scope, Idukki v1.3 circularity, IEX price boundary, CEA peak-context distinction, cost/finance provenance and reproducibility caveats.
-
-The observed-daily weather–demand result now passes a within-year robustness gate: weather improves 5/7 LightGBM and 6/7 XGBoost monthly holdouts, while the Jan–Mar feature-group ablation identifies temperature as the dominant currently demonstrated weather predictor. This is retrospective same-day reanalysis modelling over one financial year, not causal inference, day-ahead forecasting or multi-year generalization.
-
-The most important unresolved publication issue remains the absence of measured continuous Kerala interval-load telemetry in the admitted public evidence. The present 8,760-hour chronology is therefore described consistently as a reconstruction/proxy. The project is seeking stronger interval demand, generation, interchange and spatial loading evidence before final result freeze.
-
-The website now includes derived read-only research-data mirrors for the 31 March 2025 installed-generation census, long-term GSA2 PVOUT seasonality, and NIWE wind/terrain thresholds. These mirrors are source-commit pinned and do not report actual PV hosting capacity, wind farm feasibility, or time-resolved dispatch. The older standalone dashboard data files are historical snapshots and must not be treated as live, updated telemetry.
-
-For current scientific status, use the website's [Paper](paper.html), [Validation](qa.html), [Methodology](methodology.html) and [Sources](sources.html) pages together with the research repository.
-
-## Subsequent standalone methods exercise (23 October 2026)
-
-The companion website's annual-results dashboard and principal research synthesis remain pinned to the source SHA above. A separate, reproducible seven-day experimental study is linked from [Methodology](methodology.html): [hydro supply/chronology timing v0.2](https://github.com/abhijith-sivaprasadan/kerala2040/blob/main/docs/HYDRO_SUPPLY_TIMING_V0_2.md). It uses SLDC **observed daily energy** but reconstructed hourly demand and **hypothetical** hourly import and hydro-ramp constraints. Its historical screening results should not be confused with measured outages or validation of the existing FY2030–31 annual hydro model.
+The site does not serve historical dashboard scenario explorer files or withdrawn conference preparation material. Publications and datasets remain attributed to their original owners. The published site release manifest lists the deployed source and file digests.

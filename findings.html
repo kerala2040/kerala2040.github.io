@@ -1,206 +1,31 @@
 <!doctype html>
-<html lang="en"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#164c3b"><meta name="description" content="Detailed Kerala2040 findings by research question, with evidence class and interpretation.">
-<title>Findings · Kerala2040</title>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Results of the Kerala2040 independent research record, frozen 23 October 2026.">
+<meta name="theme-color" content="#f7f8f8">
+<title>Findings supported by the admitted evidence · Kerala2040</title>
 <link rel="icon" href="assets/mark.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/companion.css"></head>
-<body><a class="skip" href="#main">Skip to content</a>
-<header class="site-header"><a class="brand" href="index.html"><span class="brand-mark">ക</span><span>kerala<b>2040</b></span></a><span class="menu-note">Independent research · Work in progress</span>
-<nav aria-label="Primary navigation"><a href="research.html">Research</a><a href="paper.html">Paper</a><a href="system.html">System</a><a href="methodology.html">Methodology</a><a href="findings.html" aria-current="page">Findings</a><a href="responses.html">Responses</a><a href="qa.html">Validation</a><a href="sources.html">Sources</a></nav></header>
+<link rel="stylesheet" href="assets/companion.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+<header class="site-header"><div class="wrap">
+<div class="head-grid"><a class="brand" href="index.html">Kerala2040<em>Public electricity-system data research</em></a><span class="meta">Evidence snapshot: 23 October 2026</span></div>
+<nav aria-label="Research site navigation"><a href="index.html">Overview</a><a href="research.html">Research</a><a href="system.html">Data</a><a href="methodology.html">Methods</a><a href="findings.html" aria-current="page">Results</a><a href="qa.html">Quality</a><a href="sources.html">Sources</a><a href="paper.html">Status</a><a href="responses.html">Data needed</a></nav>
+</div></header>
 <main id="main">
-<section class="page-head"><div class="wrap"><p class="eyebrow">Results</p><h1>Five results across<br><em>demand, hydro and the grid</em></h1><p class="lede">Official annual consumption rose from 22.54 to 29.31 TWh. In the reference hydro-timing experiment, modelled unserved energy fell from 375.03 to 11.75 GWh. Under eight import-allocation tests, 21 source-backed lines repeatedly exceeded their screening ratings. These are different evidence classes, not measured causes of a particular outage.</p>
-<div class="evidence-key"><span class="badge">Official / source-reported</span><span class="badge screen">Reconstruction / sensitivity</span><span class="badge limit">Scope boundary</span></div>
-</div></section>
-<nav class="reading-nav"><div class="wrap"><a href="#rq1">Demand</a><a href="#rq2">Chronology</a><a href="#rq3">Hydro</a><a href="#rq4">Transfer</a><a href="#rq5">Network</a><a href="#synthesis">Synthesis</a></div></nav>
-
-<section class="section" id="rq1"><div class="wrap">
-<div class="section-intro"><p class="eyebrow">RQ1 · Historical balance</p><h2>Official consumption grew by about 30% between FY2020–21 and FY2024–25</h2></div>
-<div class="finding-visual">
-  <div class="visual-panel">
-    <h3>Official broad consumption</h3>
-    <div class="bar-chart">
-      <div class="bar-row"><span class="bar-label">FY2020–21</span><span class="bar-track"><span class="bar-fill soft" style="width:76.9%"></span></span><span class="bar-value">22.54 TWh</span></div>
-      <div class="bar-row"><span class="bar-label">FY2024–25</span><span class="bar-track"><span class="bar-fill" style="width:100%"></span></span><span class="bar-value">29.31 TWh</span></div>
-    </div>
-    <p class="caption">Approximately +30% over four financial years.</p>
-  </div>
-  <div>
-    <span class="badge">Official annual evidence</span>
-    <h3>External electricity remains structurally important.</h3>
-    <p>Kerala's system balance depends on substantial electricity arriving through the wider Indian grid. That interconnection can be economically valuable; the engineering concern is dependable availability at stressed hours.</p>
-    <div class="annotation">No single “import share” is reported because annual consumption, category sales, periphery input and SLDC import-energy series have different accounting boundaries.</div>
-  </div>
-</div>
-</div></section>
-
-<section class="section" id="rq2"><div class="wrap">
-<div class="section-intro"><p class="eyebrow">RQ2 · Chronology & weather</p><h2>Hourly reconstruction and observed daily weather tests</h2></div>
-<div class="finding-visual">
-  <div>
-    <span class="badge screen">Held-out hourly-shape reconstruction</span>
-    <h3>Weather adds modest information to the reconstructed intraday shape.</h3>
-    <p>A sparse static shape already reconstructs reported intraday extrema well. Adding ERA5 weather improves the held-out error further, but this part of the study is still conditional on known daily energy.</p>
-    <p class="source-note">This hourly-shape result is distinct from the observed-daily machine-learning result below. Neither is a day-ahead forecast.</p>
-  </div>
-  <div class="visual-panel">
-    <h3>Held-out Jan–Mar extrema RMSE</h3>
-    <div class="bar-chart">
-      <div class="bar-row"><span class="bar-label">Fixed shape</span><span class="bar-track"><span class="bar-fill rust" style="width:100%"></span></span><span class="bar-value">477.9 MW</span></div>
-      <div class="bar-row"><span class="bar-label">Sparse static</span><span class="bar-track"><span class="bar-fill gold" style="width:33.9%"></span></span><span class="bar-value">162.0 MW</span></div>
-      <div class="bar-row"><span class="bar-label">ERA5-sensitive</span><span class="bar-track"><span class="bar-fill" style="width:32.5%"></span></span><span class="bar-value">155.2 MW</span></div>
-    </div>
-    <p class="caption">ERA5-sensitive MAE: 124.9 MW · correlation: 0.968.</p>
-  </div>
-</div>
-<div class="grid-2" style="margin-top:18px">
-  <div class="card"><span class="badge screen">Reconstructed peak</span><span class="value">5,923.3 MW</span><p>FY2024–25 proxy maximum.</p></div>
-  <div class="card"><span class="badge">Separate CEA contexts</span><h3>5,904 MW ≠ 5,797 MW</h3><p>5,904 MW is the generation-RA planning/calibration reference used by the proxy. 5,797 MW is the separately reported recorded FY2024–25 peak in the newer transmission-RA study.</p></div>
-</div>
-
-<div class="section-rule"></div>
-<div class="section-intro">
-  <p class="eyebrow">Observed daily demand · rolling robustness</p>
-  <h2>Temperature alone cuts Jan–Mar XGBoost RMSE by 48.1%</h2>
-  <p>This second analysis uses source-reported SLDC daily consumption directly rather than the reconstructed hourly load proxy. Of 354 published FY2024–25 daily observations, 353 match complete local-day ERA5 weather; 1 April is excluded because the recovered UTC window does not contain a full IST day.</p>
-</div>
-
-<div class="data-strip" aria-label="Rolling daily demand model results">
-  <div class="item"><strong>5 / 7</strong><span>LightGBM monthly holdouts improved with weather</span></div>
-  <div class="item"><strong>6 / 7</strong><span>XGBoost monthly holdouts improved with weather</span></div>
-  <div class="item"><strong>37.1%</strong><span>Pooled XGBoost RMSE reduction</span></div>
-  <div class="item"><strong>48.1%</strong><span>Temperature-only Jan–Mar RMSE reduction</span></div>
-</div>
-
-<div class="table-wrap" style="margin-top:18px"><table>
-<thead><tr><th>Monthly holdout</th><th>LightGBM · weather RMSE change</th><th>XGBoost · weather RMSE change</th></tr></thead>
-<tbody>
-<tr><td>Sep 2024</td><td>+16.33%</td><td>+10.77%</td></tr>
-<tr><td>Oct 2024</td><td>−3.37%</td><td>+7.79%</td></tr>
-<tr><td>Nov 2024</td><td>−2.44%</td><td>−3.66%</td></tr>
-<tr><td>Dec 2024</td><td>+20.71%</td><td>+40.82%</td></tr>
-<tr><td>Jan 2025</td><td>+57.49%</td><td>+43.98%</td></tr>
-<tr><td>Feb 2025</td><td>+57.31%</td><td>+60.28%</td></tr>
-<tr><td>Mar 2025</td><td>+24.47%</td><td>+13.52%</td></tr>
+<div class="page-head"><div class="wrap"><p class="eyebrow">Results / independent research record</p><h1>Findings supported by the admitted evidence</h1><p class="intro">Results are restricted to historical source-reported quantities and a within-year retrospective modelling experiment using observed daily demand.</p></div></div>
+<section class="section" id="historical"><div class="wrap"><div class="section-intro"><h2>Annual electricity-consumption series</h2></div><p>State Planning Board consumer-side consumption increased from <strong>22,540.32 MU in FY2020–21</strong> to <strong>29,311.76 MU in FY2024–25</strong>, a change of approximately <strong>30.04%</strong> within the publisher’s reported annual series.</p>
+<p class="source">Source: <a href="https://spb.kerala.gov.in/sites/default/files/2026-01/ER%202025%20Volume1%20Eng%20final.pdf">Economic Review 2025</a>, Volume I, pp. 568–569; <a href="https://github.com/abhijith-sivaprasadan/kerala2040/blob/main/docs/CET_HISTORICAL_ELECTRICITY_STORY_2026_09_24.md">derived calculation and accounting notes</a>.</p></div></section><section class="section" id="daily"><div class="wrap"><div class="section-intro"><h2>Availability and consistency of daily SLDC records</h2></div><p>The FY2024–25 source archive contains <strong>354 observed dated reports out of 365 days</strong>. Eleven source days were not available in the archived input. The audit of observed daily accounting reports a maximum absolute numerical balance residual of <strong>0.0001 MU</strong>.</p><p>The observed-day SLDC consumption-field sum is 30,666.2569 MU; its operational accounting boundary differs from the State Planning Board’s consumer-side annual consumption statistic.</p>
+<p class="source">Source: <a href="https://github.com/abhijith-sivaprasadan/kerala2040/blob/main/data/external/sldc_fy2024_25/qa_report.json">FY2024–25 SLDC QA manifest</a>; <a href="https://sldckerala.com/index.php?id=1">SLDC source reports</a>.</p></div></section><section class="section" id="weather"><div class="wrap"><div class="section-intro"><h2>Retrospective observed-daily demand modelling</h2></div><div class="table-wrap"><table><thead><tr><th>Model</th><th>Calendar-only pooled RMSE</th><th>Calendar + ERA5 pooled RMSE</th><th>Monthly holdouts improved</th></tr></thead><tbody>
+<tr><td>XGBoost</td><td>4.558 MU/day</td><td>2.865 MU/day</td><td>6 / 7</td></tr>
+<tr><td>LightGBM</td><td>4.657 MU/day</td><td>2.903 MU/day</td><td>5 / 7</td></tr>
 </tbody></table></div>
-<p class="caption" style="margin-top:10px">Positive values mean lower holdout RMSE after adding ERA5 weather to an independently Optuna-tuned calendar-only model of the same family. November is retained as the shared failure month.</p>
-
-<div class="grid-2" style="margin-top:18px">
-  <div class="visual-panel">
-    <h3>Pooled rolling RMSE</h3>
-    <div class="bar-chart">
-      <div class="bar-row"><span class="bar-label">XGBoost · calendar only</span><span class="bar-track"><span class="bar-fill rust" style="width:100%"></span></span><span class="bar-value">4.558 MU/day</span></div>
-      <div class="bar-row"><span class="bar-label">XGBoost · + ERA5</span><span class="bar-track"><span class="bar-fill" style="width:62.9%"></span></span><span class="bar-value">2.865 MU/day</span></div>
-      <div class="bar-row"><span class="bar-label">LightGBM · calendar only</span><span class="bar-track"><span class="bar-fill gold" style="width:100%"></span></span><span class="bar-value">4.657 MU/day</span></div>
-      <div class="bar-row"><span class="bar-label">LightGBM · + ERA5</span><span class="bar-track"><span class="bar-fill" style="width:62.3%"></span></span><span class="bar-value">2.903 MU/day</span></div>
-    </div>
-    <p class="caption">Pooled weather RMSE reduction: 37.13% for XGBoost and 37.67% for LightGBM.</p>
-  </div>
-  <div class="visual-panel">
-    <h3>XGBoost feature-group ablation · Jan–Mar 2025</h3>
-    <div class="bar-chart">
-      <div class="bar-row"><span class="bar-label">Calendar only</span><span class="bar-track"><span class="bar-fill rust" style="width:71.7%"></span></span><span class="bar-value">6.557</span></div>
-      <div class="bar-row"><span class="bar-label">+ temperature</span><span class="bar-track"><span class="bar-fill" style="width:37.2%"></span></span><span class="bar-value">3.402</span></div>
-      <div class="bar-row"><span class="bar-label">+ precipitation</span><span class="bar-track"><span class="bar-fill gold" style="width:74.5%"></span></span><span class="bar-value">6.813</span></div>
-      <div class="bar-row"><span class="bar-label">+ radiation</span><span class="bar-track"><span class="bar-fill rust" style="width:100%"></span></span><span class="bar-value">9.146</span></div>
-      <div class="bar-row"><span class="bar-label">+ wind</span><span class="bar-track"><span class="bar-fill gold" style="width:73.5%"></span></span><span class="bar-value">6.720</span></div>
-      <div class="bar-row"><span class="bar-label">All except temperature</span><span class="bar-track"><span class="bar-fill gold" style="width:73.1%"></span></span><span class="bar-value">6.683</span></div>
-      <div class="bar-row"><span class="bar-label">All weather</span><span class="bar-track"><span class="bar-fill" style="width:46.2%"></span></span><span class="bar-value">4.227</span></div>
-    </div>
-    <p class="caption">RMSE in MU/day. Temperature alone improves RMSE 48.11% versus calendar-only; removing temperature eliminates the weather gain in this holdout.</p>
-  </div>
-</div>
-
-<div class="grid-2" style="margin-top:18px">
-  <div class="card"><span class="status-pass">Seven monthly holdouts</span><h3>Weather improves five LightGBM and six XGBoost holdouts</h3><p>Across seven strictly chronological monthly holdouts, weather improves XGBoost in six and LightGBM in five. Annual-cycle terms still dominate SHAP overall, while temperature variables recur among the leading weather attributions.</p></div>
-  <div class="warning"><span class="badge limit">Interpretation boundary</span><h3>Retrospective analysis only</h3><p>The models use same-day realized ERA5 reanalysis from one financial year. The result supports a retrospective within-year weather–demand association. It does not establish causal elasticities, day-ahead forecast skill or multi-year generalization.</p></div>
-</div>
-
-<div class="action-row">
-  <a class="button secondary" href="methodology.html#daily-weather-ml">How the rolling validation works →</a>
-  <a class="button secondary" href="https://github.com/abhijith-sivaprasadan/kerala2040/blob/main/docs/DAILY_DEMAND_ML_ROBUSTNESS_V0_2.md">Full v0.2 research note ↗</a>
-  <a class="button secondary" href="https://github.com/abhijith-sivaprasadan/kerala2040/blob/main/data/evidence/daily_demand_ml_robustness_v0_2_2026_10_06.json">Machine-readable evidence ↗</a>
-</div>
-</div></section>
-
-<section class="section" id="rq3"><div class="wrap">
-<div class="section-intro"><p class="eyebrow">RQ3 · Hydropower timing</p><h2>Same-day hydro re-timing: 375.03 → 11.75 GWh unserved</h2></div>
-<div class="finding-visual">
-  <div class="visual-panel">
-    <h3>Full-transfer reference case</h3>
-    <div class="bar-chart">
-      <div class="bar-row"><span class="bar-label">Frozen daily-average hydro</span><span class="bar-track"><span class="bar-fill rust" style="width:100%"></span></span><span class="bar-value">375.03 GWh</span></div>
-      <div class="bar-row"><span class="bar-label">Same-day flexible hydro</span><span class="bar-track"><span class="bar-fill" style="width:3.13%"></span></span><span class="bar-value">11.75 GWh</span></div>
-    </div>
-    <p class="caption">Same hydro energy; different timing. Modeled unserved energy falls 96.87% in this one case.</p>
-  </div>
-  <div class="visual-panel">
-    <h3>Benefit of same-day hydro flexibility</h3>
-    <div class="bar-chart">
-      <div class="bar-row"><span class="bar-label">4,455 MW transfer</span><span class="bar-track"><span class="bar-fill" style="width:96.9%"></span></span><span class="bar-value">−96.9%</span></div>
-      <div class="bar-row"><span class="bar-label">3,564 MW transfer</span><span class="bar-track"><span class="bar-fill gold" style="width:48.4%"></span></span><span class="bar-value">−48.4%</span></div>
-      <div class="bar-row"><span class="bar-label">2,673 MW transfer</span><span class="bar-track"><span class="bar-fill rust" style="width:15.6%"></span></span><span class="bar-value">−15.6%</span></div>
-    </div>
-    <p class="caption">Percentage reduction relative to frozen-hydro counterpart at each transfer ceiling.</p>
-  </div>
-</div>
-<div class="table-wrap" style="margin-top:18px"><table><thead><tr><th>Transfer ceiling</th><th>1-day window</th><th>3-day</th><th>15-day</th><th>30-day</th></tr></thead><tbody>
-<tr><td>4,455 MW</td><td>11.751 GWh</td><td>7.422 GWh</td><td>0.160 GWh</td><td>0.160 GWh</td></tr>
-<tr><td>3,564 MW</td><td>1,187.854 GWh</td><td>1,167.909 GWh</td><td>1,060.346 GWh</td><td>965.093 GWh</td></tr>
-<tr><td>2,673 MW</td><td>5,571.388 GWh</td><td>5,542.035 GWh</td><td>5,468.566 GWh</td><td>5,454.820 GWh</td></tr>
-</tbody></table></div>
-<div class="callout" style="margin-top:18px"><strong>Interpretation:</strong> hydro flexibility is powerful when the system is primarily timing-constrained. It cannot manufacture missing annual energy or transmission capability.</div>
-</div></section>
-
-<section class="section" id="rq4"><div class="wrap">
-<div class="section-intro"><p class="eyebrow">RQ4 · Interstate transfer</p><h2>Unserved energy rises when transfer is capped at 80% or 60%</h2></div>
-<div class="grid-3">
-  <div class="card"><span class="badge">CEA reference</span><span class="value">4,455 MW</span><p>Current ATC reference; TTC 4,575 MW.</p></div>
-  <div class="card"><span class="badge screen">Stress sensitivity</span><span class="value">3,564 MW</span><p>80% of current ATC reference.</p></div>
-  <div class="card"><span class="badge screen">Stress sensitivity</span><span class="value">2,673 MW</span><p>60% of current ATC reference.</p></div>
-</div>
-<div class="visual-panel" style="margin-top:18px">
-  <h3>Reference-demand modeled unserved-energy fraction</h3>
-  <div class="bar-chart">
-    <div class="bar-row"><span class="bar-label">4,455 MW · ref RE</span><span class="bar-track"><span class="bar-fill" style="width:5.7%"></span></span><span class="bar-value">0.839%</span></div>
-    <div class="bar-row"><span class="bar-label">3,564 MW · ref RE</span><span class="bar-track"><span class="bar-fill gold" style="width:34.9%"></span></span><span class="bar-value">5.146%</span></div>
-    <div class="bar-row"><span class="bar-label">2,673 MW · ref RE</span><span class="bar-track"><span class="bar-fill rust" style="width:100%"></span></span><span class="bar-value">14.757%</span></div>
-  </div>
-  <p class="caption">Scenario outcomes, not forecasts. Directional sensitivity is the result: deep transfer constraints dominate many otherwise useful local flexibility measures.</p>
-</div>
-</div></section>
-
-<section class="section" id="rq5"><div class="wrap">
-<div class="section-intro"><p class="eyebrow">RQ5 · Internal deliverability</p><h2>21 rated lines exceed limits in all eight spatial allocations</h2></div>
-<div class="data-strip">
-  <div class="item"><strong>233</strong><span>source-backed primary lines</span></div>
-  <div class="item"><strong>8</strong><span>extreme residual-import allocation cases</span></div>
-  <div class="item"><strong>21</strong><span>lines above screening rating in all eight cases</span></div>
-  <div class="item"><strong>12</strong><span>connected robust corridor groups</span></div>
-</div>
-<div class="grid-2" style="margin-top:18px">
-  <div class="card"><h3>Strongest corridor cluster</h3><p>Robust 110-kV and 220-kV screening groups meet around Shornur/Shoranur, including directions toward Koppam, Perinthalmanna, Melattur, Areacode and Elankur.</p></div>
-  <div class="card"><span class="badge">Independent CEA corroboration</span><h3>Shoranur: historical 100 MVA element versus current 200+100 MVA</h3><p>The historical model included a 2023 100 MVA transformer element. Current CEA reports 200+100 MVA existing transformation and still identifies Shoranur as constrained with reinforcement planned.</p></div>
-</div>
-<p class="source-note" style="margin-top:16px">The geographic signal is stronger than the exact modeled loading magnitude. This is not operator congestion validation or an AC/N-1 result.</p>
-</div></section>
-
-<section class="section" id="synthesis"><div class="wrap">
-<div class="section-intro"><p class="eyebrow">Synthesis</p><h2>What these tests establish—and what remains unknown</h2></div>
-<div class="flow">
-  <div class="node"><strong>Demand timing & weather</strong><p>When the difficult hour arrives.</p></div>
-  <div class="arrow">+</div>
-  <div class="node"><strong>Hydro timing & availability</strong><p>How flexible in-state energy can respond.</p></div>
-  <div class="arrow">+</div>
-  <div class="node"><strong>External transfer</strong><p>How much dependable supply can enter.</p></div>
-  <div class="arrow">+</div>
-  <div class="node"><strong>Internal deliverability</strong><p>Whether the network can move power to where it is needed.</p></div>
-</div>
-<div class="callout" style="margin-top:20px"><strong>Study conclusion:</strong> Kerala's susceptibility to power-system stress is best treated as an interaction among these mechanisms. The study does not allocate causal shares to a specific 2026 restriction event.</div>
-<div class="action-row"><a class="button" href="responses.html">Candidate responses →</a><a class="button secondary" href="qa.html">Validation & scope →</a></div>
-</div></section>
+<p>The analysed dataset contains 353 observed daily-consumption targets with matching complete India-local ERA5 days. Both model families were independently tuned for calendar-only and weather-augmented variants across seven chronological monthly holdouts. The November 2024 holdout showed no improvement for either model family.</p>
+<p class="note">ERA5 inputs describe weather realised on the same day as the demand target. These error reductions quantify a retrospective association in one financial year, not day-ahead forecast performance or a causal temperature effect.</p>
+<p class="source">Source: <a href="https://github.com/abhijith-sivaprasadan/kerala2040/blob/main/docs/DAILY_DEMAND_ML_ROBUSTNESS_V0_2.md">ML robustness report and fold-level outcomes</a>; <a href="data/daily-demand-ml-robustness-v0.2.json">machine-readable result summary</a>.</p></div></section><section class="section" id="excluded"><div class="wrap"><div class="section-intro"><h2>Not adopted as findings in this release</h2></div><p class="prose">Shortage MWh/GWh from reconstructed-hour scenarios, assumed hydro ramping, future transfer limits, network overload maps, hypothetical storage deployment and 2040 investment portfolios are retained as reproducible exploratory work. They are not presented as measured shortages, validated physical constraints or planning recommendations. <a href="https://github.com/abhijith-sivaprasadan/kerala2040/blob/main/docs/EXPLORATORY_WORKSTREAMS.md">Exploratory source list</a>.</p></div></section>
 </main>
-<footer class="footer"><div class="wrap"><div><div class="brand"><span class="brand-mark">ക</span><span>kerala<b>2040</b></span></div><p>Abhijith Sivaprasadan · Independent research on Kerala's electricity system</p></div><div><a href="sources.html">Sources</a></div></div></footer>
+<footer class="footer"><div class="wrap"><span>Abhijith Sivaprasadan · Independent research · 23 October 2026</span><span><a href="sources.html">Source register</a><a href="SOURCE_PROVENANCE.md">Dataset identity</a><a href="https://github.com/abhijith-sivaprasadan/kerala2040">Code</a></span></div></footer>
 </body></html>

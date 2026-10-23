@@ -1,190 +1,31 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#164c3b">
-  <meta name="description" content="Kerala2040 is an independent open research programme investigating peak-hour electricity stress in Kerala through demand chronology, hydropower flexibility, interstate transfer and internal network deliverability.">
-  <title>Kerala2040 · Power-System Stress Research</title>
-  <link rel="icon" href="assets/mark.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/companion.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Overview of the Kerala2040 independent research record, frozen 23 October 2026.">
+<meta name="theme-color" content="#f7f8f8">
+<title>Kerala electricity: historical records and reproducible analyses · Kerala2040</title>
+<link rel="icon" href="assets/mark.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/companion.css">
 </head>
 <body>
-<a class="skip" href="#main">Skip to content</a>
-
-<header class="site-header">
-  <a class="brand" href="index.html"><span class="brand-mark">ക</span><span>kerala<b>2040</b></span></a>
-  <span class="menu-note">Independent research · Work in progress</span>
-  <nav aria-label="Primary navigation">
-    <a href="research.html">Research</a>
-    <a href="paper.html">Paper</a>
-    <a href="system.html">System</a>
-    <a href="methodology.html">Methodology</a>
-    <a href="findings.html">Findings</a>
-    <a href="responses.html">Responses</a>
-    <a href="qa.html">Validation</a>
-    <a href="sources.html">Sources</a>
-  </nav>
-</header>
-
+<a class="skip" href="#main">Skip to main content</a>
+<header class="site-header"><div class="wrap">
+<div class="head-grid"><a class="brand" href="index.html">Kerala2040<em>Public electricity-system data research</em></a><span class="meta">Evidence snapshot: 23 October 2026</span></div>
+<nav aria-label="Research site navigation"><a href="index.html" aria-current="page">Overview</a><a href="research.html">Research</a><a href="system.html">Data</a><a href="methodology.html">Methods</a><a href="findings.html">Results</a><a href="qa.html">Quality</a><a href="sources.html">Sources</a><a href="paper.html">Status</a><a href="responses.html">Data needed</a></nav>
+</div></header>
 <main id="main">
-<section class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <p class="eyebrow">Independent research · Kerala electricity system</p>
-      <h1>Kerala's power system<br><em>under stress</em></h1>
-      <p class="lede">Kerala used 29.31 TWh of electricity in FY2024–25. But annual energy totals alone cannot describe what happens during a peak-demand hour. Kerala2040 examines demand timing, hydropower scheduling, electricity imports and transmission constraints using official records and explicitly bounded models.</p>
-      <div class="action-row">
-        <a class="button" href="paper.html">See publication status →</a>
-        <a class="button secondary" href="findings.html">Current findings</a>
-        <a class="button secondary" href="qa.html">Validation & limits</a>
-      </div>
-    </div>
-    <aside class="hero-card">
-      <strong>Main research question</strong>
-      <p>Why is Kerala susceptible to electricity shortages and peak-hour supply restrictions, and what structural and operational factors determine whether the system can meet demand under stress?</p>
-      <p><small>The analysis is ongoing and <strong>has not been submitted for publication</strong>. Measured hourly demand, dispatch and interstate interchange data are needed to test the models against observed operation.</small></p>
-    </aside>
-  </div>
-</section>
-
-<section class="section compact">
-  <div class="wrap">
-    <div class="data-strip" aria-label="Current evidence base">
-      <div class="item"><strong>29.31 TWh</strong><span>Broad electricity use · FY2024–25</span></div>
-      <div class="item"><strong>354 / 365</strong><span>Observed SLDC daily energy records</span></div>
-      <div class="item"><strong>8,760 h</strong><span>Current reconstructed chronology · not telemetry</span></div>
-      <div class="item"><strong>4,455 MW</strong><span>CEA interstate ATC reference · 31 Mar 2026</span></div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="wrap">
-    <div class="section-intro">
-      <p class="eyebrow">Where the project stands</p>
-      <h2>What has been modelled, and what is still missing</h2>
-      <p>The project has a 2024–25 hourly demand reconstruction, chronological adequacy runs, hydropower-timing experiments and a public-data transmission screen. The hourly demand profile is not measured telemetry, so reported shortage magnitudes must be read as scenario outputs.</p>
-    </div>
-    <div class="grid-3">
-      <div class="card"><span class="status-pass">Historical data</span><h3>354 daily records, one reconstructed hourly year</h3><p>Official annual and daily electricity evidence has been reconciled, with 354 observed FY2024–25 daily totals preserved exactly in the current hourly reconstruction.</p></div>
-      <div class="card"><span class="status-pass">Scenario results</span><h3>Hydro timing, imports and line-loading screens</h3><p>Chronological adequacy, hydro-timing sensitivities, interstate-transfer stress cases and public-network screening are documented with their assumptions and limitations. They have not been calibrated against complete operational records.</p></div>
-      <div class="warning"><span class="badge limit">Missing data</span><h3>Observed 15-minute or hourly demand</h3><p>The current 8,760-hour demand series is reconstructed from daily energy, sparse SLDC extrema and ERA5. Obtaining actual 15-minute/hourly Kerala demand—and ideally generation and interchange—is the highest-value next step.</p></div>
-    </div>
-    <div class="action-row"><a class="button" href="paper.html">Full paper roadmap →</a><a class="button secondary" href="methodology.html">How the current chronology works →</a></div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="wrap">
-    <div class="section-intro">
-      <p class="eyebrow">Current synthesis</p>
-      <h2>Why annual energy does not settle hourly adequacy</h2>
-      <p>The same annual energy can produce different adequacy outcomes when peak demand, hydro output and import limits occur at different hours. The screening experiments test these interactions; they cannot attribute a specific 2026 outage to any one mechanism.</p>
-    </div>
-    <div class="flow">
-      <div class="node"><strong>Demand chronology</strong><p>Peak timing, weather sensitivity and the shape of the difficult hour.</p></div>
-      <div class="arrow">↔</div>
-      <div class="node"><strong>Hydropower</strong><p>How much the same energy is worth when its timing can change.</p></div>
-      <div class="arrow">↔</div>
-      <div class="node"><strong>External supply</strong><p>Dependable imports are limited by both procurement and transfer capability.</p></div>
-      <div class="arrow">↔</div>
-      <div class="node"><strong>Internal grid</strong><p>Statewide balance can coexist with geographically stressed corridors.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="wrap">
-    <div class="section-intro">
-      <p class="eyebrow">New result · 6 October 2026</p>
-      <h2>Weather improves observed daily-demand models in six of seven XGBoost tests</h2>
-      <p>The October 2026 experiment uses 353 observed daily SLDC electricity-consumption values matched with complete local-day ERA5 reanalysis. Seven expanding-window monthly holdouts compare calendar-only models against independently tuned models that also use weather. This analysis does not train on the reconstructed hourly load.</p>
-    </div>
-    <div class="data-strip" aria-label="Daily demand machine-learning robustness results">
-      <div class="item"><strong>6 / 7</strong><span>XGBoost monthly holdouts improved with ERA5 weather</span></div>
-      <div class="item"><strong>37.1%</strong><span>Pooled XGBoost RMSE reduction vs tuned calendar-only</span></div>
-      <div class="item"><strong>48.1%</strong><span>Jan–Mar RMSE reduction from temperature features alone</span></div>
-      <div class="item"><strong>Nov 2024</strong><span>Shared failure month retained in both model families</span></div>
-    </div>
-    <div class="grid-2" style="margin-top:18px">
-      <div class="card"><span class="status-pass">Seven monthly holdouts</span><h3>Pooled XGBoost RMSE: 4.558 to 2.865 MU/day</h3><p>LightGBM improves in 5 of 7 rolling holdouts and XGBoost in 6 of 7. Pooled RMSE falls from 4.558 to 2.865 MU/day for XGBoost and from 4.657 to 2.903 MU/day for LightGBM.</p></div>
-      <div class="warning"><span class="badge limit">Boundary</span><h3>Same-day ERA5 is not a day-ahead forecast</h3><p>The models use same-day realized ERA5 reanalysis from one financial year. The result supports a robust within-year weather–demand relationship; it does not establish causality, day-ahead forecasting performance or multi-year generalization.</p></div>
-    </div>
-    <div class="action-row"><a class="button" href="findings.html#rq2">See the rolling results →</a><a class="button secondary" href="methodology.html#daily-weather-ml">Validation design →</a></div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="wrap">
-    <div class="section-intro">
-      <p class="eyebrow">Results</p>
-      <h2>Five results from the current evidence</h2>
-    </div>
-    <div class="grid-3">
-      <div class="card"><span class="badge">Observed</span><h3>Electricity use increased by roughly 30%</h3><p>Official broad consumption rose from 22.54 TWh in FY2020–21 to 29.31 TWh in FY2024–25.</p><a href="findings.html#rq1">Evidence →</a></div>
-      <div class="card"><span class="badge screen">Reconstructed + observed daily ML</span><h3>Hourly load remains reconstructed; daily weather signal is observed</h3><p>The hourly reconstruction still remains a proxy, but a separate observed-daily experiment now shows that ERA5 weather improves rolling out-of-sample demand prediction in most monthly holdouts, with temperature carrying the clearest signal.</p><a href="findings.html#rq2">Evidence →</a></div>
-      <div class="card"><span class="badge screen">Sensitivity</span><h3>Hydro re-timing cuts unserved energy by 96.9% in one case</h3><p>At the 4,455 MW transfer reference, allowing the same daily hydro energy to move within the day reduces modeled unserved energy from about 375.0 GWh to 11.75 GWh in the reference sensitivity.</p><a href="findings.html#rq3">Evidence →</a></div>
-      <div class="card"><span class="badge">Official + sensitivity</span><h3>Shortage increases when assumed imports are constrained</h3><p>CEA reports a 4,455 MW ATC reference. Modeled adequacy deteriorates substantially under transparent 80% and 60% transfer stress cases.</p><a href="findings.html#rq4">Evidence →</a></div>
-      <div class="card"><span class="badge">Robust screen</span><h3>21 lines exceed screening ratings in all eight tested cases</h3><p>Twenty-one source-backed lines remain overloaded across all eight tested boundary-injection allocations, grouped into twelve robust corridor signals; the Shoranur area has independent CEA corroboration.</p><a href="findings.html#rq5">Evidence →</a></div>
-      <div class="card"><span class="badge limit">Boundary</span><h3>Historical outage attribution</h3><p>Kerala2040 does not yet prove why a particular 2026 restriction occurred. That would require interval demand, dispatch, interchange, outage and reservoir evidence for the event.</p><a href="qa.html#scope">Claim boundary →</a></div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="wrap">
-    <div class="section-intro">
-      <p class="eyebrow">Outstanding work</p>
-      <h2>The evidence needed to test these findings against operation</h2>
-    </div>
-    <div class="grid-2">
-      <div class="card"><h3>1 · Replace or validate the reconstructed hourly load</h3><p>Priority data: aggregated Kerala 15-minute/hourly demand for at least one complete year, preferably multiple years. This would enable genuine continuous-hour validation rather than validation only against sparse published extrema.</p></div>
-      <div class="card"><h3>2 · Improve operational chronology</h3><p>Interval internal generation—especially hydro—and scheduled/actual interstate drawal would let stressed-hour adequacy be tested against observed operation rather than daily-average replay.</p></div>
-      <div class="card"><h3>3 · Propagate uncertainty</h3><p>If measured interval load cannot be obtained, the paper will use an ensemble of admissible hourly reconstructions rather than treating one synthetic profile as exact.</p></div>
-      <div class="card"><h3>4 · Strengthen spatial validation</h3><p>Substation/transformer loading, current equipment parameters and additional independent planning evidence would improve the statewide network screen but cannot replace an operator-grade AC/N-1 study.</p></div>
-      <div class="card"><h3>5 · Finish the literature positioning</h3><p>The journal contribution must be established against Kerala transition studies, resource-adequacy work, hydro-rich/import-dependent systems, chronological adequacy and public-data grid reconstruction.</p></div>
-      <div class="card"><h3>6 · Freeze and reproduce the paper results</h3><p>Only after the stronger chronology and final sensitivity matrix are complete will the numerical results be frozen into a traceable publication manifest.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="wrap">
-    <div class="section-intro">
-      <p class="eyebrow">Planned outputs</p>
-      <h2>Preparing a journal manuscript, not an investment forecast</h2>
-      <p>The first paper is intentionally narrower than “Kerala's optimal transition to 2040.” It aims to explain stressed-hour vulnerability before prescribing an investment portfolio.</p>
-    </div>
-    <div class="grid-3">
-      <div class="card"><span class="badge">Proposed manuscript</span><h3>Manuscript concept</h3><p><em>Beyond Annual Energy Balance: Diagnosing Peak-Hour Electricity Stress in Kerala through Demand Chronology, Hydropower Flexibility, Interstate Transfer and Network Deliverability.</em></p></div>
-      <div class="card"><span class="badge">Research materials</span><h3>Reproduce an evidence check</h3><p>Run the public daily-energy accounting audit from the research repository: it verifies observed SLDC day totals against the reconstructed hourly series without implying measured hourly validation. <a href="https://github.com/abhijith-sivaprasadan/kerala2040/blob/main/docs/REPRODUCE_AND_EXTEND.md">Reproduce and contribute ↗</a></p></div>
-      <div class="card"><span class="badge">Later phase</span><h3>Policy brief</h3><p>A short decision-maker version can translate the scientific findings into planning questions without converting the study into a defence of any government or party.</p></div>
-    </div>
-    <div class="action-row"><a class="button" href="paper.html">Track the paper →</a><a class="button secondary" href="https://github.com/abhijith-sivaprasadan/kerala2040">Research repository ↗</a></div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="wrap">
-    <div class="section-intro">
-      <p class="eyebrow">Scope and limitations</p>
-      <h2>Screening results are not operational validation</h2>
-    </div>
-    <div class="grid-2">
-      <div class="card"><span class="status-pass">Included in this study</span><h3>Historical evidence and reproducible sensitivities</h3><ul><li>Source-audited historical accounting.</li><li>Bounded hourly demand reconstruction.</li><li>Chronological adequacy and transfer sensitivities.</li><li>Hydro timing experiments.</li><li>Public 110-kV+ network stress screening.</li><li>Independent corroboration where available.</li></ul></div>
-      <div class="warning"><h3>Outside the study's scope</h3><p>Not measured hourly demand, an operator-grade digital twin, AC/N-1 security study, probabilistic reliability certification, validated catchment/reservoir model, exact 2026 outage post-mortem, legal buildable-MW assessment or least-cost 2040 investment portfolio.</p></div>
-    </div>
-  </div>
-</section>
+<div class="page-head"><div class="wrap"><p class="eyebrow">Overview / independent research record</p><h1>Kerala electricity: historical records and reproducible analyses</h1><p class="intro">A frozen public research record covering source-reported electricity consumption, generation capacity, daily system statistics, and a retrospective daily demand–weather experiment. Results are organised by source, temporal resolution and method.</p></div></div>
+<section class="section" id="summary"><div class="wrap"><div class="section-intro"><h2>Research scope</h2></div><div class="facts">
+<div class="fact"><span class="value">29,311.76 MU</span><span class="name">Reported FY2024–25 consumer-side electricity consumption</span></div>
+<div class="fact"><span class="value">4,412.14 MW</span><span class="name">Reported installed in-state capacity at 31 March 2025</span></div>
+<div class="fact"><span class="value">354 / 365</span><span class="name">Available daily SLDC reports, FY2024–25</span></div></div>
+<p class="source">Annual statistics: Kerala State Planning Board, Economic Review 2025. Daily coverage: Kerala SLDC source-archive audit. These source series have different accounting definitions.</p></div></section><section class="section" id="questions"><div class="wrap"><div class="section-intro"><h2>Research questions</h2></div><div class="grid-2"><div class="block"><h3>Historical change</h3><p>How did published annual electricity consumption and installed generation change over the documented period?</p></div><div class="block"><h3>Daily operational records</h3><p>How complete and internally consistent are the archived SLDC records for generation, consumption and interchange?</p></div><div class="block"><h3>Weather and daily demand</h3><p>Does same-day ERA5 reanalysis improve retrospective prediction of observed daily demand over a calendar-only baseline?</p></div><div class="block"><h3>Hourly adequacy</h3><p>What measured interval data are required to estimate intraday shortage mechanisms and operational hydro flexibility?</p></div></div></div></section><section class="section" id="findings"><div class="wrap"><div class="section-intro"><h2>Summary of documented results</h2></div><div class="table-wrap"><table><thead><tr><th>Source or analysis</th><th>Result</th><th>Scope</th></tr></thead><tbody>
+<tr><td>Official annual consumer-side consumption</td><td>22,540.32 MU (FY2020–21); 29,311.76 MU (FY2024–25)</td><td>Single published annual series; approximately 30.0% increase</td></tr>
+<tr><td>SLDC daily report archive</td><td>354 observed days; 11 unavailable FY2024–25 reports</td><td>Daily operational accounting, separate from consumer-side annual statistics</td></tr>
+<tr><td>Observed daily demand with ERA5</td><td>XGBoost weather features improved RMSE in 6/7 monthly holdouts; LightGBM in 5/7</td><td>Retrospective same-day reanalysis; one financial year</td></tr></tbody></table></div>
+<p class="source">Further definitions, values and reproducibility evidence: <a href="findings.html">Results</a>, <a href="methodology.html">Methods</a> and <a href="sources.html">Sources</a>.</p></div></section><section class="section" id="boundary"><div class="wrap"><div class="section-intro"><h2>Scope of the frozen edition</h2></div><p class="prose">The observational record does not contain a continuous independently measured Kerala hourly demand-and-dispatch series. Existing chronological adequacy, hydro-redispatch, transfer, network and 2040 scenario models are retained in the code repository as <a href="https://github.com/abhijith-sivaprasadan/kerala2040/blob/main/docs/EXPLORATORY_WORKSTREAMS.md">exploratory analyses</a>. They are not part of this edition's reported system findings or investment conclusions.</p><p><a href="research.html">Research questions</a> · <a href="qa.html">Data quality</a> · <a href="paper.html">Release status</a></p></div></section>
 </main>
-
-<footer class="footer"><div class="wrap"><div>
-  <div class="brand"><span class="brand-mark">ക</span><span>kerala<b>2040</b></span></div>
-  <p>Abhijith Sivaprasadan · Independent research on Kerala's electricity system</p>
-</div><div><a href="SOURCE_PROVENANCE.md">Research provenance</a></div></div></footer>
-</body>
-</html>
+<footer class="footer"><div class="wrap"><span>Abhijith Sivaprasadan · Independent research · 23 October 2026</span><span><a href="sources.html">Source register</a><a href="SOURCE_PROVENANCE.md">Dataset identity</a><a href="https://github.com/abhijith-sivaprasadan/kerala2040">Code</a></span></div></footer>
+</body></html>
