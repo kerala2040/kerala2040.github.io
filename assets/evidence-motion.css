@@ -111,3 +111,13 @@ a,button,select{-webkit-tap-highlight-color:transparent}
  .has-kerala-motion .reveal-ready{opacity:1!important;transform:none!important;filter:none!important;transition:none!important}
  .button,.card,.evidence-viz,.v-chart *,.stat-icon,.brand-mark,.viz-download,.site-nav a::before{transition:none!important}
 }
+/* Scenario and research-portal visual explorations */
+.scenario-identity{background:linear-gradient(135deg,#e6eddf,#faf4e4);padding:24px;border-left:3px solid var(--gold);margin:3px 0 14px;min-height:170px}
+.scenario-code{font:500 12px var(--mono);letter-spacing:.12em;color:var(--gold-deep)}
+.scenario-identity h4{font:600 clamp(22px,3vw,30px) var(--display);color:var(--forest);margin:10px 0}
+.scenario-identity p{font:13px/1.8 var(--sans);color:var(--muted);max-width:65ch;margin:0}
+.scenario-tags{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+.scenario-tags>div{background:#f2ead8;border:1px solid #e4d6b9;padding:13px;min-width:0}
+.scenario-tags span{display:block;font:10px/1.5 var(--mono);color:#68736b;text-transform:uppercase;letter-spacing:.07em}
+.scenario-tags strong{display:block;font:600 12px/1.65 var(--sans);color:var(--forest);margin-top:5px;overflow-wrap:anywhere}
+@media(max-width:580px){.scenario-tags{grid-template-columns:1fr}}
