@@ -1,0 +1,21 @@
+{
+  "name": "kerala2040-link-tracker",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Privacy-first Cloudflare Worker tracking aggregate outreach-link requests for Kerala2040",
+  "scripts": {
+    "test": "node --test",
+    "dev": "wrangler dev --config wrangler.jsonc",
+    "deploy": "wrangler deploy --config wrangler.jsonc",
+    "db:create": "wrangler d1 create kerala2040-link-events",
+    "db:migrate:local": "wrangler d1 migrations apply kerala2040-link-events --local --config wrangler.jsonc",
+    "db:migrate:remote": "wrangler d1 migrations apply kerala2040-link-events --remote --config wrangler.jsonc"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
