@@ -64,7 +64,7 @@ jobs:
           set -euo pipefail
           root="release-site"
           mkdir -p "$root/assets" "$root/data"
-          for page in index research paper system methodology findings responses qa sources atlas; do
+          for page in index research paper system methodology findings responses qa sources atlas lab; do
             cp "release-pointer/${page}.html" "$root/${page}.html"
           done
           cp release-pointer/assets/companion.css "$root/assets/companion.css"
@@ -74,6 +74,9 @@ jobs:
           cp release-pointer/assets/evidence-motion.css "$root/assets/evidence-motion.css"
           cp release-pointer/assets/evidence-atlas.js "$root/assets/evidence-atlas.js"
           cp release-pointer/data/kseb-history.json "$root/data/kseb-history.json"
+          for file in published-references cea-resource-adequacy screening-nodes scenarios kseb-projects; do
+            cp "release-pointer/data/$file.json" "$root/data/$file.json"
+          done
           cp release-pointer/SOURCE_COMMIT "$root/SOURCE_COMMIT"
           cp release-pointer/SOURCE_PROVENANCE.md "$root/SOURCE_PROVENANCE.md"
           cp release-pointer/data/daily-demand-ml-robustness-v0.2.json "$root/data/daily-demand-ml-robustness-v0.2.json"

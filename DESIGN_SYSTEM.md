@@ -18,3 +18,9 @@ The homepage's 29,311.76 MU (official FY2024–25 consumer-side electricity use)
 
 ## Accessibility
 Use semantic regions, descriptive labels, link focus rings, text-based cards, reduced-motion handling and responsive horizontal nav. The existing URL routes and anchor permalinks remain stable. Do not use icon-only navigation without labels.
+
+
+## Restored data graphics and exploratory layer (27 October 2026)
+The public `atlas.html` hosts 13 source-backed visualizations including switchable KSEB history, capacity, operational source-day coverage, exposed ML fold RMSE and feature ablations, methodology and future research plan. An explicitly segregated `lab.html` adds five exploratory visual references: external published 2040 projections, CEA aggregate 2024–25 hourly demand-frequency bins, approximate research screening points, KSEB project records and unvalidated S0–S4 scenario assumptions. Original project/agency source boundaries and caveats are retained. The original reconstructed hourly/baseline model results and raw private SLDC records remain excluded from the immutable public scientific release, as required by the reviewed master plan.
+
+A progressive-enhancement CSS/JS animation layer provides SVG line drawing, site transitions, scroll progress, staged entrances, interactive switching and reduced-motion alternatives. The deployment allowlist and integrity checks cover all files used by the charts. These visual features do not change the 23 October 2026 scientific evidence freeze.

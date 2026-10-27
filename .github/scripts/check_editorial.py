@@ -4,7 +4,7 @@ from pathlib import Path
 root = Path(__file__).resolve().parents[2]
 pages = ("index.html", "research.html", "paper.html", "system.html",
          "methodology.html", "findings.html", "responses.html",
-         "qa.html", "sources.html", "atlas.html")
+         "qa.html", "sources.html", "atlas.html", "lab.html")
 disallowed = ("375.03", "11.75 GWh", "96.87%", "96.9%",
               "Diagnose before prescribing", "There is a paper here",
               "the diagnosis exists", "investment recommendation",
@@ -36,6 +36,11 @@ else:
               'data-viz="coverage"', 'data-viz="trends"', 'data-viz="sites"'):
         if v not in atlas:
             errors.append(f"Visual regression: missing {v}")
+lab = (root / "lab.html").read_text(encoding="utf-8")
+for fragment in ('data-viz="outlook"', 'data-viz="frequency"', 'data-viz="screening"',
+                 'data-viz="projects"', 'data-viz="scenario"', "not verified engineering"):
+    if fragment not in lab:
+        errors.append(f"Exploratory lab regression: {fragment}")
 for filename in pages:
     html = (root / filename).read_text(encoding="utf-8").lower()
     if "23 october 2026" not in html:
