@@ -1,0 +1,22 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "kerala2040-links",
+  "main": "src/index.mjs",
+  "compatibility_date": "2026-10-01",
+  "workers_dev": true,
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "kerala2040-link-events",
+      "database_id": "REPLACE_WITH_YOUR_D1_DATABASE_UUID",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "send_email": [
+    {
+      "name": "EMAIL",
+      "destination_address": "YOUR_VERIFIED_PERSONAL_GMAIL@gmail.com"
+    }
+  ],
+  "triggers": { "crons": ["0 3 * * *"] }
+}
