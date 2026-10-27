@@ -3,7 +3,7 @@
 // referrer, user agent, email address, browser fingerprint or individual event timestamps.
 export const ASSIGNED_TOKEN_PATTERN = /^\/p\/([0-9a-f]{64})$/;
 export const LINK_LIFETIME_DAYS = 90;
-export const LINK_RETENTION_DAYS = 120;
+export const LINK_RETENTION_DAYS = 90;
 const DESTINATION = "https://kerala2040.github.io/?utm_source=sldc_outreach&utm_medium=email&utm_campaign=historical_data_request";
 const ALERT_COOLDOWN_MS = 24 * 60 * 60 * 1000;
 function iso(timestamp) { return new Date(timestamp).toISOString(); }
@@ -183,5 +183,5 @@ export async function cleanOldAssigned(env, now = Date.now()) {
   ).bind(hour(now - LINK_LIFETIME_DAYS * 86400000)).run();
   await env.DB.prepare(
     "DELETE FROM assigned_links WHERE expires_utc < ?1"
-  ).bind(addDays(now, -LINK_RETENTION_DAYS)).run();
+  ).bind(iso(now)).run();
 }
