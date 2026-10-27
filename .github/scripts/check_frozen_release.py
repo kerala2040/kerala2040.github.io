@@ -4,7 +4,7 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
-PAGES = {"index", "research", "system", "methodology", "findings",
+PAGES = {"index", "research", "system", "methodology", "findings", "atlas",
          "qa", "sources", "paper", "responses"}
 REQUIRED = {
     *(f"{p}.html" for p in PAGES),
@@ -12,6 +12,9 @@ REQUIRED = {
     "assets/mark.svg",
     "assets/kerala-icons.svg",
     "assets/kerala-horizon.svg",
+    "assets/evidence-atlas.js",
+    "assets/evidence-motion.css",
+    "data/kseb-history.json",
     "data/research-installed-generation.json",
     "data/daily-demand-ml-robustness-v0.2.json",
     "SOURCE_COMMIT",
