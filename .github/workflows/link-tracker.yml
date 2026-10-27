@@ -1,0 +1,32 @@
+name: Link tracker checks
+
+on:
+  pull_request:
+    paths:
+      - "services/link-tracker/**"
+      - ".github/workflows/link-tracker.yml"
+  push:
+    paths:
+      - "services/link-tracker/**"
+      - ".github/workflows/link-tracker.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Verify Worker and helper syntax
+        run: |
+          node --check services/link-tracker/src/index.mjs
+          node --check services/link-tracker/src/personal-links.mjs
+          node --check services/link-tracker/src/personal-links.test.mjs
+      - name: Run privacy, security and alert tests
+        run: npm test --prefix services/link-tracker
