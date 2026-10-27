@@ -10,6 +10,8 @@ REQUIRED = {
     *(f"{p}.html" for p in PAGES),
     "assets/companion.css",
     "assets/mark.svg",
+    "assets/kerala-icons.svg",
+    "assets/kerala-horizon.svg",
     "data/research-installed-generation.json",
     "data/daily-demand-ml-robustness-v0.2.json",
     "SOURCE_COMMIT",

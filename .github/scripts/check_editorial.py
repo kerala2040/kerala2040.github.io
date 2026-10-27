@@ -13,20 +13,19 @@ disallowed = ("375.03", "11.75 GWh", "96.87%", "96.9%",
               "research under stress", "energy data & modelling")
 errors = []
 css = (root / "assets/companion.css").read_text(encoding="utf-8")
-if '"Playfair Display"' not in css or '--leaf:#20583e' not in css:
-    errors.append("Original Kerala2040 green/serif visual design not preserved")
-if "color-scheme:light" not in css:
-    errors.append("Site style lacks color contrast baseline")
-# Protect the established visual system during future scientific copy edits.
-for fragment in ("--paper:#f6f3e9", "--leaf:#20583e", "Playfair Display",
-                 ".hero-grid", ".data-strip", ".brand-mark", "prefers-reduced-motion"):
+for fragment in ("--forest:#0f3a2c", "--gold:#c9a44c", "--cream:#f3ecdc",
+                 "--display:'Fraunces'", "--malayalam:'Noto Serif Malayalam'",
+                 ".hero-card", ".data-strip", ".brand-mark", "prefers-reduced-motion"):
     if fragment not in css:
-        errors.append(f"Original green research visual system missing: {fragment}")
+        errors.append(f"Kasavu research design token/element missing: {fragment}")
+for asset in ("assets/kerala-icons.svg", "assets/kerala-horizon.svg"):
+    if not (root / asset).exists():
+        errors.append(f"Kerala design asset missing: {asset}")
 home = (root / "index.html").read_text(encoding="utf-8")
-for fragment in ('hero-grid"', 'class="hero-card"', 'class="visual-panel"',
+for fragment in ('class="hero-card"', 'class="card-icon"', 'class="stat-icon"',
                  'class="brand-mark"', 'class="data-strip"'):
     if fragment not in home:
-        errors.append(f"Home page editorial layout regression: {fragment}")
+        errors.append(f"Home page Kerala2040 component regression: {fragment}")
 
 for filename in pages:
     html = (root / filename).read_text(encoding="utf-8").lower()
@@ -34,8 +33,8 @@ for filename in pages:
         errors.append(f"{filename}: missing frozen edition label")
     if 'class="brand-mark"' not in html:
         errors.append(f"{filename}: Malayalam brand mark missing")
-    if "family=playfair+display" not in html:
-        errors.append(f"{filename}: restored serif heading font missing")
+    if "family=fraunces" not in html:
+        errors.append(f"{filename}: supplied Fraunces heading font missing")
 
     for phrase in disallowed:
         if phrase.lower() in html:

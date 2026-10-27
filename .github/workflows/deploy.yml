@@ -1,4 +1,4 @@
-name: Publish frozen Kerala2040 research record
+name: Publish Kerala2040 research record
 on:
   push:
     branches: [main]
@@ -69,6 +69,8 @@ jobs:
           done
           cp release-pointer/assets/companion.css "$root/assets/companion.css"
           cp release-pointer/assets/mark.svg "$root/assets/mark.svg"
+          cp release-pointer/assets/kerala-icons.svg "$root/assets/kerala-icons.svg"
+          cp release-pointer/assets/kerala-horizon.svg "$root/assets/kerala-horizon.svg"
           cp release-pointer/SOURCE_COMMIT "$root/SOURCE_COMMIT"
           cp release-pointer/SOURCE_PROVENANCE.md "$root/SOURCE_PROVENANCE.md"
           cp release-pointer/data/daily-demand-ml-robustness-v0.2.json "$root/data/daily-demand-ml-robustness-v0.2.json"
