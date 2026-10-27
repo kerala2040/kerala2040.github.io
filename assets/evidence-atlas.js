@@ -9,7 +9,7 @@ const safe=x=>String(x??"—").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">
 const fmt=(x,d=0)=>Number.isFinite(+x)?Number(x).toLocaleString("en-IN",{maximumFractionDigits:d,minimumFractionDigits:d}):"—";
 const C={green:"#164c3b",mint:"#66947c",gold:"#c9a44c",red:"#b65e44",dark:"#22382e",grid:"#e1dac9",grey:"#65736a",paper:"#fbf7ec"};
 const D={};
-const sources={history:"data/kseb-history.json",ml:"data/daily-demand-ml-robustness-v0.2.json",gen:"data/research-installed-generation.json"};
+const sources={history:"data/kseb-history.json",ml:"data/daily-demand-ml-robustness-v0.2.json",gen:"data/research-installed-generation.json",refs:"data/published-references.json",cea:"data/cea-resource-adequacy.json",nodes:"data/screening-nodes.json",scenarios:"data/scenarios.json",projects:"data/kseb-projects.json"};
 const urls={history:"https://github.com/kerala2040/kerala2040.github.io/blob/main/data/kseb-history.json",ml:"https://github.com/abhijith-sivaprasadan/kerala2040/blob/main/docs/DAILY_DEMAND_ML_ROBUSTNESS_V0_2.md",gen:"https://spb.kerala.gov.in/sites/default/files/2026-01/ER%202025%20Volume1%20Eng%20final.pdf"};
 const tooltip=(label)=>"<title>"+safe(label)+"</title>";
 const svg=(body,w=780,h=315,label="Chart")=>'<svg class="v-chart" viewBox="0 0 '+w+' '+h+'" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="'+safe(label)+'">'+body+"</svg>";
@@ -192,7 +192,96 @@ function milestones(el){
  frame(el,"Research decision gates","Forward programme / uncompleted milestones",svg(b,790,188,"Planned research decision dates 2026-2027"),
  "A schedule, not publication or independent expert acceptance. Outcomes depend on source data, scientific novelty, reproducibility, rights and resources.");
 }
-const renderers={trends,capacity,balance,network,coverage,folds,rmse,ablation,boundary,sites,budget,stages,milestones};
+
+function outlook(el){
+ const refs=D.refs.references,c=refs.cstep_2024,cn=refs.kerala_cn50_2026;
+ const rows=[
+ {name:"CSTEP · 2040 demand incl. losses",v:c.fy2040.final_demand_with_td_losses_mu/1000,source:"CSTEP 2024"},
+ {name:"CN50 · 2040 BAU net-grid",v:cn.net_grid_demand_twh.bau_2040,source:"CN50 2026"},
+ {name:"CN50 · 2040 pathway net-grid",v:cn.net_grid_demand_twh.cn50_2040,source:"CN50 2026"}];
+ let b="";rows.forEach((r,i)=>{const y=47+i*77;
+ b+=text(14,y-17,r.name,'font-size="13" fill="'+C.dark+'"')+
+ '<rect x="14" y="'+y+'" width="660" height="26" fill="#eee8dc"/>'+
+ '<rect class="v-bar" x="14" y="'+y+'" width="'+(r.v/100*660)+'" height="26" fill="'+(i===0?C.gold:i===1?C.mint:C.green)+'">'+tooltip(r.source+": "+fmt(r.v,2)+" TWh")+"</rect>"+
+ text(693,y+17,fmt(r.v,2)+" TWh",'font-size="13" fill="'+C.dark+'" '+E.mono);
+ });
+ frame(el,"Published 2040 outlooks — distinct scopes","External scenario studies, not Kerala2040 predictions",svg(b,800,294,"Three external published scenario demand values with different accounting boundaries"),
+ "CSTEP 2024 demand including T&D losses is NOT the same variable as the 2026 CN50 net-grid demands. These bars are separately attributed published projections, not a compatible scenario leaderboard.",
+ "https://cstep.in/publication/kerala-energy-transition-roadmap-2040/");
+}
+function frequency(el){
+ const bins=D.cea.hourly_demand_2024_25.frequency_bins;
+ const max=Math.max(...bins.map(b=>b.hours)),top=27,base=240,w=780,left=60,inner=680;
+ let s="";
+ for(let tick=0;tick<=4;tick++){const v=Math.round(max*tick/4),y=base-(v/max)*(base-top);
+ s+='<line x1="'+left+'" x2="'+(left+inner)+'" y1="'+y+'" y2="'+y+'" stroke="'+C.grid+'"/>'+text(left-10,y+4,fmt(v),'text-anchor="end" font-size="11" fill="'+C.grey+'"');
+ }
+ bins.forEach((row,i)=>{const x=left+i*84,barh=row.hours/max*(base-top),bw=54;
+ s+='<rect class="v-bar" x="'+x+'" y="'+(base-barh)+'" width="'+bw+'" height="'+barh+'" fill="'+(i===3?C.gold:C.green)+'">'+tooltip(row.min_mw+"–"+row.max_mw+" MW: "+fmt(row.hours)+" hours in CEA published frequency table")+"</rect>"+
+ text(x+bw/2,base+19,(row.min_mw/1000).toFixed(1)+"–"+(row.max_mw/1000).toFixed(1),'text-anchor="middle" font-size="11" fill="'+C.dark+'"');
+ });
+ s+=text(390,286,"Demand bins (GW)",'text-anchor="middle" font-size="12" fill="'+C.grey+'"');
+ frame(el,"CEA demand frequency distribution","Official study / FY2024–25 aggregate bins",svg(s,780,300,"CEA FY2024-25 demand frequency by 500 MW bins"),
+ "Aggregated 8,760-hour frequency counts reported by CEA; the authentic underlying interval chronology was not provided for independent reconstruction or dispatch validation.",
+ D.cea.source.landing_page);
+}
+function screening(el){
+ const points=D.nodes.records,kinds=[...new Set(points.map(r=>r.kind))];
+ const select='<label class="viz-control">Location class <select aria-label="Map location class"><option value="all">All research nodes</option>'+kinds.map(k=>'<option value="'+safe(k)+'">'+safe(k[0].toUpperCase()+k.slice(1))+"</option>").join("")+"</select></label>";
+ frame(el,"Exploratory locations and research nodes","Schematic Kerala coordinate atlas / not an approved siting map",select+'<div class="viz-plot"></div>',
+ "Approximate research markers, not measured electrical asset topology, interconnection points, legal sites or the complete state grid. Filter to see intended case-study type.",
+ "https://github.com/kerala2040/kerala2040.github.io/blob/main/data/screening-nodes.json");
+ const render=()=>{
+ const filter=$("select",el).value,chosen=points.filter(r=>filter==="all"||r.kind===filter),X=x=>64+(x-75)/2.55*462,Y=y=>280-(y-8)/4.1*250;
+ let b='<rect x="52" y="24" width="495" height="263" fill="#f3efe4" stroke="'+C.grid+'"/>';
+ for(let i=0;i<=3;i++){const y=28+250*i/3;b+='<line x1="52" x2="547" y1="'+y+'" y2="'+y+'" stroke="#e5dece"/>';}
+ const cols={demand:C.red,storage:C.green,wind:C.gold,circular:C.mint,marine:"#5c859b"};
+ chosen.forEach((r,i)=>{
+ const x=X(r.lon),y=Y(r.lat),labelY=40+i*41;
+ b+='<circle class="v-point" cx="'+x+'" cy="'+y+'" r="8" fill="'+(cols[r.kind]||C.gold)+'" stroke="'+C.paper+'" stroke-width="2">'+tooltip(r.name+" / "+r.note)+"</circle>"+
+ '<path d="M'+(x+10)+" "+y+"L560 "+labelY+'" fill="none" stroke="'+C.gold+'" opacity=".5"/>'+
+ text(565,labelY-3,r.name.split(" ").slice(0,3).join(" "),'font-size="11" fill="'+C.dark+'"')+
+ text(565,labelY+12,r.kind,'font-size="10" fill="'+C.grey+'" '+E.mono);
+ });
+ $(".viz-plot",el).innerHTML=svg(b,820,320,"Screening sites plotted by approximate longitude and latitude")+
+ '<p class="viz-aside">'+chosen.length+" / "+points.length+" illustrative markers shown · location and type only</p>";
+ };
+ $("select",el).onchange=()=>{const p=$(".viz-plot",el);p.classList.remove("viz-swap-in");void p.offsetWidth;p.classList.add("viz-swap-in");render();};
+ render();
+}
+function scenario(el){
+ const cases=D.scenarios.scenarios;
+ const select='<label class="viz-control">Explore a scenario hypothesis <select aria-label="Choose scenario">'+cases.map(s=>'<option value="'+safe(s.code)+'">'+safe(s.code+" · "+s.name)+'</option>').join("")+"</select></label>";
+ frame(el,"The five scenario hypotheses","Unvalidated research designs / no optimizer output",select+'<div class="viz-plot"></div>',
+ "Scenarios are modelling questions, not computed results. No optimization, buildable generation MW, reliability improvement or investment saving is asserted.",
+ "https://github.com/kerala2040/kerala2040.github.io/blob/main/data/scenarios.json");
+ const paint=()=>{
+ const s=cases.find(x=>x.code===$("select",el).value)||cases[0];
+ const bars=[["Demand flexibility",s.demand_flexibility],["Ecological constraint",s.ecology_constraint],["Import option",s.import_option]];
+ const html='<div class="scenario-identity"><span class="scenario-code">'+safe(s.code)+'</span><h4>'+safe(s.name)+'</h4><p>'+safe(s.description)+'</p></div><div class="scenario-tags">'+bars.map(([k,v])=>'<div><span>'+safe(k)+'</span><strong>'+safe(v)+'</strong></div>').join("")+"</div>";
+ $(".viz-plot",el).innerHTML=html;
+ };
+ $("select",el).onchange=()=>{const p=$(".viz-plot",el);p.classList.remove("viz-swap-in");void p.offsetWidth;p.classList.add("viz-swap-in");paint();};paint();
+}
+function projects(el){
+ const rows=D.projects.projects,techs=[...new Set(rows.map(r=>r.technology).filter(Boolean))].sort();
+ const selector='<label class="viz-control">Technology <select aria-label="Project technology"><option value="all">All technologies</option>'+techs.map(t=>'<option>'+safe(t)+'</option>').join("")+"</select></label>";
+ frame(el,"KSEB project-record explorer","Published portal extract / not real-time statuses",selector+'<div class="viz-plot"></div>',
+ "This is a dated portal snapshot, not verified as-built capacity or commissioning status as of today. Old planned commissioning dates must not be treated as completion evidence.",
+ D.projects.tracker_url||"https://pms.kseb.in/tracker");
+ const render=()=>{
+ const filter=$("select",el).value,chosen=rows.filter(r=>(filter==="all"||r.technology===filter)&&Number.isFinite(+r.capacity_mw)).sort((a,b)=>b.capacity_mw-a.capacity_mw).slice(0,7);
+ const max=Math.max(1,...chosen.map(r=>r.capacity_mw)),baseX=240,area=435;
+ let b="";chosen.forEach((r,i)=>{const y=24+i*39;b+=text(baseX-12,y+14,r.name.length>28?r.name.slice(0,26)+"…":r.name,'text-anchor="end" font-size="11" fill="'+C.dark+'"')+
+ '<rect class="v-bar" x="'+baseX+'" y="'+y+'" width="'+(r.capacity_mw/max*area)+'" height="19" fill="'+(r.status==="Completed"?C.green:C.gold)+'">'+tooltip(r.name+" / "+r.capacity_mw+" MW / portal status: "+r.status)+"</rect>"+
+ text(baseX+Math.max(10,r.capacity_mw/max*area)+8,y+14,fmt(r.capacity_mw,1)+" MW",'font-size="11" fill="'+C.dark+'"');
+ });
+ $(".viz-plot",el).innerHTML=svg(b,790,318,"Seven largest capacity entries in selected KSEB portal extract")+
+ '<p class="viz-aside">Showing '+chosen.length+" entries, ordered by listed project MW; status colors: green = portal completed, gold = portal ongoing.</p>";
+ };
+ $("select",el).onchange=()=>{const p=$(".viz-plot",el);p.classList.remove("viz-swap-in");void p.offsetWidth;p.classList.add("viz-swap-in");render();};render();
+}
+const renderers={trends,capacity,balance,network,coverage,folds,rmse,ablation,boundary,sites,budget,stages,milestones,outlook,frequency,screening,scenario,projects};
 function animateChart(el) {
  const paths=$$(".v-line",el);paths.forEach(p=>{try{let length=p.getTotalLength();p.style.setProperty("--path-length",length+"px");}catch(_){}});
 }
@@ -210,7 +299,7 @@ async function boot(){
  const elements=$$("[data-viz]");
  if(!elements.length)return;
  const needed=new Set(elements.flatMap(el=>{
- const type=el.dataset.viz;return ["trends","balance","network"].includes(type)?["history"]:["capacity"].includes(type)?["gen"]:["rmse","folds","ablation"].includes(type)?["ml"]:[];
+ const type=el.dataset.viz;return ["trends","balance","network"].includes(type)?["history"]:["capacity"].includes(type)?["gen"]:["rmse","folds","ablation"].includes(type)?["ml"]:["outlook"].includes(type)?["refs"]:["frequency"].includes(type)?["cea"]:["screening"].includes(type)?["nodes"]:["scenario"].includes(type)?["scenarios"]:["projects"].includes(type)?["projects"]:[];
  }));
  try{
  await Promise.all([...needed].map(async key=>{const r=await fetch(sources[key],{cache:"force-cache"});if(!r.ok)throw Error(sources[key]+" returned "+r.status);D[key]=await r.json();}));
