@@ -64,13 +64,16 @@ jobs:
           set -euo pipefail
           root="release-site"
           mkdir -p "$root/assets" "$root/data"
-          for page in index research paper system methodology findings responses qa sources; do
+          for page in index research paper system methodology findings responses qa sources atlas; do
             cp "release-pointer/${page}.html" "$root/${page}.html"
           done
           cp release-pointer/assets/companion.css "$root/assets/companion.css"
           cp release-pointer/assets/mark.svg "$root/assets/mark.svg"
           cp release-pointer/assets/kerala-icons.svg "$root/assets/kerala-icons.svg"
           cp release-pointer/assets/kerala-horizon.svg "$root/assets/kerala-horizon.svg"
+          cp release-pointer/assets/evidence-motion.css "$root/assets/evidence-motion.css"
+          cp release-pointer/assets/evidence-atlas.js "$root/assets/evidence-atlas.js"
+          cp release-pointer/data/kseb-history.json "$root/data/kseb-history.json"
           cp release-pointer/SOURCE_COMMIT "$root/SOURCE_COMMIT"
           cp release-pointer/SOURCE_PROVENANCE.md "$root/SOURCE_PROVENANCE.md"
           cp release-pointer/data/daily-demand-ml-robustness-v0.2.json "$root/data/daily-demand-ml-robustness-v0.2.json"
@@ -98,6 +101,7 @@ jobs:
               json.dumps(manifest, indent=2, sort_keys=True) + "\n", encoding="utf-8")
           print(json.dumps(manifest, indent=2))
           PY
+          node --check release-site/assets/evidence-atlas.js
           python release-pointer/.github/scripts/check_frozen_release.py --root release-site
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3

@@ -23,8 +23,10 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version: '22'
-      - name: Check dashboard JavaScript
-        run: node --check assets/app.js
+      - name: Check dashboard and evidence-atlas JavaScript
+        run: |
+          node --check assets/app.js
+          node --check assets/evidence-atlas.js
       - uses: actions/setup-python@v6
         with:
           python-version: '3.11'
